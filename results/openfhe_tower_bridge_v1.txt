@@ -1,0 +1,31 @@
+OpenFHE version: 1.5.1
+Ring: Z_q[X]/(X^4096 + 1)
+Ring dimension: 4096
+Cyclotomic order: 8192
+Tower modulus: 1073692673
+Tower root: 236231
+
+OpenFHE software product: 5469.64 us
+
+FPGA first product: 14529.35 us
+FPGA timed products: 20
+FPGA minimum: 14316.23 us
+FPGA median: 14351.05 us
+FPGA mean: 14358.49 us
+FPGA p95: 14416.39 us
+FPGA maximum: 14500.65 us
+FPGA median throughput: 69.68 products/s
+
+FPGA core cycles: 1339394
+FPGA core latency: 13393.94 us
+FPGA arithmetic ceiling: 74.66 products/s
+
+Products physically checked: 21
+Coefficients checked per product: 4096
+FPGA result FNV-1a: 0x30e227ad3542a3b8
+
+PASS: regenerated OpenFHE product from transmitted DMA operands
+PASS: stored OpenFHE expected file is internally consistent
+PASS: all 4096 FPGA coefficients equal OpenFHE
+PASS: imported FPGA result equals the OpenFHE DCRTPoly object
+PASS end to end OpenFHE tower bridge
