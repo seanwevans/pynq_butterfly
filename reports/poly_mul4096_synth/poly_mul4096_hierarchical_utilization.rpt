@@ -1,0 +1,73 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
+| Date         : Sun Jul 19 12:04:53 2026
+| Host         : DESKTOP-63734QH running 64-bit major release  (build 9200)
+| Command      : report_utilization -hierarchical -hierarchical_depth 8 -file F:/repos/pynq_butterfly/reports/poly_mul4096_synth/poly_mul4096_hierarchical_utilization.rpt
+| Design       : poly_mul4096_core
+| Device       : xc7z020clg400-1
+| Speed File   : -1
+| Design State : Synthesized
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++-------------------------------+-------------------------------------+------------+------------+---------+------+------+--------+--------+------------+
+|            Instance           |                Module               | Total LUTs | Logic LUTs | LUTRAMs | SRLs |  FFs | RAMB36 | RAMB18 | DSP Blocks |
++-------------------------------+-------------------------------------+------------+------------+---------+------+------+--------+--------+------------+
+| poly_mul4096_core             |                               (top) |       5226 |       5226 |       0 |    0 | 2203 |     56 |      0 |          0 |
+|   (poly_mul4096_core)         |                               (top) |         54 |         54 |       0 |    0 |  126 |      0 |      0 |          0 |
+|   forward_a                   |                forward_ntt4096_core |       1506 |       1506 |       0 |    0 |  624 |     16 |      0 |          0 |
+|     (forward_a)               |                forward_ntt4096_core |         53 |         53 |       0 |    0 |   54 |      0 |      0 |          0 |
+|     cyclic_transform          |              ntt4096_cyclic_core_14 |        951 |        951 |       0 |    0 |  420 |      8 |      0 |          0 |
+|       (cyclic_transform)      |              ntt4096_cyclic_core_14 |         28 |         28 |       0 |    0 |   56 |      0 |      0 |          0 |
+|       butterfly               |                   butterfly_core_17 |        799 |        799 |       0 |    0 |  264 |      0 |      0 |          0 |
+|         (butterfly)           |                   butterfly_core_17 |         69 |         69 |       0 |    0 |  114 |      0 |      0 |          0 |
+|         multiplier            |                      modmul_core_20 |        730 |        730 |       0 |    0 |  150 |      0 |      0 |          0 |
+|       coefficient_memory      |               ntt4096_coeff_bram_18 |          4 |          4 |       0 |    0 |    0 |      4 |      0 |          0 |
+|       schedule                |            ntt4096_schedule_core_19 |        120 |        120 |       0 |    0 |  100 |      0 |      0 |          0 |
+|       twiddle_rom             |                 ntt4096_twiddle_rom |          0 |          0 |       0 |    0 |    0 |      4 |      0 |          0 |
+|     input_memory              |               ntt4096_coeff_bram_15 |         46 |         46 |       0 |    0 |    0 |      4 |      0 |          0 |
+|     preprocessing_multiplier  |                      modmul_core_16 |        456 |        456 |       0 |    0 |  150 |      0 |      0 |          0 |
+|     twist_rom                 |                  ntt4096_factor_rom |          0 |          0 |       0 |    0 |    0 |      4 |      0 |          0 |
+|   forward_b                   |              forward_ntt4096_core_0 |       1475 |       1475 |       0 |    0 |  592 |      8 |      0 |          0 |
+|     (forward_b)               |              forward_ntt4096_core_0 |         24 |         24 |       0 |    0 |   22 |      0 |      0 |          0 |
+|     cyclic_transform          |                 ntt4096_cyclic_core |        948 |        948 |       0 |    0 |  420 |      4 |      0 |          0 |
+|       (cyclic_transform)      |                 ntt4096_cyclic_core |         26 |         26 |       0 |    0 |   56 |      0 |      0 |          0 |
+|       butterfly               |                   butterfly_core_10 |        798 |        798 |       0 |    0 |  264 |      0 |      0 |          0 |
+|         (butterfly)           |                   butterfly_core_10 |         69 |         69 |       0 |    0 |  114 |      0 |      0 |          0 |
+|         multiplier            |                      modmul_core_13 |        729 |        729 |       0 |    0 |  150 |      0 |      0 |          0 |
+|       coefficient_memory      |               ntt4096_coeff_bram_11 |          4 |          4 |       0 |    0 |    0 |      4 |      0 |          0 |
+|       schedule                |            ntt4096_schedule_core_12 |        120 |        120 |       0 |    0 |  100 |      0 |      0 |          0 |
+|     input_memory              |                ntt4096_coeff_bram_8 |         46 |         46 |       0 |    0 |    0 |      4 |      0 |          0 |
+|     preprocessing_multiplier  |                       modmul_core_9 |        457 |        457 |       0 |    0 |  150 |      0 |      0 |          0 |
+|   inverse                     |                inverse_ntt4096_core |       1511 |       1511 |       0 |    0 |  659 |     20 |      0 |          0 |
+|     (inverse)                 |                inverse_ntt4096_core |         64 |         64 |       0 |    0 |   89 |      0 |      0 |          0 |
+|     cyclic_transform          | ntt4096_cyclic_core__parameterized0 |        931 |        931 |       0 |    0 |  420 |      8 |      0 |          0 |
+|       (cyclic_transform)      | ntt4096_cyclic_core__parameterized0 |         29 |         29 |       0 |    0 |   56 |      0 |      0 |          0 |
+|       butterfly               |                      butterfly_core |        770 |        770 |       0 |    0 |  264 |      0 |      0 |          0 |
+|         (butterfly)           |                      butterfly_core |         69 |         69 |       0 |    0 |  114 |      0 |      0 |          0 |
+|         multiplier            |                       modmul_core_7 |        701 |        701 |       0 |    0 |  150 |      0 |      0 |          0 |
+|       coefficient_memory      |                ntt4096_coeff_bram_6 |          4 |          4 |       0 |    0 |    0 |      4 |      0 |          0 |
+|       schedule                |               ntt4096_schedule_core |        128 |        128 |       0 |    0 |  100 |      0 |      0 |          0 |
+|       twiddle_rom             | ntt4096_twiddle_rom__parameterized0 |          0 |          0 |       0 |    0 |    0 |      4 |      0 |          0 |
+|     input_memory              |                ntt4096_coeff_bram_3 |         14 |         14 |       0 |    0 |    0 |      4 |      0 |          0 |
+|     inverse_scale_rom         |  ntt4096_factor_rom__parameterized0 |          0 |          0 |       0 |    0 |    0 |      4 |      0 |          0 |
+|     output_memory             |                ntt4096_coeff_bram_4 |         14 |         14 |       0 |    0 |    0 |      4 |      0 |          0 |
+|     postprocessing_multiplier |                       modmul_core_5 |        488 |        488 |       0 |    0 |  150 |      0 |      0 |          0 |
+|   pointwise                   |              pointwise_mul4096_core |        680 |        680 |       0 |    0 |  202 |     12 |      0 |          0 |
+|     (pointwise)               |              pointwise_mul4096_core |         60 |         60 |       0 |    0 |   52 |      0 |      0 |          0 |
+|     memory_a                  |                  ntt4096_coeff_bram |         36 |         36 |       0 |    0 |    0 |      4 |      0 |          0 |
+|     memory_b                  |                ntt4096_coeff_bram_1 |         49 |         49 |       0 |    0 |    0 |      4 |      0 |          0 |
+|     multiplier                |                         modmul_core |        489 |        489 |       0 |    0 |  150 |      0 |      0 |          0 |
+|     result_memory             |                ntt4096_coeff_bram_2 |         46 |         46 |       0 |    0 |    0 |      4 |      0 |          0 |
++-------------------------------+-------------------------------------+------------+------------+---------+------+------+--------+--------+------------+
+
+

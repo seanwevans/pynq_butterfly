@@ -1,0 +1,1730 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
+| Date         : Sun Jul 19 12:27:38 2026
+| Host         : DESKTOP-63734QH running 64-bit major release  (build 9200)
+| Command      : report_timing_summary -delay_type max -max_paths 20 -file F:/repos/pynq_butterfly/reports/poly_mul4096_dma/poly_mul4096_dma_timing.rpt
+| Design       : design_1_wrapper
+| Device       : 7z020-clg400
+| Speed File   : -1  PRODUCTION 1.12 2019-11-22
+| Design State : Routed
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Summary Report
+
+------------------------------------------------------------------------------------------------
+| Timer Settings
+| --------------
+------------------------------------------------------------------------------------------------
+
+  Enable Multi Corner Analysis               :  Yes
+  Enable Pessimism Removal                   :  Yes
+  Pessimism Removal Resolution               :  Nearest Common Node
+  Enable Input Delay Default Clock           :  No
+  Enable Preset / Clear Arcs                 :  No
+  Disable Flight Delays                      :  No
+  Ignore I/O Paths                           :  No
+  Timing Early Launch at Borrowing Latches   :  No
+  Borrow Time for Max Delay Exceptions       :  Yes
+  Merge Timing Exceptions                    :  Yes
+  Inter-SLR Compensation                     :  Conservative
+
+  Corner  Analyze    Analyze    
+  Name    Max Paths  Min Paths  
+  ------  ---------  ---------  
+  Slow    Yes        Yes        
+  Fast    Yes        Yes        
+
+
+------------------------------------------------------------------------------------------------
+| Report Methodology
+| ------------------
+------------------------------------------------------------------------------------------------
+
+No report available as report_methodology has not been run prior. Run report_methodology on the current design for the summary of methodology violations.
+
+
+
+check_timing report
+
+Table of Contents
+-----------------
+1. checking no_clock (0)
+2. checking constant_clock (0)
+3. checking pulse_width_clock (0)
+4. checking unconstrained_internal_endpoints (0)
+5. checking no_input_delay (0)
+6. checking no_output_delay (0)
+7. checking multiple_clock (0)
+8. checking generated_clocks (0)
+9. checking loops (0)
+10. checking partial_input_delay (0)
+11. checking partial_output_delay (0)
+12. checking latch_loops (0)
+
+1. checking no_clock (0)
+------------------------
+ There are 0 register/latch pins with no clock.
+
+
+2. checking constant_clock (0)
+------------------------------
+ There are 0 register/latch pins with constant_clock.
+
+
+3. checking pulse_width_clock (0)
+---------------------------------
+ There are 0 register/latch pins which need pulse_width check
+
+
+4. checking unconstrained_internal_endpoints (0)
+------------------------------------------------
+ There are 0 pins that are not constrained for maximum delay.
+
+ There are 0 pins that are not constrained for maximum delay due to constant clock.
+
+
+5. checking no_input_delay (0)
+------------------------------
+ There are 0 input ports with no input delay specified.
+
+ There are 0 input ports with no input delay but user has a false path constraint.
+
+
+6. checking no_output_delay (0)
+-------------------------------
+ There are 0 ports with no output delay specified.
+
+ There are 0 ports with no output delay but user has a false path constraint
+
+ There are 0 ports with no output delay but with a timing clock defined on it or propagating through it
+
+
+7. checking multiple_clock (0)
+------------------------------
+ There are 0 register/latch pins with multiple clocks.
+
+
+8. checking generated_clocks (0)
+--------------------------------
+ There are 0 generated clocks that are not connected to a clock source.
+
+
+9. checking loops (0)
+---------------------
+ There are 0 combinational loops in the design.
+
+
+10. checking partial_input_delay (0)
+------------------------------------
+ There are 0 input ports with partial input delay specified.
+
+
+11. checking partial_output_delay (0)
+-------------------------------------
+ There are 0 ports with partial output delay specified.
+
+
+12. checking latch_loops (0)
+----------------------------
+ There are 0 combinational latch loops in the design through latch input
+
+
+
+------------------------------------------------------------------------------------------------
+| Design Timing Summary
+| ---------------------
+------------------------------------------------------------------------------------------------
+
+    WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
+    -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
+      0.015        0.000                      0                27037        3.750        0.000                       0                  8696  
+
+
+All user specified timing constraints are met.
+
+
+------------------------------------------------------------------------------------------------
+| Clock Summary
+| -------------
+------------------------------------------------------------------------------------------------
+
+Clock       Waveform(ns)       Period(ns)      Frequency(MHz)
+-----       ------------       ----------      --------------
+clk_fpga_0  {0.000 5.000}      10.000          100.000         
+
+
+------------------------------------------------------------------------------------------------
+| Intra Clock Table
+| -----------------
+------------------------------------------------------------------------------------------------
+
+Clock             WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
+-----             -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
+clk_fpga_0          0.015        0.000                      0                27037        3.750        0.000                       0                  8696  
+
+
+------------------------------------------------------------------------------------------------
+| Inter Clock Table
+| -----------------
+------------------------------------------------------------------------------------------------
+
+From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints  
+----------    --------          -------      -------  ---------------------  -------------------  
+
+
+------------------------------------------------------------------------------------------------
+| Other Path Groups Table
+| -----------------------
+------------------------------------------------------------------------------------------------
+
+Path Group    From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints  
+----------    ----------    --------          -------      -------  ---------------------  -------------------  
+
+
+------------------------------------------------------------------------------------------------
+| Timing Details
+| --------------
+------------------------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------------------------
+From Clock:  clk_fpga_0
+  To Clock:  clk_fpga_0
+
+Setup :            0  Failing Endpoints,  Worst Slack        0.015ns,  Total Violation        0.000ns
+Hold  :           NA  Failing Endpoints,  Worst Slack           NA  ,  Total Violation           NA
+PW    :            0  Failing Endpoints,  Worst Slack        3.750ns,  Total Violation        0.000ns
+---------------------------------------------------------------------------------------------------
+
+
+Max Delay Paths
+--------------------------------------------------------------------------------------
+Slack (MET) :             0.015ns  (required time - arrival time)
+  Source:                 design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/modulus_reg[29]/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/result_reg[13]/D
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk_fpga_0 rise@10.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        9.614ns  (logic 4.515ns (46.962%)  route 5.099ns (53.038%))
+  Logic Levels:           9  (CARRY4=5 LUT1=1 LUT2=1 LUT3=1 LUT6=1)
+  Clock Path Skew:        -0.150ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.670ns = ( 12.670 - 10.000 ) 
+    Source Clock Delay      (SCD):    2.949ns
+    Clock Pessimism Removal (CPR):    0.129ns
+  Clock Uncertainty:      0.154ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.300ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.193     1.193    design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=8697, routed)        1.655     2.949    design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/clk
+    SLICE_X53Y8          FDRE                                         r  design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/modulus_reg[29]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X53Y8          FDRE (Prop_fdre_C_Q)         0.456     3.405 f  design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/modulus_reg[29]/Q
+                         net (fo=113, routed)         0.537     3.942    design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/p_0_in_0[30]
+    SLICE_X53Y8          LUT1 (Prop_lut1_I0_O)        0.124     4.066 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/x[1]_i_13__0/O
+                         net (fo=1, routed)           0.000     4.066    design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/x[1]_i_13__0_n_0
+    SLICE_X53Y8          CARRY4 (Prop_carry4_S[1]_CO[2])
+                                                      0.570     4.636 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/x_reg[1]_i_11__0/CO[2]
+                         net (fo=23, routed)          0.422     5.058    design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/x_reg[1]_i_11__0_n_1
+    SLICE_X53Y7          CARRY4 (Prop_carry4_CYINIT_CO[2])
+                                                      0.781     5.839 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/acc_reg[19]_i_8__0/CO[2]
+                         net (fo=5, routed)           0.351     6.190    design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/acc_reg[19]_i_8__0_n_1
+    SLICE_X53Y9          CARRY4 (Prop_carry4_CYINIT_CO[2])
+                                                      0.781     6.971 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/acc_reg[31]_i_12__0/CO[2]
+                         net (fo=25, routed)          0.581     7.553    design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/acc_reg[31]_i_12__0_n_1
+    SLICE_X53Y12         CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.769     8.322 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/x_reg[1]_i_12__0/CO[3]
+                         net (fo=4, routed)           1.138     9.460    design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/x_reg[1]_i_12__0_n_0
+    SLICE_X51Y14         LUT2 (Prop_lut2_I1_O)        0.124     9.584 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/acc[31]_i_7__0/O
+                         net (fo=1, routed)           0.000     9.584    design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/acc[31]_i_7__0_n_0
+    SLICE_X51Y14         CARRY4 (Prop_carry4_S[0]_CO[1])
+                                                      0.457    10.041 f  design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/acc_reg[31]_i_3__2/CO[1]
+                         net (fo=63, routed)          1.071    11.112    design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/acc_reg[31]_i_3__2_n_2
+    SLICE_X48Y10         LUT6 (Prop_lut6_I3_O)        0.329    11.441 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/acc[13]_i_2__2/O
+                         net (fo=1, routed)           0.649    12.091    design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/acc[13]_i_2__2_n_0
+    SLICE_X48Y8          LUT3 (Prop_lut3_I2_O)        0.124    12.215 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/acc[13]_i_1__2/O
+                         net (fo=2, routed)           0.348    12.563    design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/next_acc[13]
+    SLICE_X48Y9          FDRE                                         r  design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/result_reg[13]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                     10.000    10.000 r  
+    PS7_X0Y0             PS7                          0.000    10.000 r  design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.088    11.088    design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    11.179 r  design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=8697, routed)        1.491    12.670    design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/clk
+    SLICE_X48Y9          FDRE                                         r  design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/result_reg[13]/C
+                         clock pessimism              0.129    12.799    
+                         clock uncertainty           -0.154    12.645    
+    SLICE_X48Y9          FDRE (Setup_fdre_C_D)       -0.067    12.578    design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/result_reg[13]
+  -------------------------------------------------------------------
+                         required time                         12.578    
+                         arrival time                         -12.563    
+  -------------------------------------------------------------------
+                         slack                                  0.015    
+
+Slack (MET) :             0.027ns  (required time - arrival time)
+  Source:                 design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/modulus_reg[29]/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/acc_reg[13]/D
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk_fpga_0 rise@10.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        9.631ns  (logic 4.515ns (46.878%)  route 5.116ns (53.122%))
+  Logic Levels:           9  (CARRY4=5 LUT1=1 LUT2=1 LUT3=1 LUT6=1)
+  Clock Path Skew:        -0.148ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.672ns = ( 12.672 - 10.000 ) 
+    Source Clock Delay      (SCD):    2.949ns
+    Clock Pessimism Removal (CPR):    0.129ns
+  Clock Uncertainty:      0.154ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.300ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.193     1.193    design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=8697, routed)        1.655     2.949    design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/clk
+    SLICE_X53Y8          FDRE                                         r  design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/modulus_reg[29]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X53Y8          FDRE (Prop_fdre_C_Q)         0.456     3.405 f  design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/modulus_reg[29]/Q
+                         net (fo=113, routed)         0.537     3.942    design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/p_0_in_0[30]
+    SLICE_X53Y8          LUT1 (Prop_lut1_I0_O)        0.124     4.066 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/x[1]_i_13__0/O
+                         net (fo=1, routed)           0.000     4.066    design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/x[1]_i_13__0_n_0
+    SLICE_X53Y8          CARRY4 (Prop_carry4_S[1]_CO[2])
+                                                      0.570     4.636 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/x_reg[1]_i_11__0/CO[2]
+                         net (fo=23, routed)          0.422     5.058    design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/x_reg[1]_i_11__0_n_1
+    SLICE_X53Y7          CARRY4 (Prop_carry4_CYINIT_CO[2])
+                                                      0.781     5.839 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/acc_reg[19]_i_8__0/CO[2]
+                         net (fo=5, routed)           0.351     6.190    design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/acc_reg[19]_i_8__0_n_1
+    SLICE_X53Y9          CARRY4 (Prop_carry4_CYINIT_CO[2])
+                                                      0.781     6.971 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/acc_reg[31]_i_12__0/CO[2]
+                         net (fo=25, routed)          0.581     7.553    design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/acc_reg[31]_i_12__0_n_1
+    SLICE_X53Y12         CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.769     8.322 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/x_reg[1]_i_12__0/CO[3]
+                         net (fo=4, routed)           1.138     9.460    design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/x_reg[1]_i_12__0_n_0
+    SLICE_X51Y14         LUT2 (Prop_lut2_I1_O)        0.124     9.584 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/acc[31]_i_7__0/O
+                         net (fo=1, routed)           0.000     9.584    design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/acc[31]_i_7__0_n_0
+    SLICE_X51Y14         CARRY4 (Prop_carry4_S[0]_CO[1])
+                                                      0.457    10.041 f  design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/acc_reg[31]_i_3__2/CO[1]
+                         net (fo=63, routed)          1.071    11.112    design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/acc_reg[31]_i_3__2_n_2
+    SLICE_X48Y10         LUT6 (Prop_lut6_I3_O)        0.329    11.441 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/acc[13]_i_2__2/O
+                         net (fo=1, routed)           0.649    12.091    design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/acc[13]_i_2__2_n_0
+    SLICE_X48Y8          LUT3 (Prop_lut3_I2_O)        0.124    12.215 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/acc[13]_i_1__2/O
+                         net (fo=2, routed)           0.366    12.580    design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/next_acc[13]
+    SLICE_X47Y8          FDRE                                         r  design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/acc_reg[13]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                     10.000    10.000 r  
+    PS7_X0Y0             PS7                          0.000    10.000 r  design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.088    11.088    design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    11.179 r  design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=8697, routed)        1.493    12.672    design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/clk
+    SLICE_X47Y8          FDRE                                         r  design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/acc_reg[13]/C
+                         clock pessimism              0.129    12.801    
+                         clock uncertainty           -0.154    12.647    
+    SLICE_X47Y8          FDRE (Setup_fdre_C_D)       -0.040    12.607    design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/acc_reg[13]
+  -------------------------------------------------------------------
+                         required time                         12.607    
+                         arrival time                         -12.580    
+  -------------------------------------------------------------------
+                         slack                                  0.027    
+
+Slack (MET) :             0.057ns  (required time - arrival time)
+  Source:                 design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/modulus_reg[29]/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc_reg[5]/D
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk_fpga_0 rise@10.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        9.584ns  (logic 4.444ns (46.371%)  route 5.140ns (53.629%))
+  Logic Levels:           8  (CARRY4=5 LUT1=1 LUT2=1 LUT3=1)
+  Clock Path Skew:        -0.166ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.647ns = ( 12.648 - 10.000 ) 
+    Source Clock Delay      (SCD):    2.942ns
+    Clock Pessimism Removal (CPR):    0.129ns
+  Clock Uncertainty:      0.154ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.300ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.193     1.193    design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=8697, routed)        1.648     2.942    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/clk
+    SLICE_X43Y24         FDRE                                         r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/modulus_reg[29]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X43Y24         FDRE (Prop_fdre_C_Q)         0.456     3.398 f  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/modulus_reg[29]/Q
+                         net (fo=116, routed)         0.670     4.068    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/p_0_in[30]
+    SLICE_X43Y24         LUT1 (Prop_lut1_I0_O)        0.124     4.192 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x[16]_i_17/O
+                         net (fo=1, routed)           0.000     4.192    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x[16]_i_17_n_0
+    SLICE_X43Y24         CARRY4 (Prop_carry4_S[1]_CO[2])
+                                                      0.570     4.762 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[16]_i_15/CO[2]
+                         net (fo=23, routed)          0.706     5.468    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[16]_i_15_n_1
+    SLICE_X41Y28         CARRY4 (Prop_carry4_CYINIT_CO[2])
+                                                      0.781     6.249 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[16]_i_14/CO[2]
+                         net (fo=5, routed)           0.368     6.617    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[16]_i_14_n_1
+    SLICE_X41Y29         CARRY4 (Prop_carry4_CYINIT_CO[2])
+                                                      0.781     7.398 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[31]_i_21/CO[2]
+                         net (fo=25, routed)          0.730     8.128    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[31]_i_21_n_1
+    SLICE_X46Y31         CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.784     8.912 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[31]_i_20/CO[3]
+                         net (fo=4, routed)           1.060     9.972    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[31]_i_20_n_0
+    SLICE_X50Y33         LUT2 (Prop_lut2_I1_O)        0.124    10.096 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc[31]_i_12/O
+                         net (fo=1, routed)           0.000    10.096    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc[31]_i_12_n_0
+    SLICE_X50Y33         CARRY4 (Prop_carry4_S[1]_CO[1])
+                                                      0.492    10.588 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc_reg[31]_i_4/CO[1]
+                         net (fo=32, routed)          1.133    11.722    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc_reg[31]_i_4_n_2
+    SLICE_X53Y24         LUT3 (Prop_lut3_I1_O)        0.332    12.054 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc[5]_i_1/O
+                         net (fo=2, routed)           0.472    12.526    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/next_acc[5]
+    SLICE_X53Y22         FDRE                                         r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc_reg[5]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                     10.000    10.000 r  
+    PS7_X0Y0             PS7                          0.000    10.000 r  design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.088    11.088    design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    11.179 r  design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=8697, routed)        1.468    12.648    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/clk
+    SLICE_X53Y22         FDRE                                         r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc_reg[5]/C
+                         clock pessimism              0.129    12.776    
+                         clock uncertainty           -0.154    12.622    
+    SLICE_X53Y22         FDRE (Setup_fdre_C_D)       -0.040    12.582    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc_reg[5]
+  -------------------------------------------------------------------
+                         required time                         12.582    
+                         arrival time                         -12.526    
+  -------------------------------------------------------------------
+                         slack                                  0.057    
+
+Slack (MET) :             0.091ns  (required time - arrival time)
+  Source:                 design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/modulus_reg[29]/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc_reg[1]/D
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk_fpga_0 rise@10.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        9.495ns  (logic 4.444ns (46.803%)  route 5.051ns (53.197%))
+  Logic Levels:           8  (CARRY4=5 LUT1=1 LUT2=1 LUT3=1)
+  Clock Path Skew:        -0.167ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.646ns = ( 12.646 - 10.000 ) 
+    Source Clock Delay      (SCD):    2.942ns
+    Clock Pessimism Removal (CPR):    0.129ns
+  Clock Uncertainty:      0.154ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.300ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.193     1.193    design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=8697, routed)        1.648     2.942    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/clk
+    SLICE_X43Y24         FDRE                                         r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/modulus_reg[29]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X43Y24         FDRE (Prop_fdre_C_Q)         0.456     3.398 f  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/modulus_reg[29]/Q
+                         net (fo=116, routed)         0.670     4.068    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/p_0_in[30]
+    SLICE_X43Y24         LUT1 (Prop_lut1_I0_O)        0.124     4.192 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x[16]_i_17/O
+                         net (fo=1, routed)           0.000     4.192    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x[16]_i_17_n_0
+    SLICE_X43Y24         CARRY4 (Prop_carry4_S[1]_CO[2])
+                                                      0.570     4.762 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[16]_i_15/CO[2]
+                         net (fo=23, routed)          0.706     5.468    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[16]_i_15_n_1
+    SLICE_X41Y28         CARRY4 (Prop_carry4_CYINIT_CO[2])
+                                                      0.781     6.249 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[16]_i_14/CO[2]
+                         net (fo=5, routed)           0.368     6.617    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[16]_i_14_n_1
+    SLICE_X41Y29         CARRY4 (Prop_carry4_CYINIT_CO[2])
+                                                      0.781     7.398 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[31]_i_21/CO[2]
+                         net (fo=25, routed)          0.730     8.128    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[31]_i_21_n_1
+    SLICE_X46Y31         CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.784     8.912 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[31]_i_20/CO[3]
+                         net (fo=4, routed)           1.060     9.972    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[31]_i_20_n_0
+    SLICE_X50Y33         LUT2 (Prop_lut2_I1_O)        0.124    10.096 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc[31]_i_12/O
+                         net (fo=1, routed)           0.000    10.096    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc[31]_i_12_n_0
+    SLICE_X50Y33         CARRY4 (Prop_carry4_S[1]_CO[1])
+                                                      0.492    10.588 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc_reg[31]_i_4/CO[1]
+                         net (fo=32, routed)          1.169    11.757    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc_reg[31]_i_4_n_2
+    SLICE_X53Y23         LUT3 (Prop_lut3_I1_O)        0.332    12.089 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc[1]_i_1/O
+                         net (fo=2, routed)           0.348    12.437    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/next_acc[1]
+    SLICE_X52Y23         FDRE                                         r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc_reg[1]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                     10.000    10.000 r  
+    PS7_X0Y0             PS7                          0.000    10.000 r  design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.088    11.088    design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    11.179 r  design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=8697, routed)        1.467    12.646    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/clk
+    SLICE_X52Y23         FDRE                                         r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc_reg[1]/C
+                         clock pessimism              0.129    12.775    
+                         clock uncertainty           -0.154    12.621    
+    SLICE_X52Y23         FDRE (Setup_fdre_C_D)       -0.093    12.528    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc_reg[1]
+  -------------------------------------------------------------------
+                         required time                         12.528    
+                         arrival time                         -12.437    
+  -------------------------------------------------------------------
+                         slack                                  0.091    
+
+Slack (MET) :             0.101ns  (required time - arrival time)
+  Source:                 design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/modulus_reg[29]/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc_reg[3]/D
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk_fpga_0 rise@10.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        9.531ns  (logic 4.444ns (46.624%)  route 5.087ns (53.376%))
+  Logic Levels:           8  (CARRY4=5 LUT1=1 LUT2=1 LUT3=1)
+  Clock Path Skew:        -0.169ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.644ns = ( 12.644 - 10.000 ) 
+    Source Clock Delay      (SCD):    2.942ns
+    Clock Pessimism Removal (CPR):    0.129ns
+  Clock Uncertainty:      0.154ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.300ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.193     1.193    design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=8697, routed)        1.648     2.942    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/clk
+    SLICE_X43Y24         FDRE                                         r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/modulus_reg[29]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X43Y24         FDRE (Prop_fdre_C_Q)         0.456     3.398 f  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/modulus_reg[29]/Q
+                         net (fo=116, routed)         0.670     4.068    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/p_0_in[30]
+    SLICE_X43Y24         LUT1 (Prop_lut1_I0_O)        0.124     4.192 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x[16]_i_17/O
+                         net (fo=1, routed)           0.000     4.192    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x[16]_i_17_n_0
+    SLICE_X43Y24         CARRY4 (Prop_carry4_S[1]_CO[2])
+                                                      0.570     4.762 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[16]_i_15/CO[2]
+                         net (fo=23, routed)          0.706     5.468    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[16]_i_15_n_1
+    SLICE_X41Y28         CARRY4 (Prop_carry4_CYINIT_CO[2])
+                                                      0.781     6.249 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[16]_i_14/CO[2]
+                         net (fo=5, routed)           0.368     6.617    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[16]_i_14_n_1
+    SLICE_X41Y29         CARRY4 (Prop_carry4_CYINIT_CO[2])
+                                                      0.781     7.398 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[31]_i_21/CO[2]
+                         net (fo=25, routed)          0.730     8.128    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[31]_i_21_n_1
+    SLICE_X46Y31         CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.784     8.912 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[31]_i_20/CO[3]
+                         net (fo=4, routed)           1.060     9.972    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[31]_i_20_n_0
+    SLICE_X50Y33         LUT2 (Prop_lut2_I1_O)        0.124    10.096 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc[31]_i_12/O
+                         net (fo=1, routed)           0.000    10.096    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc[31]_i_12_n_0
+    SLICE_X50Y33         CARRY4 (Prop_carry4_S[1]_CO[1])
+                                                      0.492    10.588 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc_reg[31]_i_4/CO[1]
+                         net (fo=32, routed)          1.020    11.608    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc_reg[31]_i_4_n_2
+    SLICE_X50Y24         LUT3 (Prop_lut3_I1_O)        0.332    11.940 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc[3]_i_1/O
+                         net (fo=2, routed)           0.533    12.473    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/next_acc[3]
+    SLICE_X50Y24         FDRE                                         r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc_reg[3]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                     10.000    10.000 r  
+    PS7_X0Y0             PS7                          0.000    10.000 r  design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.088    11.088    design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    11.179 r  design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=8697, routed)        1.465    12.644    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/clk
+    SLICE_X50Y24         FDRE                                         r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc_reg[3]/C
+                         clock pessimism              0.129    12.773    
+                         clock uncertainty           -0.154    12.619    
+    SLICE_X50Y24         FDRE (Setup_fdre_C_D)       -0.045    12.574    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc_reg[3]
+  -------------------------------------------------------------------
+                         required time                         12.574    
+                         arrival time                         -12.473    
+  -------------------------------------------------------------------
+                         slack                                  0.101    
+
+Slack (MET) :             0.123ns  (required time - arrival time)
+  Source:                 design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/modulus_reg[29]/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/result_reg[29]/D
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk_fpga_0 rise@10.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        9.478ns  (logic 4.444ns (46.886%)  route 5.034ns (53.114%))
+  Logic Levels:           8  (CARRY4=5 LUT1=1 LUT2=1 LUT3=1)
+  Clock Path Skew:        -0.164ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.649ns = ( 12.649 - 10.000 ) 
+    Source Clock Delay      (SCD):    2.942ns
+    Clock Pessimism Removal (CPR):    0.129ns
+  Clock Uncertainty:      0.154ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.300ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.193     1.193    design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=8697, routed)        1.648     2.942    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/clk
+    SLICE_X43Y24         FDRE                                         r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/modulus_reg[29]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X43Y24         FDRE (Prop_fdre_C_Q)         0.456     3.398 f  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/modulus_reg[29]/Q
+                         net (fo=116, routed)         0.670     4.068    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/p_0_in[30]
+    SLICE_X43Y24         LUT1 (Prop_lut1_I0_O)        0.124     4.192 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x[16]_i_17/O
+                         net (fo=1, routed)           0.000     4.192    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x[16]_i_17_n_0
+    SLICE_X43Y24         CARRY4 (Prop_carry4_S[1]_CO[2])
+                                                      0.570     4.762 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[16]_i_15/CO[2]
+                         net (fo=23, routed)          0.706     5.468    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[16]_i_15_n_1
+    SLICE_X41Y28         CARRY4 (Prop_carry4_CYINIT_CO[2])
+                                                      0.781     6.249 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[16]_i_14/CO[2]
+                         net (fo=5, routed)           0.368     6.617    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[16]_i_14_n_1
+    SLICE_X41Y29         CARRY4 (Prop_carry4_CYINIT_CO[2])
+                                                      0.781     7.398 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[31]_i_21/CO[2]
+                         net (fo=25, routed)          0.730     8.128    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[31]_i_21_n_1
+    SLICE_X46Y31         CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.784     8.912 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[31]_i_20/CO[3]
+                         net (fo=4, routed)           1.060     9.972    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[31]_i_20_n_0
+    SLICE_X50Y33         LUT2 (Prop_lut2_I1_O)        0.124    10.096 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc[31]_i_12/O
+                         net (fo=1, routed)           0.000    10.096    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc[31]_i_12_n_0
+    SLICE_X50Y33         CARRY4 (Prop_carry4_S[1]_CO[1])
+                                                      0.492    10.588 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc_reg[31]_i_4/CO[1]
+                         net (fo=32, routed)          0.651    11.240    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc_reg[31]_i_4_n_2
+    SLICE_X53Y32         LUT3 (Prop_lut3_I1_O)        0.332    11.572 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc[29]_i_1/O
+                         net (fo=2, routed)           0.848    12.420    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/next_acc[29]
+    SLICE_X53Y28         FDRE                                         r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/result_reg[29]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                     10.000    10.000 r  
+    PS7_X0Y0             PS7                          0.000    10.000 r  design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.088    11.088    design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    11.179 r  design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=8697, routed)        1.470    12.649    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/clk
+    SLICE_X53Y28         FDRE                                         r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/result_reg[29]/C
+                         clock pessimism              0.129    12.778    
+                         clock uncertainty           -0.154    12.624    
+    SLICE_X53Y28         FDRE (Setup_fdre_C_D)       -0.081    12.543    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/result_reg[29]
+  -------------------------------------------------------------------
+                         required time                         12.543    
+                         arrival time                         -12.420    
+  -------------------------------------------------------------------
+                         slack                                  0.123    
+
+Slack (MET) :             0.135ns  (required time - arrival time)
+  Source:                 design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/modulus_reg[29]/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/result_reg[18]/D
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk_fpga_0 rise@10.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        9.537ns  (logic 4.444ns (46.596%)  route 5.093ns (53.404%))
+  Logic Levels:           8  (CARRY4=5 LUT1=1 LUT2=1 LUT3=1)
+  Clock Path Skew:        -0.093ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.720ns = ( 12.720 - 10.000 ) 
+    Source Clock Delay      (SCD):    2.942ns
+    Clock Pessimism Removal (CPR):    0.129ns
+  Clock Uncertainty:      0.154ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.300ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.193     1.193    design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=8697, routed)        1.648     2.942    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/clk
+    SLICE_X43Y24         FDRE                                         r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/modulus_reg[29]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X43Y24         FDRE (Prop_fdre_C_Q)         0.456     3.398 f  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/modulus_reg[29]/Q
+                         net (fo=116, routed)         0.670     4.068    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/p_0_in[30]
+    SLICE_X43Y24         LUT1 (Prop_lut1_I0_O)        0.124     4.192 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x[16]_i_17/O
+                         net (fo=1, routed)           0.000     4.192    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x[16]_i_17_n_0
+    SLICE_X43Y24         CARRY4 (Prop_carry4_S[1]_CO[2])
+                                                      0.570     4.762 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[16]_i_15/CO[2]
+                         net (fo=23, routed)          0.706     5.468    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[16]_i_15_n_1
+    SLICE_X41Y28         CARRY4 (Prop_carry4_CYINIT_CO[2])
+                                                      0.781     6.249 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[16]_i_14/CO[2]
+                         net (fo=5, routed)           0.368     6.617    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[16]_i_14_n_1
+    SLICE_X41Y29         CARRY4 (Prop_carry4_CYINIT_CO[2])
+                                                      0.781     7.398 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[31]_i_21/CO[2]
+                         net (fo=25, routed)          0.730     8.128    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[31]_i_21_n_1
+    SLICE_X46Y31         CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.784     8.912 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[31]_i_20/CO[3]
+                         net (fo=4, routed)           1.060     9.972    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[31]_i_20_n_0
+    SLICE_X50Y33         LUT2 (Prop_lut2_I1_O)        0.124    10.096 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc[31]_i_12/O
+                         net (fo=1, routed)           0.000    10.096    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc[31]_i_12_n_0
+    SLICE_X50Y33         CARRY4 (Prop_carry4_S[1]_CO[1])
+                                                      0.492    10.588 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc_reg[31]_i_4/CO[1]
+                         net (fo=32, routed)          0.932    11.521    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc_reg[31]_i_4_n_2
+    SLICE_X54Y28         LUT3 (Prop_lut3_I1_O)        0.332    11.853 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc[18]_i_1/O
+                         net (fo=2, routed)           0.627    12.479    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/next_acc[18]
+    SLICE_X55Y28         FDRE                                         r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/result_reg[18]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                     10.000    10.000 r  
+    PS7_X0Y0             PS7                          0.000    10.000 r  design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.088    11.088    design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    11.179 r  design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=8697, routed)        1.541    12.720    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/clk
+    SLICE_X55Y28         FDRE                                         r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/result_reg[18]/C
+                         clock pessimism              0.129    12.849    
+                         clock uncertainty           -0.154    12.695    
+    SLICE_X55Y28         FDRE (Setup_fdre_C_D)       -0.081    12.614    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/result_reg[18]
+  -------------------------------------------------------------------
+                         required time                         12.614    
+                         arrival time                         -12.479    
+  -------------------------------------------------------------------
+                         slack                                  0.135    
+
+Slack (MET) :             0.163ns  (required time - arrival time)
+  Source:                 design_1_i/poly_mul4096_axis_0/inst/core/forward_a/cyclic_transform/butterfly/multiplier/modulus_reg[29]/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            design_1_i/poly_mul4096_axis_0/inst/core/forward_a/cyclic_transform/butterfly/multiplier/x_reg[8]/D
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk_fpga_0 rise@10.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        9.648ns  (logic 5.080ns (52.651%)  route 4.568ns (47.349%))
+  Logic Levels:           10  (CARRY4=6 LUT1=1 LUT2=1 LUT6=2)
+  Clock Path Skew:        -0.063ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.731ns = ( 12.731 - 10.000 ) 
+    Source Clock Delay      (SCD):    3.024ns
+    Clock Pessimism Removal (CPR):    0.230ns
+  Clock Uncertainty:      0.154ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.300ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.193     1.193    design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=8697, routed)        1.730     3.024    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/cyclic_transform/butterfly/multiplier/clk
+    SLICE_X72Y12         FDRE                                         r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/cyclic_transform/butterfly/multiplier/modulus_reg[29]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X72Y12         FDRE (Prop_fdre_C_Q)         0.456     3.480 f  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/cyclic_transform/butterfly/multiplier/modulus_reg[29]/Q
+                         net (fo=113, routed)         0.501     3.981    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/cyclic_transform/butterfly/multiplier/p_0_in_0[30]
+    SLICE_X72Y12         LUT1 (Prop_lut1_I0_O)        0.124     4.105 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/cyclic_transform/butterfly/multiplier/x[1]_i_13/O
+                         net (fo=1, routed)           0.000     4.105    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/cyclic_transform/butterfly/multiplier/x[1]_i_13_n_0
+    SLICE_X72Y12         CARRY4 (Prop_carry4_S[1]_CO[2])
+                                                      0.570     4.675 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/cyclic_transform/butterfly/multiplier/x_reg[1]_i_11/CO[2]
+                         net (fo=23, routed)          0.524     5.199    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/cyclic_transform/butterfly/multiplier/x_reg[1]_i_11_n_1
+    SLICE_X72Y14         CARRY4 (Prop_carry4_CYINIT_CO[2])
+                                                      0.781     5.980 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/cyclic_transform/butterfly/multiplier/acc_reg[19]_i_8/CO[2]
+                         net (fo=5, routed)           0.388     6.368    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/cyclic_transform/butterfly/multiplier/acc_reg[19]_i_8_n_1
+    SLICE_X72Y15         CARRY4 (Prop_carry4_CYINIT_CO[2])
+                                                      0.781     7.149 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/cyclic_transform/butterfly/multiplier/acc_reg[31]_i_12/CO[2]
+                         net (fo=25, routed)          0.580     7.729    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/cyclic_transform/butterfly/multiplier/acc_reg[31]_i_12_n_1
+    SLICE_X72Y18         CARRY4 (Prop_carry4_CYINIT_O[1])
+                                                      0.787     8.516 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/cyclic_transform/butterfly/multiplier/x_reg[1]_i_12/O[1]
+                         net (fo=2, routed)           0.628     9.143    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/cyclic_transform/butterfly/multiplier/x_reg[1]_i_12_n_6
+    SLICE_X66Y18         LUT2 (Prop_lut2_I1_O)        0.303     9.446 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/cyclic_transform/butterfly/multiplier/x[31]_i_15__2/O
+                         net (fo=1, routed)           0.000     9.446    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/cyclic_transform/butterfly/multiplier/x[31]_i_15__2_n_0
+    SLICE_X66Y18         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533     9.979 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/cyclic_transform/butterfly/multiplier/x_reg[31]_i_12/CO[3]
+                         net (fo=1, routed)           0.000     9.979    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/cyclic_transform/butterfly/multiplier/x_reg[31]_i_12_n_0
+    SLICE_X66Y19         CARRY4 (Prop_carry4_CI_CO[0])
+                                                      0.254    10.233 f  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/cyclic_transform/butterfly/multiplier/x_reg[1]_i_3/CO[0]
+                         net (fo=65, routed)          0.756    10.990    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/cyclic_transform/butterfly/multiplier/x_reg[1]_i_3_n_3
+    SLICE_X67Y19         LUT6 (Prop_lut6_I4_O)        0.367    11.357 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/cyclic_transform/butterfly/multiplier/x[31]_i_4__0/O
+                         net (fo=30, routed)          1.192    12.548    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/cyclic_transform/butterfly/multiplier/x[31]_i_4__0_n_0
+    SLICE_X65Y13         LUT6 (Prop_lut6_I2_O)        0.124    12.672 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/cyclic_transform/butterfly/multiplier/x[8]_i_1__0/O
+                         net (fo=1, routed)           0.000    12.672    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/cyclic_transform/butterfly/multiplier/x[8]_i_1__0_n_0
+    SLICE_X65Y13         FDRE                                         r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/cyclic_transform/butterfly/multiplier/x_reg[8]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                     10.000    10.000 r  
+    PS7_X0Y0             PS7                          0.000    10.000 r  design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.088    11.088    design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    11.179 r  design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=8697, routed)        1.552    12.731    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/cyclic_transform/butterfly/multiplier/clk
+    SLICE_X65Y13         FDRE                                         r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/cyclic_transform/butterfly/multiplier/x_reg[8]/C
+                         clock pessimism              0.230    12.961    
+                         clock uncertainty           -0.154    12.807    
+    SLICE_X65Y13         FDRE (Setup_fdre_C_D)        0.029    12.836    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/cyclic_transform/butterfly/multiplier/x_reg[8]
+  -------------------------------------------------------------------
+                         required time                         12.836    
+                         arrival time                         -12.672    
+  -------------------------------------------------------------------
+                         slack                                  0.163    
+
+Slack (MET) :             0.166ns  (required time - arrival time)
+  Source:                 design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/modulus_reg[29]/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/result_reg[24]/D
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk_fpga_0 rise@10.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        9.543ns  (logic 4.444ns (46.568%)  route 5.099ns (53.432%))
+  Logic Levels:           8  (CARRY4=5 LUT1=1 LUT2=1 LUT3=1)
+  Clock Path Skew:        -0.092ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.721ns = ( 12.722 - 10.000 ) 
+    Source Clock Delay      (SCD):    2.942ns
+    Clock Pessimism Removal (CPR):    0.129ns
+  Clock Uncertainty:      0.154ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.300ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.193     1.193    design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=8697, routed)        1.648     2.942    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/clk
+    SLICE_X43Y24         FDRE                                         r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/modulus_reg[29]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X43Y24         FDRE (Prop_fdre_C_Q)         0.456     3.398 f  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/modulus_reg[29]/Q
+                         net (fo=116, routed)         0.670     4.068    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/p_0_in[30]
+    SLICE_X43Y24         LUT1 (Prop_lut1_I0_O)        0.124     4.192 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x[16]_i_17/O
+                         net (fo=1, routed)           0.000     4.192    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x[16]_i_17_n_0
+    SLICE_X43Y24         CARRY4 (Prop_carry4_S[1]_CO[2])
+                                                      0.570     4.762 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[16]_i_15/CO[2]
+                         net (fo=23, routed)          0.706     5.468    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[16]_i_15_n_1
+    SLICE_X41Y28         CARRY4 (Prop_carry4_CYINIT_CO[2])
+                                                      0.781     6.249 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[16]_i_14/CO[2]
+                         net (fo=5, routed)           0.368     6.617    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[16]_i_14_n_1
+    SLICE_X41Y29         CARRY4 (Prop_carry4_CYINIT_CO[2])
+                                                      0.781     7.398 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[31]_i_21/CO[2]
+                         net (fo=25, routed)          0.730     8.128    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[31]_i_21_n_1
+    SLICE_X46Y31         CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.784     8.912 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[31]_i_20/CO[3]
+                         net (fo=4, routed)           1.060     9.972    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[31]_i_20_n_0
+    SLICE_X50Y33         LUT2 (Prop_lut2_I1_O)        0.124    10.096 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc[31]_i_12/O
+                         net (fo=1, routed)           0.000    10.096    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc[31]_i_12_n_0
+    SLICE_X50Y33         CARRY4 (Prop_carry4_S[1]_CO[1])
+                                                      0.492    10.588 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc_reg[31]_i_4/CO[1]
+                         net (fo=32, routed)          0.863    11.451    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc_reg[31]_i_4_n_2
+    SLICE_X53Y31         LUT3 (Prop_lut3_I1_O)        0.332    11.783 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc[24]_i_1/O
+                         net (fo=2, routed)           0.702    12.485    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/next_acc[24]
+    SLICE_X54Y30         FDRE                                         r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/result_reg[24]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                     10.000    10.000 r  
+    PS7_X0Y0             PS7                          0.000    10.000 r  design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.088    11.088    design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    11.179 r  design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=8697, routed)        1.542    12.722    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/clk
+    SLICE_X54Y30         FDRE                                         r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/result_reg[24]/C
+                         clock pessimism              0.129    12.850    
+                         clock uncertainty           -0.154    12.696    
+    SLICE_X54Y30         FDRE (Setup_fdre_C_D)       -0.045    12.651    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/result_reg[24]
+  -------------------------------------------------------------------
+                         required time                         12.651    
+                         arrival time                         -12.485    
+  -------------------------------------------------------------------
+                         slack                                  0.166    
+
+Slack (MET) :             0.168ns  (required time - arrival time)
+  Source:                 design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/modulus_reg[29]/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/acc_reg[7]/D
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk_fpga_0 rise@10.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        9.436ns  (logic 4.515ns (47.847%)  route 4.921ns (52.153%))
+  Logic Levels:           9  (CARRY4=5 LUT1=1 LUT2=1 LUT3=1 LUT6=1)
+  Clock Path Skew:        -0.149ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.671ns = ( 12.672 - 10.000 ) 
+    Source Clock Delay      (SCD):    2.949ns
+    Clock Pessimism Removal (CPR):    0.129ns
+  Clock Uncertainty:      0.154ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.300ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.193     1.193    design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=8697, routed)        1.655     2.949    design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/clk
+    SLICE_X53Y8          FDRE                                         r  design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/modulus_reg[29]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X53Y8          FDRE (Prop_fdre_C_Q)         0.456     3.405 f  design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/modulus_reg[29]/Q
+                         net (fo=113, routed)         0.537     3.942    design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/p_0_in_0[30]
+    SLICE_X53Y8          LUT1 (Prop_lut1_I0_O)        0.124     4.066 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/x[1]_i_13__0/O
+                         net (fo=1, routed)           0.000     4.066    design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/x[1]_i_13__0_n_0
+    SLICE_X53Y8          CARRY4 (Prop_carry4_S[1]_CO[2])
+                                                      0.570     4.636 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/x_reg[1]_i_11__0/CO[2]
+                         net (fo=23, routed)          0.422     5.058    design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/x_reg[1]_i_11__0_n_1
+    SLICE_X53Y7          CARRY4 (Prop_carry4_CYINIT_CO[2])
+                                                      0.781     5.839 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/acc_reg[19]_i_8__0/CO[2]
+                         net (fo=5, routed)           0.351     6.190    design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/acc_reg[19]_i_8__0_n_1
+    SLICE_X53Y9          CARRY4 (Prop_carry4_CYINIT_CO[2])
+                                                      0.781     6.971 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/acc_reg[31]_i_12__0/CO[2]
+                         net (fo=25, routed)          0.581     7.553    design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/acc_reg[31]_i_12__0_n_1
+    SLICE_X53Y12         CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.769     8.322 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/x_reg[1]_i_12__0/CO[3]
+                         net (fo=4, routed)           1.138     9.460    design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/x_reg[1]_i_12__0_n_0
+    SLICE_X51Y14         LUT2 (Prop_lut2_I1_O)        0.124     9.584 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/acc[31]_i_7__0/O
+                         net (fo=1, routed)           0.000     9.584    design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/acc[31]_i_7__0_n_0
+    SLICE_X51Y14         CARRY4 (Prop_carry4_S[0]_CO[1])
+                                                      0.457    10.041 f  design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/acc_reg[31]_i_3__2/CO[1]
+                         net (fo=63, routed)          0.605    10.646    design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/acc_reg[31]_i_3__2_n_2
+    SLICE_X53Y15         LUT6 (Prop_lut6_I3_O)        0.329    10.975 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/acc[7]_i_3__2/O
+                         net (fo=1, routed)           0.475    11.450    design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/acc[7]_i_3__2_n_0
+    SLICE_X53Y15         LUT3 (Prop_lut3_I2_O)        0.124    11.574 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/acc[7]_i_1__2/O
+                         net (fo=2, routed)           0.812    12.385    design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/next_acc[7]
+    SLICE_X48Y7          FDRE                                         r  design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/acc_reg[7]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                     10.000    10.000 r  
+    PS7_X0Y0             PS7                          0.000    10.000 r  design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.088    11.088    design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    11.179 r  design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=8697, routed)        1.492    12.672    design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/clk
+    SLICE_X48Y7          FDRE                                         r  design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/acc_reg[7]/C
+                         clock pessimism              0.129    12.800    
+                         clock uncertainty           -0.154    12.646    
+    SLICE_X48Y7          FDRE (Setup_fdre_C_D)       -0.093    12.553    design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/acc_reg[7]
+  -------------------------------------------------------------------
+                         required time                         12.553    
+                         arrival time                         -12.385    
+  -------------------------------------------------------------------
+                         slack                                  0.168    
+
+Slack (MET) :             0.193ns  (required time - arrival time)
+  Source:                 design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/modulus_reg[29]/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc_reg[18]/D
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk_fpga_0 rise@10.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        9.529ns  (logic 4.444ns (46.636%)  route 5.085ns (53.364%))
+  Logic Levels:           8  (CARRY4=5 LUT1=1 LUT2=1 LUT3=1)
+  Clock Path Skew:        -0.093ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.720ns = ( 12.720 - 10.000 ) 
+    Source Clock Delay      (SCD):    2.942ns
+    Clock Pessimism Removal (CPR):    0.129ns
+  Clock Uncertainty:      0.154ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.300ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.193     1.193    design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=8697, routed)        1.648     2.942    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/clk
+    SLICE_X43Y24         FDRE                                         r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/modulus_reg[29]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X43Y24         FDRE (Prop_fdre_C_Q)         0.456     3.398 f  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/modulus_reg[29]/Q
+                         net (fo=116, routed)         0.670     4.068    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/p_0_in[30]
+    SLICE_X43Y24         LUT1 (Prop_lut1_I0_O)        0.124     4.192 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x[16]_i_17/O
+                         net (fo=1, routed)           0.000     4.192    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x[16]_i_17_n_0
+    SLICE_X43Y24         CARRY4 (Prop_carry4_S[1]_CO[2])
+                                                      0.570     4.762 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[16]_i_15/CO[2]
+                         net (fo=23, routed)          0.706     5.468    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[16]_i_15_n_1
+    SLICE_X41Y28         CARRY4 (Prop_carry4_CYINIT_CO[2])
+                                                      0.781     6.249 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[16]_i_14/CO[2]
+                         net (fo=5, routed)           0.368     6.617    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[16]_i_14_n_1
+    SLICE_X41Y29         CARRY4 (Prop_carry4_CYINIT_CO[2])
+                                                      0.781     7.398 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[31]_i_21/CO[2]
+                         net (fo=25, routed)          0.730     8.128    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[31]_i_21_n_1
+    SLICE_X46Y31         CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.784     8.912 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[31]_i_20/CO[3]
+                         net (fo=4, routed)           1.060     9.972    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[31]_i_20_n_0
+    SLICE_X50Y33         LUT2 (Prop_lut2_I1_O)        0.124    10.096 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc[31]_i_12/O
+                         net (fo=1, routed)           0.000    10.096    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc[31]_i_12_n_0
+    SLICE_X50Y33         CARRY4 (Prop_carry4_S[1]_CO[1])
+                                                      0.492    10.588 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc_reg[31]_i_4/CO[1]
+                         net (fo=32, routed)          0.932    11.521    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc_reg[31]_i_4_n_2
+    SLICE_X54Y28         LUT3 (Prop_lut3_I1_O)        0.332    11.853 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc[18]_i_1/O
+                         net (fo=2, routed)           0.618    12.471    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/next_acc[18]
+    SLICE_X54Y28         FDRE                                         r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc_reg[18]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                     10.000    10.000 r  
+    PS7_X0Y0             PS7                          0.000    10.000 r  design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.088    11.088    design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    11.179 r  design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=8697, routed)        1.541    12.720    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/clk
+    SLICE_X54Y28         FDRE                                         r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc_reg[18]/C
+                         clock pessimism              0.129    12.849    
+                         clock uncertainty           -0.154    12.695    
+    SLICE_X54Y28         FDRE (Setup_fdre_C_D)       -0.031    12.664    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc_reg[18]
+  -------------------------------------------------------------------
+                         required time                         12.664    
+                         arrival time                         -12.471    
+  -------------------------------------------------------------------
+                         slack                                  0.193    
+
+Slack (MET) :             0.203ns  (required time - arrival time)
+  Source:                 design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/modulus_reg[29]/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc_reg[0]/D
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk_fpga_0 rise@10.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        9.441ns  (logic 4.444ns (47.072%)  route 4.997ns (52.928%))
+  Logic Levels:           8  (CARRY4=5 LUT1=1 LUT2=1 LUT6=1)
+  Clock Path Skew:        -0.162ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.651ns = ( 12.651 - 10.000 ) 
+    Source Clock Delay      (SCD):    2.942ns
+    Clock Pessimism Removal (CPR):    0.129ns
+  Clock Uncertainty:      0.154ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.300ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.193     1.193    design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=8697, routed)        1.648     2.942    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/clk
+    SLICE_X43Y24         FDRE                                         r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/modulus_reg[29]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X43Y24         FDRE (Prop_fdre_C_Q)         0.456     3.398 f  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/modulus_reg[29]/Q
+                         net (fo=116, routed)         0.670     4.068    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/p_0_in[30]
+    SLICE_X43Y24         LUT1 (Prop_lut1_I0_O)        0.124     4.192 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x[16]_i_17/O
+                         net (fo=1, routed)           0.000     4.192    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x[16]_i_17_n_0
+    SLICE_X43Y24         CARRY4 (Prop_carry4_S[1]_CO[2])
+                                                      0.570     4.762 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[16]_i_15/CO[2]
+                         net (fo=23, routed)          0.706     5.468    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[16]_i_15_n_1
+    SLICE_X41Y28         CARRY4 (Prop_carry4_CYINIT_CO[2])
+                                                      0.781     6.249 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[16]_i_14/CO[2]
+                         net (fo=5, routed)           0.368     6.617    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[16]_i_14_n_1
+    SLICE_X41Y29         CARRY4 (Prop_carry4_CYINIT_CO[2])
+                                                      0.781     7.398 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[31]_i_21/CO[2]
+                         net (fo=25, routed)          0.730     8.128    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[31]_i_21_n_1
+    SLICE_X46Y31         CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.784     8.912 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[31]_i_20/CO[3]
+                         net (fo=4, routed)           1.060     9.972    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[31]_i_20_n_0
+    SLICE_X50Y33         LUT2 (Prop_lut2_I1_O)        0.124    10.096 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc[31]_i_12/O
+                         net (fo=1, routed)           0.000    10.096    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc[31]_i_12_n_0
+    SLICE_X50Y33         CARRY4 (Prop_carry4_S[1]_CO[1])
+                                                      0.492    10.588 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc_reg[31]_i_4/CO[1]
+                         net (fo=32, routed)          0.838    11.427    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc_reg[31]_i_4_n_2
+    SLICE_X53Y28         LUT6 (Prop_lut6_I1_O)        0.332    11.759 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc[0]_i_1/O
+                         net (fo=2, routed)           0.624    12.383    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/next_acc[0]
+    SLICE_X53Y31         FDRE                                         r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc_reg[0]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                     10.000    10.000 r  
+    PS7_X0Y0             PS7                          0.000    10.000 r  design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.088    11.088    design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    11.179 r  design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=8697, routed)        1.472    12.651    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/clk
+    SLICE_X53Y31         FDRE                                         r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc_reg[0]/C
+                         clock pessimism              0.129    12.780    
+                         clock uncertainty           -0.154    12.626    
+    SLICE_X53Y31         FDRE (Setup_fdre_C_D)       -0.040    12.586    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc_reg[0]
+  -------------------------------------------------------------------
+                         required time                         12.586    
+                         arrival time                         -12.383    
+  -------------------------------------------------------------------
+                         slack                                  0.203    
+
+Slack (MET) :             0.205ns  (required time - arrival time)
+  Source:                 design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/modulus_reg[29]/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/result_reg[12]/D
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk_fpga_0 rise@10.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        9.482ns  (logic 4.444ns (46.870%)  route 5.038ns (53.130%))
+  Logic Levels:           8  (CARRY4=5 LUT1=1 LUT2=1 LUT3=1)
+  Clock Path Skew:        -0.093ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.720ns = ( 12.720 - 10.000 ) 
+    Source Clock Delay      (SCD):    2.942ns
+    Clock Pessimism Removal (CPR):    0.129ns
+  Clock Uncertainty:      0.154ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.300ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.193     1.193    design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=8697, routed)        1.648     2.942    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/clk
+    SLICE_X43Y24         FDRE                                         r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/modulus_reg[29]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X43Y24         FDRE (Prop_fdre_C_Q)         0.456     3.398 f  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/modulus_reg[29]/Q
+                         net (fo=116, routed)         0.670     4.068    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/p_0_in[30]
+    SLICE_X43Y24         LUT1 (Prop_lut1_I0_O)        0.124     4.192 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x[16]_i_17/O
+                         net (fo=1, routed)           0.000     4.192    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x[16]_i_17_n_0
+    SLICE_X43Y24         CARRY4 (Prop_carry4_S[1]_CO[2])
+                                                      0.570     4.762 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[16]_i_15/CO[2]
+                         net (fo=23, routed)          0.706     5.468    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[16]_i_15_n_1
+    SLICE_X41Y28         CARRY4 (Prop_carry4_CYINIT_CO[2])
+                                                      0.781     6.249 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[16]_i_14/CO[2]
+                         net (fo=5, routed)           0.368     6.617    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[16]_i_14_n_1
+    SLICE_X41Y29         CARRY4 (Prop_carry4_CYINIT_CO[2])
+                                                      0.781     7.398 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[31]_i_21/CO[2]
+                         net (fo=25, routed)          0.730     8.128    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[31]_i_21_n_1
+    SLICE_X46Y31         CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.784     8.912 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[31]_i_20/CO[3]
+                         net (fo=4, routed)           1.060     9.972    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[31]_i_20_n_0
+    SLICE_X50Y33         LUT2 (Prop_lut2_I1_O)        0.124    10.096 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc[31]_i_12/O
+                         net (fo=1, routed)           0.000    10.096    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc[31]_i_12_n_0
+    SLICE_X50Y33         CARRY4 (Prop_carry4_S[1]_CO[1])
+                                                      0.492    10.588 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc_reg[31]_i_4/CO[1]
+                         net (fo=32, routed)          0.924    11.513    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc_reg[31]_i_4_n_2
+    SLICE_X53Y28         LUT3 (Prop_lut3_I1_O)        0.332    11.845 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc[12]_i_1/O
+                         net (fo=2, routed)           0.579    12.424    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/next_acc[12]
+    SLICE_X55Y28         FDRE                                         r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/result_reg[12]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                     10.000    10.000 r  
+    PS7_X0Y0             PS7                          0.000    10.000 r  design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.088    11.088    design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    11.179 r  design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=8697, routed)        1.541    12.720    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/clk
+    SLICE_X55Y28         FDRE                                         r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/result_reg[12]/C
+                         clock pessimism              0.129    12.849    
+                         clock uncertainty           -0.154    12.695    
+    SLICE_X55Y28         FDRE (Setup_fdre_C_D)       -0.067    12.628    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/result_reg[12]
+  -------------------------------------------------------------------
+                         required time                         12.628    
+                         arrival time                         -12.424    
+  -------------------------------------------------------------------
+                         slack                                  0.205    
+
+Slack (MET) :             0.208ns  (required time - arrival time)
+  Source:                 design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/modulus_reg[29]/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc_reg[9]/D
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk_fpga_0 rise@10.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        9.364ns  (logic 4.444ns (47.461%)  route 4.920ns (52.539%))
+  Logic Levels:           8  (CARRY4=5 LUT1=1 LUT2=1 LUT3=1)
+  Clock Path Skew:        -0.167ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.646ns = ( 12.646 - 10.000 ) 
+    Source Clock Delay      (SCD):    2.942ns
+    Clock Pessimism Removal (CPR):    0.129ns
+  Clock Uncertainty:      0.154ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.300ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.193     1.193    design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=8697, routed)        1.648     2.942    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/clk
+    SLICE_X43Y24         FDRE                                         r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/modulus_reg[29]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X43Y24         FDRE (Prop_fdre_C_Q)         0.456     3.398 f  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/modulus_reg[29]/Q
+                         net (fo=116, routed)         0.670     4.068    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/p_0_in[30]
+    SLICE_X43Y24         LUT1 (Prop_lut1_I0_O)        0.124     4.192 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x[16]_i_17/O
+                         net (fo=1, routed)           0.000     4.192    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x[16]_i_17_n_0
+    SLICE_X43Y24         CARRY4 (Prop_carry4_S[1]_CO[2])
+                                                      0.570     4.762 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[16]_i_15/CO[2]
+                         net (fo=23, routed)          0.706     5.468    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[16]_i_15_n_1
+    SLICE_X41Y28         CARRY4 (Prop_carry4_CYINIT_CO[2])
+                                                      0.781     6.249 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[16]_i_14/CO[2]
+                         net (fo=5, routed)           0.368     6.617    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[16]_i_14_n_1
+    SLICE_X41Y29         CARRY4 (Prop_carry4_CYINIT_CO[2])
+                                                      0.781     7.398 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[31]_i_21/CO[2]
+                         net (fo=25, routed)          0.730     8.128    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[31]_i_21_n_1
+    SLICE_X46Y31         CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.784     8.912 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[31]_i_20/CO[3]
+                         net (fo=4, routed)           1.060     9.972    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[31]_i_20_n_0
+    SLICE_X50Y33         LUT2 (Prop_lut2_I1_O)        0.124    10.096 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc[31]_i_12/O
+                         net (fo=1, routed)           0.000    10.096    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc[31]_i_12_n_0
+    SLICE_X50Y33         CARRY4 (Prop_carry4_S[1]_CO[1])
+                                                      0.492    10.588 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc_reg[31]_i_4/CO[1]
+                         net (fo=32, routed)          0.873    11.461    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc_reg[31]_i_4_n_2
+    SLICE_X53Y26         LUT3 (Prop_lut3_I1_O)        0.332    11.793 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc[9]_i_1/O
+                         net (fo=2, routed)           0.513    12.306    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/next_acc[9]
+    SLICE_X52Y26         FDRE                                         r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc_reg[9]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                     10.000    10.000 r  
+    PS7_X0Y0             PS7                          0.000    10.000 r  design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.088    11.088    design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    11.179 r  design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=8697, routed)        1.467    12.646    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/clk
+    SLICE_X52Y26         FDRE                                         r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc_reg[9]/C
+                         clock pessimism              0.129    12.775    
+                         clock uncertainty           -0.154    12.621    
+    SLICE_X52Y26         FDRE (Setup_fdre_C_D)       -0.108    12.513    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc_reg[9]
+  -------------------------------------------------------------------
+                         required time                         12.513    
+                         arrival time                         -12.306    
+  -------------------------------------------------------------------
+                         slack                                  0.208    
+
+Slack (MET) :             0.227ns  (required time - arrival time)
+  Source:                 design_1_i/poly_mul4096_axis_0/inst/core/inverse/cyclic_transform/butterfly/multiplier/modulus_reg[29]/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            design_1_i/poly_mul4096_axis_0/inst/core/inverse/cyclic_transform/butterfly/multiplier/acc_reg[14]/D
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk_fpga_0 rise@10.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        9.449ns  (logic 4.473ns (47.340%)  route 4.976ns (52.660%))
+  Logic Levels:           8  (CARRY4=5 LUT1=1 LUT2=1 LUT3=1)
+  Clock Path Skew:        -0.067ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.734ns = ( 12.734 - 10.000 ) 
+    Source Clock Delay      (SCD):    3.031ns
+    Clock Pessimism Removal (CPR):    0.230ns
+  Clock Uncertainty:      0.154ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.300ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.193     1.193    design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=8697, routed)        1.737     3.031    design_1_i/poly_mul4096_axis_0/inst/core/inverse/cyclic_transform/butterfly/multiplier/clk
+    SLICE_X15Y24         FDRE                                         r  design_1_i/poly_mul4096_axis_0/inst/core/inverse/cyclic_transform/butterfly/multiplier/modulus_reg[29]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X15Y24         FDRE (Prop_fdre_C_Q)         0.456     3.487 f  design_1_i/poly_mul4096_axis_0/inst/core/inverse/cyclic_transform/butterfly/multiplier/modulus_reg[29]/Q
+                         net (fo=115, routed)         0.239     3.726    design_1_i/poly_mul4096_axis_0/inst/core/inverse/cyclic_transform/butterfly/multiplier/p_0_in_0[30]
+    SLICE_X14Y24         LUT1 (Prop_lut1_I0_O)        0.124     3.850 r  design_1_i/poly_mul4096_axis_0/inst/core/inverse/cyclic_transform/butterfly/multiplier/x[5]_i_4__3/O
+                         net (fo=2, routed)           0.372     4.222    design_1_i/poly_mul4096_axis_0/inst/core/inverse/cyclic_transform/butterfly/multiplier/x[5]_i_4__3_n_0
+    SLICE_X14Y25         CARRY4 (Prop_carry4_CYINIT_CO[2])
+                                                      0.608     4.830 r  design_1_i/poly_mul4096_axis_0/inst/core/inverse/cyclic_transform/butterfly/multiplier/x_reg[16]_i_9/CO[2]
+                         net (fo=23, routed)          0.345     5.176    design_1_i/poly_mul4096_axis_0/inst/core/inverse/cyclic_transform/butterfly/multiplier/x_reg[16]_i_9_n_1
+    SLICE_X14Y26         CARRY4 (Prop_carry4_CYINIT_CO[2])
+                                                      0.794     5.970 r  design_1_i/poly_mul4096_axis_0/inst/core/inverse/cyclic_transform/butterfly/multiplier/x_reg[16]_i_8/CO[2]
+                         net (fo=5, routed)           0.510     6.480    design_1_i/poly_mul4096_axis_0/inst/core/inverse/cyclic_transform/butterfly/multiplier/x_reg[16]_i_8_n_1
+    SLICE_X19Y27         CARRY4 (Prop_carry4_CYINIT_CO[2])
+                                                      0.778     7.258 r  design_1_i/poly_mul4096_axis_0/inst/core/inverse/cyclic_transform/butterfly/multiplier/x_reg[31]_i_12__1/CO[2]
+                         net (fo=25, routed)          0.477     7.735    design_1_i/poly_mul4096_axis_0/inst/core/inverse/cyclic_transform/butterfly/multiplier/x_reg[31]_i_12__1_n_1
+    SLICE_X19Y28         CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.769     8.504 r  design_1_i/poly_mul4096_axis_0/inst/core/inverse/cyclic_transform/butterfly/multiplier/x_reg[31]_i_11/CO[3]
+                         net (fo=4, routed)           1.423     9.927    design_1_i/poly_mul4096_axis_0/inst/core/inverse/cyclic_transform/butterfly/multiplier/x_reg[31]_i_11_n_0
+    SLICE_X25Y30         LUT2 (Prop_lut2_I1_O)        0.124    10.051 r  design_1_i/poly_mul4096_axis_0/inst/core/inverse/cyclic_transform/butterfly/multiplier/acc[31]_i_10__1/O
+                         net (fo=1, routed)           0.000    10.051    design_1_i/poly_mul4096_axis_0/inst/core/inverse/cyclic_transform/butterfly/multiplier/acc[31]_i_10__1_n_0
+    SLICE_X25Y30         CARRY4 (Prop_carry4_S[1]_CO[1])
+                                                      0.491    10.542 r  design_1_i/poly_mul4096_axis_0/inst/core/inverse/cyclic_transform/butterfly/multiplier/acc_reg[31]_i_4__3/CO[1]
+                         net (fo=32, routed)          1.031    11.573    design_1_i/poly_mul4096_axis_0/inst/core/inverse/cyclic_transform/butterfly/multiplier/acc_reg[31]_i_4__3_n_2
+    SLICE_X27Y24         LUT3 (Prop_lut3_I1_O)        0.329    11.902 r  design_1_i/poly_mul4096_axis_0/inst/core/inverse/cyclic_transform/butterfly/multiplier/acc[14]_i_1__3/O
+                         net (fo=2, routed)           0.577    12.480    design_1_i/poly_mul4096_axis_0/inst/core/inverse/cyclic_transform/butterfly/multiplier/next_acc[14]
+    SLICE_X24Y24         FDRE                                         r  design_1_i/poly_mul4096_axis_0/inst/core/inverse/cyclic_transform/butterfly/multiplier/acc_reg[14]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                     10.000    10.000 r  
+    PS7_X0Y0             PS7                          0.000    10.000 r  design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.088    11.088    design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    11.179 r  design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=8697, routed)        1.555    12.734    design_1_i/poly_mul4096_axis_0/inst/core/inverse/cyclic_transform/butterfly/multiplier/clk
+    SLICE_X24Y24         FDRE                                         r  design_1_i/poly_mul4096_axis_0/inst/core/inverse/cyclic_transform/butterfly/multiplier/acc_reg[14]/C
+                         clock pessimism              0.230    12.964    
+                         clock uncertainty           -0.154    12.810    
+    SLICE_X24Y24         FDRE (Setup_fdre_C_D)       -0.103    12.707    design_1_i/poly_mul4096_axis_0/inst/core/inverse/cyclic_transform/butterfly/multiplier/acc_reg[14]
+  -------------------------------------------------------------------
+                         required time                         12.707    
+                         arrival time                         -12.480    
+  -------------------------------------------------------------------
+                         slack                                  0.227    
+
+Slack (MET) :             0.228ns  (required time - arrival time)
+  Source:                 design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/modulus_reg[29]/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc_reg[6]/D
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk_fpga_0 rise@10.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        9.384ns  (logic 4.444ns (47.355%)  route 4.940ns (52.645%))
+  Logic Levels:           8  (CARRY4=5 LUT1=1 LUT2=1 LUT3=1)
+  Clock Path Skew:        -0.167ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.646ns = ( 12.646 - 10.000 ) 
+    Source Clock Delay      (SCD):    2.942ns
+    Clock Pessimism Removal (CPR):    0.129ns
+  Clock Uncertainty:      0.154ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.300ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.193     1.193    design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=8697, routed)        1.648     2.942    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/clk
+    SLICE_X43Y24         FDRE                                         r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/modulus_reg[29]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X43Y24         FDRE (Prop_fdre_C_Q)         0.456     3.398 f  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/modulus_reg[29]/Q
+                         net (fo=116, routed)         0.670     4.068    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/p_0_in[30]
+    SLICE_X43Y24         LUT1 (Prop_lut1_I0_O)        0.124     4.192 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x[16]_i_17/O
+                         net (fo=1, routed)           0.000     4.192    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x[16]_i_17_n_0
+    SLICE_X43Y24         CARRY4 (Prop_carry4_S[1]_CO[2])
+                                                      0.570     4.762 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[16]_i_15/CO[2]
+                         net (fo=23, routed)          0.706     5.468    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[16]_i_15_n_1
+    SLICE_X41Y28         CARRY4 (Prop_carry4_CYINIT_CO[2])
+                                                      0.781     6.249 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[16]_i_14/CO[2]
+                         net (fo=5, routed)           0.368     6.617    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[16]_i_14_n_1
+    SLICE_X41Y29         CARRY4 (Prop_carry4_CYINIT_CO[2])
+                                                      0.781     7.398 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[31]_i_21/CO[2]
+                         net (fo=25, routed)          0.730     8.128    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[31]_i_21_n_1
+    SLICE_X46Y31         CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.784     8.912 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[31]_i_20/CO[3]
+                         net (fo=4, routed)           1.060     9.972    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[31]_i_20_n_0
+    SLICE_X50Y33         LUT2 (Prop_lut2_I1_O)        0.124    10.096 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc[31]_i_12/O
+                         net (fo=1, routed)           0.000    10.096    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc[31]_i_12_n_0
+    SLICE_X50Y33         CARRY4 (Prop_carry4_S[1]_CO[1])
+                                                      0.492    10.588 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc_reg[31]_i_4/CO[1]
+                         net (fo=32, routed)          1.211    11.799    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc_reg[31]_i_4_n_2
+    SLICE_X53Y23         LUT3 (Prop_lut3_I1_O)        0.332    12.131 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc[6]_i_1/O
+                         net (fo=2, routed)           0.195    12.326    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/next_acc[6]
+    SLICE_X52Y23         FDRE                                         r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc_reg[6]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                     10.000    10.000 r  
+    PS7_X0Y0             PS7                          0.000    10.000 r  design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.088    11.088    design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    11.179 r  design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=8697, routed)        1.467    12.646    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/clk
+    SLICE_X52Y23         FDRE                                         r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc_reg[6]/C
+                         clock pessimism              0.129    12.775    
+                         clock uncertainty           -0.154    12.621    
+    SLICE_X52Y23         FDRE (Setup_fdre_C_D)       -0.067    12.554    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc_reg[6]
+  -------------------------------------------------------------------
+                         required time                         12.554    
+                         arrival time                         -12.326    
+  -------------------------------------------------------------------
+                         slack                                  0.228    
+
+Slack (MET) :             0.230ns  (required time - arrival time)
+  Source:                 design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/modulus_reg[29]/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/result_reg[3]/D
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk_fpga_0 rise@10.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        9.408ns  (logic 4.444ns (47.238%)  route 4.964ns (52.762%))
+  Logic Levels:           8  (CARRY4=5 LUT1=1 LUT2=1 LUT3=1)
+  Clock Path Skew:        -0.169ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.644ns = ( 12.644 - 10.000 ) 
+    Source Clock Delay      (SCD):    2.942ns
+    Clock Pessimism Removal (CPR):    0.129ns
+  Clock Uncertainty:      0.154ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.300ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.193     1.193    design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=8697, routed)        1.648     2.942    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/clk
+    SLICE_X43Y24         FDRE                                         r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/modulus_reg[29]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X43Y24         FDRE (Prop_fdre_C_Q)         0.456     3.398 f  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/modulus_reg[29]/Q
+                         net (fo=116, routed)         0.670     4.068    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/p_0_in[30]
+    SLICE_X43Y24         LUT1 (Prop_lut1_I0_O)        0.124     4.192 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x[16]_i_17/O
+                         net (fo=1, routed)           0.000     4.192    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x[16]_i_17_n_0
+    SLICE_X43Y24         CARRY4 (Prop_carry4_S[1]_CO[2])
+                                                      0.570     4.762 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[16]_i_15/CO[2]
+                         net (fo=23, routed)          0.706     5.468    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[16]_i_15_n_1
+    SLICE_X41Y28         CARRY4 (Prop_carry4_CYINIT_CO[2])
+                                                      0.781     6.249 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[16]_i_14/CO[2]
+                         net (fo=5, routed)           0.368     6.617    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[16]_i_14_n_1
+    SLICE_X41Y29         CARRY4 (Prop_carry4_CYINIT_CO[2])
+                                                      0.781     7.398 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[31]_i_21/CO[2]
+                         net (fo=25, routed)          0.730     8.128    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[31]_i_21_n_1
+    SLICE_X46Y31         CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.784     8.912 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[31]_i_20/CO[3]
+                         net (fo=4, routed)           1.060     9.972    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[31]_i_20_n_0
+    SLICE_X50Y33         LUT2 (Prop_lut2_I1_O)        0.124    10.096 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc[31]_i_12/O
+                         net (fo=1, routed)           0.000    10.096    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc[31]_i_12_n_0
+    SLICE_X50Y33         CARRY4 (Prop_carry4_S[1]_CO[1])
+                                                      0.492    10.588 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc_reg[31]_i_4/CO[1]
+                         net (fo=32, routed)          1.020    11.608    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc_reg[31]_i_4_n_2
+    SLICE_X50Y24         LUT3 (Prop_lut3_I1_O)        0.332    11.940 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc[3]_i_1/O
+                         net (fo=2, routed)           0.409    12.350    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/next_acc[3]
+    SLICE_X53Y24         FDRE                                         r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/result_reg[3]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                     10.000    10.000 r  
+    PS7_X0Y0             PS7                          0.000    10.000 r  design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.088    11.088    design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    11.179 r  design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=8697, routed)        1.465    12.644    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/clk
+    SLICE_X53Y24         FDRE                                         r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/result_reg[3]/C
+                         clock pessimism              0.129    12.773    
+                         clock uncertainty           -0.154    12.619    
+    SLICE_X53Y24         FDRE (Setup_fdre_C_D)       -0.040    12.579    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/result_reg[3]
+  -------------------------------------------------------------------
+                         required time                         12.579    
+                         arrival time                         -12.350    
+  -------------------------------------------------------------------
+                         slack                                  0.230    
+
+Slack (MET) :             0.233ns  (required time - arrival time)
+  Source:                 design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/modulus_reg[29]/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc_reg[2]/D
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk_fpga_0 rise@10.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        9.403ns  (logic 4.444ns (47.260%)  route 4.959ns (52.740%))
+  Logic Levels:           8  (CARRY4=5 LUT1=1 LUT2=1 LUT3=1)
+  Clock Path Skew:        -0.167ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.646ns = ( 12.646 - 10.000 ) 
+    Source Clock Delay      (SCD):    2.942ns
+    Clock Pessimism Removal (CPR):    0.129ns
+  Clock Uncertainty:      0.154ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.300ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.193     1.193    design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=8697, routed)        1.648     2.942    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/clk
+    SLICE_X43Y24         FDRE                                         r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/modulus_reg[29]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X43Y24         FDRE (Prop_fdre_C_Q)         0.456     3.398 f  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/modulus_reg[29]/Q
+                         net (fo=116, routed)         0.670     4.068    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/p_0_in[30]
+    SLICE_X43Y24         LUT1 (Prop_lut1_I0_O)        0.124     4.192 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x[16]_i_17/O
+                         net (fo=1, routed)           0.000     4.192    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x[16]_i_17_n_0
+    SLICE_X43Y24         CARRY4 (Prop_carry4_S[1]_CO[2])
+                                                      0.570     4.762 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[16]_i_15/CO[2]
+                         net (fo=23, routed)          0.706     5.468    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[16]_i_15_n_1
+    SLICE_X41Y28         CARRY4 (Prop_carry4_CYINIT_CO[2])
+                                                      0.781     6.249 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[16]_i_14/CO[2]
+                         net (fo=5, routed)           0.368     6.617    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[16]_i_14_n_1
+    SLICE_X41Y29         CARRY4 (Prop_carry4_CYINIT_CO[2])
+                                                      0.781     7.398 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[31]_i_21/CO[2]
+                         net (fo=25, routed)          0.730     8.128    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[31]_i_21_n_1
+    SLICE_X46Y31         CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.784     8.912 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[31]_i_20/CO[3]
+                         net (fo=4, routed)           1.060     9.972    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[31]_i_20_n_0
+    SLICE_X50Y33         LUT2 (Prop_lut2_I1_O)        0.124    10.096 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc[31]_i_12/O
+                         net (fo=1, routed)           0.000    10.096    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc[31]_i_12_n_0
+    SLICE_X50Y33         CARRY4 (Prop_carry4_S[1]_CO[1])
+                                                      0.492    10.588 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc_reg[31]_i_4/CO[1]
+                         net (fo=32, routed)          1.102    11.690    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc_reg[31]_i_4_n_2
+    SLICE_X53Y23         LUT3 (Prop_lut3_I1_O)        0.332    12.022 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc[2]_i_1/O
+                         net (fo=2, routed)           0.323    12.345    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/next_acc[2]
+    SLICE_X51Y23         FDRE                                         r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc_reg[2]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                     10.000    10.000 r  
+    PS7_X0Y0             PS7                          0.000    10.000 r  design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.088    11.088    design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    11.179 r  design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=8697, routed)        1.467    12.646    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/clk
+    SLICE_X51Y23         FDRE                                         r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc_reg[2]/C
+                         clock pessimism              0.129    12.775    
+                         clock uncertainty           -0.154    12.621    
+    SLICE_X51Y23         FDRE (Setup_fdre_C_D)       -0.043    12.578    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc_reg[2]
+  -------------------------------------------------------------------
+                         required time                         12.578    
+                         arrival time                         -12.345    
+  -------------------------------------------------------------------
+                         slack                                  0.233    
+
+Slack (MET) :             0.235ns  (required time - arrival time)
+  Source:                 design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/modulus_reg[29]/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/result_reg[11]/D
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk_fpga_0 rise@10.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        9.382ns  (logic 4.444ns (47.369%)  route 4.938ns (52.631%))
+  Logic Levels:           8  (CARRY4=5 LUT1=1 LUT2=1 LUT3=1)
+  Clock Path Skew:        -0.169ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.644ns = ( 12.644 - 10.000 ) 
+    Source Clock Delay      (SCD):    2.942ns
+    Clock Pessimism Removal (CPR):    0.129ns
+  Clock Uncertainty:      0.154ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.300ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.193     1.193    design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=8697, routed)        1.648     2.942    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/clk
+    SLICE_X43Y24         FDRE                                         r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/modulus_reg[29]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X43Y24         FDRE (Prop_fdre_C_Q)         0.456     3.398 f  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/modulus_reg[29]/Q
+                         net (fo=116, routed)         0.670     4.068    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/p_0_in[30]
+    SLICE_X43Y24         LUT1 (Prop_lut1_I0_O)        0.124     4.192 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x[16]_i_17/O
+                         net (fo=1, routed)           0.000     4.192    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x[16]_i_17_n_0
+    SLICE_X43Y24         CARRY4 (Prop_carry4_S[1]_CO[2])
+                                                      0.570     4.762 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[16]_i_15/CO[2]
+                         net (fo=23, routed)          0.706     5.468    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[16]_i_15_n_1
+    SLICE_X41Y28         CARRY4 (Prop_carry4_CYINIT_CO[2])
+                                                      0.781     6.249 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[16]_i_14/CO[2]
+                         net (fo=5, routed)           0.368     6.617    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[16]_i_14_n_1
+    SLICE_X41Y29         CARRY4 (Prop_carry4_CYINIT_CO[2])
+                                                      0.781     7.398 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[31]_i_21/CO[2]
+                         net (fo=25, routed)          0.730     8.128    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[31]_i_21_n_1
+    SLICE_X46Y31         CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.784     8.912 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[31]_i_20/CO[3]
+                         net (fo=4, routed)           1.060     9.972    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/x_reg[31]_i_20_n_0
+    SLICE_X50Y33         LUT2 (Prop_lut2_I1_O)        0.124    10.096 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc[31]_i_12/O
+                         net (fo=1, routed)           0.000    10.096    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc[31]_i_12_n_0
+    SLICE_X50Y33         CARRY4 (Prop_carry4_S[1]_CO[1])
+                                                      0.492    10.588 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc_reg[31]_i_4/CO[1]
+                         net (fo=32, routed)          1.035    11.623    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc_reg[31]_i_4_n_2
+    SLICE_X50Y24         LUT3 (Prop_lut3_I1_O)        0.332    11.955 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/acc[11]_i_1/O
+                         net (fo=2, routed)           0.369    12.324    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/next_acc[11]
+    SLICE_X53Y25         FDRE                                         r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/result_reg[11]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                     10.000    10.000 r  
+    PS7_X0Y0             PS7                          0.000    10.000 r  design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.088    11.088    design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    11.179 r  design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=8697, routed)        1.465    12.644    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/clk
+    SLICE_X53Y25         FDRE                                         r  design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/result_reg[11]/C
+                         clock pessimism              0.129    12.773    
+                         clock uncertainty           -0.154    12.619    
+    SLICE_X53Y25         FDRE (Setup_fdre_C_D)       -0.061    12.558    design_1_i/poly_mul4096_axis_0/inst/core/forward_a/preprocessing_multiplier/result_reg[11]
+  -------------------------------------------------------------------
+                         required time                         12.558    
+                         arrival time                         -12.324    
+  -------------------------------------------------------------------
+                         slack                                  0.235    
+
+Slack (MET) :             0.255ns  (required time - arrival time)
+  Source:                 design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/modulus_reg[29]/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/result_reg[7]/D
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk_fpga_0 rise@10.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        9.382ns  (logic 4.515ns (48.124%)  route 4.867ns (51.876%))
+  Logic Levels:           9  (CARRY4=5 LUT1=1 LUT2=1 LUT3=1 LUT6=1)
+  Clock Path Skew:        -0.148ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.672ns = ( 12.672 - 10.000 ) 
+    Source Clock Delay      (SCD):    2.949ns
+    Clock Pessimism Removal (CPR):    0.129ns
+  Clock Uncertainty:      0.154ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.300ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.193     1.193    design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=8697, routed)        1.655     2.949    design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/clk
+    SLICE_X53Y8          FDRE                                         r  design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/modulus_reg[29]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X53Y8          FDRE (Prop_fdre_C_Q)         0.456     3.405 f  design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/modulus_reg[29]/Q
+                         net (fo=113, routed)         0.537     3.942    design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/p_0_in_0[30]
+    SLICE_X53Y8          LUT1 (Prop_lut1_I0_O)        0.124     4.066 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/x[1]_i_13__0/O
+                         net (fo=1, routed)           0.000     4.066    design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/x[1]_i_13__0_n_0
+    SLICE_X53Y8          CARRY4 (Prop_carry4_S[1]_CO[2])
+                                                      0.570     4.636 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/x_reg[1]_i_11__0/CO[2]
+                         net (fo=23, routed)          0.422     5.058    design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/x_reg[1]_i_11__0_n_1
+    SLICE_X53Y7          CARRY4 (Prop_carry4_CYINIT_CO[2])
+                                                      0.781     5.839 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/acc_reg[19]_i_8__0/CO[2]
+                         net (fo=5, routed)           0.351     6.190    design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/acc_reg[19]_i_8__0_n_1
+    SLICE_X53Y9          CARRY4 (Prop_carry4_CYINIT_CO[2])
+                                                      0.781     6.971 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/acc_reg[31]_i_12__0/CO[2]
+                         net (fo=25, routed)          0.581     7.553    design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/acc_reg[31]_i_12__0_n_1
+    SLICE_X53Y12         CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.769     8.322 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/x_reg[1]_i_12__0/CO[3]
+                         net (fo=4, routed)           1.138     9.460    design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/x_reg[1]_i_12__0_n_0
+    SLICE_X51Y14         LUT2 (Prop_lut2_I1_O)        0.124     9.584 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/acc[31]_i_7__0/O
+                         net (fo=1, routed)           0.000     9.584    design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/acc[31]_i_7__0_n_0
+    SLICE_X51Y14         CARRY4 (Prop_carry4_S[0]_CO[1])
+                                                      0.457    10.041 f  design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/acc_reg[31]_i_3__2/CO[1]
+                         net (fo=63, routed)          0.605    10.646    design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/acc_reg[31]_i_3__2_n_2
+    SLICE_X53Y15         LUT6 (Prop_lut6_I3_O)        0.329    10.975 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/acc[7]_i_3__2/O
+                         net (fo=1, routed)           0.475    11.450    design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/acc[7]_i_3__2_n_0
+    SLICE_X53Y15         LUT3 (Prop_lut3_I2_O)        0.124    11.574 r  design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/acc[7]_i_1__2/O
+                         net (fo=2, routed)           0.757    12.331    design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/next_acc[7]
+    SLICE_X48Y6          FDRE                                         r  design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/result_reg[7]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                     10.000    10.000 r  
+    PS7_X0Y0             PS7                          0.000    10.000 r  design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.088    11.088    design_1_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    11.179 r  design_1_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=8697, routed)        1.493    12.672    design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/clk
+    SLICE_X48Y6          FDRE                                         r  design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/result_reg[7]/C
+                         clock pessimism              0.129    12.801    
+                         clock uncertainty           -0.154    12.647    
+    SLICE_X48Y6          FDRE (Setup_fdre_C_D)       -0.061    12.586    design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/butterfly/multiplier/result_reg[7]
+  -------------------------------------------------------------------
+                         required time                         12.586    
+                         arrival time                         -12.331    
+  -------------------------------------------------------------------
+                         slack                                  0.255    
+
+
+
+
+
+Pulse Width Checks
+--------------------------------------------------------------------------------------
+Clock Name:         clk_fpga_0
+Waveform(ns):       { 0.000 5.000 }
+Period(ns):         10.000
+Sources:            { design_1_i/processing_system7_0/inst/PS7_i/FCLKCLK[0] }
+
+Check Type        Corner  Lib Pin             Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location      Pin
+Min Period        n/a     RAMB36E1/CLKARDCLK  n/a            2.944         10.000      7.056      RAMB36_X3Y5   design_1_i/poly_mul4096_axis_0/inst/core/forward_a/cyclic_transform/coefficient_memory/memory_reg_0/CLKARDCLK
+Min Period        n/a     RAMB36E1/CLKBWRCLK  n/a            2.944         10.000      7.056      RAMB36_X3Y5   design_1_i/poly_mul4096_axis_0/inst/core/forward_a/cyclic_transform/coefficient_memory/memory_reg_0/CLKBWRCLK
+Min Period        n/a     RAMB36E1/CLKARDCLK  n/a            2.944         10.000      7.056      RAMB36_X3Y4   design_1_i/poly_mul4096_axis_0/inst/core/forward_a/cyclic_transform/coefficient_memory/memory_reg_1/CLKARDCLK
+Min Period        n/a     RAMB36E1/CLKBWRCLK  n/a            2.944         10.000      7.056      RAMB36_X3Y4   design_1_i/poly_mul4096_axis_0/inst/core/forward_a/cyclic_transform/coefficient_memory/memory_reg_1/CLKBWRCLK
+Min Period        n/a     RAMB36E1/CLKARDCLK  n/a            2.944         10.000      7.056      RAMB36_X4Y5   design_1_i/poly_mul4096_axis_0/inst/core/forward_a/cyclic_transform/coefficient_memory/memory_reg_2/CLKARDCLK
+Min Period        n/a     RAMB36E1/CLKBWRCLK  n/a            2.944         10.000      7.056      RAMB36_X4Y5   design_1_i/poly_mul4096_axis_0/inst/core/forward_a/cyclic_transform/coefficient_memory/memory_reg_2/CLKBWRCLK
+Min Period        n/a     RAMB36E1/CLKARDCLK  n/a            2.944         10.000      7.056      RAMB36_X4Y4   design_1_i/poly_mul4096_axis_0/inst/core/forward_a/cyclic_transform/coefficient_memory/memory_reg_3/CLKARDCLK
+Min Period        n/a     RAMB36E1/CLKBWRCLK  n/a            2.944         10.000      7.056      RAMB36_X4Y4   design_1_i/poly_mul4096_axis_0/inst/core/forward_a/cyclic_transform/coefficient_memory/memory_reg_3/CLKBWRCLK
+Min Period        n/a     RAMB36E1/CLKARDCLK  n/a            2.944         10.000      7.056      RAMB36_X2Y0   design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/coefficient_memory/memory_reg_0/CLKARDCLK
+Min Period        n/a     RAMB36E1/CLKBWRCLK  n/a            2.944         10.000      7.056      RAMB36_X2Y0   design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/coefficient_memory/memory_reg_0/CLKBWRCLK
+Min Period        n/a     RAMB36E1/CLKARDCLK  n/a            2.944         10.000      7.056      RAMB36_X2Y1   design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/coefficient_memory/memory_reg_1/CLKARDCLK
+Min Period        n/a     RAMB36E1/CLKBWRCLK  n/a            2.944         10.000      7.056      RAMB36_X2Y1   design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/coefficient_memory/memory_reg_1/CLKBWRCLK
+Min Period        n/a     RAMB36E1/CLKARDCLK  n/a            2.944         10.000      7.056      RAMB36_X1Y1   design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/coefficient_memory/memory_reg_2/CLKARDCLK
+Min Period        n/a     RAMB36E1/CLKBWRCLK  n/a            2.944         10.000      7.056      RAMB36_X1Y1   design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/coefficient_memory/memory_reg_2/CLKBWRCLK
+Min Period        n/a     RAMB36E1/CLKARDCLK  n/a            2.944         10.000      7.056      RAMB36_X1Y0   design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/coefficient_memory/memory_reg_3/CLKARDCLK
+Min Period        n/a     RAMB36E1/CLKBWRCLK  n/a            2.944         10.000      7.056      RAMB36_X1Y0   design_1_i/poly_mul4096_axis_0/inst/core/forward_b/cyclic_transform/coefficient_memory/memory_reg_3/CLKBWRCLK
+Min Period        n/a     RAMB36E1/CLKARDCLK  n/a            2.944         10.000      7.056      RAMB36_X1Y5   design_1_i/poly_mul4096_axis_0/inst/core/inverse/cyclic_transform/coefficient_memory/memory_reg_0/CLKARDCLK
+Min Period        n/a     RAMB36E1/CLKBWRCLK  n/a            2.944         10.000      7.056      RAMB36_X1Y5   design_1_i/poly_mul4096_axis_0/inst/core/inverse/cyclic_transform/coefficient_memory/memory_reg_0/CLKBWRCLK
+Min Period        n/a     RAMB36E1/CLKARDCLK  n/a            2.944         10.000      7.056      RAMB36_X1Y7   design_1_i/poly_mul4096_axis_0/inst/core/inverse/cyclic_transform/coefficient_memory/memory_reg_1/CLKARDCLK
+Min Period        n/a     RAMB36E1/CLKBWRCLK  n/a            2.944         10.000      7.056      RAMB36_X1Y7   design_1_i/poly_mul4096_axis_0/inst/core/inverse/cyclic_transform/coefficient_memory/memory_reg_1/CLKBWRCLK
+Low Pulse Width   Slow    RAMD32/CLK          n/a            1.250         5.000       3.750      SLICE_X58Y73  design_1_i/axi_dma_0/U0/I_PRMRY_DATAMOVER/GEN_S2MM_FULL.I_S2MM_FULL_WRAPPER/GEN_ENABLE_INDET_BTT_SF.I_INDET_BTT/I_XD_FIFO/NON_BLK_MEM.I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance.xpm_fifo_sync_inst/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_15_0_5/RAMA/CLK
+Low Pulse Width   Fast    RAMD32/CLK          n/a            1.250         5.000       3.750      SLICE_X58Y73  design_1_i/axi_dma_0/U0/I_PRMRY_DATAMOVER/GEN_S2MM_FULL.I_S2MM_FULL_WRAPPER/GEN_ENABLE_INDET_BTT_SF.I_INDET_BTT/I_XD_FIFO/NON_BLK_MEM.I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance.xpm_fifo_sync_inst/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_15_0_5/RAMA/CLK
+Low Pulse Width   Slow    RAMD32/CLK          n/a            1.250         5.000       3.750      SLICE_X58Y73  design_1_i/axi_dma_0/U0/I_PRMRY_DATAMOVER/GEN_S2MM_FULL.I_S2MM_FULL_WRAPPER/GEN_ENABLE_INDET_BTT_SF.I_INDET_BTT/I_XD_FIFO/NON_BLK_MEM.I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance.xpm_fifo_sync_inst/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_15_0_5/RAMA_D1/CLK
+Low Pulse Width   Fast    RAMD32/CLK          n/a            1.250         5.000       3.750      SLICE_X58Y73  design_1_i/axi_dma_0/U0/I_PRMRY_DATAMOVER/GEN_S2MM_FULL.I_S2MM_FULL_WRAPPER/GEN_ENABLE_INDET_BTT_SF.I_INDET_BTT/I_XD_FIFO/NON_BLK_MEM.I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance.xpm_fifo_sync_inst/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_15_0_5/RAMA_D1/CLK
+Low Pulse Width   Slow    RAMD32/CLK          n/a            1.250         5.000       3.750      SLICE_X58Y73  design_1_i/axi_dma_0/U0/I_PRMRY_DATAMOVER/GEN_S2MM_FULL.I_S2MM_FULL_WRAPPER/GEN_ENABLE_INDET_BTT_SF.I_INDET_BTT/I_XD_FIFO/NON_BLK_MEM.I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance.xpm_fifo_sync_inst/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_15_0_5/RAMB/CLK
+Low Pulse Width   Fast    RAMD32/CLK          n/a            1.250         5.000       3.750      SLICE_X58Y73  design_1_i/axi_dma_0/U0/I_PRMRY_DATAMOVER/GEN_S2MM_FULL.I_S2MM_FULL_WRAPPER/GEN_ENABLE_INDET_BTT_SF.I_INDET_BTT/I_XD_FIFO/NON_BLK_MEM.I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance.xpm_fifo_sync_inst/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_15_0_5/RAMB/CLK
+Low Pulse Width   Slow    RAMD32/CLK          n/a            1.250         5.000       3.750      SLICE_X58Y73  design_1_i/axi_dma_0/U0/I_PRMRY_DATAMOVER/GEN_S2MM_FULL.I_S2MM_FULL_WRAPPER/GEN_ENABLE_INDET_BTT_SF.I_INDET_BTT/I_XD_FIFO/NON_BLK_MEM.I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance.xpm_fifo_sync_inst/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_15_0_5/RAMB_D1/CLK
+Low Pulse Width   Fast    RAMD32/CLK          n/a            1.250         5.000       3.750      SLICE_X58Y73  design_1_i/axi_dma_0/U0/I_PRMRY_DATAMOVER/GEN_S2MM_FULL.I_S2MM_FULL_WRAPPER/GEN_ENABLE_INDET_BTT_SF.I_INDET_BTT/I_XD_FIFO/NON_BLK_MEM.I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance.xpm_fifo_sync_inst/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_15_0_5/RAMB_D1/CLK
+Low Pulse Width   Slow    RAMD32/CLK          n/a            1.250         5.000       3.750      SLICE_X58Y73  design_1_i/axi_dma_0/U0/I_PRMRY_DATAMOVER/GEN_S2MM_FULL.I_S2MM_FULL_WRAPPER/GEN_ENABLE_INDET_BTT_SF.I_INDET_BTT/I_XD_FIFO/NON_BLK_MEM.I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance.xpm_fifo_sync_inst/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_15_0_5/RAMC/CLK
+Low Pulse Width   Fast    RAMD32/CLK          n/a            1.250         5.000       3.750      SLICE_X58Y73  design_1_i/axi_dma_0/U0/I_PRMRY_DATAMOVER/GEN_S2MM_FULL.I_S2MM_FULL_WRAPPER/GEN_ENABLE_INDET_BTT_SF.I_INDET_BTT/I_XD_FIFO/NON_BLK_MEM.I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance.xpm_fifo_sync_inst/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_15_0_5/RAMC/CLK
+Low Pulse Width   Slow    RAMD32/CLK          n/a            1.250         5.000       3.750      SLICE_X58Y73  design_1_i/axi_dma_0/U0/I_PRMRY_DATAMOVER/GEN_S2MM_FULL.I_S2MM_FULL_WRAPPER/GEN_ENABLE_INDET_BTT_SF.I_INDET_BTT/I_XD_FIFO/NON_BLK_MEM.I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance.xpm_fifo_sync_inst/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_15_0_5/RAMC_D1/CLK
+Low Pulse Width   Fast    RAMD32/CLK          n/a            1.250         5.000       3.750      SLICE_X58Y73  design_1_i/axi_dma_0/U0/I_PRMRY_DATAMOVER/GEN_S2MM_FULL.I_S2MM_FULL_WRAPPER/GEN_ENABLE_INDET_BTT_SF.I_INDET_BTT/I_XD_FIFO/NON_BLK_MEM.I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance.xpm_fifo_sync_inst/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_15_0_5/RAMC_D1/CLK
+Low Pulse Width   Slow    RAMS32/CLK          n/a            1.250         5.000       3.750      SLICE_X58Y73  design_1_i/axi_dma_0/U0/I_PRMRY_DATAMOVER/GEN_S2MM_FULL.I_S2MM_FULL_WRAPPER/GEN_ENABLE_INDET_BTT_SF.I_INDET_BTT/I_XD_FIFO/NON_BLK_MEM.I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance.xpm_fifo_sync_inst/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_15_0_5/RAMD/CLK
+Low Pulse Width   Fast    RAMS32/CLK          n/a            1.250         5.000       3.750      SLICE_X58Y73  design_1_i/axi_dma_0/U0/I_PRMRY_DATAMOVER/GEN_S2MM_FULL.I_S2MM_FULL_WRAPPER/GEN_ENABLE_INDET_BTT_SF.I_INDET_BTT/I_XD_FIFO/NON_BLK_MEM.I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance.xpm_fifo_sync_inst/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_15_0_5/RAMD/CLK
+Low Pulse Width   Slow    RAMS32/CLK          n/a            1.250         5.000       3.750      SLICE_X58Y73  design_1_i/axi_dma_0/U0/I_PRMRY_DATAMOVER/GEN_S2MM_FULL.I_S2MM_FULL_WRAPPER/GEN_ENABLE_INDET_BTT_SF.I_INDET_BTT/I_XD_FIFO/NON_BLK_MEM.I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance.xpm_fifo_sync_inst/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_15_0_5/RAMD_D1/CLK
+Low Pulse Width   Fast    RAMS32/CLK          n/a            1.250         5.000       3.750      SLICE_X58Y73  design_1_i/axi_dma_0/U0/I_PRMRY_DATAMOVER/GEN_S2MM_FULL.I_S2MM_FULL_WRAPPER/GEN_ENABLE_INDET_BTT_SF.I_INDET_BTT/I_XD_FIFO/NON_BLK_MEM.I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance.xpm_fifo_sync_inst/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_15_0_5/RAMD_D1/CLK
+Low Pulse Width   Slow    RAMD32/CLK          n/a            1.250         5.000       3.750      SLICE_X58Y74  design_1_i/axi_dma_0/U0/I_PRMRY_DATAMOVER/GEN_S2MM_FULL.I_S2MM_FULL_WRAPPER/GEN_ENABLE_INDET_BTT_SF.I_INDET_BTT/I_XD_FIFO/NON_BLK_MEM.I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance.xpm_fifo_sync_inst/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_15_6_8/RAMA/CLK
+Low Pulse Width   Fast    RAMD32/CLK          n/a            1.250         5.000       3.750      SLICE_X58Y74  design_1_i/axi_dma_0/U0/I_PRMRY_DATAMOVER/GEN_S2MM_FULL.I_S2MM_FULL_WRAPPER/GEN_ENABLE_INDET_BTT_SF.I_INDET_BTT/I_XD_FIFO/NON_BLK_MEM.I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance.xpm_fifo_sync_inst/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_15_6_8/RAMA/CLK
+Low Pulse Width   Slow    RAMD32/CLK          n/a            1.250         5.000       3.750      SLICE_X58Y74  design_1_i/axi_dma_0/U0/I_PRMRY_DATAMOVER/GEN_S2MM_FULL.I_S2MM_FULL_WRAPPER/GEN_ENABLE_INDET_BTT_SF.I_INDET_BTT/I_XD_FIFO/NON_BLK_MEM.I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance.xpm_fifo_sync_inst/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_15_6_8/RAMA_D1/CLK
+Low Pulse Width   Fast    RAMD32/CLK          n/a            1.250         5.000       3.750      SLICE_X58Y74  design_1_i/axi_dma_0/U0/I_PRMRY_DATAMOVER/GEN_S2MM_FULL.I_S2MM_FULL_WRAPPER/GEN_ENABLE_INDET_BTT_SF.I_INDET_BTT/I_XD_FIFO/NON_BLK_MEM.I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance.xpm_fifo_sync_inst/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_15_6_8/RAMA_D1/CLK
+High Pulse Width  Slow    RAMD32/CLK          n/a            1.250         5.000       3.750      SLICE_X58Y73  design_1_i/axi_dma_0/U0/I_PRMRY_DATAMOVER/GEN_S2MM_FULL.I_S2MM_FULL_WRAPPER/GEN_ENABLE_INDET_BTT_SF.I_INDET_BTT/I_XD_FIFO/NON_BLK_MEM.I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance.xpm_fifo_sync_inst/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_15_0_5/RAMA/CLK
+High Pulse Width  Fast    RAMD32/CLK          n/a            1.250         5.000       3.750      SLICE_X58Y73  design_1_i/axi_dma_0/U0/I_PRMRY_DATAMOVER/GEN_S2MM_FULL.I_S2MM_FULL_WRAPPER/GEN_ENABLE_INDET_BTT_SF.I_INDET_BTT/I_XD_FIFO/NON_BLK_MEM.I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance.xpm_fifo_sync_inst/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_15_0_5/RAMA/CLK
+High Pulse Width  Slow    RAMD32/CLK          n/a            1.250         5.000       3.750      SLICE_X58Y73  design_1_i/axi_dma_0/U0/I_PRMRY_DATAMOVER/GEN_S2MM_FULL.I_S2MM_FULL_WRAPPER/GEN_ENABLE_INDET_BTT_SF.I_INDET_BTT/I_XD_FIFO/NON_BLK_MEM.I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance.xpm_fifo_sync_inst/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_15_0_5/RAMA_D1/CLK
+High Pulse Width  Fast    RAMD32/CLK          n/a            1.250         5.000       3.750      SLICE_X58Y73  design_1_i/axi_dma_0/U0/I_PRMRY_DATAMOVER/GEN_S2MM_FULL.I_S2MM_FULL_WRAPPER/GEN_ENABLE_INDET_BTT_SF.I_INDET_BTT/I_XD_FIFO/NON_BLK_MEM.I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance.xpm_fifo_sync_inst/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_15_0_5/RAMA_D1/CLK
+High Pulse Width  Slow    RAMD32/CLK          n/a            1.250         5.000       3.750      SLICE_X58Y73  design_1_i/axi_dma_0/U0/I_PRMRY_DATAMOVER/GEN_S2MM_FULL.I_S2MM_FULL_WRAPPER/GEN_ENABLE_INDET_BTT_SF.I_INDET_BTT/I_XD_FIFO/NON_BLK_MEM.I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance.xpm_fifo_sync_inst/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_15_0_5/RAMB/CLK
+High Pulse Width  Fast    RAMD32/CLK          n/a            1.250         5.000       3.750      SLICE_X58Y73  design_1_i/axi_dma_0/U0/I_PRMRY_DATAMOVER/GEN_S2MM_FULL.I_S2MM_FULL_WRAPPER/GEN_ENABLE_INDET_BTT_SF.I_INDET_BTT/I_XD_FIFO/NON_BLK_MEM.I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance.xpm_fifo_sync_inst/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_15_0_5/RAMB/CLK
+High Pulse Width  Slow    RAMD32/CLK          n/a            1.250         5.000       3.750      SLICE_X58Y73  design_1_i/axi_dma_0/U0/I_PRMRY_DATAMOVER/GEN_S2MM_FULL.I_S2MM_FULL_WRAPPER/GEN_ENABLE_INDET_BTT_SF.I_INDET_BTT/I_XD_FIFO/NON_BLK_MEM.I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance.xpm_fifo_sync_inst/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_15_0_5/RAMB_D1/CLK
+High Pulse Width  Fast    RAMD32/CLK          n/a            1.250         5.000       3.750      SLICE_X58Y73  design_1_i/axi_dma_0/U0/I_PRMRY_DATAMOVER/GEN_S2MM_FULL.I_S2MM_FULL_WRAPPER/GEN_ENABLE_INDET_BTT_SF.I_INDET_BTT/I_XD_FIFO/NON_BLK_MEM.I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance.xpm_fifo_sync_inst/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_15_0_5/RAMB_D1/CLK
+High Pulse Width  Slow    RAMD32/CLK          n/a            1.250         5.000       3.750      SLICE_X58Y73  design_1_i/axi_dma_0/U0/I_PRMRY_DATAMOVER/GEN_S2MM_FULL.I_S2MM_FULL_WRAPPER/GEN_ENABLE_INDET_BTT_SF.I_INDET_BTT/I_XD_FIFO/NON_BLK_MEM.I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance.xpm_fifo_sync_inst/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_15_0_5/RAMC/CLK
+High Pulse Width  Fast    RAMD32/CLK          n/a            1.250         5.000       3.750      SLICE_X58Y73  design_1_i/axi_dma_0/U0/I_PRMRY_DATAMOVER/GEN_S2MM_FULL.I_S2MM_FULL_WRAPPER/GEN_ENABLE_INDET_BTT_SF.I_INDET_BTT/I_XD_FIFO/NON_BLK_MEM.I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance.xpm_fifo_sync_inst/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_15_0_5/RAMC/CLK
+High Pulse Width  Slow    RAMD32/CLK          n/a            1.250         5.000       3.750      SLICE_X58Y73  design_1_i/axi_dma_0/U0/I_PRMRY_DATAMOVER/GEN_S2MM_FULL.I_S2MM_FULL_WRAPPER/GEN_ENABLE_INDET_BTT_SF.I_INDET_BTT/I_XD_FIFO/NON_BLK_MEM.I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance.xpm_fifo_sync_inst/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_15_0_5/RAMC_D1/CLK
+High Pulse Width  Fast    RAMD32/CLK          n/a            1.250         5.000       3.750      SLICE_X58Y73  design_1_i/axi_dma_0/U0/I_PRMRY_DATAMOVER/GEN_S2MM_FULL.I_S2MM_FULL_WRAPPER/GEN_ENABLE_INDET_BTT_SF.I_INDET_BTT/I_XD_FIFO/NON_BLK_MEM.I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance.xpm_fifo_sync_inst/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_15_0_5/RAMC_D1/CLK
+High Pulse Width  Slow    RAMS32/CLK          n/a            1.250         5.000       3.750      SLICE_X58Y73  design_1_i/axi_dma_0/U0/I_PRMRY_DATAMOVER/GEN_S2MM_FULL.I_S2MM_FULL_WRAPPER/GEN_ENABLE_INDET_BTT_SF.I_INDET_BTT/I_XD_FIFO/NON_BLK_MEM.I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance.xpm_fifo_sync_inst/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_15_0_5/RAMD/CLK
+High Pulse Width  Fast    RAMS32/CLK          n/a            1.250         5.000       3.750      SLICE_X58Y73  design_1_i/axi_dma_0/U0/I_PRMRY_DATAMOVER/GEN_S2MM_FULL.I_S2MM_FULL_WRAPPER/GEN_ENABLE_INDET_BTT_SF.I_INDET_BTT/I_XD_FIFO/NON_BLK_MEM.I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance.xpm_fifo_sync_inst/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_15_0_5/RAMD/CLK
+High Pulse Width  Slow    RAMS32/CLK          n/a            1.250         5.000       3.750      SLICE_X58Y73  design_1_i/axi_dma_0/U0/I_PRMRY_DATAMOVER/GEN_S2MM_FULL.I_S2MM_FULL_WRAPPER/GEN_ENABLE_INDET_BTT_SF.I_INDET_BTT/I_XD_FIFO/NON_BLK_MEM.I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance.xpm_fifo_sync_inst/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_15_0_5/RAMD_D1/CLK
+High Pulse Width  Fast    RAMS32/CLK          n/a            1.250         5.000       3.750      SLICE_X58Y73  design_1_i/axi_dma_0/U0/I_PRMRY_DATAMOVER/GEN_S2MM_FULL.I_S2MM_FULL_WRAPPER/GEN_ENABLE_INDET_BTT_SF.I_INDET_BTT/I_XD_FIFO/NON_BLK_MEM.I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance.xpm_fifo_sync_inst/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_15_0_5/RAMD_D1/CLK
+High Pulse Width  Slow    RAMD32/CLK          n/a            1.250         5.000       3.750      SLICE_X58Y74  design_1_i/axi_dma_0/U0/I_PRMRY_DATAMOVER/GEN_S2MM_FULL.I_S2MM_FULL_WRAPPER/GEN_ENABLE_INDET_BTT_SF.I_INDET_BTT/I_XD_FIFO/NON_BLK_MEM.I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance.xpm_fifo_sync_inst/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_15_6_8/RAMA/CLK
+High Pulse Width  Fast    RAMD32/CLK          n/a            1.250         5.000       3.750      SLICE_X58Y74  design_1_i/axi_dma_0/U0/I_PRMRY_DATAMOVER/GEN_S2MM_FULL.I_S2MM_FULL_WRAPPER/GEN_ENABLE_INDET_BTT_SF.I_INDET_BTT/I_XD_FIFO/NON_BLK_MEM.I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance.xpm_fifo_sync_inst/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_15_6_8/RAMA/CLK
+High Pulse Width  Slow    RAMD32/CLK          n/a            1.250         5.000       3.750      SLICE_X58Y74  design_1_i/axi_dma_0/U0/I_PRMRY_DATAMOVER/GEN_S2MM_FULL.I_S2MM_FULL_WRAPPER/GEN_ENABLE_INDET_BTT_SF.I_INDET_BTT/I_XD_FIFO/NON_BLK_MEM.I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance.xpm_fifo_sync_inst/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_15_6_8/RAMA_D1/CLK
+High Pulse Width  Fast    RAMD32/CLK          n/a            1.250         5.000       3.750      SLICE_X58Y74  design_1_i/axi_dma_0/U0/I_PRMRY_DATAMOVER/GEN_S2MM_FULL.I_S2MM_FULL_WRAPPER/GEN_ENABLE_INDET_BTT_SF.I_INDET_BTT/I_XD_FIFO/NON_BLK_MEM.I_SYNC_FIFOGEN_FIFO/xpm_fifo_instance.xpm_fifo_sync_inst/xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0_15_6_8/RAMA_D1/CLK
+
+
+

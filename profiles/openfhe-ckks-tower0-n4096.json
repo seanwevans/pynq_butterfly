@@ -1,0 +1,14 @@
+{
+  "name": "openfhe-ckks-tower0-n4096",
+  "library": "OpenFHE",
+  "library_version": "1.5.1",
+  "scheme": "CKKS",
+  "tower_index": 0,
+  "ring_dimension": 4096,
+  "cyclotomic_order": 8192,
+  "modulus": 1073692673,
+  "source_ring_dimension": 4096,
+  "source_cyclotomic_order": 8192,
+  "source_root": 236231,
+  "input_seed": 3237998146
+}

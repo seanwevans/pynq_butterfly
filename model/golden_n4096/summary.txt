@@ -1,0 +1,14 @@
+N=4096
+log2(N)=12
+q=1073692673
+source_root=236231
+psi=236231
+omega=1046759038
+psi_inverse=489520520
+omega_inverse=59856447
+n_inverse=1073430541
+compact_twiddle_words_per_direction=4095
+butterflies_per_transform=24576
+modular_multiplications_per_forward_transform=28672
+modular_multiplications_per_inverse_transform=28672
+modular_multiplications_per_product=90112
