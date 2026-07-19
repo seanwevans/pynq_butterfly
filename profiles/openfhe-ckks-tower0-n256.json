@@ -1,0 +1,40 @@
+{
+  "convention": {
+    "butterfly": [
+      "t = twiddle * b mod q",
+      "out_a = a + t mod q",
+      "out_b = a - t mod q"
+    ],
+    "cyclic_algorithm": "radix-2 DIT",
+    "cyclic_input_order": "bit-reversed",
+    "cyclic_output_order": "natural",
+    "forward_twist": "a[j] * psi^j mod q",
+    "inverse_postprocess": "value[j] * N^-1 * psi^-j mod q",
+    "ring": "Z_q[X]/(X^256+1)",
+    "twiddle_rom_layout": "stage-major; stage s begins at 2^s-1 and contains 2^s words"
+  },
+  "hardware": {
+    "butterflies_per_transform": 1024,
+    "cyclotomic_order": 512,
+    "derivation_exponent": 16,
+    "forward_modular_multiplications": 1280,
+    "inverse_modular_multiplications": 1280,
+    "log_n": 8,
+    "modular_multiplications_per_product": 4096,
+    "n": 256,
+    "n_inverse": 1069498561,
+    "omega": 628150263,
+    "omega_inverse": 247950833,
+    "psi": 380625147,
+    "psi_inverse": 38973572,
+    "twiddle_words_per_direction": 255
+  },
+  "name": "openfhe-ckks-tower0-n256",
+  "source": {
+    "cyclotomic_order": 8192,
+    "modulus": 1073692673,
+    "ring_dimension": 4096,
+    "root_of_unity": 236231,
+    "tower_index": 0
+  }
+}
