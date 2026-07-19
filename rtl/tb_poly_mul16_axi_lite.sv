@@ -32,6 +32,7 @@ module tb_poly_mul16_axi_lite;
     logic reset_n = 1'b0;
 
     logic [7:0]  awaddr = 8'd0;
+    logic [2:0]  awprot = 3'b000;
     logic        awvalid = 1'b0;
     wire         awready;
 
@@ -45,6 +46,7 @@ module tb_poly_mul16_axi_lite;
     logic      bready = 1'b1;
 
     logic [7:0] araddr = 8'd0;
+    logic [2:0] arprot = 3'b000;
     logic       arvalid = 1'b0;
     wire        arready;
 
@@ -68,6 +70,7 @@ module tb_poly_mul16_axi_lite;
         .S_AXI_ARESETN (reset_n),
 
         .S_AXI_AWADDR  (awaddr),
+        .S_AXI_AWPROT  (awprot),
         .S_AXI_AWVALID (awvalid),
         .S_AXI_AWREADY (awready),
 
@@ -81,6 +84,7 @@ module tb_poly_mul16_axi_lite;
         .S_AXI_BREADY  (bready),
 
         .S_AXI_ARADDR  (araddr),
+        .S_AXI_ARPROT  (arprot),
         .S_AXI_ARVALID (arvalid),
         .S_AXI_ARREADY (arready),
 
