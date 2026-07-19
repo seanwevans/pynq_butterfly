@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
-| Date         : Sun Jul 19 01:24:41 2026
+| Date         : Sun Jul 19 02:00:47 2026
 | Host         : DESKTOP-63734QH running 64-bit major release  (build 9200)
 | Command      : report_timing_summary -file F:/repos/pynq_butterfly/reports/poly_mul256_axis_batch/poly_mul256_axis_batch_timing.rpt
 | Design       : poly_mul256_axis_batch_core
@@ -138,7 +138,7 @@ Table of Contents
 
     WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
     -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-      3.660        0.000                      0                 3677        0.132        0.000                      0                 3677        4.500        0.000                       0                  1303  
+      1.537        0.000                      0                 3643        0.132        0.000                      0                 3643        4.500        0.000                       0                  1291  
 
 
 All user specified timing constraints are met.
@@ -161,7 +161,7 @@ aclk   {0.000 5.000}      10.000          100.000
 
 Clock             WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
 -----             -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-aclk                3.660        0.000                      0                 3677        0.132        0.000                      0                 3677        4.500        0.000                       0                  1303  
+aclk                1.537        0.000                      0                 3643        0.132        0.000                      0                 3643        4.500        0.000                       0                  1291  
 
 
 ------------------------------------------------------------------------------------------------
@@ -192,7 +192,7 @@ Path Group    From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing 
 From Clock:  aclk
   To Clock:  aclk
 
-Setup :            0  Failing Endpoints,  Worst Slack        3.660ns,  Total Violation        0.000ns
+Setup :            0  Failing Endpoints,  Worst Slack        1.537ns,  Total Violation        0.000ns
 Hold  :            0  Failing Endpoints,  Worst Slack        0.132ns,  Total Violation        0.000ns
 PW    :            0  Failing Endpoints,  Worst Slack        4.500ns,  Total Violation        0.000ns
 ---------------------------------------------------------------------------------------------------
@@ -200,16 +200,16 @@ PW    :            0  Failing Endpoints,  Worst Slack        4.500ns,  Total Vio
 
 Max Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             3.660ns  (required time - arrival time)
-  Source:                 polynomial_multiplier/forward_engine/cyclic_ntt/schedule/stage_reg_reg[0]/C
+Slack (MET) :             1.537ns  (required time - arrival time)
+  Source:                 polynomial_multiplier/forward_engine/preprocess_multiplier/modulus_reg[29]/C
                             (rising edge-triggered cell FDRE clocked by aclk  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            polynomial_multiplier/forward_engine/cyclic_ntt/coefficient_memory/memory_reg/ADDRARDADDR[12]
-                            (rising edge-triggered cell RAMB36E1 clocked by aclk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            polynomial_multiplier/forward_engine/preprocess_multiplier/acc_reg[12]/D
+                            (rising edge-triggered cell FDRE clocked by aclk  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             aclk
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (aclk rise@10.000ns - aclk rise@0.000ns)
-  Data Path Delay:        5.594ns  (logic 2.704ns (48.340%)  route 2.890ns (51.660%))
-  Logic Levels:           5  (CARRY4=2 LUT4=2 LUT6=1)
+  Data Path Delay:        8.327ns  (logic 5.094ns (61.174%)  route 3.233ns (38.826%))
+  Logic Levels:           9  (CARRY4=6 LUT1=1 LUT2=1 LUT3=1)
   Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
     Destination Clock Delay (DCD):    2.128ns = ( 12.128 - 10.000 ) 
     Source Clock Delay      (SCD):    2.456ns
@@ -228,24 +228,36 @@ Slack (MET) :             3.660ns  (required time - arrival time)
                          IBUF (Prop_ibuf_I_O)         0.972     0.972 r  aclk_IBUF_inst/O
                          net (fo=1, unplaced)         0.800     1.771    aclk_IBUF
                          BUFG (Prop_bufg_I_O)         0.101     1.872 r  aclk_IBUF_BUFG_inst/O
-                         net (fo=1302, unplaced)      0.584     2.456    polynomial_multiplier/forward_engine/cyclic_ntt/schedule/CLK
-                         FDRE                                         r  polynomial_multiplier/forward_engine/cyclic_ntt/schedule/stage_reg_reg[0]/C
+                         net (fo=1290, unplaced)      0.584     2.456    polynomial_multiplier/forward_engine/preprocess_multiplier/CLK
+                         FDRE                                         r  polynomial_multiplier/forward_engine/preprocess_multiplier/modulus_reg[29]/C
   -------------------------------------------------------------------    -------------------
-                         FDRE (Prop_fdre_C_Q)         0.478     2.934 f  polynomial_multiplier/forward_engine/cyclic_ntt/schedule/stage_reg_reg[0]/Q
-                         net (fo=42, unplaced)        0.819     3.753    polynomial_multiplier/forward_engine/cyclic_ntt/schedule/schedule_operation_index[7]
-                         LUT4 (Prop_lut4_I1_O)        0.319     4.072 r  polynomial_multiplier/forward_engine/cyclic_ntt/schedule/current_address_a[4]_i_5/O
-                         net (fo=1, unplaced)         0.000     4.072    polynomial_multiplier/forward_engine/cyclic_ntt/schedule/address_a10_in[1]
-                         CARRY4 (Prop_carry4_DI[0]_O[3])
-                                                      0.685     4.757 r  polynomial_multiplier/forward_engine/cyclic_ntt/schedule/current_address_a_reg[4]_i_1/O[3]
-                         net (fo=4, unplaced)         0.642     5.399    polynomial_multiplier/forward_engine/cyclic_ntt/schedule/schedule_address_a[4]
-                         LUT4 (Prop_lut4_I0_O)        0.307     5.706 r  polynomial_multiplier/forward_engine/cyclic_ntt/schedule/address_b0_carry__0_i_4/O
-                         net (fo=1, unplaced)         0.000     5.706    polynomial_multiplier/forward_engine/cyclic_ntt/schedule/address_b0_carry__0_i_4_n_0
-                         CARRY4 (Prop_carry4_S[0]_O[3])
-                                                      0.608     6.314 r  polynomial_multiplier/forward_engine/cyclic_ntt/schedule/address_b0_carry__0/O[3]
-                         net (fo=2, unplaced)         0.629     6.943    polynomial_multiplier/forward_engine/cyclic_ntt/schedule/D[7]
-                         LUT6 (Prop_lut6_I1_O)        0.307     7.250 r  polynomial_multiplier/forward_engine/cyclic_ntt/schedule/memory_reg_i_4__0/O
-                         net (fo=1, unplaced)         0.800     8.050    polynomial_multiplier/forward_engine/cyclic_ntt/coefficient_memory/ADDRARDADDR[7]
-                         RAMB36E1                                     r  polynomial_multiplier/forward_engine/cyclic_ntt/coefficient_memory/memory_reg/ADDRARDADDR[12]
+                         FDRE (Prop_fdre_C_Q)         0.478     2.934 f  polynomial_multiplier/forward_engine/preprocess_multiplier/modulus_reg[29]/Q
+                         net (fo=116, unplaced)       0.414     3.348    polynomial_multiplier/forward_engine/preprocess_multiplier/p_0_in[30]
+                         LUT1 (Prop_lut1_I0_O)        0.295     3.643 r  polynomial_multiplier/forward_engine/preprocess_multiplier/x[4]_i_5/O
+                         net (fo=3, unplaced)         0.351     3.994    polynomial_multiplier/forward_engine/preprocess_multiplier/x[4]_i_5_n_0
+                         CARRY4 (Prop_carry4_CYINIT_CO[2])
+                                                      0.632     4.626 r  polynomial_multiplier/forward_engine/preprocess_multiplier/x_reg[16]_i_15/CO[2]
+                         net (fo=23, unplaced)        0.399     5.025    polynomial_multiplier/forward_engine/preprocess_multiplier/x_reg[16]_i_15_n_1
+                         CARRY4 (Prop_carry4_CYINIT_CO[2])
+                                                      0.818     5.843 r  polynomial_multiplier/forward_engine/preprocess_multiplier/x_reg[16]_i_14/CO[2]
+                         net (fo=5, unplaced)         0.364     6.207    polynomial_multiplier/forward_engine/preprocess_multiplier/x_reg[16]_i_14_n_1
+                         CARRY4 (Prop_carry4_CYINIT_CO[2])
+                                                      0.818     7.025 r  polynomial_multiplier/forward_engine/preprocess_multiplier/x_reg[31]_i_21/CO[2]
+                         net (fo=25, unplaced)        0.401     7.426    polynomial_multiplier/forward_engine/preprocess_multiplier/x_reg[31]_i_21_n_1
+                         CARRY4 (Prop_carry4_CYINIT_O[1])
+                                                      0.830     8.256 r  polynomial_multiplier/forward_engine/preprocess_multiplier/x_reg[31]_i_20/O[1]
+                         net (fo=2, unplaced)         0.622     8.878    polynomial_multiplier/forward_engine/preprocess_multiplier/x_reg[31]_i_20_n_6
+                         LUT2 (Prop_lut2_I1_O)        0.306     9.184 r  polynomial_multiplier/forward_engine/preprocess_multiplier/acc[31]_i_8/O
+                         net (fo=1, unplaced)         0.000     9.184    polynomial_multiplier/forward_engine/preprocess_multiplier/acc[31]_i_8_n_0
+                         CARRY4 (Prop_carry4_S[2]_CO[3])
+                                                      0.380     9.564 r  polynomial_multiplier/forward_engine/preprocess_multiplier/acc_reg[31]_i_3/CO[3]
+                         net (fo=1, unplaced)         0.000     9.564    polynomial_multiplier/forward_engine/preprocess_multiplier/acc_reg[31]_i_3_n_0
+                         CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.179     9.743 r  polynomial_multiplier/forward_engine/preprocess_multiplier/acc_reg[31]_i_4/CO[1]
+                         net (fo=32, unplaced)        0.682    10.425    polynomial_multiplier/forward_engine/preprocess_multiplier/acc_reg[31]_i_4_n_2
+                         LUT3 (Prop_lut3_I1_O)        0.358    10.783 r  polynomial_multiplier/forward_engine/preprocess_multiplier/acc[12]_i_1/O
+                         net (fo=2, unplaced)         0.000    10.783    polynomial_multiplier/forward_engine/preprocess_multiplier/next_acc[12]
+                         FDRE                                         r  polynomial_multiplier/forward_engine/preprocess_multiplier/acc_reg[12]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock aclk rise edge)      10.000    10.000 r  
@@ -254,17 +266,16 @@ Slack (MET) :             3.660ns  (required time - arrival time)
                          IBUF (Prop_ibuf_I_O)         0.838    10.838 r  aclk_IBUF_inst/O
                          net (fo=1, unplaced)         0.760    11.598    aclk_IBUF
                          BUFG (Prop_bufg_I_O)         0.091    11.689 r  aclk_IBUF_BUFG_inst/O
-                         net (fo=1302, unplaced)      0.439    12.128    polynomial_multiplier/forward_engine/cyclic_ntt/coefficient_memory/CLK
-                         RAMB36E1                                     r  polynomial_multiplier/forward_engine/cyclic_ntt/coefficient_memory/memory_reg/CLKARDCLK
+                         net (fo=1290, unplaced)      0.439    12.128    polynomial_multiplier/forward_engine/preprocess_multiplier/CLK
+                         FDRE                                         r  polynomial_multiplier/forward_engine/preprocess_multiplier/acc_reg[12]/C
                          clock pessimism              0.184    12.311    
                          clock uncertainty           -0.035    12.276    
-                         RAMB36E1 (Setup_ramb36e1_CLKARDCLK_ADDRARDADDR[12])
-                                                     -0.566    11.710    polynomial_multiplier/forward_engine/cyclic_ntt/coefficient_memory/memory_reg
+                         FDRE (Setup_fdre_C_D)        0.044    12.320    polynomial_multiplier/forward_engine/preprocess_multiplier/acc_reg[12]
   -------------------------------------------------------------------
-                         required time                         11.710    
-                         arrival time                          -8.050    
+                         required time                         12.320    
+                         arrival time                         -10.783    
   -------------------------------------------------------------------
-                         slack                                  3.660    
+                         slack                                  1.537    
 
 
 
@@ -273,9 +284,9 @@ Slack (MET) :             3.660ns  (required time - arrival time)
 Min Delay Paths
 --------------------------------------------------------------------------------------
 Slack (MET) :             0.132ns  (arrival time - required time)
-  Source:                 polynomial_multiplier/pointwise_engine/multiplier/y_reg[1]/C
+  Source:                 polynomial_multiplier/forward_engine/preprocess_multiplier/y_reg[2]/C
                             (rising edge-triggered cell FDRE clocked by aclk  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            polynomial_multiplier/pointwise_engine/multiplier/y_reg[0]/D
+  Destination:            polynomial_multiplier/forward_engine/preprocess_multiplier/y_reg[0]/D
                             (rising edge-triggered cell FDRE clocked by aclk  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             aclk
   Path Type:              Hold (Min at Fast Process Corner)
@@ -295,14 +306,14 @@ Slack (MET) :             0.132ns  (arrival time - required time)
                          IBUF (Prop_ibuf_I_O)         0.200     0.200 r  aclk_IBUF_inst/O
                          net (fo=1, unplaced)         0.337     0.538    aclk_IBUF
                          BUFG (Prop_bufg_I_O)         0.026     0.564 r  aclk_IBUF_BUFG_inst/O
-                         net (fo=1302, unplaced)      0.114     0.678    polynomial_multiplier/pointwise_engine/multiplier/CLK
-                         FDRE                                         r  polynomial_multiplier/pointwise_engine/multiplier/y_reg[1]/C
+                         net (fo=1290, unplaced)      0.114     0.678    polynomial_multiplier/forward_engine/preprocess_multiplier/CLK
+                         FDRE                                         r  polynomial_multiplier/forward_engine/preprocess_multiplier/y_reg[2]/C
   -------------------------------------------------------------------    -------------------
-                         FDRE (Prop_fdre_C_Q)         0.147     0.825 r  polynomial_multiplier/pointwise_engine/multiplier/y_reg[1]/Q
-                         net (fo=1, unplaced)         0.131     0.956    polynomial_multiplier/pointwise_engine/multiplier/y_reg_n_0_[1]
-                         LUT6 (Prop_lut6_I5_O)        0.098     1.054 r  polynomial_multiplier/pointwise_engine/multiplier/y[0]_i_1__1/O
-                         net (fo=1, unplaced)         0.000     1.054    polynomial_multiplier/pointwise_engine/multiplier/y[0]_i_1__1_n_0
-                         FDRE                                         r  polynomial_multiplier/pointwise_engine/multiplier/y_reg[0]/D
+                         FDRE (Prop_fdre_C_Q)         0.147     0.825 r  polynomial_multiplier/forward_engine/preprocess_multiplier/y_reg[2]/Q
+                         net (fo=1, unplaced)         0.131     0.956    polynomial_multiplier/forward_engine/preprocess_multiplier/y_reg_n_0_[2]
+                         LUT6 (Prop_lut6_I5_O)        0.098     1.054 r  polynomial_multiplier/forward_engine/preprocess_multiplier/y[0]_i_1/O
+                         net (fo=1, unplaced)         0.000     1.054    polynomial_multiplier/forward_engine/preprocess_multiplier/p_1_in[0]
+                         FDRE                                         r  polynomial_multiplier/forward_engine/preprocess_multiplier/y_reg[0]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock aclk rise edge)       0.000     0.000 r  
@@ -311,10 +322,10 @@ Slack (MET) :             0.132ns  (arrival time - required time)
                          IBUF (Prop_ibuf_I_O)         0.389     0.389 r  aclk_IBUF_inst/O
                          net (fo=1, unplaced)         0.355     0.744    aclk_IBUF
                          BUFG (Prop_bufg_I_O)         0.029     0.773 r  aclk_IBUF_BUFG_inst/O
-                         net (fo=1302, unplaced)      0.259     1.032    polynomial_multiplier/pointwise_engine/multiplier/CLK
-                         FDRE                                         r  polynomial_multiplier/pointwise_engine/multiplier/y_reg[0]/C
+                         net (fo=1290, unplaced)      0.259     1.032    polynomial_multiplier/forward_engine/preprocess_multiplier/CLK
+                         FDRE                                         r  polynomial_multiplier/forward_engine/preprocess_multiplier/y_reg[0]/C
                          clock pessimism             -0.210     0.823    
-                         FDRE (Hold_fdre_C_D)         0.099     0.922    polynomial_multiplier/pointwise_engine/multiplier/y_reg[0]
+                         FDRE (Hold_fdre_C_D)         0.099     0.922    polynomial_multiplier/forward_engine/preprocess_multiplier/y_reg[0]
   -------------------------------------------------------------------
                          required time                         -0.922    
                          arrival time                           1.054    

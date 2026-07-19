@@ -168,7 +168,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>5d77bc31</spirit:value>
+            <spirit:value>3080218e</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -184,7 +184,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>af0175ca</spirit:value>
+            <spirit:value>e20f5553</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -742,13 +742,13 @@
       </xilinx:taxonomies>
       <xilinx:displayName>OpenFHE N=256 Batched AXI-Stream Polynomial Multiplier</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>1</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2026-07-19T05:23:52Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>2</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2026-07-19T05:59:58Z</xilinx:coreCreationDateTime>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2024.1</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="5b57982a"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="d3f42b83"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="6238fdbc"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="5657cdff"/>
       <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="cc9d3b6e"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="cb974e73"/>

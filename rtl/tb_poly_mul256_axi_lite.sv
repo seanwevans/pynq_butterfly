@@ -722,11 +722,11 @@ module tb_poly_mul256_axi_lite;
 
         if (
             first_cycle_count
-            !== 32'd159249
+            !== 32'd93713
         )
         begin
             $display(
-                "FAIL CYCLES result=%0d expected=159249",
+                "FAIL CYCLES result=%0d expected=93713",
                 first_cycle_count
             );
 

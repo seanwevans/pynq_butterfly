@@ -21,7 +21,7 @@ module tb_poly_mul256_axis_batch_core;
         BATCH_PRODUCTS * OUTPUT_WORDS_PER_PRODUCT;
 
     localparam logic [31:0] EXPECTED_CORE_CYCLES =
-        32'd159249;
+        32'd93713;
 
     logic clk =
         1'b0;

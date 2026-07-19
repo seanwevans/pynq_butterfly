@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sun Jul 19 01:25:30 2026" VIVADOVERSION="2024.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sun Jul 19 02:01:03 2026" VIVADOVERSION="2024.1">
 
   <SYSTEMINFO ARCH="zynq" BOARD="tul.com.tw:pynq-z2:part0:1.0" DEVICE="7z020" NAME="design_1" PACKAGE="clg400" SPEEDGRADE="-1"/>
 
@@ -3042,7 +3042,7 @@
         </BUSINTERFACE>
       </BUSINTERFACES>
     </MODULE>
-    <MODULE COREREVISION="1" FULLNAME="/poly_mul256_axis_batch_0" HWVERSION="1.0" INSTANCE="poly_mul256_axis_batch_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="poly_mul256_axis_batch" VLNV="user.org:user:poly_mul256_axis_batch:1.0">
+    <MODULE COREREVISION="2" FULLNAME="/poly_mul256_axis_batch_0" HWVERSION="1.0" INSTANCE="poly_mul256_axis_batch_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="poly_mul256_axis_batch" VLNV="user.org:user:poly_mul256_axis_batch:1.0">
       <DOCUMENTS/>
       <PARAMETERS>
         <PARAMETER NAME="BATCH_PRODUCTS" VALUE="32"/>

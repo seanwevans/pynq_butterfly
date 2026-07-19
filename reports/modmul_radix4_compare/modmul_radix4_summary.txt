@@ -1,0 +1,37 @@
+part=xc7z020clg400-1
+clock_period_ns=10.000
+
+[baseline]
+top=modmul_core
+status=synth_design Complete!
+lut=282
+registers=168
+carry4=35
+dsp=0
+ramb18=0
+ramb36=0
+wns_ns=3.854
+datapath_ns=6.010
+logic_levels=16
+startpoint=null
+endpoint=null
+utilization_report=F:/repos/pynq_butterfly/reports/modmul_radix4_compare/baseline_utilization.rpt
+timing_report=F:/repos/pynq_butterfly/reports/modmul_radix4_compare/baseline_timing.rpt
+
+[radix4]
+top=modmul_core_radix4
+status=synth_design Complete!
+lut=473
+registers=166
+carry4=70
+dsp=0
+ramb18=0
+ramb36=0
+wns_ns=-3.808
+datapath_ns=13.672
+logic_levels=32
+startpoint=null
+endpoint=null
+utilization_report=F:/repos/pynq_butterfly/reports/modmul_radix4_compare/radix4_utilization.rpt
+timing_report=F:/repos/pynq_butterfly/reports/modmul_radix4_compare/radix4_timing.rpt
+

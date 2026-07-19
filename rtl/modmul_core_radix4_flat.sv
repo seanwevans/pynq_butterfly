@@ -19,7 +19,7 @@
  * Values before reduction are strictly less than 4q, so reduction
  * selects among value, value-q, value-2q, and value-3q.
  */
-module modmul_core (
+module modmul_core_radix4_flat (
     input  logic        clk,
     input  logic        reset_n,
     input  logic        start,

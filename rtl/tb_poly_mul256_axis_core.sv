@@ -9,7 +9,7 @@ module tb_poly_mul256_axis_core;
         256;
 
     localparam logic [31:0] EXPECTED_CYCLES =
-        32'd159249;
+        32'd93713;
 
     logic clk =
         1'b0;

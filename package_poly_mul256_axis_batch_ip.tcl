@@ -112,7 +112,7 @@ set_property vendor user.org $core
 set_property library user $core
 set_property name poly_mul256_axis_batch $core
 set_property version 1.0 $core
-set_property core_revision 1 $core
+set_property core_revision 2 $core
 
 set_property \
     display_name \

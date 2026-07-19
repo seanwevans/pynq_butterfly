@@ -258,7 +258,7 @@ puts $manifest "batch_output_bytes=[expr {$batch_products * 1024}]"
 
 puts $manifest "poly_mul256_n=256"
 puts $manifest "poly_mul256_modulus=1073692673"
-puts $manifest "poly_mul256_core_cycles=159249"
+puts $manifest "poly_mul256_core_cycles=93713"
 puts $manifest "poly_mul256_multiplications=4096"
 
 puts $manifest "bitstream=$deploy_bit"
