@@ -1,0 +1,49 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
+| Date         : Sun Jul 19 13:10:50 2026
+| Host         : DESKTOP-63734QH running 64-bit major release  (build 9200)
+| Command      : report_utilization -hierarchical -hierarchical_depth 10 -file F:/repos/pynq_butterfly/reports/poly_mul4096_two_bank_axis_synth/poly_mul4096_two_bank_axis_hierarchical_utilization.rpt
+| Design       : poly_mul4096_two_bank_axis_core
+| Device       : xc7z020clg400-1
+| Speed File   : -1
+| Design State : Synthesized
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++-------------------------------------+-------------------------------------+------------+------------+---------+------+------+--------+--------+------------+
+|               Instance              |                Module               | Total LUTs | Logic LUTs | LUTRAMs | SRLs |  FFs | RAMB36 | RAMB18 | DSP Blocks |
++-------------------------------------+-------------------------------------+------------+------------+---------+------+------+--------+--------+------------+
+| poly_mul4096_two_bank_axis_core     |                               (top) |       4061 |       4061 |       0 |    0 | 1973 |     24 |      0 |          0 |
+|   (poly_mul4096_two_bank_axis_core) |                               (top) |         36 |         36 |       0 |    0 |  132 |      0 |      0 |          0 |
+|   core                              |          poly_mul4096_two_bank_core |       4025 |       4025 |       0 |    0 | 1841 |     24 |      0 |          0 |
+|     (core)                          |          poly_mul4096_two_bank_core |        135 |        135 |       0 |    0 |  428 |      8 |      0 |          0 |
+|     coefficient_bank_a              |                  ntt4096_coeff_bram |         12 |         12 |       0 |    0 |    0 |      4 |      0 |          0 |
+|     coefficient_bank_b              |                ntt4096_coeff_bram_0 |        246 |        246 |       0 |    0 |    0 |      4 |      0 |          0 |
+|     forward_butterfly_lane_a        |                  butterfly_dif_core |        698 |        698 |       0 |    0 |  248 |      0 |      0 |          0 |
+|       (forward_butterfly_lane_a)    |                  butterfly_dif_core |        130 |        130 |       0 |    0 |   98 |      0 |      0 |          0 |
+|       multiplier                    |                       modmul_core_6 |        568 |        568 |       0 |    0 |  150 |      0 |      0 |          0 |
+|     forward_butterfly_lane_b        |                butterfly_dif_core_1 |        513 |        513 |       0 |    0 |  248 |      0 |      0 |          0 |
+|       (forward_butterfly_lane_b)    |                butterfly_dif_core_1 |         58 |         58 |       0 |    0 |   98 |      0 |      0 |          0 |
+|       multiplier                    |                       modmul_core_5 |        455 |        455 |       0 |    0 |  150 |      0 |      0 |          0 |
+|     forward_schedule                |           ntt4096_dif_schedule_core |        178 |        178 |       0 |    0 |  103 |      0 |      0 |          0 |
+|     forward_twiddle_rom             |                 ntt4096_twiddle_rom |          0 |          0 |       0 |    0 |    0 |      4 |      0 |          0 |
+|     inverse_butterfly               |                      butterfly_core |        691 |        691 |       0 |    0 |  264 |      0 |      0 |          0 |
+|       (inverse_butterfly)           |                      butterfly_core |          6 |          6 |       0 |    0 |  114 |      0 |      0 |          0 |
+|       multiplier                    |                       modmul_core_4 |        685 |        685 |       0 |    0 |  150 |      0 |      0 |          0 |
+|     inverse_schedule                |               ntt4096_schedule_core |        117 |        117 |       0 |    0 |  100 |      0 |      0 |          0 |
+|     inverse_twiddle_rom             | ntt4096_twiddle_rom__parameterized0 |          0 |          0 |       0 |    0 |    0 |      4 |      0 |          0 |
+|     preprocessing_lane_a            |                         modmul_core |        488 |        488 |       0 |    0 |  150 |      0 |      0 |          0 |
+|     preprocessing_lane_b            |                       modmul_core_2 |        461 |        461 |       0 |    0 |  150 |      0 |      0 |          0 |
+|     scalar_multiplier               |                       modmul_core_3 |        486 |        486 |       0 |    0 |  150 |      0 |      0 |          0 |
++-------------------------------------+-------------------------------------+------------+------------+---------+------+------+--------+--------+------------+
+
+
