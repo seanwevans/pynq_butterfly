@@ -1,0 +1,11 @@
+{
+  "tower_index": 0,
+  "ring_dimension": 4096,
+  "cyclotomic_order": 8192,
+  "modulus": 1073692673,
+  "psi": 236231,
+  "omega": 1046759038,
+  "psi_inverse": 489520520,
+  "omega_inverse": 59856447,
+  "n_inverse": 1073430541
+}

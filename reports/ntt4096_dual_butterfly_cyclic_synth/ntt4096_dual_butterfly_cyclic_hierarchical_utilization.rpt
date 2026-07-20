@@ -1,0 +1,43 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
+| Date         : Sun Jul 19 20:23:21 2026
+| Host         : DESKTOP-63734QH running 64-bit major release  (build 9200)
+| Command      : report_utilization -hierarchical -hierarchical_depth 12 -file F:/repos/pynq_butterfly/reports/ntt4096_dual_butterfly_cyclic_synth/ntt4096_dual_butterfly_cyclic_hierarchical_utilization.rpt
+| Design       : ntt4096_dual_butterfly_cyclic_core
+| Device       : xc7z020clg400-1
+| Speed File   : -1
+| Design State : Synthesized
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++----------------------------------------+------------------------------------+------------+------------+---------+------+-----+--------+--------+------------+
+|                Instance                |               Module               | Total LUTs | Logic LUTs | LUTRAMs | SRLs | FFs | RAMB36 | RAMB18 | DSP Blocks |
++----------------------------------------+------------------------------------+------------+------------+---------+------+-----+--------+--------+------------+
+| ntt4096_dual_butterfly_cyclic_core     |                              (top) |       3491 |       3491 |       0 |    0 | 787 |     12 |      0 |          0 |
+|   (ntt4096_dual_butterfly_cyclic_core) |                              (top) |         72 |         72 |       0 |    0 | 102 |      0 |      0 |          0 |
+|   butterfly0                           |   ntt4096_dual_mode_butterfly_core |        733 |        733 |       0 |    0 | 330 |      0 |      0 |          0 |
+|     (butterfly0)                       |   ntt4096_dual_mode_butterfly_core |        227 |        227 |       0 |    0 | 164 |      0 |      0 |          0 |
+|     multiplier                         |                      modmul_core_4 |        506 |        506 |       0 |    0 | 166 |      0 |      0 |          0 |
+|   butterfly1                           | ntt4096_dual_mode_butterfly_core_0 |        745 |        745 |       0 |    0 | 330 |      0 |      0 |          0 |
+|     (butterfly1)                       | ntt4096_dual_mode_butterfly_core_0 |        230 |        230 |       0 |    0 | 164 |      0 |      0 |          0 |
+|     multiplier                         |                        modmul_core |        515 |        515 |       0 |    0 | 166 |      0 |      0 |          0 |
+|   coefficient_memory                   |      ntt4096_four_bank_coeff_store |        899 |        899 |       0 |    0 |   9 |      4 |      0 |          0 |
+|     (coefficient_memory)               |      ntt4096_four_bank_coeff_store |         11 |         11 |       0 |    0 |   9 |      0 |      0 |          0 |
+|     bank0                              |         ntt4096_coeff_bank_1024x32 |        154 |        154 |       0 |    0 |   0 |      1 |      0 |          0 |
+|     bank1                              |       ntt4096_coeff_bank_1024x32_1 |         63 |         63 |       0 |    0 |   0 |      1 |      0 |          0 |
+|     bank2                              |       ntt4096_coeff_bank_1024x32_2 |        148 |        148 |       0 |    0 |   0 |      1 |      0 |          0 |
+|     bank3                              |       ntt4096_coeff_bank_1024x32_3 |        529 |        529 |       0 |    0 |   0 |      1 |      0 |          0 |
+|   profile_memory                       |     ntt4096_profile_bram_dual_read |          9 |          9 |       0 |    0 |   0 |      8 |      0 |          0 |
+|   schedule                             |       ntt4096_paired_schedule_core |       1033 |       1033 |       0 |    0 |  16 |      0 |      0 |          0 |
++----------------------------------------+------------------------------------+------------+------------+---------+------+-----+--------+--------+------------+
+
+

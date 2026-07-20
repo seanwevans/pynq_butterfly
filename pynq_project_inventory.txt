@@ -1,0 +1,64 @@
+============================================================
+PROJECT
+============================================================
+name=pynq_led
+part=xc7z020clg400-1
+board_part=tul.com.tw:pynq-z2:part0:1.0
+directory=F:/repos/pynq_led
+
+============================================================
+IP REPOSITORIES
+============================================================
+F:/repos/pynq_modmul/ip/modmul_1_0
+F:/repos/pynq_modadd/ip/modadd_1_0
+F:/repos/pynq_butterfly/ip/poly_mul16_1_0
+
+============================================================
+POLY_MUL16 IP DEFINITIONS
+============================================================
+user.org:user:poly_mul16:1.0
+
+============================================================
+BLOCK DESIGN: design_1
+FILE: F:/repos/pynq_led/pynq_led.srcs/sources_1/bd/design_1/design_1.bd
+============================================================
+
+CELLS
+/modadd_0                                xilinx.com:user:modadd:1.0
+/modmul_0                                xilinx.com:user:modmul:1.0
+/processing_system7_0                    xilinx.com:ip:processing_system7:5.5
+/ps7_0_axi_periph                        xilinx.com:ip:axi_interconnect:2.1
+/rst_ps7_0_100M                          xilinx.com:ip:proc_sys_reset:5.0
+
+INTERFACE PINS
+/modadd_0/S00_AXI                                            mode=Slave    vlnv=xilinx.com:interface:aximm_rtl:1.0
+/modmul_0/S00_AXI                                            mode=Slave    vlnv=xilinx.com:interface:aximm_rtl:1.0
+/processing_system7_0/DDR                                    mode=Master   vlnv=xilinx.com:interface:ddrx_rtl:1.0
+/processing_system7_0/FIXED_IO                               mode=Master   vlnv=xilinx.com:display_processing_system7:fixedio_rtl:1.0
+/processing_system7_0/M_AXI_GP0                              mode=Master   vlnv=xilinx.com:interface:aximm_rtl:1.0
+/processing_system7_0/USBIND_0                               mode=Master   vlnv=xilinx.com:display_processing_system7:usbctrl_rtl:1.0
+/ps7_0_axi_periph/M00_AXI                                    mode=Master   vlnv=xilinx.com:interface:aximm_rtl:1.0
+/ps7_0_axi_periph/M01_AXI                                    mode=Master   vlnv=xilinx.com:interface:aximm_rtl:1.0
+/ps7_0_axi_periph/S00_AXI                                    mode=Slave    vlnv=xilinx.com:interface:aximm_rtl:1.0
+/ps7_0_axi_periph/m00_couplers/M_AXI                         mode=Master   vlnv=xilinx.com:interface:aximm_rtl:1.0
+/ps7_0_axi_periph/m00_couplers/S_AXI                         mode=Slave    vlnv=xilinx.com:interface:aximm_rtl:1.0
+/ps7_0_axi_periph/m01_couplers/M_AXI                         mode=Master   vlnv=xilinx.com:interface:aximm_rtl:1.0
+/ps7_0_axi_periph/m01_couplers/S_AXI                         mode=Slave    vlnv=xilinx.com:interface:aximm_rtl:1.0
+/ps7_0_axi_periph/s00_couplers/M_AXI                         mode=Master   vlnv=xilinx.com:interface:aximm_rtl:1.0
+/ps7_0_axi_periph/s00_couplers/S_AXI                         mode=Slave    vlnv=xilinx.com:interface:aximm_rtl:1.0
+/ps7_0_axi_periph/s00_couplers/auto_pc/M_AXI                 mode=Master   vlnv=xilinx.com:interface:aximm_rtl:1.0
+/ps7_0_axi_periph/s00_couplers/auto_pc/S_AXI                 mode=Slave    vlnv=xilinx.com:interface:aximm_rtl:1.0
+/ps7_0_axi_periph/xbar/M00_AXI                               mode=Master   vlnv=xilinx.com:interface:aximm_rtl:1.0
+/ps7_0_axi_periph/xbar/M01_AXI                               mode=Master   vlnv=xilinx.com:interface:aximm_rtl:1.0
+/ps7_0_axi_periph/xbar/S00_AXI                               mode=Slave    vlnv=xilinx.com:interface:aximm_rtl:1.0
+
+ADDRESS SPACES
+/modadd_0/S00_AXI
+/modmul_0/S00_AXI
+/processing_system7_0/Data
+
+ADDRESS SEGMENTS
+/modadd_0/S00_AXI/S00_AXI_reg                                          offset=             range=0x00001000
+/modmul_0/S00_AXI/S00_AXI_reg                                          offset=             range=0x00001000
+/processing_system7_0/Data/SEG_modadd_0_S00_AXI_reg                    offset=0x43C00000   range=0x00010000
+/processing_system7_0/Data/SEG_modmul_0_S00_AXI_reg                    offset=0x43C10000   range=0x00010000

@@ -1,0 +1,17 @@
+project=F:/v/db2/db2.xpr
+run=impl_1
+strategy=Performance_ExplorePostRoutePhysOpt
+implementation_status=write_bitstream Complete!
+wns_ns=-0.906
+datapath_ns=10.695
+logic_levels=15
+startpoint=d_i/acc/inst/lane0/core/coefficient_store_a/bank0/memory_reg/CLKBWRCLK
+endpoint=d_i/acc/inst/lane0/core/butterfly_a1/multiplier/x_reg[27]/D
+lut=27980
+registers=12324
+dsp=0
+ramb18=2
+ramb36=50
+bram_tile_equivalent=51.0
+timing_report=F:/repos/pynq_butterfly/reports/poly_mul4096_dual_butterfly_two_tower_dma_timing_recovery/timing_summary.rpt
+utilization_report=F:/repos/pynq_butterfly/reports/poly_mul4096_dual_butterfly_two_tower_dma_timing_recovery/utilization.rpt

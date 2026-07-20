@@ -1,0 +1,622 @@
+
+*** Running vivado
+    with args -log poly_mul4096_dual_butterfly_two_tower_axis_core.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source poly_mul4096_dual_butterfly_two_tower_axis_core.tcl
+
+
+
+****** Vivado v2024.1 (64-bit)
+  **** SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
+  **** IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+  **** SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+  **** Start of session at: Sun Jul 19 23:03:39 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source poly_mul4096_dual_butterfly_two_tower_axis_core.tcl -notrace
+create_project: Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 503.773 ; gain = 202.633
+Command: synth_design -top poly_mul4096_dual_butterfly_two_tower_axis_core -part xc7z020clg400-1 -directive PerformanceOptimized -fsm_extraction one_hot -keep_equivalent_registers -resource_sharing off -no_lc -shreg_min_size 5
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Device 21-403] Loading part xc7z020clg400-1
+INFO: [Device 21-9227] Part: xc7z020clg400-1 does not have CEAM library.
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 56400
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1382.902 ; gain = 449.090
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'poly_mul4096_dual_butterfly_two_tower_axis_core' [F:/repos/pynq_butterfly/rtl/poly_mul4096_dual_butterfly_two_tower_axis_core.sv:27]
+INFO: [Synth 8-6157] synthesizing module 'poly_mul4096_dual_butterfly_runtime_profile_axis_core' [F:/repos/pynq_butterfly/rtl/poly_mul4096_dual_butterfly_runtime_profile_axis_core.sv:41]
+INFO: [Synth 8-6157] synthesizing module 'poly_mul4096_dual_butterfly_runtime_profile_core' [F:/repos/pynq_butterfly/rtl/poly_mul4096_dual_butterfly_runtime_profile_core.sv:42]
+INFO: [Synth 8-6157] synthesizing module 'ntt4096_paired_schedule_core' [F:/repos/pynq_butterfly/rtl/ntt4096_paired_schedule_core.sv:14]
+INFO: [Synth 8-6155] done synthesizing module 'ntt4096_paired_schedule_core' (0#1) [F:/repos/pynq_butterfly/rtl/ntt4096_paired_schedule_core.sv:14]
+INFO: [Synth 8-6157] synthesizing module 'ntt4096_profile_bram_dual_read' [F:/repos/pynq_butterfly/rtl/ntt4096_profile_bram_dual_read.sv:18]
+INFO: [Synth 8-6157] synthesizing module 'xpm_memory_tdpram' [F:/Xilinx/Vivado/2024.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:9050]
+	Parameter MEMORY_SIZE bound to: 131072 - type: integer 
+	Parameter MEMORY_PRIMITIVE bound to: block - type: string 
+	Parameter CLOCKING_MODE bound to: common_clock - type: string 
+	Parameter ECC_MODE bound to: no_ecc - type: string 
+	Parameter MEMORY_INIT_FILE bound to: none - type: string 
+	Parameter MEMORY_INIT_PARAM bound to: 0 - type: string 
+	Parameter USE_MEM_INIT bound to: 0 - type: integer 
+	Parameter WAKEUP_TIME bound to: disable_sleep - type: string 
+	Parameter AUTO_SLEEP_TIME bound to: 0 - type: integer 
+	Parameter MESSAGE_CONTROL bound to: 0 - type: integer 
+	Parameter USE_EMBEDDED_CONSTRAINT bound to: 0 - type: integer 
+	Parameter MEMORY_OPTIMIZATION bound to: true - type: string 
+	Parameter CASCADE_HEIGHT bound to: 0 - type: integer 
+	Parameter SIM_ASSERT_CHK bound to: 0 - type: integer 
+	Parameter WRITE_DATA_WIDTH_A bound to: 32 - type: integer 
+	Parameter READ_DATA_WIDTH_A bound to: 32 - type: integer 
+	Parameter BYTE_WRITE_WIDTH_A bound to: 32 - type: integer 
+	Parameter ADDR_WIDTH_A bound to: 12 - type: integer 
+	Parameter READ_RESET_VALUE_A bound to: 0 - type: string 
+	Parameter READ_LATENCY_A bound to: 1 - type: integer 
+	Parameter WRITE_MODE_A bound to: no_change - type: string 
+	Parameter RST_MODE_A bound to: SYNC - type: string 
+	Parameter WRITE_DATA_WIDTH_B bound to: 32 - type: integer 
+	Parameter READ_DATA_WIDTH_B bound to: 32 - type: integer 
+	Parameter BYTE_WRITE_WIDTH_B bound to: 32 - type: integer 
+	Parameter ADDR_WIDTH_B bound to: 12 - type: integer 
+	Parameter READ_RESET_VALUE_B bound to: 0 - type: string 
+	Parameter READ_LATENCY_B bound to: 1 - type: integer 
+	Parameter WRITE_MODE_B bound to: no_change - type: string 
+	Parameter RST_MODE_B bound to: SYNC - type: string 
+INFO: [Synth 8-6157] synthesizing module 'xpm_memory_base' [F:/Xilinx/Vivado/2024.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:54]
+INFO: [Synth 8-6155] done synthesizing module 'xpm_memory_base' (0#1) [F:/Xilinx/Vivado/2024.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:54]
+INFO: [Synth 8-6155] done synthesizing module 'xpm_memory_tdpram' (0#1) [F:/Xilinx/Vivado/2024.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:9050]
+WARNING: [Synth 8-7071] port 'sbiterra' of module 'xpm_memory_tdpram' is unconnected for instance 'profile_memory' [F:/repos/pynq_butterfly/rtl/ntt4096_profile_bram_dual_read.sv:102]
+WARNING: [Synth 8-7071] port 'dbiterra' of module 'xpm_memory_tdpram' is unconnected for instance 'profile_memory' [F:/repos/pynq_butterfly/rtl/ntt4096_profile_bram_dual_read.sv:102]
+WARNING: [Synth 8-7071] port 'sbiterrb' of module 'xpm_memory_tdpram' is unconnected for instance 'profile_memory' [F:/repos/pynq_butterfly/rtl/ntt4096_profile_bram_dual_read.sv:102]
+WARNING: [Synth 8-7071] port 'dbiterrb' of module 'xpm_memory_tdpram' is unconnected for instance 'profile_memory' [F:/repos/pynq_butterfly/rtl/ntt4096_profile_bram_dual_read.sv:102]
+WARNING: [Synth 8-7023] instance 'profile_memory' of module 'xpm_memory_tdpram' has 25 connections declared, but only 21 given [F:/repos/pynq_butterfly/rtl/ntt4096_profile_bram_dual_read.sv:102]
+INFO: [Synth 8-6155] done synthesizing module 'ntt4096_profile_bram_dual_read' (0#1) [F:/repos/pynq_butterfly/rtl/ntt4096_profile_bram_dual_read.sv:18]
+INFO: [Synth 8-6157] synthesizing module 'modmul_core' [F:/repos/pynq_butterfly/rtl/modmul_core.sv:22]
+INFO: [Synth 8-6155] done synthesizing module 'modmul_core' (0#1) [F:/repos/pynq_butterfly/rtl/modmul_core.sv:22]
+INFO: [Synth 8-6157] synthesizing module 'ntt4096_dual_mode_butterfly_core' [F:/repos/pynq_butterfly/rtl/ntt4096_dual_mode_butterfly_core.sv:17]
+INFO: [Synth 8-6155] done synthesizing module 'ntt4096_dual_mode_butterfly_core' (0#1) [F:/repos/pynq_butterfly/rtl/ntt4096_dual_mode_butterfly_core.sv:17]
+INFO: [Synth 8-6157] synthesizing module 'ntt4096_four_bank_coeff_store' [F:/repos/pynq_butterfly/rtl/ntt4096_four_bank_coeff_store.sv:18]
+INFO: [Synth 8-6157] synthesizing module 'ntt4096_coeff_bank_1024x32' [F:/repos/pynq_butterfly/rtl/ntt4096_coeff_bank_1024x32.sv:11]
+INFO: [Synth 8-6155] done synthesizing module 'ntt4096_coeff_bank_1024x32' (0#1) [F:/repos/pynq_butterfly/rtl/ntt4096_coeff_bank_1024x32.sv:11]
+INFO: [Synth 8-6155] done synthesizing module 'ntt4096_four_bank_coeff_store' (0#1) [F:/repos/pynq_butterfly/rtl/ntt4096_four_bank_coeff_store.sv:18]
+INFO: [Synth 8-6155] done synthesizing module 'poly_mul4096_dual_butterfly_runtime_profile_core' (0#1) [F:/repos/pynq_butterfly/rtl/poly_mul4096_dual_butterfly_runtime_profile_core.sv:42]
+INFO: [Synth 8-6155] done synthesizing module 'poly_mul4096_dual_butterfly_runtime_profile_axis_core' (0#1) [F:/repos/pynq_butterfly/rtl/poly_mul4096_dual_butterfly_runtime_profile_axis_core.sv:41]
+INFO: [Synth 8-6155] done synthesizing module 'poly_mul4096_dual_butterfly_two_tower_axis_core' (0#1) [F:/repos/pynq_butterfly/rtl/poly_mul4096_dual_butterfly_two_tower_axis_core.sv:27]
+WARNING: [Synth 8-7129] Port sleep in module xpm_memory_base is either unconnected or has no load
+WARNING: [Synth 8-7129] Port regcea in module xpm_memory_base is either unconnected or has no load
+WARNING: [Synth 8-7129] Port injectsbiterra in module xpm_memory_base is either unconnected or has no load
+WARNING: [Synth 8-7129] Port injectdbiterra in module xpm_memory_base is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clkb in module xpm_memory_base is either unconnected or has no load
+WARNING: [Synth 8-7129] Port regceb in module xpm_memory_base is either unconnected or has no load
+WARNING: [Synth 8-7129] Port injectsbiterrb in module xpm_memory_base is either unconnected or has no load
+WARNING: [Synth 8-7129] Port injectdbiterrb in module xpm_memory_base is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1524.969 ; gain = 591.156
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1524.969 ; gain = 591.156
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1524.969 ; gain = 591.156
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.271 . Memory (MB): peak = 1524.969 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [F:/repos/pynq_butterfly/vivado/poly_mul4096_dual_butterfly_two_tower_axis_synth/poly_mul4096_dual_butterfly_two_tower_axis_synth.xdc]
+Finished Parsing XDC File [F:/repos/pynq_butterfly/vivado/poly_mul4096_dual_butterfly_two_tower_axis_synth/poly_mul4096_dual_butterfly_two_tower_axis_synth.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [F:/Xilinx/Vivado/2024.1/data/ip/xpm/xpm_memory/tcl/xpm_memory_xdc.tcl]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/poly_mul4096_dual_butterfly_two_tower_axis_core_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/poly_mul4096_dual_butterfly_two_tower_axis_core_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+INFO: [Project 1-1714] 8 XPM XDC files have been applied to the design.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1630.340 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.068 . Memory (MB): peak = 1630.340 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1630.340 ; gain = 696.527
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z020clg400-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1630.340 ; gain = 696.527
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property KEEP_HIERARCHY = SOFT for lane0/core/twist_memory/profile_memory. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for lane0/core/forward_twiddle_memory/profile_memory. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for lane0/core/inverse_twiddle_memory/profile_memory. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for lane0/core/inverse_scale_memory/profile_memory. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for lane1/core/twist_memory/profile_memory. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for lane1/core/forward_twiddle_memory/profile_memory. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for lane1/core/inverse_twiddle_memory/profile_memory. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for lane1/core/inverse_scale_memory/profile_memory. (constraint file  auto generated constraint).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1630.340 ; gain = 696.527
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'poly_mul4096_dual_butterfly_runtime_profile_core__xdcDup__1'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'poly_mul4096_dual_butterfly_runtime_profile_axis_core__xdcDup__1'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'poly_mul4096_dual_butterfly_runtime_profile_core'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'poly_mul4096_dual_butterfly_runtime_profile_axis_core'
+INFO: [Synth 8-3971] The signal "xpm_memory_base:/gen_wr_b.gen_word_narrow.mem_reg" was recognized as a true dual port RAM template.
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+              STATE_IDLE |        0000000000000100000000000 |                            00000
+ STATE_PREP_READ01_ISSUE |        0000000010000000000000000 |                            00001
+STATE_PREP_CAPTURE01_ISSUE23 |        0000000000010000000000000 |                            00010
+STATE_PREP_CAPTURE23_START |        0000000000000001000000000 |                            00011
+         STATE_PREP_WAIT |        0000000000000010000000000 |                            00100
+    STATE_PREP_WRITEBACK |        1000000000000000000000000 |                            00101
+STATE_FORWARD_SCHEDULE_START |        0010000000000000000000000 |                            00110
+STATE_FORWARD_READ_ISSUE |        0000010000000000000000000 |                            00111
+STATE_FORWARD_READ_CAPTURE |        0000100000000000000000000 |                            01000
+      STATE_FORWARD_WAIT |        0100000000000000000000000 |                            01001
+ STATE_FORWARD_WRITEBACK |        0000001000000000000000000 |                            01010
+STATE_POINTWISE_READ_ISSUE |        0000000000000000000000100 |                            01011
+STATE_POINTWISE_READ_CAPTURE_START |        0000000000000000000010000 |                            01100
+    STATE_POINTWISE_WAIT |        0000000000000000000001000 |                            01101
+STATE_POINTWISE_WRITEBACK |        0000000000000000000000001 |                            01110
+STATE_INVERSE_SCHEDULE_START |        0000000000000000000000010 |                            01111
+STATE_INVERSE_READ_ISSUE |        0000000000000000010000000 |                            10000
+STATE_INVERSE_READ_CAPTURE |        0000000000001000000000000 |                            10001
+      STATE_INVERSE_WAIT |        0000000000000000100000000 |                            10010
+ STATE_INVERSE_WRITEBACK |        0000000000000000000100000 |                            10011
+ STATE_POST_READ01_ISSUE |        0000000000000000001000000 |                            10100
+STATE_POST_CAPTURE01_ISSUE23 |        0001000000000000000000000 |                            10101
+STATE_POST_CAPTURE23_START |        0000000100000000000000000 |                            10110
+         STATE_POST_WAIT |        0000000000100000000000000 |                            10111
+    STATE_POST_WRITEBACK |        0000000001000000000000000 |                            11000
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'poly_mul4096_dual_butterfly_runtime_profile_core__xdcDup__1'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+              STATE_IDLE |                      00000000010 |                             0000
+   STATE_PROFILE_MODULUS |                      00001000000 |                             0001
+   STATE_PROFILE_PAYLOAD |                      00000010000 |                             0010
+    STATE_PROFILE_COMMIT |                      00000000001 |                             0011
+         STATE_PRODUCT_A |                      00000000100 |                             0100
+         STATE_PRODUCT_B |                      00000001000 |                             0101
+     STATE_PRODUCT_START |                      10000000000 |                             0110
+      STATE_PRODUCT_WAIT |                      00010000000 |                             0111
+      STATE_OUTPUT_ISSUE |                      00100000000 |                             1000
+       STATE_OUTPUT_SEND |                      01000000000 |                             1001
+           STATE_DISCARD |                      00000100000 |                             1010
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'poly_mul4096_dual_butterfly_runtime_profile_axis_core__xdcDup__1'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+              STATE_IDLE |        0000000000000100000000000 |                            00000
+ STATE_PREP_READ01_ISSUE |        0000000010000000000000000 |                            00001
+STATE_PREP_CAPTURE01_ISSUE23 |        0000000000010000000000000 |                            00010
+STATE_PREP_CAPTURE23_START |        0000000000000001000000000 |                            00011
+         STATE_PREP_WAIT |        0000000000000010000000000 |                            00100
+    STATE_PREP_WRITEBACK |        1000000000000000000000000 |                            00101
+STATE_FORWARD_SCHEDULE_START |        0010000000000000000000000 |                            00110
+STATE_FORWARD_READ_ISSUE |        0000010000000000000000000 |                            00111
+STATE_FORWARD_READ_CAPTURE |        0000100000000000000000000 |                            01000
+      STATE_FORWARD_WAIT |        0100000000000000000000000 |                            01001
+ STATE_FORWARD_WRITEBACK |        0000001000000000000000000 |                            01010
+STATE_POINTWISE_READ_ISSUE |        0000000000000000000000100 |                            01011
+STATE_POINTWISE_READ_CAPTURE_START |        0000000000000000000010000 |                            01100
+    STATE_POINTWISE_WAIT |        0000000000000000000001000 |                            01101
+STATE_POINTWISE_WRITEBACK |        0000000000000000000000001 |                            01110
+STATE_INVERSE_SCHEDULE_START |        0000000000000000000000010 |                            01111
+STATE_INVERSE_READ_ISSUE |        0000000000000000010000000 |                            10000
+STATE_INVERSE_READ_CAPTURE |        0000000000001000000000000 |                            10001
+      STATE_INVERSE_WAIT |        0000000000000000100000000 |                            10010
+ STATE_INVERSE_WRITEBACK |        0000000000000000000100000 |                            10011
+ STATE_POST_READ01_ISSUE |        0000000000000000001000000 |                            10100
+STATE_POST_CAPTURE01_ISSUE23 |        0001000000000000000000000 |                            10101
+STATE_POST_CAPTURE23_START |        0000000100000000000000000 |                            10110
+         STATE_POST_WAIT |        0000000000100000000000000 |                            10111
+    STATE_POST_WRITEBACK |        0000000001000000000000000 |                            11000
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'poly_mul4096_dual_butterfly_runtime_profile_core'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+              STATE_IDLE |                      00000000010 |                             0000
+   STATE_PROFILE_MODULUS |                      00001000000 |                             0001
+   STATE_PROFILE_PAYLOAD |                      00000010000 |                             0010
+    STATE_PROFILE_COMMIT |                      00000000001 |                             0011
+         STATE_PRODUCT_A |                      00000000100 |                             0100
+         STATE_PRODUCT_B |                      00000001000 |                             0101
+     STATE_PRODUCT_START |                      10000000000 |                             0110
+      STATE_PRODUCT_WAIT |                      00010000000 |                             0111
+      STATE_OUTPUT_ISSUE |                      00100000000 |                             1000
+       STATE_OUTPUT_SEND |                      01000000000 |                             1001
+           STATE_DISCARD |                      00000100000 |                             1010
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'poly_mul4096_dual_butterfly_runtime_profile_axis_core'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 1630.340 ; gain = 696.527
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input   35 Bit       Adders := 144   
+	   2 Input   34 Bit       Adders := 72    
+	   2 Input   33 Bit       Adders := 16    
+	   3 Input   32 Bit       Adders := 32    
+	   4 Input   32 Bit       Adders := 16    
+	   2 Input   32 Bit       Adders := 10    
+	   2 Input   17 Bit       Adders := 6     
+	   2 Input   16 Bit       Adders := 2     
+	   2 Input   15 Bit       Adders := 2     
+	   2 Input   14 Bit       Adders := 6     
+	   2 Input   13 Bit       Adders := 4     
+	   2 Input   12 Bit       Adders := 14    
+	   2 Input   10 Bit       Adders := 4     
+	   2 Input    5 Bit       Adders := 8     
+	   2 Input    4 Bit       Adders := 36    
+	   2 Input    3 Bit       Adders := 4     
+	   2 Input    2 Bit       Adders := 12    
++---XORs : 
+	   6 Input      1 Bit         XORs := 72    
++---Registers : 
+	               32 Bit    Registers := 224   
+	               17 Bit    Registers := 2     
+	               16 Bit    Registers := 2     
+	               15 Bit    Registers := 2     
+	               14 Bit    Registers := 6     
+	               13 Bit    Registers := 4     
+	               12 Bit    Registers := 4     
+	               10 Bit    Registers := 4     
+	                4 Bit    Registers := 26    
+	                2 Bit    Registers := 16    
+	                1 Bit    Registers := 98    
++---RAMs : 
+	             128K Bit	(4096 X 32 bit)          RAMs := 8     
+	              32K Bit	(1024 X 32 bit)          RAMs := 16    
++---Muxes : 
+	   2 Input   34 Bit        Muxes := 48    
+	   2 Input   32 Bit        Muxes := 236   
+	   4 Input   32 Bit        Muxes := 184   
+	   3 Input   32 Bit        Muxes := 8     
+	  25 Input   32 Bit        Muxes := 6     
+	  11 Input   32 Bit        Muxes := 4     
+	  25 Input   25 Bit        Muxes := 2     
+	   2 Input   25 Bit        Muxes := 10    
+	  25 Input   17 Bit        Muxes := 2     
+	  25 Input   16 Bit        Muxes := 2     
+	  25 Input   15 Bit        Muxes := 2     
+	  25 Input   14 Bit        Muxes := 4     
+	  11 Input   14 Bit        Muxes := 2     
+	  25 Input   13 Bit        Muxes := 4     
+	   2 Input   12 Bit        Muxes := 38    
+	   3 Input   12 Bit        Muxes := 24    
+	   4 Input   12 Bit        Muxes := 8     
+	  11 Input   12 Bit        Muxes := 4     
+	  11 Input   11 Bit        Muxes := 2     
+	   3 Input   11 Bit        Muxes := 2     
+	   2 Input   11 Bit        Muxes := 16    
+	   4 Input   10 Bit        Muxes := 144   
+	   2 Input   10 Bit        Muxes := 32    
+	  25 Input   10 Bit        Muxes := 2     
+	   2 Input    4 Bit        Muxes := 6     
+	   3 Input    4 Bit        Muxes := 2     
+	   2 Input    3 Bit        Muxes := 2     
+	   2 Input    2 Bit        Muxes := 2     
+	   4 Input    2 Bit        Muxes := 34    
+	   2 Input    1 Bit        Muxes := 240   
+	   4 Input    1 Bit        Muxes := 86    
+	   3 Input    1 Bit        Muxes := 8     
+	   5 Input    1 Bit        Muxes := 16    
+	  25 Input    1 Bit        Muxes := 28    
+	  11 Input    1 Bit        Muxes := 18    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 220 (col length:60)
+BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-6014] Unused sequential element gen_wr_b.gen_word_narrow.mem_reg was removed. 
+WARNING: [Synth 8-6014] Unused sequential element gen_wr_b.gen_word_narrow.mem_reg was removed. 
+WARNING: [Synth 8-6014] Unused sequential element gen_wr_b.gen_word_narrow.mem_reg was removed. 
+WARNING: [Synth 8-6014] Unused sequential element gen_wr_b.gen_word_narrow.mem_reg was removed. 
+WARNING: [Synth 8-6014] Unused sequential element gen_wr_b.gen_word_narrow.mem_reg was removed. 
+WARNING: [Synth 8-6014] Unused sequential element gen_wr_b.gen_word_narrow.mem_reg was removed. 
+WARNING: [Synth 8-6014] Unused sequential element gen_wr_b.gen_word_narrow.mem_reg was removed. 
+WARNING: [Synth 8-6014] Unused sequential element gen_wr_b.gen_word_narrow.mem_reg was removed. 
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:30 ; elapsed = 00:01:32 . Memory (MB): peak = 1801.680 ; gain = 867.867
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Block RAM: Preliminary Mapping Report (see note below)
++---------------------------------------------------------------------+----------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name                                                          | RTL Object                       | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++---------------------------------------------------------------------+----------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|corei_1/\twist_memory/profile_memory /xpm_memory_base_inst           | gen_wr_a.gen_word_narrow.mem_reg | 4 K x 32(NO_CHANGE)    | W | R | 4 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 4      | 
+|corei_1/\forward_twiddle_memory/profile_memory /xpm_memory_base_inst | gen_wr_a.gen_word_narrow.mem_reg | 4 K x 32(NO_CHANGE)    | W | R | 4 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 4      | 
+|corei_1/\inverse_twiddle_memory/profile_memory /xpm_memory_base_inst | gen_wr_a.gen_word_narrow.mem_reg | 4 K x 32(NO_CHANGE)    | W | R | 4 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 4      | 
+|corei_1/\inverse_scale_memory/profile_memory /xpm_memory_base_inst   | gen_wr_a.gen_word_narrow.mem_reg | 4 K x 32(NO_CHANGE)    | W | R | 4 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 4      | 
+|corei_1/coefficient_store_a                                          | bank0/memory_reg                 | 1 K x 32(READ_FIRST)   | W |   | 1 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|corei_1/coefficient_store_a                                          | bank1/memory_reg                 | 1 K x 32(READ_FIRST)   | W |   | 1 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|corei_1/coefficient_store_a                                          | bank2/memory_reg                 | 1 K x 32(READ_FIRST)   | W |   | 1 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|corei_1/coefficient_store_a                                          | bank3/memory_reg                 | 1 K x 32(READ_FIRST)   | W |   | 1 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|corei_1/coefficient_store_b                                          | bank0/memory_reg                 | 1 K x 32(READ_FIRST)   | W |   | 1 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|corei_1/coefficient_store_b                                          | bank1/memory_reg                 | 1 K x 32(READ_FIRST)   | W |   | 1 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|corei_1/coefficient_store_b                                          | bank2/memory_reg                 | 1 K x 32(READ_FIRST)   | W |   | 1 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|corei_1/coefficient_store_b                                          | bank3/memory_reg                 | 1 K x 32(READ_FIRST)   | W |   | 1 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|corei_4/\twist_memory/profile_memory /xpm_memory_base_inst           | gen_wr_a.gen_word_narrow.mem_reg | 4 K x 32(NO_CHANGE)    | W | R | 4 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 4      | 
+|corei_4/\forward_twiddle_memory/profile_memory /xpm_memory_base_inst | gen_wr_a.gen_word_narrow.mem_reg | 4 K x 32(NO_CHANGE)    | W | R | 4 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 4      | 
+|corei_4/\inverse_twiddle_memory/profile_memory /xpm_memory_base_inst | gen_wr_a.gen_word_narrow.mem_reg | 4 K x 32(NO_CHANGE)    | W | R | 4 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 4      | 
+|corei_4/\inverse_scale_memory/profile_memory /xpm_memory_base_inst   | gen_wr_a.gen_word_narrow.mem_reg | 4 K x 32(NO_CHANGE)    | W | R | 4 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 4      | 
+|corei_4/coefficient_store_a                                          | bank0/memory_reg                 | 1 K x 32(READ_FIRST)   | W |   | 1 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|corei_4/coefficient_store_a                                          | bank1/memory_reg                 | 1 K x 32(READ_FIRST)   | W |   | 1 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|corei_4/coefficient_store_a                                          | bank2/memory_reg                 | 1 K x 32(READ_FIRST)   | W |   | 1 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|corei_4/coefficient_store_a                                          | bank3/memory_reg                 | 1 K x 32(READ_FIRST)   | W |   | 1 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|corei_4/coefficient_store_b                                          | bank0/memory_reg                 | 1 K x 32(READ_FIRST)   | W |   | 1 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|corei_4/coefficient_store_b                                          | bank1/memory_reg                 | 1 K x 32(READ_FIRST)   | W |   | 1 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|corei_4/coefficient_store_b                                          | bank2/memory_reg                 | 1 K x 32(READ_FIRST)   | W |   | 1 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|corei_4/coefficient_store_b                                          | bank3/memory_reg                 | 1 K x 32(READ_FIRST)   | W |   | 1 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
++---------------------------------------------------------------------+----------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+Note: The table above is a preliminary report that shows the Block RAMs at the current stage of the synthesis flow. Some Block RAMs may be reimplemented as non Block RAM primitives later in the synthesis flow. Multiple instantiated Block RAMs are reported only once. 
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:34 ; elapsed = 00:01:37 . Memory (MB): peak = 1801.680 ; gain = 867.867
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:01:38 ; elapsed = 00:01:41 . Memory (MB): peak = 1801.680 ; gain = 867.867
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Block RAM: Final Mapping Report
++---------------------------------------------------------------------+----------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name                                                          | RTL Object                       | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++---------------------------------------------------------------------+----------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|corei_1/\twist_memory/profile_memory /xpm_memory_base_inst           | gen_wr_a.gen_word_narrow.mem_reg | 4 K x 32(NO_CHANGE)    | W | R | 4 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 4      | 
+|corei_1/\forward_twiddle_memory/profile_memory /xpm_memory_base_inst | gen_wr_a.gen_word_narrow.mem_reg | 4 K x 32(NO_CHANGE)    | W | R | 4 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 4      | 
+|corei_1/\inverse_twiddle_memory/profile_memory /xpm_memory_base_inst | gen_wr_a.gen_word_narrow.mem_reg | 4 K x 32(NO_CHANGE)    | W | R | 4 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 4      | 
+|corei_1/\inverse_scale_memory/profile_memory /xpm_memory_base_inst   | gen_wr_a.gen_word_narrow.mem_reg | 4 K x 32(NO_CHANGE)    | W | R | 4 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 4      | 
+|corei_1/coefficient_store_a                                          | bank0/memory_reg                 | 1 K x 32(READ_FIRST)   | W |   | 1 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|corei_1/coefficient_store_a                                          | bank1/memory_reg                 | 1 K x 32(READ_FIRST)   | W |   | 1 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|corei_1/coefficient_store_a                                          | bank2/memory_reg                 | 1 K x 32(READ_FIRST)   | W |   | 1 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|corei_1/coefficient_store_a                                          | bank3/memory_reg                 | 1 K x 32(READ_FIRST)   | W |   | 1 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|corei_1/coefficient_store_b                                          | bank0/memory_reg                 | 1 K x 32(READ_FIRST)   | W |   | 1 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|corei_1/coefficient_store_b                                          | bank1/memory_reg                 | 1 K x 32(READ_FIRST)   | W |   | 1 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|corei_1/coefficient_store_b                                          | bank2/memory_reg                 | 1 K x 32(READ_FIRST)   | W |   | 1 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|corei_1/coefficient_store_b                                          | bank3/memory_reg                 | 1 K x 32(READ_FIRST)   | W |   | 1 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|corei_4/\twist_memory/profile_memory /xpm_memory_base_inst           | gen_wr_a.gen_word_narrow.mem_reg | 4 K x 32(NO_CHANGE)    | W | R | 4 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 4      | 
+|corei_4/\forward_twiddle_memory/profile_memory /xpm_memory_base_inst | gen_wr_a.gen_word_narrow.mem_reg | 4 K x 32(NO_CHANGE)    | W | R | 4 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 4      | 
+|corei_4/\inverse_twiddle_memory/profile_memory /xpm_memory_base_inst | gen_wr_a.gen_word_narrow.mem_reg | 4 K x 32(NO_CHANGE)    | W | R | 4 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 4      | 
+|corei_4/\inverse_scale_memory/profile_memory /xpm_memory_base_inst   | gen_wr_a.gen_word_narrow.mem_reg | 4 K x 32(NO_CHANGE)    | W | R | 4 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 4      | 
+|corei_4/coefficient_store_a                                          | bank0/memory_reg                 | 1 K x 32(READ_FIRST)   | W |   | 1 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|corei_4/coefficient_store_a                                          | bank1/memory_reg                 | 1 K x 32(READ_FIRST)   | W |   | 1 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|corei_4/coefficient_store_a                                          | bank2/memory_reg                 | 1 K x 32(READ_FIRST)   | W |   | 1 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|corei_4/coefficient_store_a                                          | bank3/memory_reg                 | 1 K x 32(READ_FIRST)   | W |   | 1 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|corei_4/coefficient_store_b                                          | bank0/memory_reg                 | 1 K x 32(READ_FIRST)   | W |   | 1 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|corei_4/coefficient_store_b                                          | bank1/memory_reg                 | 1 K x 32(READ_FIRST)   | W |   | 1 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|corei_4/coefficient_store_b                                          | bank2/memory_reg                 | 1 K x 32(READ_FIRST)   | W |   | 1 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|corei_4/coefficient_store_b                                          | bank3/memory_reg                 | 1 K x 32(READ_FIRST)   | W |   | 1 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
++---------------------------------------------------------------------+----------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-7052] The timing for the instance lane0/core/twist_memory/profile_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane0/core/twist_memory/profile_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane0/core/twist_memory/profile_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane0/core/twist_memory/profile_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane0/core/twist_memory/profile_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane0/core/twist_memory/profile_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane0/core/twist_memory/profile_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane0/core/twist_memory/profile_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane0/core/forward_twiddle_memory/profile_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane0/core/forward_twiddle_memory/profile_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane0/core/forward_twiddle_memory/profile_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane0/core/forward_twiddle_memory/profile_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane0/core/forward_twiddle_memory/profile_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane0/core/forward_twiddle_memory/profile_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane0/core/forward_twiddle_memory/profile_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane0/core/forward_twiddle_memory/profile_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane0/core/inverse_twiddle_memory/profile_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane0/core/inverse_twiddle_memory/profile_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane0/core/inverse_twiddle_memory/profile_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane0/core/inverse_twiddle_memory/profile_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane0/core/inverse_twiddle_memory/profile_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane0/core/inverse_twiddle_memory/profile_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane0/core/inverse_twiddle_memory/profile_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane0/core/inverse_twiddle_memory/profile_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane0/core/inverse_scale_memory/profile_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane0/core/inverse_scale_memory/profile_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane0/core/inverse_scale_memory/profile_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane0/core/inverse_scale_memory/profile_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane0/core/inverse_scale_memory/profile_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane0/core/inverse_scale_memory/profile_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane0/core/inverse_scale_memory/profile_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane0/core/inverse_scale_memory/profile_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane1/core/twist_memory/profile_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane1/core/twist_memory/profile_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane1/core/twist_memory/profile_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane1/core/twist_memory/profile_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane1/core/twist_memory/profile_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane1/core/twist_memory/profile_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane1/core/twist_memory/profile_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane1/core/twist_memory/profile_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane1/core/forward_twiddle_memory/profile_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane1/core/forward_twiddle_memory/profile_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane1/core/forward_twiddle_memory/profile_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane1/core/forward_twiddle_memory/profile_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane1/core/forward_twiddle_memory/profile_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane1/core/forward_twiddle_memory/profile_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane1/core/forward_twiddle_memory/profile_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane1/core/forward_twiddle_memory/profile_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane1/core/inverse_twiddle_memory/profile_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane1/core/inverse_twiddle_memory/profile_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane1/core/inverse_twiddle_memory/profile_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane1/core/inverse_twiddle_memory/profile_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane1/core/inverse_twiddle_memory/profile_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane1/core/inverse_twiddle_memory/profile_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane1/core/inverse_twiddle_memory/profile_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane1/core/inverse_twiddle_memory/profile_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane1/core/inverse_scale_memory/profile_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane1/core/inverse_scale_memory/profile_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane1/core/inverse_scale_memory/profile_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane1/core/inverse_scale_memory/profile_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane1/core/inverse_scale_memory/profile_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane1/core/inverse_scale_memory/profile_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane1/core/inverse_scale_memory/profile_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane1/core/inverse_scale_memory/profile_memory/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane0/core/coefficient_store_a/bank0/memory_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane0/core/coefficient_store_a/bank1/memory_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane0/core/coefficient_store_a/bank2/memory_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane0/core/coefficient_store_a/bank3/memory_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane0/core/coefficient_store_b/bank0/memory_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane0/core/coefficient_store_b/bank1/memory_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane0/core/coefficient_store_b/bank2/memory_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane0/core/coefficient_store_b/bank3/memory_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane1/core/coefficient_store_a/bank0/memory_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane1/core/coefficient_store_a/bank1/memory_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane1/core/coefficient_store_a/bank2/memory_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane1/core/coefficient_store_a/bank3/memory_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane1/core/coefficient_store_b/bank0/memory_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane1/core/coefficient_store_b/bank1/memory_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane1/core/coefficient_store_b/bank2/memory_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance lane1/core/coefficient_store_b/bank3/memory_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:01:44 ; elapsed = 00:01:47 . Memory (MB): peak = 1850.688 ; gain = 916.875
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:01:48 ; elapsed = 00:01:51 . Memory (MB): peak = 1859.891 ; gain = 926.078
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:48 ; elapsed = 00:01:51 . Memory (MB): peak = 1859.891 ; gain = 926.078
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:49 ; elapsed = 00:01:52 . Memory (MB): peak = 1859.891 ; gain = 926.078
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:49 ; elapsed = 00:01:52 . Memory (MB): peak = 1859.891 ; gain = 926.078
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:49 ; elapsed = 00:01:52 . Memory (MB): peak = 1859.898 ; gain = 926.086
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:49 ; elapsed = 00:01:52 . Memory (MB): peak = 1859.898 ; gain = 926.086
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+---------+------+
+|      |Cell     |Count |
++------+---------+------+
+|1     |BUFG     |     1|
+|2     |CARRY4   |  2564|
+|3     |LUT1     |   361|
+|4     |LUT2     |  7426|
+|5     |LUT3     |  1996|
+|6     |LUT4     |  4751|
+|7     |LUT5     |  4026|
+|8     |LUT6     |  5661|
+|9     |RAMB36E1 |    48|
+|11    |FDRE     |  6314|
+|12    |FDSE     |     4|
+|13    |IBUF     |    69|
+|14    |OBUF     |   296|
++------+---------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:49 ; elapsed = 00:01:52 . Memory (MB): peak = 1859.898 ; gain = 926.086
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 9 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:34 ; elapsed = 00:01:47 . Memory (MB): peak = 1859.898 ; gain = 820.715
+Synthesis Optimization Complete : Time (s): cpu = 00:01:49 ; elapsed = 00:01:52 . Memory (MB): peak = 1859.898 ; gain = 926.086
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.195 . Memory (MB): peak = 1859.898 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 2612 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1859.898 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete | Checksum: d472fa6f
+INFO: [Common 17-83] Releasing license: Synthesis
+128 Infos, 22 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:01:57 ; elapsed = 00:02:01 . Memory (MB): peak = 1859.898 ; gain = 1356.125
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.028 . Memory (MB): peak = 1859.898 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'F:/repos/pynq_butterfly/vivado/poly_mul4096_dual_butterfly_two_tower_axis_synth/poly_mul4096_dual_butterfly_two_tower_axis_synth.runs/synth_1/poly_mul4096_dual_butterfly_two_tower_axis_core.dcp' has been generated.
+INFO: [Vivado 12-24828] Executing command : report_utilization -file poly_mul4096_dual_butterfly_two_tower_axis_core_utilization_synth.rpt -pb poly_mul4096_dual_butterfly_two_tower_axis_core_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Sun Jul 19 23:05:50 2026...

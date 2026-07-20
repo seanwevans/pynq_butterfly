@@ -1,0 +1,12 @@
+scalar_lane0
+scalar_lane1
+scalar_lane2
+scalar_lane3
+scalar_lane4
+scalar_lane5
+scalar_lane6
+scalar_lane7
+butterfly_a0/multiplier
+butterfly_a1/multiplier
+butterfly_b0/multiplier
+butterfly_b1/multiplier

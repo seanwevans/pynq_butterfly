@@ -1,0 +1,387 @@
+
+*** Running vivado
+    with args -log poly_mul4096_runtime_profile_axis_core.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source poly_mul4096_runtime_profile_axis_core.tcl
+
+
+
+****** Vivado v2024.1 (64-bit)
+  **** SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
+  **** IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+  **** SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+  **** Start of session at: Sun Jul 19 15:54:27 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source poly_mul4096_runtime_profile_axis_core.tcl -notrace
+Command: synth_design -top poly_mul4096_runtime_profile_axis_core -part xc7z020clg400-1 -directive PerformanceOptimized -fsm_extraction one_hot -keep_equivalent_registers -resource_sharing off -no_lc -shreg_min_size 5
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Device 21-403] Loading part xc7z020clg400-1
+INFO: [Device 21-9227] Part: xc7z020clg400-1 does not have CEAM library.
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 6632
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1382.117 ; gain = 447.891
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'poly_mul4096_runtime_profile_axis_core' [F:/repos/pynq_butterfly/rtl/poly_mul4096_runtime_profile_axis_core.sv:41]
+INFO: [Synth 8-6157] synthesizing module 'poly_mul4096_runtime_profile_core' [F:/repos/pynq_butterfly/rtl/poly_mul4096_runtime_profile_core.sv:45]
+INFO: [Synth 8-6157] synthesizing module 'ntt4096_coeff_bram' [F:/repos/pynq_butterfly/rtl/ntt4096_coeff_bram.sv:15]
+INFO: [Synth 8-6155] done synthesizing module 'ntt4096_coeff_bram' (0#1) [F:/repos/pynq_butterfly/rtl/ntt4096_coeff_bram.sv:15]
+INFO: [Synth 8-6157] synthesizing module 'ntt4096_profile_bram' [F:/repos/pynq_butterfly/rtl/ntt4096_profile_bram.sv:10]
+INFO: [Synth 8-6155] done synthesizing module 'ntt4096_profile_bram' (0#1) [F:/repos/pynq_butterfly/rtl/ntt4096_profile_bram.sv:10]
+INFO: [Synth 8-6157] synthesizing module 'modmul_core' [F:/repos/pynq_butterfly/rtl/modmul_core.sv:22]
+INFO: [Synth 8-6155] done synthesizing module 'modmul_core' (0#1) [F:/repos/pynq_butterfly/rtl/modmul_core.sv:22]
+INFO: [Synth 8-6157] synthesizing module 'ntt4096_dif_schedule_core' [F:/repos/pynq_butterfly/rtl/ntt4096_dif_schedule_core.sv:22]
+INFO: [Synth 8-6155] done synthesizing module 'ntt4096_dif_schedule_core' (0#1) [F:/repos/pynq_butterfly/rtl/ntt4096_dif_schedule_core.sv:22]
+INFO: [Synth 8-6157] synthesizing module 'butterfly_dif_core' [F:/repos/pynq_butterfly/rtl/butterfly_dif_core.sv:14]
+INFO: [Synth 8-6155] done synthesizing module 'butterfly_dif_core' (0#1) [F:/repos/pynq_butterfly/rtl/butterfly_dif_core.sv:14]
+INFO: [Synth 8-6157] synthesizing module 'ntt4096_schedule_core' [F:/repos/pynq_butterfly/rtl/ntt4096_schedule_core.sv:21]
+INFO: [Synth 8-6155] done synthesizing module 'ntt4096_schedule_core' (0#1) [F:/repos/pynq_butterfly/rtl/ntt4096_schedule_core.sv:21]
+INFO: [Synth 8-6157] synthesizing module 'butterfly_core' [F:/repos/pynq_butterfly/rtl/butterfly_core.sv:3]
+INFO: [Synth 8-6155] done synthesizing module 'butterfly_core' (0#1) [F:/repos/pynq_butterfly/rtl/butterfly_core.sv:3]
+INFO: [Synth 8-6155] done synthesizing module 'poly_mul4096_runtime_profile_core' (0#1) [F:/repos/pynq_butterfly/rtl/poly_mul4096_runtime_profile_core.sv:45]
+INFO: [Synth 8-6155] done synthesizing module 'poly_mul4096_runtime_profile_axis_core' (0#1) [F:/repos/pynq_butterfly/rtl/poly_mul4096_runtime_profile_axis_core.sv:41]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1509.598 ; gain = 575.371
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1509.598 ; gain = 575.371
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1509.598 ; gain = 575.371
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.033 . Memory (MB): peak = 1509.598 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [F:/repos/pynq_butterfly/vivado/poly_mul4096_runtime_profile_axis_synth/poly_mul4096_runtime_profile_axis_synth.xdc]
+Finished Parsing XDC File [F:/repos/pynq_butterfly/vivado/poly_mul4096_runtime_profile_axis_synth/poly_mul4096_runtime_profile_axis_synth.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1613.328 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.021 . Memory (MB): peak = 1613.328 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1613.328 ; gain = 679.102
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z020clg400-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1613.328 ; gain = 679.102
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1613.328 ; gain = 679.102
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'poly_mul4096_runtime_profile_core'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'poly_mul4096_runtime_profile_axis_core'
+INFO: [Synth 8-3971] The signal "ntt4096_coeff_bram:/memory_reg" was recognized as a true dual port RAM template.
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+              STATE_IDLE |     0000000000000000001000000000 |                            00000
+   STATE_PREP_READ_ISSUE |     0000000000100000000000000000 |                            00001
+ STATE_PREP_READ_CAPTURE |     0000000000000000100000000000 |                            00010
+    STATE_PREP_MUL_START |     0000000000000000000010000000 |                            00011
+     STATE_PREP_MUL_WAIT |     0000000000000000000100000000 |                            00100
+    STATE_PREP_WRITEBACK |     1000000000000000000000000000 |                            00101
+STATE_FORWARD_SCHEDULE_START |     0010000000000000000000000000 |                            00110
+STATE_FORWARD_READ_ISSUE |     0000000100000000000000000000 |                            00111
+STATE_FORWARD_READ_CAPTURE |     0000100000000000000000000000 |                            01000
+STATE_FORWARD_BUTTERFLY_START |     0100000000000000000000000000 |                            01001
+STATE_FORWARD_BUTTERFLY_WAIT |     0000010000000000000000000000 |                            01010
+ STATE_FORWARD_WRITEBACK |     0000000010000000000000000000 |                            01011
+STATE_POINTWISE_READ_ISSUE |     0000000000000000000000001000 |                            01100
+STATE_POINTWISE_READ_CAPTURE |     0000000000000000000000000100 |                            01101
+STATE_POINTWISE_MUL_START |     0000000000000000000000000001 |                            01110
+STATE_POINTWISE_MUL_WAIT |     0000000000000000000000000010 |                            01111
+STATE_POINTWISE_WRITEBACK |     0000000000000100000000000000 |                            10000
+STATE_INVERSE_SCHEDULE_START |     0000000000000000010000000000 |                            10001
+STATE_INVERSE_READ_ISSUE |     0000000000000000000001000000 |                            10010
+STATE_INVERSE_READ_CAPTURE |     0000000000000000000000010000 |                            10011
+STATE_INVERSE_BUTTERFLY_START |     0000000000000000000000100000 |                            10100
+STATE_INVERSE_BUTTERFLY_WAIT |     0001000000000000000000000000 |                            10101
+ STATE_INVERSE_WRITEBACK |     0000000001000000000000000000 |                            10110
+   STATE_POST_READ_ISSUE |     0000000000000010000000000000 |                            10111
+ STATE_POST_READ_CAPTURE |     0000000000010000000000000000 |                            11000
+    STATE_POST_MUL_START |     0000001000000000000000000000 |                            11001
+     STATE_POST_MUL_WAIT |     0000000000001000000000000000 |                            11010
+    STATE_POST_WRITEBACK |     0000000000000001000000000000 |                            11011
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'poly_mul4096_runtime_profile_core'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+              STATE_IDLE |                      00000000010 |                             0000
+   STATE_PROFILE_MODULUS |                      00001000000 |                             0001
+   STATE_PROFILE_PAYLOAD |                      00000010000 |                             0010
+    STATE_PROFILE_COMMIT |                      00000000001 |                             0011
+         STATE_PRODUCT_A |                      00000000100 |                             0100
+         STATE_PRODUCT_B |                      00000001000 |                             0101
+     STATE_PRODUCT_START |                      10000000000 |                             0110
+      STATE_PRODUCT_WAIT |                      00010000000 |                             0111
+      STATE_OUTPUT_ISSUE |                      00100000000 |                             1000
+       STATE_OUTPUT_SEND |                      01000000000 |                             1001
+           STATE_DISCARD |                      00000100000 |                             1010
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'poly_mul4096_runtime_profile_axis_core'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1613.328 ; gain = 679.102
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input   35 Bit       Adders := 36    
+	   2 Input   34 Bit       Adders := 18    
+	   2 Input   33 Bit       Adders := 3     
+	   3 Input   32 Bit       Adders := 6     
+	   4 Input   32 Bit       Adders := 3     
+	   2 Input   32 Bit       Adders := 5     
+	   2 Input   15 Bit       Adders := 4     
+	   2 Input   14 Bit       Adders := 1     
+	   2 Input   13 Bit       Adders := 11    
+	   2 Input   12 Bit       Adders := 15    
+	   2 Input    4 Bit       Adders := 8     
++---Registers : 
+	               32 Bit    Registers := 67    
+	               17 Bit    Registers := 1     
+	               15 Bit    Registers := 4     
+	               14 Bit    Registers := 1     
+	               13 Bit    Registers := 13    
+	               12 Bit    Registers := 7     
+	                4 Bit    Registers := 8     
+	                1 Bit    Registers := 28    
++---RAMs : 
+	             128K Bit	(4096 X 32 bit)          RAMs := 6     
++---Muxes : 
+	   2 Input   34 Bit        Muxes := 12    
+	   2 Input   32 Bit        Muxes := 41    
+	  11 Input   32 Bit        Muxes := 4     
+	   6 Input   32 Bit        Muxes := 2     
+	  28 Input   32 Bit        Muxes := 2     
+	  28 Input   28 Bit        Muxes := 1     
+	   2 Input   28 Bit        Muxes := 5     
+	  28 Input   15 Bit        Muxes := 2     
+	  11 Input   14 Bit        Muxes := 1     
+	  28 Input   13 Bit        Muxes := 3     
+	  11 Input   12 Bit        Muxes := 4     
+	   6 Input   12 Bit        Muxes := 2     
+	  28 Input   12 Bit        Muxes := 1     
+	   2 Input   12 Bit        Muxes := 9     
+	  11 Input   11 Bit        Muxes := 1     
+	   3 Input   11 Bit        Muxes := 1     
+	   2 Input   11 Bit        Muxes := 8     
+	   4 Input    2 Bit        Muxes := 1     
+	   2 Input    1 Bit        Muxes := 74    
+	  11 Input    1 Bit        Muxes := 13    
+	   6 Input    1 Bit        Muxes := 3     
+	  28 Input    1 Bit        Muxes := 13    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 220 (col length:60)
+BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+INFO: [Synth 8-3971] The signal "core/coefficient_bank_a/memory_reg" was recognized as a true dual port RAM template.
+INFO: [Synth 8-3971] The signal "core/coefficient_bank_b/memory_reg" was recognized as a true dual port RAM template.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 1613.328 ; gain = 679.102
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Block RAM: Preliminary Mapping Report (see note below)
++------------+-------------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name | RTL Object                                | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++------------+-------------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|core        | coefficient_bank_a/memory_reg             | 4 K x 32(READ_FIRST)   | W | R | 4 K x 32(READ_FIRST)   | W | R | Port A and B     | 0      | 4      | 
+|core        | coefficient_bank_b/memory_reg             | 4 K x 32(READ_FIRST)   | W | R | 4 K x 32(READ_FIRST)   | W | R | Port A and B     | 0      | 4      | 
+|core        | twist_profile_memory/memory_reg           | 4 K x 32(READ_FIRST)   | W |   | 4 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 4      | 
+|core        | forward_twiddle_profile_memory/memory_reg | 4 K x 32(READ_FIRST)   | W |   | 4 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 4      | 
+|core        | inverse_twiddle_profile_memory/memory_reg | 4 K x 32(READ_FIRST)   | W |   | 4 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 4      | 
+|core        | inverse_scale_profile_memory/memory_reg   | 4 K x 32(READ_FIRST)   | W |   | 4 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 4      | 
++------------+-------------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+Note: The table above is a preliminary report that shows the Block RAMs at the current stage of the synthesis flow. Some Block RAMs may be reimplemented as non Block RAM primitives later in the synthesis flow. Multiple instantiated Block RAMs are reported only once. 
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1613.328 ; gain = 679.102
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:22 . Memory (MB): peak = 1613.328 ; gain = 679.102
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Block RAM: Final Mapping Report
++------------+-------------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name | RTL Object                                | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++------------+-------------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|core        | coefficient_bank_a/memory_reg             | 4 K x 32(READ_FIRST)   | W | R | 4 K x 32(READ_FIRST)   | W | R | Port A and B     | 0      | 4      | 
+|core        | coefficient_bank_b/memory_reg             | 4 K x 32(READ_FIRST)   | W | R | 4 K x 32(READ_FIRST)   | W | R | Port A and B     | 0      | 4      | 
+|core        | twist_profile_memory/memory_reg           | 4 K x 32(READ_FIRST)   | W |   | 4 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 4      | 
+|core        | forward_twiddle_profile_memory/memory_reg | 4 K x 32(READ_FIRST)   | W |   | 4 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 4      | 
+|core        | inverse_twiddle_profile_memory/memory_reg | 4 K x 32(READ_FIRST)   | W |   | 4 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 4      | 
+|core        | inverse_scale_profile_memory/memory_reg   | 4 K x 32(READ_FIRST)   | W |   | 4 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 4      | 
++------------+-------------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-7052] The timing for the instance core/coefficient_bank_a/memory_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance core/coefficient_bank_a/memory_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance core/coefficient_bank_a/memory_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance core/coefficient_bank_a/memory_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance core/coefficient_bank_a/memory_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance core/coefficient_bank_a/memory_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance core/coefficient_bank_a/memory_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance core/coefficient_bank_a/memory_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance core/coefficient_bank_b/memory_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance core/coefficient_bank_b/memory_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance core/coefficient_bank_b/memory_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance core/coefficient_bank_b/memory_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance core/inverse_scale_profile_memory/memory_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance core/inverse_scale_profile_memory/memory_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance core/inverse_scale_profile_memory/memory_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance core/inverse_scale_profile_memory/memory_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1613.328 ; gain = 679.102
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 1613.328 ; gain = 679.102
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 1613.328 ; gain = 679.102
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:26 ; elapsed = 00:00:26 . Memory (MB): peak = 1613.328 ; gain = 679.102
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:26 ; elapsed = 00:00:26 . Memory (MB): peak = 1613.328 ; gain = 679.102
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:26 ; elapsed = 00:00:26 . Memory (MB): peak = 1613.328 ; gain = 679.102
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:26 ; elapsed = 00:00:26 . Memory (MB): peak = 1613.328 ; gain = 679.102
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+---------+------+
+|      |Cell     |Count |
++------+---------+------+
+|1     |BUFG     |     1|
+|2     |CARRY4   |   746|
+|3     |LUT1     |   162|
+|4     |LUT2     |  1856|
+|5     |LUT3     |   531|
+|6     |LUT4     |   820|
+|7     |LUT5     |   747|
+|8     |LUT6     |   791|
+|9     |RAMB36E1 |    24|
+|13    |FDRE     |  2116|
+|14    |FDSE     |    19|
+|15    |IBUF     |    37|
+|16    |OBUF     |   247|
++------+---------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:26 ; elapsed = 00:00:26 . Memory (MB): peak = 1613.328 ; gain = 679.102
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 1 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:21 ; elapsed = 00:00:25 . Memory (MB): peak = 1613.328 ; gain = 575.371
+Synthesis Optimization Complete : Time (s): cpu = 00:00:26 ; elapsed = 00:00:26 . Memory (MB): peak = 1613.328 ; gain = 679.102
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.040 . Memory (MB): peak = 1613.328 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 770 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1613.328 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete | Checksum: a5871384
+INFO: [Common 17-83] Releasing license: Synthesis
+56 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 1613.328 ; gain = 1108.516
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 1613.328 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'F:/repos/pynq_butterfly/vivado/poly_mul4096_runtime_profile_axis_synth/poly_mul4096_runtime_profile_axis_synth.runs/synth_1/poly_mul4096_runtime_profile_axis_core.dcp' has been generated.
+INFO: [Vivado 12-24828] Executing command : report_utilization -file poly_mul4096_runtime_profile_axis_core_utilization_synth.rpt -pb poly_mul4096_runtime_profile_axis_core_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Sun Jul 19 15:55:03 2026...

@@ -1,0 +1,51 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
+| Date         : Sun Jul 19 15:55:09 2026
+| Host         : DESKTOP-63734QH running 64-bit major release  (build 9200)
+| Command      : report_utilization -hierarchical -hierarchical_depth 10 -file F:/repos/pynq_butterfly/reports/poly_mul4096_runtime_profile_axis_synth/poly_mul4096_runtime_profile_axis_hierarchical_utilization.rpt
+| Design       : poly_mul4096_runtime_profile_axis_core
+| Device       : xc7z020clg400-1
+| Speed File   : -1
+| Design State : Synthesized
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++--------------------------------------------+-----------------------------------+------------+------------+---------+------+------+--------+--------+------------+
+|                  Instance                  |               Module              | Total LUTs | Logic LUTs | LUTRAMs | SRLs |  FFs | RAMB36 | RAMB18 | DSP Blocks |
++--------------------------------------------+-----------------------------------+------------+------------+---------+------+------+--------+--------+------------+
+| poly_mul4096_runtime_profile_axis_core     |                             (top) |       4616 |       4616 |       0 |    0 | 2135 |     24 |      0 |          0 |
+|   (poly_mul4096_runtime_profile_axis_core) |                             (top) |        123 |        123 |       0 |    0 |  178 |      0 |      0 |          0 |
+|   core                                     | poly_mul4096_runtime_profile_core |       4493 |       4493 |       0 |    0 | 1957 |     24 |      0 |          0 |
+|     (core)                                 | poly_mul4096_runtime_profile_core |        168 |        168 |       0 |    0 |  432 |      0 |      0 |          0 |
+|     coefficient_bank_a                     |                ntt4096_coeff_bram |         11 |         11 |       0 |    0 |    0 |      4 |      0 |          0 |
+|     coefficient_bank_b                     |              ntt4096_coeff_bram_0 |        230 |        230 |       0 |    0 |    0 |      4 |      0 |          0 |
+|     forward_butterfly_lane_a               |                butterfly_dif_core |        760 |        760 |       0 |    0 |  264 |      0 |      0 |          0 |
+|       (forward_butterfly_lane_a)           |                butterfly_dif_core |        146 |        146 |       0 |    0 |   98 |      0 |      0 |          0 |
+|       multiplier                           |                     modmul_core_9 |        614 |        614 |       0 |    0 |  166 |      0 |      0 |          0 |
+|     forward_butterfly_lane_b               |              butterfly_dif_core_1 |        570 |        570 |       0 |    0 |  264 |      0 |      0 |          0 |
+|       (forward_butterfly_lane_b)           |              butterfly_dif_core_1 |         56 |         56 |       0 |    0 |   98 |      0 |      0 |          0 |
+|       multiplier                           |                     modmul_core_8 |        514 |        514 |       0 |    0 |  166 |      0 |      0 |          0 |
+|     forward_schedule                       |         ntt4096_dif_schedule_core |        178 |        178 |       0 |    0 |  103 |      0 |      0 |          0 |
+|     forward_twiddle_profile_memory         |              ntt4096_profile_bram |          1 |          1 |       0 |    0 |    0 |      4 |      0 |          0 |
+|     inverse_butterfly                      |                    butterfly_core |        782 |        782 |       0 |    0 |  296 |      0 |      0 |          0 |
+|       (inverse_butterfly)                  |                    butterfly_core |          8 |          8 |       0 |    0 |  130 |      0 |      0 |          0 |
+|       multiplier                           |                     modmul_core_7 |        774 |        774 |       0 |    0 |  166 |      0 |      0 |          0 |
+|     inverse_scale_profile_memory           |            ntt4096_profile_bram_2 |         79 |         79 |       0 |    0 |    0 |      4 |      0 |          0 |
+|     inverse_schedule                       |             ntt4096_schedule_core |        117 |        117 |       0 |    0 |  100 |      0 |      0 |          0 |
+|     inverse_twiddle_profile_memory         |            ntt4096_profile_bram_3 |          1 |          1 |       0 |    0 |    0 |      4 |      0 |          0 |
+|     preprocessing_lane_a                   |                       modmul_core |        533 |        533 |       0 |    0 |  166 |      0 |      0 |          0 |
+|     preprocessing_lane_b                   |                     modmul_core_4 |        511 |        511 |       0 |    0 |  166 |      0 |      0 |          0 |
+|     scalar_multiplier                      |                     modmul_core_5 |        546 |        546 |       0 |    0 |  166 |      0 |      0 |          0 |
+|     twist_profile_memory                   |            ntt4096_profile_bram_6 |          6 |          6 |       0 |    0 |    0 |      4 |      0 |          0 |
++--------------------------------------------+-----------------------------------+------------+------------+---------+------+------+--------+--------+------------+
+
+

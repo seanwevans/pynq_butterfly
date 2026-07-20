@@ -1,0 +1,3 @@
+/mnt/f/repos/pynq_butterfly/openfhe_two_tower_runtime_bridge/build/CMakeFiles/openfhe_two_tower_runtime_bridge.dir
+/mnt/f/repos/pynq_butterfly/openfhe_two_tower_runtime_bridge/build/CMakeFiles/edit_cache.dir
+/mnt/f/repos/pynq_butterfly/openfhe_two_tower_runtime_bridge/build/CMakeFiles/rebuild_cache.dir

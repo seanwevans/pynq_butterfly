@@ -1,0 +1,33 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
+| Date         : Sun Jul 19 19:46:45 2026
+| Host         : DESKTOP-63734QH running 64-bit major release  (build 9200)
+| Command      : report_utilization -hierarchical -hierarchical_depth 10 -file F:/repos/pynq_butterfly/reports/ntt4096_four_bank_coeff_store_bram_synth/ntt4096_four_bank_coeff_store_bram_hierarchical_utilization.rpt
+| Design       : ntt4096_four_bank_coeff_store
+| Device       : xc7z020clg400-1
+| Speed File   : -1
+| Design State : Synthesized
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++-----------------------------------+------------------------------+------------+------------+---------+------+-----+--------+--------+------------+
+|              Instance             |            Module            | Total LUTs | Logic LUTs | LUTRAMs | SRLs | FFs | RAMB36 | RAMB18 | DSP Blocks |
++-----------------------------------+------------------------------+------------+------------+---------+------+-----+--------+--------+------------+
+| ntt4096_four_bank_coeff_store     |                        (top) |        956 |        956 |       0 |    0 |   9 |      4 |      0 |          0 |
+|   (ntt4096_four_bank_coeff_store) |                        (top) |          9 |          9 |       0 |    0 |   9 |      0 |      0 |          0 |
+|   bank0                           |   ntt4096_coeff_bank_1024x32 |        293 |        293 |       0 |    0 |   0 |      1 |      0 |          0 |
+|   bank1                           | ntt4096_coeff_bank_1024x32_0 |        186 |        186 |       0 |    0 |   0 |      1 |      0 |          0 |
+|   bank2                           | ntt4096_coeff_bank_1024x32_1 |        196 |        196 |       0 |    0 |   0 |      1 |      0 |          0 |
+|   bank3                           | ntt4096_coeff_bank_1024x32_2 |        272 |        272 |       0 |    0 |   0 |      1 |      0 |          0 |
++-----------------------------------+------------------------------+------------+------------+---------+------+-----+--------+--------+------------+
+
+

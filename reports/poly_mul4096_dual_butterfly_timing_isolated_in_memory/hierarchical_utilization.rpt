@@ -1,0 +1,143 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
+| Date         : Mon Jul 20 00:01:38 2026
+| Host         : DESKTOP-63734QH running 64-bit major release  (build 9200)
+| Command      : report_utilization -hierarchical -hierarchical_depth 16 -file F:/repos/pynq_butterfly/reports/poly_mul4096_dual_butterfly_timing_isolated_in_memory/hierarchical_utilization.rpt
+| Design       : poly_mul4096_dual_butterfly_two_tower_axis_core
+| Device       : xc7z020clg400-1
+| Speed File   : -1
+| Design State : Synthesized
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++-----------------------------------------------------+------------------------------------------------------------------+------------+------------+---------+------+------+--------+--------+------------+
+|                       Instance                      |                              Module                              | Total LUTs | Logic LUTs | LUTRAMs | SRLs |  FFs | RAMB36 | RAMB18 | DSP Blocks |
++-----------------------------------------------------+------------------------------------------------------------------+------------+------------+---------+------+------+--------+--------+------------+
+| poly_mul4096_dual_butterfly_two_tower_axis_core     |                                                            (top) |      20352 |      20352 |       0 |    0 | 7327 |     48 |      0 |          0 |
+|   (poly_mul4096_dual_butterfly_two_tower_axis_core) |                                                            (top) |          0 |          0 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   lane0                                             | poly_mul4096_dual_butterfly_runtime_profile_axis_core__xdcDup__1 |      10178 |      10178 |       0 |    0 | 3694 |     24 |      0 |          0 |
+|     (lane0)                                         | poly_mul4096_dual_butterfly_runtime_profile_axis_core__xdcDup__1 |         86 |         86 |       0 |    0 |  107 |      0 |      0 |          0 |
+|     core                                            |      poly_mul4096_dual_butterfly_runtime_profile_core__xdcDup__1 |      10092 |      10092 |       0 |    0 | 3587 |     24 |      0 |          0 |
+|       (core)                                        |      poly_mul4096_dual_butterfly_runtime_profile_core__xdcDup__1 |        111 |        111 |       0 |    0 |  457 |      0 |      0 |          0 |
+|       butterfly_a0                                  |                              ntt4096_dual_mode_butterfly_core_22 |       1005 |       1005 |       0 |    0 |  459 |      0 |      0 |          0 |
+|         (butterfly_a0)                              |                              ntt4096_dual_mode_butterfly_core_22 |        751 |        751 |       0 |    0 |  293 |      0 |      0 |          0 |
+|         multiplier                                  |                                                   modmul_core_48 |        318 |        318 |       0 |    0 |  166 |      0 |      0 |          0 |
+|       butterfly_a1                                  |                              ntt4096_dual_mode_butterfly_core_23 |       1005 |       1005 |       0 |    0 |  459 |      0 |      0 |          0 |
+|         (butterfly_a1)                              |                              ntt4096_dual_mode_butterfly_core_23 |        750 |        750 |       0 |    0 |  293 |      0 |      0 |          0 |
+|         multiplier                                  |                                                   modmul_core_47 |        319 |        319 |       0 |    0 |  166 |      0 |      0 |          0 |
+|       butterfly_b0                                  |                              ntt4096_dual_mode_butterfly_core_24 |        643 |        643 |       0 |    0 |  426 |      0 |      0 |          0 |
+|         (butterfly_b0)                              |                              ntt4096_dual_mode_butterfly_core_24 |        397 |        397 |       0 |    0 |  260 |      0 |      0 |          0 |
+|         multiplier                                  |                                                   modmul_core_46 |        310 |        310 |       0 |    0 |  166 |      0 |      0 |          0 |
+|       butterfly_b1                                  |                              ntt4096_dual_mode_butterfly_core_25 |        643 |        643 |       0 |    0 |  426 |      0 |      0 |          0 |
+|         (butterfly_b1)                              |                              ntt4096_dual_mode_butterfly_core_25 |        397 |        397 |       0 |    0 |  260 |      0 |      0 |          0 |
+|         multiplier                                  |                                                   modmul_core_45 |        310 |        310 |       0 |    0 |  166 |      0 |      0 |          0 |
+|       coefficient_store_a                           |                                 ntt4096_four_bank_coeff_store_26 |        507 |        507 |       0 |    0 |    8 |      4 |      0 |          0 |
+|         (coefficient_store_a)                       |                                 ntt4096_four_bank_coeff_store_26 |          5 |          5 |       0 |    0 |    8 |      0 |      0 |          0 |
+|         bank0                                       |                                    ntt4096_coeff_bank_1024x32_41 |        158 |        158 |       0 |    0 |    0 |      1 |      0 |          0 |
+|         bank1                                       |                                    ntt4096_coeff_bank_1024x32_42 |         42 |         42 |       0 |    0 |    0 |      1 |      0 |          0 |
+|         bank2                                       |                                    ntt4096_coeff_bank_1024x32_43 |         78 |         78 |       0 |    0 |    0 |      1 |      0 |          0 |
+|         bank3                                       |                                    ntt4096_coeff_bank_1024x32_44 |        224 |        224 |       0 |    0 |    0 |      1 |      0 |          0 |
+|       coefficient_store_b                           |                                 ntt4096_four_bank_coeff_store_27 |        384 |        384 |       0 |    0 |    8 |      4 |      0 |          0 |
+|         (coefficient_store_b)                       |                                 ntt4096_four_bank_coeff_store_27 |          5 |          5 |       0 |    0 |    8 |      0 |      0 |          0 |
+|         bank0                                       |                                    ntt4096_coeff_bank_1024x32_37 |        157 |        157 |       0 |    0 |    0 |      1 |      0 |          0 |
+|         bank1                                       |                                    ntt4096_coeff_bank_1024x32_38 |         44 |         44 |       0 |    0 |    0 |      1 |      0 |          0 |
+|         bank2                                       |                                    ntt4096_coeff_bank_1024x32_39 |         50 |         50 |       0 |    0 |    0 |      1 |      0 |          0 |
+|         bank3                                       |                                    ntt4096_coeff_bank_1024x32_40 |        128 |        128 |       0 |    0 |    0 |      1 |      0 |          0 |
+|       forward_twiddle_memory                        |                        ntt4096_profile_bram_dual_read__xdcDup__2 |         16 |         16 |       0 |    0 |    0 |      4 |      0 |          0 |
+|         (forward_twiddle_memory)                    |                        ntt4096_profile_bram_dual_read__xdcDup__2 |         16 |         16 |       0 |    0 |    0 |      0 |      0 |          0 |
+|         profile_memory                              |                                            xpm_memory_tdpram__10 |          0 |          0 |       0 |    0 |    0 |      4 |      0 |          0 |
+|           (profile_memory)                          |                                            xpm_memory_tdpram__10 |          0 |          0 |       0 |    0 |    0 |      0 |      0 |          0 |
+|           xpm_memory_base_inst                      |                                              xpm_memory_base__10 |          0 |          0 |       0 |    0 |    0 |      4 |      0 |          0 |
+|       inverse_scale_memory                          |                        ntt4096_profile_bram_dual_read__xdcDup__4 |        139 |        139 |       0 |    0 |    0 |      4 |      0 |          0 |
+|         (inverse_scale_memory)                      |                        ntt4096_profile_bram_dual_read__xdcDup__4 |        139 |        139 |       0 |    0 |    0 |      0 |      0 |          0 |
+|         profile_memory                              |                                             xpm_memory_tdpram__8 |          0 |          0 |       0 |    0 |    0 |      4 |      0 |          0 |
+|           (profile_memory)                          |                                             xpm_memory_tdpram__8 |          0 |          0 |       0 |    0 |    0 |      0 |      0 |          0 |
+|           xpm_memory_base_inst                      |                                               xpm_memory_base__8 |          0 |          0 |       0 |    0 |    0 |      4 |      0 |          0 |
+|       inverse_twiddle_memory                        |                        ntt4096_profile_bram_dual_read__xdcDup__3 |         34 |         34 |       0 |    0 |    0 |      4 |      0 |          0 |
+|         (inverse_twiddle_memory)                    |                        ntt4096_profile_bram_dual_read__xdcDup__3 |         34 |         34 |       0 |    0 |    0 |      0 |      0 |          0 |
+|         profile_memory                              |                                             xpm_memory_tdpram__9 |          0 |          0 |       0 |    0 |    0 |      4 |      0 |          0 |
+|           (profile_memory)                          |                                             xpm_memory_tdpram__9 |          0 |          0 |       0 |    0 |    0 |      0 |      0 |          0 |
+|           xpm_memory_base_inst                      |                                               xpm_memory_base__9 |          0 |          0 |       0 |    0 |    0 |      4 |      0 |          0 |
+|       scalar_lane0                                  |                                                   modmul_core_28 |        459 |        459 |       0 |    0 |  166 |      0 |      0 |          0 |
+|       scalar_lane1                                  |                                                   modmul_core_29 |        461 |        461 |       0 |    0 |  166 |      0 |      0 |          0 |
+|       scalar_lane2                                  |                                                   modmul_core_30 |        455 |        455 |       0 |    0 |  166 |      0 |      0 |          0 |
+|       scalar_lane3                                  |                                                   modmul_core_31 |        455 |        455 |       0 |    0 |  166 |      0 |      0 |          0 |
+|       scalar_lane4                                  |                                                   modmul_core_32 |        451 |        451 |       0 |    0 |  166 |      0 |      0 |          0 |
+|       scalar_lane5                                  |                                                   modmul_core_33 |        493 |        493 |       0 |    0 |  166 |      0 |      0 |          0 |
+|       scalar_lane6                                  |                                                   modmul_core_34 |        482 |        482 |       0 |    0 |  166 |      0 |      0 |          0 |
+|       scalar_lane7                                  |                                                   modmul_core_35 |        487 |        487 |       0 |    0 |  166 |      0 |      0 |          0 |
+|       schedule                                      |                                  ntt4096_paired_schedule_core_36 |       1838 |       1838 |       0 |    0 |   16 |      0 |      0 |          0 |
+|       twist_memory                                  |                        ntt4096_profile_bram_dual_read__xdcDup__1 |         24 |         24 |       0 |    0 |    0 |      4 |      0 |          0 |
+|         (twist_memory)                              |                        ntt4096_profile_bram_dual_read__xdcDup__1 |         24 |         24 |       0 |    0 |    0 |      0 |      0 |          0 |
+|         profile_memory                              |                                            xpm_memory_tdpram__11 |          0 |          0 |       0 |    0 |    0 |      4 |      0 |          0 |
+|           (profile_memory)                          |                                            xpm_memory_tdpram__11 |          0 |          0 |       0 |    0 |    0 |      0 |      0 |          0 |
+|           xpm_memory_base_inst                      |                                              xpm_memory_base__11 |          0 |          0 |       0 |    0 |    0 |      4 |      0 |          0 |
+|   lane1                                             |            poly_mul4096_dual_butterfly_runtime_profile_axis_core |      10174 |      10174 |       0 |    0 | 3633 |     24 |      0 |          0 |
+|     (lane1)                                         |            poly_mul4096_dual_butterfly_runtime_profile_axis_core |         69 |         69 |       0 |    0 |   43 |      0 |      0 |          0 |
+|     core                                            |                 poly_mul4096_dual_butterfly_runtime_profile_core |      10105 |      10105 |       0 |    0 | 3590 |     24 |      0 |          0 |
+|       (core)                                        |                 poly_mul4096_dual_butterfly_runtime_profile_core |        114 |        114 |       0 |    0 |  460 |      0 |      0 |          0 |
+|       butterfly_a0                                  |                                 ntt4096_dual_mode_butterfly_core |       1005 |       1005 |       0 |    0 |  459 |      0 |      0 |          0 |
+|         (butterfly_a0)                              |                                 ntt4096_dual_mode_butterfly_core |        751 |        751 |       0 |    0 |  293 |      0 |      0 |          0 |
+|         multiplier                                  |                                                   modmul_core_21 |        318 |        318 |       0 |    0 |  166 |      0 |      0 |          0 |
+|       butterfly_a1                                  |                               ntt4096_dual_mode_butterfly_core_0 |       1004 |       1004 |       0 |    0 |  459 |      0 |      0 |          0 |
+|         (butterfly_a1)                              |                               ntt4096_dual_mode_butterfly_core_0 |        750 |        750 |       0 |    0 |  293 |      0 |      0 |          0 |
+|         multiplier                                  |                                                   modmul_core_20 |        318 |        318 |       0 |    0 |  166 |      0 |      0 |          0 |
+|       butterfly_b0                                  |                               ntt4096_dual_mode_butterfly_core_1 |        643 |        643 |       0 |    0 |  426 |      0 |      0 |          0 |
+|         (butterfly_b0)                              |                               ntt4096_dual_mode_butterfly_core_1 |        397 |        397 |       0 |    0 |  260 |      0 |      0 |          0 |
+|         multiplier                                  |                                                   modmul_core_19 |        310 |        310 |       0 |    0 |  166 |      0 |      0 |          0 |
+|       butterfly_b1                                  |                               ntt4096_dual_mode_butterfly_core_2 |        643 |        643 |       0 |    0 |  426 |      0 |      0 |          0 |
+|         (butterfly_b1)                              |                               ntt4096_dual_mode_butterfly_core_2 |        397 |        397 |       0 |    0 |  260 |      0 |      0 |          0 |
+|         multiplier                                  |                                                   modmul_core_18 |        310 |        310 |       0 |    0 |  166 |      0 |      0 |          0 |
+|       coefficient_store_a                           |                                    ntt4096_four_bank_coeff_store |        509 |        509 |       0 |    0 |    8 |      4 |      0 |          0 |
+|         (coefficient_store_a)                       |                                    ntt4096_four_bank_coeff_store |          5 |          5 |       0 |    0 |    8 |      0 |      0 |          0 |
+|         bank0                                       |                                    ntt4096_coeff_bank_1024x32_14 |        160 |        160 |       0 |    0 |    0 |      1 |      0 |          0 |
+|         bank1                                       |                                    ntt4096_coeff_bank_1024x32_15 |         42 |         42 |       0 |    0 |    0 |      1 |      0 |          0 |
+|         bank2                                       |                                    ntt4096_coeff_bank_1024x32_16 |         78 |         78 |       0 |    0 |    0 |      1 |      0 |          0 |
+|         bank3                                       |                                    ntt4096_coeff_bank_1024x32_17 |        224 |        224 |       0 |    0 |    0 |      1 |      0 |          0 |
+|       coefficient_store_b                           |                                  ntt4096_four_bank_coeff_store_3 |        384 |        384 |       0 |    0 |    8 |      4 |      0 |          0 |
+|         (coefficient_store_b)                       |                                  ntt4096_four_bank_coeff_store_3 |          5 |          5 |       0 |    0 |    8 |      0 |      0 |          0 |
+|         bank0                                       |                                       ntt4096_coeff_bank_1024x32 |        157 |        157 |       0 |    0 |    0 |      1 |      0 |          0 |
+|         bank1                                       |                                    ntt4096_coeff_bank_1024x32_11 |         44 |         44 |       0 |    0 |    0 |      1 |      0 |          0 |
+|         bank2                                       |                                    ntt4096_coeff_bank_1024x32_12 |         50 |         50 |       0 |    0 |    0 |      1 |      0 |          0 |
+|         bank3                                       |                                    ntt4096_coeff_bank_1024x32_13 |        128 |        128 |       0 |    0 |    0 |      1 |      0 |          0 |
+|       forward_twiddle_memory                        |                        ntt4096_profile_bram_dual_read__xdcDup__6 |          2 |          2 |       0 |    0 |    0 |      4 |      0 |          0 |
+|         (forward_twiddle_memory)                    |                        ntt4096_profile_bram_dual_read__xdcDup__6 |          2 |          2 |       0 |    0 |    0 |      0 |      0 |          0 |
+|         profile_memory                              |                                            xpm_memory_tdpram__14 |          0 |          0 |       0 |    0 |    0 |      4 |      0 |          0 |
+|           (profile_memory)                          |                                            xpm_memory_tdpram__14 |          0 |          0 |       0 |    0 |    0 |      0 |      0 |          0 |
+|           xpm_memory_base_inst                      |                                              xpm_memory_base__14 |          0 |          0 |       0 |    0 |    0 |      4 |      0 |          0 |
+|       inverse_scale_memory                          |                                   ntt4096_profile_bram_dual_read |        139 |        139 |       0 |    0 |    0 |      4 |      0 |          0 |
+|         (inverse_scale_memory)                      |                                   ntt4096_profile_bram_dual_read |        139 |        139 |       0 |    0 |    0 |      0 |      0 |          0 |
+|         profile_memory                              |                                            xpm_memory_tdpram__12 |          0 |          0 |       0 |    0 |    0 |      4 |      0 |          0 |
+|           (profile_memory)                          |                                            xpm_memory_tdpram__12 |          0 |          0 |       0 |    0 |    0 |      0 |      0 |          0 |
+|           xpm_memory_base_inst                      |                                              xpm_memory_base__12 |          0 |          0 |       0 |    0 |    0 |      4 |      0 |          0 |
+|       inverse_twiddle_memory                        |                        ntt4096_profile_bram_dual_read__xdcDup__7 |         57 |         57 |       0 |    0 |    0 |      4 |      0 |          0 |
+|         (inverse_twiddle_memory)                    |                        ntt4096_profile_bram_dual_read__xdcDup__7 |         57 |         57 |       0 |    0 |    0 |      0 |      0 |          0 |
+|         profile_memory                              |                                            xpm_memory_tdpram__13 |          0 |          0 |       0 |    0 |    0 |      4 |      0 |          0 |
+|           (profile_memory)                          |                                            xpm_memory_tdpram__13 |          0 |          0 |       0 |    0 |    0 |      0 |      0 |          0 |
+|           xpm_memory_base_inst                      |                                              xpm_memory_base__13 |          0 |          0 |       0 |    0 |    0 |      4 |      0 |          0 |
+|       scalar_lane0                                  |                                                      modmul_core |        459 |        459 |       0 |    0 |  166 |      0 |      0 |          0 |
+|       scalar_lane1                                  |                                                    modmul_core_4 |        461 |        461 |       0 |    0 |  166 |      0 |      0 |          0 |
+|       scalar_lane2                                  |                                                    modmul_core_5 |        455 |        455 |       0 |    0 |  166 |      0 |      0 |          0 |
+|       scalar_lane3                                  |                                                    modmul_core_6 |        455 |        455 |       0 |    0 |  166 |      0 |      0 |          0 |
+|       scalar_lane4                                  |                                                    modmul_core_7 |        450 |        450 |       0 |    0 |  166 |      0 |      0 |          0 |
+|       scalar_lane5                                  |                                                    modmul_core_8 |        492 |        492 |       0 |    0 |  166 |      0 |      0 |          0 |
+|       scalar_lane6                                  |                                                    modmul_core_9 |        482 |        482 |       0 |    0 |  166 |      0 |      0 |          0 |
+|       scalar_lane7                                  |                                                   modmul_core_10 |        487 |        487 |       0 |    0 |  166 |      0 |      0 |          0 |
+|       schedule                                      |                                     ntt4096_paired_schedule_core |       1838 |       1838 |       0 |    0 |   16 |      0 |      0 |          0 |
+|       twist_memory                                  |                        ntt4096_profile_bram_dual_read__xdcDup__5 |         26 |         26 |       0 |    0 |    0 |      4 |      0 |          0 |
+|         (twist_memory)                              |                        ntt4096_profile_bram_dual_read__xdcDup__5 |         26 |         26 |       0 |    0 |    0 |      0 |      0 |          0 |
+|         profile_memory                              |                                                xpm_memory_tdpram |          0 |          0 |       0 |    0 |    0 |      4 |      0 |          0 |
+|           (profile_memory)                          |                                                xpm_memory_tdpram |          0 |          0 |       0 |    0 |    0 |      0 |      0 |          0 |
+|           xpm_memory_base_inst                      |                                                  xpm_memory_base |          0 |          0 |       0 |    0 |    0 |      4 |      0 |          0 |
++-----------------------------------------------------+------------------------------------------------------------------+------------+------------+---------+------+------+--------+--------+------------+
+
+

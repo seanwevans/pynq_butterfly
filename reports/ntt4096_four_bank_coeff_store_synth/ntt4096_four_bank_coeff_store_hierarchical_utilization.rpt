@@ -1,0 +1,28 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
+| Date         : Sun Jul 19 19:24:55 2026
+| Host         : DESKTOP-63734QH running 64-bit major release  (build 9200)
+| Command      : report_utilization -hierarchical -hierarchical_depth 8 -file F:/repos/pynq_butterfly/reports/ntt4096_four_bank_coeff_store_synth/ntt4096_four_bank_coeff_store_hierarchical_utilization.rpt
+| Design       : ntt4096_four_bank_coeff_store
+| Device       : xc7z020clg400-1
+| Speed File   : -1
+| Design State : Synthesized
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++-------------------------------+--------+------------+------------+---------+------+-----+--------+--------+------------+
+|            Instance           | Module | Total LUTs | Logic LUTs | LUTRAMs | SRLs | FFs | RAMB36 | RAMB18 | DSP Blocks |
++-------------------------------+--------+------------+------------+---------+------+-----+--------+--------+------------+
+| ntt4096_four_bank_coeff_store |  (top) |       8013 |       2381 |    5632 |    0 | 137 |      0 |      0 |          0 |
++-------------------------------+--------+------------+------------+---------+------+-----+--------+--------+------------+
+
+

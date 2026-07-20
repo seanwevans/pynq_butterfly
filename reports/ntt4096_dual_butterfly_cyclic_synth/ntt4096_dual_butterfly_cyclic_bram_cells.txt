@@ -1,0 +1,12 @@
+RAMB36E1 coefficient_memory/bank0/memory_reg
+RAMB36E1 coefficient_memory/bank1/memory_reg
+RAMB36E1 coefficient_memory/bank2/memory_reg
+RAMB36E1 coefficient_memory/bank3/memory_reg
+RAMB36E1 profile_memory/memory_reg_1_0
+RAMB36E1 profile_memory/memory_reg_1_1
+RAMB36E1 profile_memory/memory_reg_1_2
+RAMB36E1 profile_memory/memory_reg_1_3
+RAMB36E1 profile_memory/memory_reg_2_0
+RAMB36E1 profile_memory/memory_reg_2_1
+RAMB36E1 profile_memory/memory_reg_2_2
+RAMB36E1 profile_memory/memory_reg_2_3
