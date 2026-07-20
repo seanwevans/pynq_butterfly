@@ -1,0 +1,70 @@
+# ==============================================================================
+# VIVADO PROJECT & BUILD ARTIFACTS
+# (Since you use Tcl scripts to rebuild, ignore the generated project bloat)
+# ==============================================================================
+*.runs/
+*.cache/
+*.gen/
+*.hw/
+*.ip_user_files/
+*.sim/
+*.tmp/
+*.xpr
+
+# Xilinx temporary logs, journals, and cache files
+*.jou
+*.log
+*.str
+*.pb
+*.wdf
+*.wpc
+*.rld
+*.dcp
+*.vds
+*.vdi
+*.bxml
+*.bda
+htr.txt
+webtalk_pa.xml
+clockInfo.txt
+tight_setup_hold_pins.txt
+.Xil/
+
+# ==============================================================================
+# HARDWARE EXPORTS & BITSTREAMS 
+# (These cause GitHub size limit errors. Upload these to GitHub Releases instead)
+# ==============================================================================
+*.bit
+*.hwh
+*.xsa
+
+# ==============================================================================
+# C++ / CMAKE (OpenFHE Runtime Bridges)
+# ==============================================================================
+build/
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+*.o
+*.d
+*.so
+*.dll
+*.out
+
+# ==============================================================================
+# PYTHON & SIMULATION ARTIFACTS
+# ==============================================================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.vcd
+*.wdb
+
+# ==============================================================================
+# OS & EDITOR FILES
+# ==============================================================================
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
