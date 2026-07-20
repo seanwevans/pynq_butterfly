@@ -63,3 +63,9 @@ __pycache__/
 Thumbs.db
 .vscode/
 .idea/
+
+# Generated OpenFHE/NTT test vectors
+board_db2b/vectors/
+board_db2b_sweep/vectors/
+rtl/generated_dual_butterfly_batch2/
+rtl/generated_dual_butterfly_batch_sweep/
