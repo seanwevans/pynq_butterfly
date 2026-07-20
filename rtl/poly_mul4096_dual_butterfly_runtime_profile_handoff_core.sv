@@ -45,7 +45,7 @@
  * the multiplier input registers in all forward and inverse paired
  * butterflies.
  */
-module poly_mul4096_dual_butterfly_runtime_profile_core (
+module poly_mul4096_dual_butterfly_runtime_profile_handoff_core (
     input  logic        clk,
     input  logic        reset_n,
     input  logic        start,
@@ -63,6 +63,29 @@ module poly_mul4096_dual_butterfly_runtime_profile_core (
 
     input  logic [11:0] read_b_addr,
     output logic [31:0] read_b_data,
+
+    /*
+     * Idle-only four-wide handoff port.  This exposes the existing
+     * four-bank coefficient store without changing the arithmetic FSM.
+     */
+    input  logic        handoff_read_valid,
+    input  logic [11:0] handoff_read_base,
+    output logic        handoff_read_data_valid,
+    output logic [31:0] handoff_read_data0,
+    output logic [31:0] handoff_read_data1,
+    output logic [31:0] handoff_read_data2,
+    output logic [31:0] handoff_read_data3,
+
+    input  logic        handoff_write_valid,
+    input  logic [11:0] handoff_write_base,
+    input  logic [31:0] handoff_write_a_data0,
+    input  logic [31:0] handoff_write_a_data1,
+    input  logic [31:0] handoff_write_a_data2,
+    input  logic [31:0] handoff_write_a_data3,
+    input  logic [31:0] handoff_write_b_data0,
+    input  logic [31:0] handoff_write_b_data1,
+    input  logic [31:0] handoff_write_b_data2,
+    input  logic [31:0] handoff_write_b_data3,
 
     input  logic        profile_modulus_we,
     input  logic [31:0] profile_modulus_data,
@@ -462,11 +485,44 @@ module poly_mul4096_dual_butterfly_runtime_profile_core (
     logic [31:0] b_write_data2;
     logic [31:0] b_write_data3;
 
+    logic handoff_read_valid_q;
+
     assign read_a_data =
         a_read_data0;
 
     assign read_b_data =
         b_read_data0;
+
+    assign handoff_read_data_valid =
+        a_read_data_valid
+        && handoff_read_valid_q;
+
+    assign handoff_read_data0 =
+        a_read_data0;
+
+    assign handoff_read_data1 =
+        a_read_data1;
+
+    assign handoff_read_data2 =
+        a_read_data2;
+
+    assign handoff_read_data3 =
+        a_read_data3;
+
+    always_ff @(posedge clk)
+    begin
+        if (!reset_n)
+        begin
+            handoff_read_valid_q <=
+                1'b0;
+        end
+        else
+        begin
+            handoff_read_valid_q <=
+                handoff_read_valid
+                && !busy;
+        end
+    end
 
     always_comb
     begin
@@ -500,17 +556,34 @@ module poly_mul4096_dual_butterfly_runtime_profile_core (
             a_read_valid =
                 1'b1;
 
-            a_read_addr0 =
-                inspect_a_addr0;
+            if (handoff_read_valid)
+            begin
+                a_read_addr0 =
+                    handoff_read_base;
 
-            a_read_addr1 =
-                inspect_a_addr1;
+                a_read_addr1 =
+                    handoff_read_base + 12'd1;
 
-            a_read_addr2 =
-                inspect_a_addr2;
+                a_read_addr2 =
+                    handoff_read_base + 12'd2;
 
-            a_read_addr3 =
-                inspect_a_addr3;
+                a_read_addr3 =
+                    handoff_read_base + 12'd3;
+            end
+            else
+            begin
+                a_read_addr0 =
+                    inspect_a_addr0;
+
+                a_read_addr1 =
+                    inspect_a_addr1;
+
+                a_read_addr2 =
+                    inspect_a_addr2;
+
+                a_read_addr3 =
+                    inspect_a_addr3;
+            end
         end
         else
         begin
@@ -1420,6 +1493,114 @@ module poly_mul4096_dual_butterfly_runtime_profile_core (
         endcase
     end
 
+    logic a_store_write_valid;
+    logic [11:0] a_store_write_addr0;
+    logic [11:0] a_store_write_addr1;
+    logic [11:0] a_store_write_addr2;
+    logic [11:0] a_store_write_addr3;
+    logic [31:0] a_store_write_data0;
+    logic [31:0] a_store_write_data1;
+    logic [31:0] a_store_write_data2;
+    logic [31:0] a_store_write_data3;
+
+    logic b_store_write_valid;
+    logic [11:0] b_store_write_addr0;
+    logic [11:0] b_store_write_addr1;
+    logic [11:0] b_store_write_addr2;
+    logic [11:0] b_store_write_addr3;
+    logic [31:0] b_store_write_data0;
+    logic [31:0] b_store_write_data1;
+    logic [31:0] b_store_write_data2;
+    logic [31:0] b_store_write_data3;
+
+    assign a_store_write_valid =
+        (!busy && handoff_write_valid)
+        || a_write_valid;
+
+    assign a_store_write_addr0 =
+        (!busy && handoff_write_valid)
+        ? handoff_write_base
+        : a_write_addr0;
+
+    assign a_store_write_addr1 =
+        (!busy && handoff_write_valid)
+        ? handoff_write_base + 12'd1
+        : a_write_addr1;
+
+    assign a_store_write_addr2 =
+        (!busy && handoff_write_valid)
+        ? handoff_write_base + 12'd2
+        : a_write_addr2;
+
+    assign a_store_write_addr3 =
+        (!busy && handoff_write_valid)
+        ? handoff_write_base + 12'd3
+        : a_write_addr3;
+
+    assign a_store_write_data0 =
+        (!busy && handoff_write_valid)
+        ? handoff_write_a_data0
+        : a_write_data0;
+
+    assign a_store_write_data1 =
+        (!busy && handoff_write_valid)
+        ? handoff_write_a_data1
+        : a_write_data1;
+
+    assign a_store_write_data2 =
+        (!busy && handoff_write_valid)
+        ? handoff_write_a_data2
+        : a_write_data2;
+
+    assign a_store_write_data3 =
+        (!busy && handoff_write_valid)
+        ? handoff_write_a_data3
+        : a_write_data3;
+
+    assign b_store_write_valid =
+        (!busy && handoff_write_valid)
+        || b_write_valid;
+
+    assign b_store_write_addr0 =
+        (!busy && handoff_write_valid)
+        ? handoff_write_base
+        : b_write_addr0;
+
+    assign b_store_write_addr1 =
+        (!busy && handoff_write_valid)
+        ? handoff_write_base + 12'd1
+        : b_write_addr1;
+
+    assign b_store_write_addr2 =
+        (!busy && handoff_write_valid)
+        ? handoff_write_base + 12'd2
+        : b_write_addr2;
+
+    assign b_store_write_addr3 =
+        (!busy && handoff_write_valid)
+        ? handoff_write_base + 12'd3
+        : b_write_addr3;
+
+    assign b_store_write_data0 =
+        (!busy && handoff_write_valid)
+        ? handoff_write_b_data0
+        : b_write_data0;
+
+    assign b_store_write_data1 =
+        (!busy && handoff_write_valid)
+        ? handoff_write_b_data1
+        : b_write_data1;
+
+    assign b_store_write_data2 =
+        (!busy && handoff_write_valid)
+        ? handoff_write_b_data2
+        : b_write_data2;
+
+    assign b_store_write_data3 =
+        (!busy && handoff_write_valid)
+        ? handoff_write_b_data3
+        : b_write_data3;
+
     ntt4096_four_bank_coeff_store coefficient_store_a (
         .clk             (clk),
         .reset_n         (reset_n),
@@ -1440,15 +1621,15 @@ module poly_mul4096_dual_butterfly_runtime_profile_core (
         .read_data2      (a_read_data2),
         .read_data3      (a_read_data3),
 
-        .write_valid     (a_write_valid),
-        .write_addr0     (a_write_addr0),
-        .write_addr1     (a_write_addr1),
-        .write_addr2     (a_write_addr2),
-        .write_addr3     (a_write_addr3),
-        .write_data0     (a_write_data0),
-        .write_data1     (a_write_data1),
-        .write_data2     (a_write_data2),
-        .write_data3     (a_write_data3)
+        .write_valid     (a_store_write_valid),
+        .write_addr0     (a_store_write_addr0),
+        .write_addr1     (a_store_write_addr1),
+        .write_addr2     (a_store_write_addr2),
+        .write_addr3     (a_store_write_addr3),
+        .write_data0     (a_store_write_data0),
+        .write_data1     (a_store_write_data1),
+        .write_data2     (a_store_write_data2),
+        .write_data3     (a_store_write_data3)
     );
 
     ntt4096_four_bank_coeff_store coefficient_store_b (
@@ -1471,15 +1652,15 @@ module poly_mul4096_dual_butterfly_runtime_profile_core (
         .read_data2      (b_read_data2),
         .read_data3      (b_read_data3),
 
-        .write_valid     (b_write_valid),
-        .write_addr0     (b_write_addr0),
-        .write_addr1     (b_write_addr1),
-        .write_addr2     (b_write_addr2),
-        .write_addr3     (b_write_addr3),
-        .write_data0     (b_write_data0),
-        .write_data1     (b_write_data1),
-        .write_data2     (b_write_data2),
-        .write_data3     (b_write_data3)
+        .write_valid     (b_store_write_valid),
+        .write_addr0     (b_store_write_addr0),
+        .write_addr1     (b_store_write_addr1),
+        .write_addr2     (b_store_write_addr2),
+        .write_addr3     (b_store_write_addr3),
+        .write_data0     (b_store_write_data0),
+        .write_data1     (b_store_write_data1),
+        .write_data2     (b_store_write_data2),
+        .write_data3     (b_store_write_data3)
     );
 
     /*
