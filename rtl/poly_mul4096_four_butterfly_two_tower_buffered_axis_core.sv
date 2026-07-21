@@ -2,12 +2,12 @@
 
 /*
  * Batched 64-bit AXI4-Stream adapter with one-product operand prefetch,
- * eight-wide result/refill handoff, and one-product result buffering.
+ * four-wide result/refill handoff, and one-product result buffering.
  *
  * Steady-state schedule:
  *
  *     receive product k+1 while core computes product k
- *     512 read issues + one synchronous drain hand off result k and refill k+1
+ *     1024 read issues + one synchronous drain hand off result k and refill k+1
  *     compute product k+1 while result k streams independently
  */
 module poly_mul4096_four_butterfly_two_tower_buffered_axis_core (
@@ -106,8 +106,8 @@ module poly_mul4096_four_butterfly_two_tower_buffered_axis_core (
     logic result_buffer_full;
     logic result_buffer_final;
 
-    logic [8:0] handoff_issue_group;
-    logic [8:0] handoff_data_group;
+    logic [9:0] handoff_issue_group;
+    logic [9:0] handoff_data_group;
     logic [31:0] handoff_cycle_counter;
     logic handoff_final_latched;
 
@@ -180,25 +180,25 @@ module poly_mul4096_four_butterfly_two_tower_buffered_axis_core (
     logic core_handoff_read_valid;
     logic [11:0] core_handoff_read_base;
     logic core_handoff_read_data_valid;
-    logic [7:0][63:0] core_handoff_read_data;
+    logic [3:0][63:0] core_handoff_read_data;
     logic core_handoff_write_valid;
     logic [11:0] core_handoff_write_base;
 
     logic shadow_load_a_we;
     logic shadow_load_b_we;
     logic shadow_read_valid;
-    logic [7:0][11:0] shadow_read_address;
+    logic [3:0][11:0] shadow_read_address;
     logic shadow_a_read_data_valid;
     logic shadow_b_read_data_valid;
-    logic [7:0][63:0] shadow_a_read_data;
-    logic [7:0][63:0] shadow_b_read_data;
+    logic [3:0][63:0] shadow_a_read_data;
+    logic [3:0][63:0] shadow_b_read_data;
 
     logic result_read_valid;
-    logic [7:0][11:0] result_read_address;
+    logic [3:0][11:0] result_read_address;
     logic result_read_data_valid;
-    logic [7:0][63:0] result_read_data;
+    logic [3:0][63:0] result_read_data;
     logic result_write_valid;
-    logic [7:0][11:0] handoff_address;
+    logic [3:0][11:0] handoff_address;
 
     logic [63:0] unused_core_read_a_data;
     logic [63:0] unused_core_read_b_data;
@@ -218,7 +218,7 @@ module poly_mul4096_four_butterfly_two_tower_buffered_axis_core (
 
     wire handoff_commit_last =
         handoff_commit_valid
-        && handoff_data_group == 9'd511;
+        && handoff_data_group == 10'd1023;
 
     wire shadow_consume =
         handoff_commit_last
@@ -246,21 +246,21 @@ module poly_mul4096_four_butterfly_two_tower_buffered_axis_core (
     begin
         for (
             address_lane = 0;
-            address_lane < 8;
+            address_lane < 4;
             address_lane = address_lane + 1
         )
         begin
             handoff_address[address_lane] =
                 {
                     handoff_data_group,
-                    3'b000
+                    2'b00
                 }
                 + address_lane[11:0];
 
             shadow_read_address[address_lane] =
                 {
                     handoff_issue_group,
-                    3'b000
+                    2'b00
                 }
                 + address_lane[11:0];
 
@@ -314,7 +314,7 @@ module poly_mul4096_four_butterfly_two_tower_buffered_axis_core (
 
     assign core_handoff_read_base = {
         handoff_issue_group,
-        3'b000
+        2'b00
     };
 
     assign core_handoff_write_valid =
@@ -323,7 +323,7 @@ module poly_mul4096_four_butterfly_two_tower_buffered_axis_core (
 
     assign core_handoff_write_base = {
         handoff_data_group,
-        3'b000
+        2'b00
     };
 
     assign result_write_valid =
@@ -442,7 +442,7 @@ module poly_mul4096_four_butterfly_two_tower_buffered_axis_core (
         || shadow_full
         || result_buffer_full;
 
-    ntt4096_eight_bank_coeff_store_runtime64 shadow_store_a (
+    ntt4096_four_bank_coeff_store_runtime64 shadow_store_a (
         .clk             (clk),
         .load_we         (shadow_load_a_we),
         .load_addr       (input_coefficient_index),
@@ -456,7 +456,7 @@ module poly_mul4096_four_butterfly_two_tower_buffered_axis_core (
         .write_data      ('0)
     );
 
-    ntt4096_eight_bank_coeff_store_runtime64 shadow_store_b (
+    ntt4096_four_bank_coeff_store_runtime64 shadow_store_b (
         .clk             (clk),
         .load_we         (shadow_load_b_we),
         .load_addr       (input_coefficient_index),
@@ -470,7 +470,7 @@ module poly_mul4096_four_butterfly_two_tower_buffered_axis_core (
         .write_data      ('0)
     );
 
-    ntt4096_eight_bank_coeff_store_runtime64 result_store (
+    ntt4096_four_bank_coeff_store_runtime64 result_store (
         .clk             (clk),
         .load_we         (1'b0),
         .load_addr       (12'd0),
@@ -1053,7 +1053,7 @@ module poly_mul4096_four_butterfly_two_tower_buffered_axis_core (
                     handoff_cycle_counter <=
                         handoff_cycle_counter + 1'b1;
 
-                    if (handoff_issue_group == 9'd511)
+                    if (handoff_issue_group == 10'd1023)
                     begin
                         exec_state <=
                             EXEC_HANDOFF_DRAIN;
@@ -1218,10 +1218,10 @@ module poly_mul4096_four_butterfly_two_tower_buffered_axis_core (
                 $fatal(1);
             end
 
-            if (last_handoff_cycles != 0 && last_handoff_cycles != 32'd513)
+            if (last_handoff_cycles != 0 && last_handoff_cycles != 32'd1025)
             begin
                 $display(
-                    "ERROR: eight-wide handoff took %0d clocks, expected 513",
+                    "ERROR: four-wide handoff took %0d clocks, expected 1025",
                     last_handoff_cycles
                 );
                 $fatal(1);

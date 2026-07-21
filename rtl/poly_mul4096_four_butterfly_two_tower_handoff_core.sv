@@ -1,6 +1,6 @@
 `timescale 1ns/1ps
 
-/* Two exact four-butterfly RNS towers with a shared eight-wide idle handoff. */
+/* Two exact four-butterfly RNS towers with a shared four-wide idle handoff. */
 module poly_mul4096_four_butterfly_two_tower_handoff_core (
     input  logic              clk,
     input  logic              reset_n,
@@ -23,12 +23,12 @@ module poly_mul4096_four_butterfly_two_tower_handoff_core (
     input  logic              handoff_read_valid,
     input  logic [11:0]       handoff_read_base,
     output logic              handoff_read_data_valid,
-    output logic [7:0][63:0]  handoff_read_data,
+    output logic [3:0][63:0]  handoff_read_data,
 
     input  logic              handoff_write_valid,
     input  logic [11:0]       handoff_write_base,
-    input  logic [7:0][63:0]  handoff_write_a_data,
-    input  logic [7:0][63:0]  handoff_write_b_data,
+    input  logic [3:0][63:0]  handoff_write_a_data,
+    input  logic [3:0][63:0]  handoff_write_b_data,
 
     input  logic              profile_modulus_we,
     input  logic [63:0]       profile_modulus_data,
@@ -73,12 +73,12 @@ module poly_mul4096_four_butterfly_two_tower_handoff_core (
     logic [31:0] lane0_read_b_data;
     logic [31:0] lane1_read_b_data;
 
-    logic [7:0][31:0] lane0_handoff_read_data;
-    logic [7:0][31:0] lane1_handoff_read_data;
-    logic [7:0][31:0] lane0_handoff_write_a_data;
-    logic [7:0][31:0] lane1_handoff_write_a_data;
-    logic [7:0][31:0] lane0_handoff_write_b_data;
-    logic [7:0][31:0] lane1_handoff_write_b_data;
+    logic [3:0][31:0] lane0_handoff_read_data;
+    logic [3:0][31:0] lane1_handoff_read_data;
+    logic [3:0][31:0] lane0_handoff_write_a_data;
+    logic [3:0][31:0] lane1_handoff_write_a_data;
+    logic [3:0][31:0] lane0_handoff_write_b_data;
+    logic [3:0][31:0] lane1_handoff_write_b_data;
 
     logic [13:0] unused_preprocessing_count_lane0;
     logic [13:0] unused_preprocessing_count_lane1;
@@ -130,7 +130,7 @@ module poly_mul4096_four_butterfly_two_tower_handoff_core (
     generate
         genvar lane;
 
-        for (lane = 0; lane < 8; lane = lane + 1)
+        for (lane = 0; lane < 4; lane = lane + 1)
         begin : pair_handoff_lanes
             assign lane0_handoff_write_a_data[lane] =
                 handoff_write_a_data[lane][31:0];

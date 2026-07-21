@@ -347,8 +347,8 @@ module tb_poly_mul4096_four_butterfly_two_tower_buffered_axis_core;
         )
             $fatal(1, "pipeline counters prefetch=%0d refill=%0d handoff=%0d", completed_prefetches, completed_refills, completed_handoffs);
 
-        if (last_handoff_cycles != 32'd513)
-            $fatal(1, "handoff cycles=%0d expected=513", last_handoff_cycles);
+        if (last_handoff_cycles != 32'd1025)
+            $fatal(1, "handoff cycles=%0d expected=1025", last_handoff_cycles);
 
         if (!compute_output_overlap_observed)
             $fatal(1, "compute/output overlap was not observed");
@@ -363,9 +363,9 @@ module tb_poly_mul4096_four_butterfly_two_tower_buffered_axis_core;
             $fatal(1, "received outputs=%0d expected=%0d", received_coefficients, TOTAL_OUTPUTS);
 
         $display("PASS: %0d buffered exact two-tower OpenFHE products", BATCH_SIZE);
-        $display("PASS: eight-wide result/refill handoff = %0d clocks", last_handoff_cycles);
+        $display("PASS: four-wide result/refill handoff = %0d clocks", last_handoff_cycles);
         $display("PASS: operand prefetch and compute/output overlap observed");
-        $display("Steady hardware cadence: %0d cycles/product", 22968 + 513);
+        $display("Steady hardware cadence: %0d cycles/product", 22968 + 1025);
         $finish;
     end
 
