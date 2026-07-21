@@ -1,3 +1,7 @@
+# ==============================================================================
+# VIVADO PROJECTS AND GENERATED OUTPUT
+# ==============================================================================
+
 *.runs/
 *.cache/
 *.gen/
@@ -7,7 +11,9 @@
 *.tmp/
 *.xpr
 
-# Xilinx temporary logs, journals, and cache files
+.Xil/
+
+# Vivado logs, journals, databases, and checkpoints
 *.jou
 *.log
 *.str
@@ -20,27 +26,33 @@
 *.vdi
 *.bxml
 *.bda
+
 htr.txt
 webtalk_pa.xml
 clockInfo.txt
 tight_setup_hold_pins.txt
-.Xil/
+
+# Generated reports are reproducible. Files already tracked remain tracked.
+reports/
 
 # ==============================================================================
-# HARDWARE EXPORTS & BITSTREAMS 
+# HARDWARE EXPORTS AND BITSTREAMS
 # ==============================================================================
+
 *.bit
 *.hwh
 *.xsa
 
 # ==============================================================================
-# C++ / CMAKE (OpenFHE Runtime Bridges)
+# C / C++ / CMAKE
 # ==============================================================================
+
 build/
 CMakeCache.txt
 CMakeFiles/
 cmake_install.cmake
 Makefile
+
 *.o
 *.d
 *.so
@@ -48,18 +60,42 @@ Makefile
 *.out
 
 # ==============================================================================
-# PYTHON & SIMULATION ARTIFACTS
+# PYTHON AND SIMULATION
 # ==============================================================================
+
 __pycache__/
 *.py[cod]
 *$py.class
+
 *.vcd
 *.wdb
 
+# Icarus executables emitted beside SystemVerilog testbenches
+rtl/tb_*
+!rtl/tb_*.sv
+
+# Generated vector directories are reproducible. Files already tracked remain
+# tracked, including rtl/generated_four_butterfly_ntt after this checkpoint.
+rtl/generated_*/
+
+# Board-specific generated vectors
+board_db2b/vectors/
+board_db2b_sweep/vectors/
+
 # ==============================================================================
-# OS & EDITOR FILES
+# SOURCE-DROP AND LOCAL RECOVERY ARTIFACTS
 # ==============================================================================
+
+*.zip
+.barrett_split_backup/
+*.before-launcher-fix
+
+# ==============================================================================
+# OS AND EDITOR FILES
+# ==============================================================================
+
 .DS_Store
 Thumbs.db
+
 .vscode/
 .idea/

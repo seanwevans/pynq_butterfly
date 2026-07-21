@@ -1,0 +1,22 @@
+{
+  "expected_butterflies": 24576,
+  "expected_transform_cycles": 141313,
+  "n": 4096,
+  "towers": [
+    {
+      "coefficient_count": 4096,
+      "modulus": 1073692673,
+      "seed": 4232704,
+      "tower_index": 0,
+      "twiddle_words": 4095
+    },
+    {
+      "coefficient_count": 4096,
+      "modulus": 1073668097,
+      "seed": 4232705,
+      "tower_index": 1,
+      "twiddle_words": 4095
+    }
+  ],
+  "transform": "forward DIF followed by unscaled inverse DIT"
+}
