@@ -77,6 +77,12 @@ module poly_mul4096_dual_butterfly_two_tower_prefetch_axis_core (
     logic lane0_busy;
     logic lane1_busy;
 
+    /*
+     * Stream fork/join for the two lockstep lanes. This cross-coupling
+     * is safe only while each lane's s_axis_tready has no combinational
+     * dependence on its own s_axis_tvalid; a lane whose ready looked at
+     * valid would close a combinational loop through these assigns.
+     */
     assign lane0_s_valid =
         s_axis_tvalid
         && lane1_s_ready;

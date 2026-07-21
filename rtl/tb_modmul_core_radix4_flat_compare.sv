@@ -42,7 +42,7 @@ module tb_modmul_core_radix4_flat_compare;
     logic [31:0] random_a;
     logic [31:0] random_b;
 
-    modmul_core baseline (
+    modmul_core_radix2 baseline (
         .clk     (clk),
         .reset_n (reset_n),
         .start   (start),
