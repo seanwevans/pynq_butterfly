@@ -221,13 +221,14 @@ module tb_butterfly_core;
             else
             begin
                 /*
-                 * 32 multiplier iterations plus one cycle for the
-                 * butterfly to capture and register both outputs.
+                 * 16 radix-4 multiplier iterations plus one cycle
+                 * for the butterfly to capture and register both
+                 * outputs.
                  */
-                if (latency_cycles != 33)
+                if (latency_cycles != 17)
                 begin
                     $display(
-                        "FAIL latency=%0d expected=33",
+                        "FAIL latency=%0d expected=17",
                         latency_cycles
                     );
                     $fatal(1);

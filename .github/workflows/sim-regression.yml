@@ -1,0 +1,49 @@
+name: sim-regression
+
+on:
+  push:
+    branches:
+      - runtime-tower-profile
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: sim-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quick:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Icarus Verilog
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends iverilog
+
+      - name: Run quick regression
+        run: ./scripts/run_sim_regression.sh --quick
+
+  full:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    needs: quick
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Icarus Verilog
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends iverilog
+
+      - name: Run full regression
+        run: ./scripts/run_sim_regression.sh --all
+
+      - name: Upload simulation logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sim-logs
+          path: build/sim/*.log

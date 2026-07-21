@@ -17,8 +17,14 @@ module tb_ntt4096_dual_butterfly_cyclic_core;
     localparam integer SINGLE_BUTTERFLY_REFERENCE_CYCLES =
         540673;
 
+    /*
+     * 270337 halved-schedule cycles plus 12288 cycles (one per
+     * butterfly pair across all 12 stages) for the registered
+     * butterfly inputs that isolate coefficient BRAM outputs from
+     * the modular multipliers.
+     */
     localparam integer EXPECTED_DUAL_BUTTERFLY_CYCLES =
-        270337;
+        282625;
 
     logic clk =
         1'b0;
