@@ -10,7 +10,6 @@ command -v iverilog >/dev/null || {
     echo "error: missing iverilog" >&2
     exit 1
 }
-
 command -v vvp >/dev/null || {
     echo "error: missing vvp" >&2
     exit 1
@@ -24,9 +23,10 @@ required=(
     "$rtl/ntt4096_profile_bram_dual_read.sv"
     "$rtl/ntt4096_profile_bram_four_read.sv"
     "$rtl/ntt4096_coeff_bank_512x32.sv"
-    "$rtl/ntt4096_coeff_bank_512x64.sv"
+    "$rtl/ntt4096_coeff_bank_1024x64.sv"
     "$rtl/ntt4096_eight_bank_coeff_store_runtime.sv"
-    "$rtl/ntt4096_eight_bank_coeff_store_runtime64.sv"
+    "$rtl/ntt4096_eight_bank_coeff_store_runtime_handoff4.sv"
+    "$rtl/ntt4096_four_bank_coeff_store_runtime64.sv"
     "$rtl/ntt4096_four_butterfly_schedule_core.sv"
     "$rtl/poly_mul4096_four_lane_arithmetic_core.sv"
     "$rtl/poly_mul4096_four_butterfly_pipeline_runtime_profile_handoff_core.sv"
@@ -43,14 +43,10 @@ for path in "${required[@]}"; do
 done
 
 mkdir -p "$build"
-
-iverilog \
-    -g2012 \
-    -Wall \
+iverilog -g2012 -Wall \
     -s tb_poly_mul4096_four_butterfly_two_tower_buffered_axis_core \
     -o "$binary" \
     "${required[@]}"
-
 (
     cd "$rtl"
     vvp "$binary"
