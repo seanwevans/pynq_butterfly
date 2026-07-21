@@ -99,6 +99,12 @@ module poly_mul4096_dual_butterfly_two_tower_axis_core (
      * A lane sees TVALID only when the other lane is also ready. This
      * prevents either core from consuming a paired 64-bit word alone.
      */
+    /*
+     * Stream fork/join for the two lockstep lanes. This cross-coupling
+     * is safe only while each lane's s_axis_tready has no combinational
+     * dependence on its own s_axis_tvalid; a lane whose ready looked at
+     * valid would close a combinational loop through these assigns.
+     */
     assign lane0_s_valid =
         s_axis_tvalid
         && lane1_s_ready;

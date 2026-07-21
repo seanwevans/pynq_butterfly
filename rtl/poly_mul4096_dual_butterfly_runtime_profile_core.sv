@@ -108,6 +108,12 @@ module poly_mul4096_dual_butterfly_runtime_profile_core (
     localparam logic [13:0] LAST_PAIRED_ENTRY =
         14'd12287;
 
+    /*
+     * Seventeen bits count the 90112 modular multiplications of one
+     * product with headroom to 131071. Widen this constant, the
+     * counter, and the multiplication_count ports together if a
+     * future schedule multiplies more per product.
+     */
     localparam logic [16:0] TOTAL_MODULAR_MULTIPLICATIONS =
         17'd90112;
 
