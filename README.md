@@ -1,123 +1,329 @@
 # pynq_butterfly
 
-An FPGA accelerator for exact [OpenFHE](https://github.com/openfheorg/openfhe-development)
-`DCRTPoly` polynomial multiplication in `Z_q[X] / (X^4096 + 1)`, running on a
-PYNQ-Z2 (Zynq XC7Z020). The design grew from an N=16 proof of concept through
-N=256 to the current two-tower N=4096 overlays, and every overlay is validated
-bit-exactly against OpenFHE on real hardware.
+An exact FPGA accelerator for [OpenFHE](https://github.com/openfheorg/openfhe-development)
+BGVRNS ciphertext multiplication on a PYNQ-Z2 (`XC7Z020`).
+
+The current design computes OpenFHE `EvalMultNoRelin` directly in the
+evaluation domain for ring dimension `N = 4096`. It accepts two ciphertexts
+with components `(a0, a1)` and `(b0, b1)` and produces the unrelinearized
+three-component result
+
+```text
+c0 = a0 * b0
+c1 = a0 * b1 + a1 * b0
+c2 = a1 * b1
+```
+
+independently in every RNS tower, with exact bit-for-bit agreement against
+OpenFHE on real hardware.
 
 ## Headline result
 
-The buffered-handoff overlay computes exact two-tower `DCRTPoly` products
-end-to-end faster than the measured OpenFHE CPU reference on the host used for
-comparison:
+The dual-clock evaluation-domain overlay exceeds **1,000 exact encrypted
+`EvalMultNoRelin` operations per second** on a PYNQ-Z2:
 
-- 6,358.07 us median per product at batch 16 (157.3 products/s)
-- 1.126x the measured OpenFHE CPU reference (7,161.35 us/product)
-- 651 products validated on hardware: 5,332,992 coefficient comparisons, 0 mismatches
-- 100 MHz PL clock, timing closed (WNS +0.179 ns), 0 DSP, 75 BRAM tiles
+| Metric | Result |
+| --- | ---: |
+| Ring dimension | `4096` |
+| RNS towers | `12` |
+| Ciphertexts per batch | `384` |
+| FPGA compute latency | **997.56 us/ciphertext** |
+| FPGA compute throughput | **1002.45 ciphertexts/s** |
+| Profile-inclusive latency | **1005.92 us/ciphertext** |
+| Profile-inclusive throughput | **994.12 ciphertexts/s** |
+| OpenFHE software reference | `1106.30 us/ciphertext` |
+| FPGA compute speedup | **1.109x** |
+| Verified tower-components | `13,824` |
+| Mismatches | **0** |
 
-Physical median per product across the development line:
+The arithmetic core reaches **98.55%** of its 100 MHz architectural stream
+ceiling:
 
-| Overlay | Median per product |
-| --- | --- |
-| parallel two-tower | 14,384.08 us |
-| timing-isolated dual-butterfly | 7,186.59 us |
-| batch-of-two | 6,865.63 us |
-| arbitrary batch-16 | 6,515.42 us |
-| operand-prefetch batch-16 | 6,425.53 us |
-| buffered-handoff batch-16 | 6,358.07 us |
+```text
+983.04 us/ciphertext
+1017.25 ciphertexts/s
+```
+
+## Physical implementation
+
+The current `evalmul3` overlay closes timing with separate core and memory
+clock domains:
+
+| Resource | Result |
+| --- | ---: |
+| Arithmetic/core clock | `100 MHz` |
+| DMA and PS HP-port clock | `150 MHz` |
+| Worst negative slack | `+0.263 ns` |
+| Failing timing paths | `0` |
+| LUTs | `7,840` |
+| Registers | `8,690` |
+| DSP48E1 | `128` |
+| RAMB18E1 | `4` |
+| RAMB36E1 | `4` |
 
 ## Architecture
 
-- Two RNS towers (`q0 = 1073692673`, `q1 = 1073668097`) execute in lockstep
-  lanes behind one 64-bit AXI4-Stream DMA interface; lane 0 occupies bits
-  31:0 of each stream word and lane 1 bits 63:32.
-- Each tower runs two butterflies per cycle against four-bank coefficient
-  stores; 24 radix-4 iterative modular-multiplier lanes total.
-- NTT twiddle/twist/scale profiles are runtime-loaded, so one bitstream
-  serves any 32-bit modulus profile.
-- One prefetched operand pair and one buffered result polynomial per tower
-  overlap DMA transfer with computation; the arithmetic core runs 631,810
-  cycles per product with a 1,025-cycle handoff between batched products.
+OpenFHE ciphertext components are already in `Format::EVALUATION`, so the
+current accelerator does not perform forward or inverse NTTs around each
+ciphertext multiplication.
 
-### On the zero-DSP arithmetic
+For each coefficient and each pair of RNS towers, the core launches four
+modular products:
 
-Every shipped overlay computes modular products with LUT-only iterative
-multipliers (two bits per cycle, 16 cycles per 32-bit product). This is a
-deliberate trade: the iterative cores close timing comfortably at 100 MHz on
-the XC7Z020 while leaving all 220 DSP48 slices free. A DSP-based pipelined
-Barrett multiplier (`rtl/modmul_barrett60_pipeline_split_core.sv`, latency 7,
-initiation interval 1) is under active development on the four-butterfly
-line together with an eight-bank coefficient store; see
-`docs/checkpoints/README_FOUR_BUTTERFLY_PIPELINE.md`.
+```text
+p00 = a0 * b0
+p01 = a0 * b1
+p10 = a1 * b0
+p11 = a1 * b1
 
-## Variant glossary
+c0 = p00
+c1 = p01 + p10 mod q
+c2 = p11
+```
 
-| Name | Meaning |
-| --- | --- |
-| `poly_mul16`, `poly_mul256` | early proof-of-concept multipliers (AXI-Lite, then AXI-Stream) |
-| `poly_mul4096` | first N=4096 multiplier, single butterfly |
-| `two_bank` | two-bank coefficient store, DIF/DIT schedule |
-| `runtime_profile` | runtime-loadable modulus/twiddle profiles |
-| `two_tower_parallel` | two runtime-profile cores in lockstep RNS lanes |
-| `dual_butterfly` | two butterflies per tower, four-bank stores, 631,810-cycle core |
-| `db2ti` | short IP name: dual-butterfly two-tower, timing-isolated |
-| `db2b` | + arbitrary-count batched products (`MULB` command) |
-| `db2p` | + one-product operand prefetch |
-| `db2r` | + buffered result handoff (current best overlay) |
-| `four_butterfly` | in development: four butterfly lanes, eight banks, DSP Barrett multipliers |
+Two towers are packed into each 64-bit AXI4-Stream word:
+
+```text
+bits 31:0   tower 0
+bits 63:32  tower 1
+```
+
+The datapath contains eight initiation-interval-one Barrett pipelines:
+
+```text
+4 ciphertext products
+x 2 RNS towers
+= 8 modular multipliers launched per coefficient
+```
+
+### Dual-clock transport
+
+The arithmetic core remains at 100 MHz while DMA and the Zynq high-performance
+ports run at 150 MHz:
+
+```text
+DDR / PS HP0
+    |
+AXI DMA MM2S, 150 MHz
+    |
+1024-word asynchronous AXI4-Stream FIFO
+    |
+EvalMul3 core, 100 MHz
+    |
+1024-word asynchronous AXI4-Stream FIFO
+    |
+AXI DMA S2MM, 150 MHz
+    |
+DDR / PS HP1
+```
+
+Both DMA data realignment engines are disabled because the PYNQ buffers and
+transfer lengths are 64-bit aligned. MM2S and S2MM use 16-beat bursts, matching
+the Zynq-7000 HP-port limit.
+
+## Performance progression
+
+| Checkpoint | Compute latency | Throughput |
+| --- | ---: | ---: |
+| Earlier coefficient-domain FPGA bridge | `5951.00 us/ct` | `168.04 ct/s` |
+| Fused evaluation-domain, batch 32 | `1200.56 us/ct` | `832.95 ct/s` |
+| Fused evaluation-domain, batch 256 | `1057.98 us/ct` | `945.20 ct/s` |
+| Dual-clock transport, batch 256 | `1004.15 us/ct` | `995.87 ct/s` |
+| Dual-clock transport, batch 384 | **`997.56 us/ct`** | **`1002.45 ct/s`** |
+
+The current design is approximately **5.97x faster** than the previous
+coefficient-domain FPGA path.
+
+## Exactness
+
+Validation uses real encrypted OpenFHE BGVRNS ciphertexts.
+
+For every test batch, the host bridge:
+
+1. creates and encrypts OpenFHE plaintexts;
+2. obtains the evaluation-domain DCRT tower data for `a0`, `a1`, `b0`, and
+   `b1`;
+3. computes OpenFHE `EvalMultNoRelin`;
+4. exports DMA input frames and exact expected `c0`, `c1`, and `c2` tower
+   values;
+5. compares every FPGA output coefficient against OpenFHE.
+
+The batch-384 milestone verifies:
+
+```text
+384 ciphertext multiplications
+x 12 towers
+x 3 output components
+= 13,824 exact tower-component comparisons
+```
+
+## Quick start
+
+The current work is on:
+
+```text
+branch: evalmul3-dma-throughput
+tag:    pynq-z2-evalmul3-1002pps
+```
+
+### 1. Build the OpenFHE bridge
+
+```bash
+cd openfhe_eval_domain_bridge
+./build.sh
+cd ..
+```
+
+### 2. Generate a 12-tower batch-384 workload
+
+```bash
+./prepare_evalmul3_batch_sweep.sh 12 384
+```
+
+This writes:
+
+```text
+openfhe_eval_domain_bridge/vectors/t12_c384/
+```
+
+### 3. Build the PYNQ-Z2 overlay
+
+Vivado 2024.1 is expected. The provided launcher is written for WSL with
+Vivado installed on Windows.
+
+```bash
+./build_evalmul3_dma150_overlay.sh
+```
+
+Generated deployment artifacts are placed under:
+
+```text
+deploy/evalmul3_two_tower_dma150/
+```
+
+### 4. Copy the overlay and vectors to the board
+
+```bash
+./install_evalmul3_dma150_board.sh \
+  openfhe_eval_domain_bridge/vectors/t12_c384 \
+  xilinx@pynq \
+  /home/xilinx/jupyter_notebooks/evalmul3_dma150_c384
+```
+
+### 5. Run the exact board benchmark
+
+On the PYNQ-Z2:
+
+```bash
+sudo -i
+
+/home/xilinx/jupyter_notebooks/evalmul3_dma150_c384/run_evalmul3_dma150_board.sh \
+  /home/xilinx/jupyter_notebooks/evalmul3_dma150_c384 \
+  384 \
+  7
+```
+
+A successful run ends with output similar to:
+
+```text
+PASS: every fused evaluation-domain component matches OpenFHE
+verified_tower_components=13824
+compute_us_per_EvalMultNoRelin=997.56
+compute_EvalMultNoRelin_per_second=1002.45
+```
+
+## Commands and wire protocol
+
+The fused core uses two AXI4-Stream commands.
+
+### `EVPF` — load a paired-tower modulus profile
+
+```text
+word 0: command = 0x45565046
+word 1: {q1, q0}
+word 2: {mu1, mu0}, TLAST
+```
+
+### `EVB3` — multiply a batch of two-component ciphertexts
+
+```text
+word 0: command = 0x45564233
+word 1: duplicated ciphertext count
+remaining input:
+    coefficient-major a0, a1, b0, b1 paired-tower words
+
+output:
+    coefficient-major c0, c1, c2 paired-tower words
+    final c2 word carries TLAST
+```
+
+One bitstream supports arbitrary 32-bit RNS moduli by loading a new paired
+profile before each tower-pair batch.
 
 ## Repository layout
 
 | Path | Contents |
 | --- | --- |
-| `rtl/` | all SystemVerilog sources and `tb_*.sv` testbenches (single source of truth) |
-| `model/` | Python golden models and per-stage `.mem` vectors for N=16/256/4096 |
-| `scripts/synth/` | synthesis/implementation studies (Vivado Tcl, WSL launchers) |
-| `scripts/package/` | IP packaging Tcl (regenerates `ip/`, which is gitignored) |
-| `scripts/integrate/` | PYNQ-Z2 overlay integration, timing recovery, inspection Tcl |
-| `scripts/sim/` | Icarus compile drivers and simulation result checkers |
-| `scripts/vectors/` | test-vector generators for the RTL testbenches |
-| `scripts/run_sim_regression.sh` | full Icarus regression runner (CI entry point) |
-| `tests/board/` | PYNQ board tests, sweep launchers, `overlay_constants.py` |
-| `openfhe_tower_bridge/`, `openfhe_two_tower_runtime_bridge/` | C++ bridges that extract exact OpenFHE vectors and validate FPGA results |
-| `deploy/` | per-overlay deployment manifests (bitstreams themselves are gitignored) |
-| `reports/` | committed synthesis/implementation timing and utilization reports |
-| `docs/` | milestone documents and `docs/checkpoints/` development notes |
-| `profiles/` | OpenFHE tower profiles (moduli, roots) |
-| `vivado/` | per-study constraint files |
+| `rtl/` | SystemVerilog arithmetic cores and AXI4-Stream wrappers |
+| `tests/rtl/` | exact Icarus testbenches, including output-backpressure tests |
+| `scripts/sim/` | RTL simulation launchers |
+| `scripts/vivado/` | out-of-context and complete PYNQ-Z2 overlay build Tcl |
+| `openfhe_eval_domain_bridge/` | OpenFHE ciphertext generator, exporter, validator, and PYNQ runner |
+| `deploy/evalmul3_two_tower_dma150/` | deployment metadata, reports, and board runner |
+| `model/` | Python golden models and historical NTT-stage vectors |
+| `tests/board/` | board tests for earlier multiplier variants |
+| `scripts/package/` | packaging flows for earlier packaged-IP overlays |
+| `scripts/integrate/` | integration flows for earlier coefficient-domain overlays |
+| `reports/` | timing and utilization reports from development checkpoints |
+| `docs/` | architecture notes and historical checkpoint documentation |
+| `profiles/` | OpenFHE modulus and root profiles |
+| `vivado/` | constraints and older implementation studies |
 
 ## Simulation
 
-Icarus Verilog drives all regressions (`apt install iverilog`):
+Run the fused evaluation-domain checkpoint:
 
-    scripts/run_sim_regression.sh --quick    # unit tests, about a minute
-    scripts/run_sim_regression.sh --all      # full suite, tens of minutes
+```bash
+./run_eval_domain_fused_checkpoint.sh
+```
 
-The five dual-butterfly integration testbenches run with `-DFAST_MODMUL`
-and the exact behavioral `modmul_core_fast_sim.sv` as documented in
-`docs/checkpoints/README_FAST_SIM.md`. CI runs both tiers on every pull
-request (`.github/workflows/sim-regression.yml`).
+This performs:
 
-## Building an overlay
+- OpenFHE generation and exact software comparison;
+- Icarus simulation of the paired-tower `EvalMultNoRelin` core;
+- deterministic output-backpressure testing.
 
-Each overlay follows the same Vivado flow (2024.1, from the repository
-root; several scripts use Windows `F:/` working paths from the original
-development machine — adjust to taste):
+The broader historical regression suite remains available:
 
-1. `scripts/package/package_<variant>_ip.tcl` — stages the RTL from `rtl/`
-   and packages the IP.
-2. `scripts/integrate/integrate_<variant>_dma.tcl` — builds the PYNQ-Z2
-   DMA block design and writes the bitstream.
-3. Copy the `.bit`/`.hwh` plus the matching `tests/board/` script,
-   `tests/board/overlay_constants.py`, and vectors to the board; the
-   `deploy/<overlay>/manifest.txt` files record what shipped in each
-   overlay.
+```bash
+scripts/run_sim_regression.sh --quick
+scripts/run_sim_regression.sh --all
+```
 
-Board tests replay OpenFHE-extracted vectors through the DMA and compare
-every coefficient against the OpenFHE expected product.
+## Development lineage
+
+The repository began with small polynomial-multiplication demonstrations and
+progressed through increasingly complete OpenFHE-compatible overlays:
+
+| Name | Meaning |
+| --- | --- |
+| `poly_mul16`, `poly_mul256` | early AXI-Lite and AXI4-Stream proofs of concept |
+| `poly_mul4096` | first `N = 4096` multiplier |
+| `runtime_profile` | runtime-loadable modulus and NTT profiles |
+| `two_tower_parallel` | two RNS towers packed into one 64-bit stream |
+| `dual_butterfly` | two coefficient-domain butterflies per tower |
+| `db2b` | arbitrary-count coefficient-domain batching |
+| `db2p` | operand prefetch |
+| `db2r` | buffered result handoff |
+| `four_butterfly` | four-butterfly DSP Barrett development line |
+| `evalmul3` | fused evaluation-domain three-component ciphertext product |
+| `evalmul3_dma150` | current dual-clock, no-DRE transport overlay |
+
+The earlier coefficient-domain designs remain useful as complete NTT-based
+`DCRTPoly` multiplier references. The current front line specializes the
+hardware for the representation OpenFHE actually uses during ciphertext
+multiplication and removes the unnecessary NTT round trips.
 
 ## License
 
-MIT — see `LICENSE`.
+MIT — see [`LICENSE`](LICENSE).
