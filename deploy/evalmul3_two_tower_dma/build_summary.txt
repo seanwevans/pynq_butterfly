@@ -1,0 +1,19 @@
+EVALMUL3_DMA_BUILD_BEGIN
+repo_root=F:/repos/pynq_butterfly
+build_root=F:/v/evalmul3_dma_overlay
+deploy_dir=F:/repos/pynq_butterfly/deploy/evalmul3_two_tower_dma
+part=xc7z020clg400-1
+board_part=tul.com.tw:pynq-z2:part0:1.0
+clock_period_ns=10.000
+impl_status=write_bitstream Complete!
+EVALMUL3_DMA_WNS_NS=0.257
+EVALMUL3_DMA_FAILING_PATHS=0
+EVALMUL3_DMA_LUTS=8073
+EVALMUL3_DMA_REGISTERS=7958
+EVALMUL3_DMA_DSP48E1=128
+EVALMUL3_DMA_RAMB18E1=2
+EVALMUL3_DMA_RAMB36E1=2
+bitstream=F:/repos/pynq_butterfly/deploy/evalmul3_two_tower_dma/evalmul3_two_tower_dma.bit
+hardware_handoff=F:/repos/pynq_butterfly/deploy/evalmul3_two_tower_dma/evalmul3_two_tower_dma.hwh
+PASS: fused evaluation-domain DMA overlay routed at 100 MHz
+EVALMUL3_DMA_BUILD_END
