@@ -26,17 +26,17 @@ The dual-clock evaluation-domain overlay exceeds **1,000 exact encrypted
 | --- | ---: |
 | Ring dimension | `4096` |
 | RNS towers | `12` |
-| Ciphertexts per batch | `384` |
-| FPGA compute latency | **997.56 us/ciphertext** |
-| FPGA compute throughput | **1002.45 ciphertexts/s** |
-| Profile-inclusive latency | **1005.92 us/ciphertext** |
-| Profile-inclusive throughput | **994.12 ciphertexts/s** |
+| Ciphertexts per batch | `64` |
+| FPGA compute latency | **998.50 us/ciphertext** |
+| FPGA compute throughput | **1001.51 ciphertexts/s** |
+| Profile-inclusive latency | **1006.69 us/ciphertext** |
+| Profile-inclusive throughput | **993.36 ciphertexts/s** |
 | OpenFHE software reference | `1106.30 us/ciphertext` |
-| FPGA compute speedup | **1.109x** |
-| Verified tower-components | `13,824` |
+| FPGA compute speedup | **1.108x** |
+| Verified tower-components | `2,304` |
 | Mismatches | **0** |
 
-The arithmetic core reaches **98.55%** of its 100 MHz architectural stream
+The arithmetic core reaches **98.45%** of its 100 MHz architectural stream
 ceiling:
 
 ```text
@@ -53,10 +53,10 @@ clock domains:
 | --- | ---: |
 | Arithmetic/core clock | `100 MHz` |
 | DMA and PS HP-port clock | `150 MHz` |
-| Worst negative slack | `+0.263 ns` |
+| Worst negative slack | `+0.027 ns` |
 | Failing timing paths | `0` |
-| LUTs | `7,840` |
-| Registers | `8,690` |
+| LUTs | `8,507` |
+| Registers | `9,846` |
 | DSP48E1 | `128` |
 | RAMB18E1 | `4` |
 | RAMB36E1 | `4` |
@@ -87,6 +87,11 @@ Two towers are packed into each 64-bit AXI4-Stream word:
 bits 31:0   tower 0
 bits 63:32  tower 1
 ```
+
+A profile-table sequencer now caches all six paired-tower modulus profiles.
+One external `EV12` frame contains the complete 12-tower batch. The sequencer
+feeds each pair to the unchanged arithmetic core, suppresses intermediate
+`TLAST` markers, and emits one final frame boundary after pair six.
 
 The datapath contains eight initiation-interval-one Barrett pipelines:
 
@@ -129,9 +134,13 @@ the Zynq-7000 HP-port limit.
 | Fused evaluation-domain, batch 32 | `1200.56 us/ct` | `832.95 ct/s` |
 | Fused evaluation-domain, batch 256 | `1057.98 us/ct` | `945.20 ct/s` |
 | Dual-clock transport, batch 256 | `1004.15 us/ct` | `995.87 ct/s` |
-| Dual-clock transport, batch 384 | **`997.56 us/ct`** | **`1002.45 ct/s`** |
+| Dual-clock all-pair frame, batch 64 | **`998.50 us/ct`** | **`1001.51 ct/s`** |
 
-The current design is approximately **5.97x faster** than the previous
+At batch 64, replacing six software-visible DMA transactions with one
+all-pair frame improved the earlier dual-clock result from `1122.52 us/ct`
+(`890.86 ct/s`) to `998.50 us/ct` (`1001.51 ct/s`).
+
+The current design is approximately **5.96x faster** than the previous
 coefficient-domain FPGA path.
 
 ## Exactness
@@ -148,13 +157,13 @@ For every test batch, the host bridge:
    values;
 5. compares every FPGA output coefficient against OpenFHE.
 
-The batch-384 milestone verifies:
+The all-pair batch-64 milestone verifies:
 
 ```text
-384 ciphertext multiplications
+64 ciphertext multiplications
 x 12 towers
 x 3 output components
-= 13,824 exact tower-component comparisons
+= 2,304 exact tower-component comparisons
 ```
 
 ## Quick start
@@ -162,8 +171,8 @@ x 3 output components
 The current work is on:
 
 ```text
-branch: evalmul3-dma-throughput
-tag:    pynq-z2-evalmul3-1002pps
+branch: evalmul3-all-pair-frame
+tag:    pynq-z2-evalmul3-allpairs-1001pps
 ```
 
 ### 1. Build the OpenFHE bridge
@@ -192,22 +201,22 @@ Vivado 2024.1 is expected. The provided launcher is written for WSL with
 Vivado installed on Windows.
 
 ```bash
-./build_evalmul3_dma150_overlay.sh
+./build_evalmul3_allpairs_dma150_overlay.sh
 ```
 
 Generated deployment artifacts are placed under:
 
 ```text
-deploy/evalmul3_two_tower_dma150/
+deploy/evalmul3_allpairs_dma150/
 ```
 
 ### 4. Copy the overlay and vectors to the board
 
 ```bash
-./install_evalmul3_dma150_board.sh \
+./install_evalmul3_allpairs_board.sh \
   openfhe_eval_domain_bridge/vectors/t12_c384 \
   xilinx@pynq \
-  /home/xilinx/jupyter_notebooks/evalmul3_dma150_c384
+  /home/xilinx/jupyter_notebooks/evalmul3_allpairs
 ```
 
 ### 5. Run the exact board benchmark
@@ -217,48 +226,58 @@ On the PYNQ-Z2:
 ```bash
 sudo -i
 
-/home/xilinx/jupyter_notebooks/evalmul3_dma150_c384/run_evalmul3_dma150_board.sh \
-  /home/xilinx/jupyter_notebooks/evalmul3_dma150_c384 \
-  384 \
+/home/xilinx/jupyter_notebooks/evalmul3_allpairs/run_evalmul3_allpairs_board.sh \
+  /home/xilinx/jupyter_notebooks/evalmul3_allpairs \
+  64 \
   7
 ```
 
 A successful run ends with output similar to:
 
 ```text
-PASS: every fused evaluation-domain component matches OpenFHE
-verified_tower_components=13824
-compute_us_per_EvalMultNoRelin=997.56
-compute_EvalMultNoRelin_per_second=1002.45
+PASS: every EV12 fused evaluation-domain component matches OpenFHE
+verified_tower_components=2304
+compute_us_per_EvalMultNoRelin=998.50
+compute_EvalMultNoRelin_per_second=1001.51
 ```
 
 ## Commands and wire protocol
 
-The fused core uses two AXI4-Stream commands.
+The external DMA interface uses two all-pair commands.
 
-### `EVPF` — load a paired-tower modulus profile
-
-```text
-word 0: command = 0x45565046
-word 1: {q1, q0}
-word 2: {mu1, mu0}, TLAST
-```
-
-### `EVB3` — multiply a batch of two-component ciphertexts
+### `EVPT` — load the paired-tower profile table
 
 ```text
-word 0: command = 0x45564233
-word 1: duplicated ciphertext count
-remaining input:
-    coefficient-major a0, a1, b0, b1 paired-tower words
+word 0: command = 0x45565054
+word 1: duplicated pair count
 
-output:
-    coefficient-major c0, c1, c2 paired-tower words
-    final c2 word carries TLAST
+for every pair:
+    {q1, q0}
+    {mu1, mu0}
+
+the final mu word carries TLAST
 ```
 
-One bitstream supports arbitrary 32-bit RNS moduli by loading a new paired
-profile before each tower-pair batch.
+### `EV12` — multiply every loaded tower pair
+
+```text
+word 0: command = 0x45563132
+word 1: {pair_count, ciphertext_count}
+
+pair-major input:
+    for every pair, ciphertext, and coefficient:
+        a0, a1, b0, b1
+
+pair-major output:
+    c0, c1, c2
+
+only the final c2 word of the final pair carries TLAST
+```
+
+The sequencer stores up to six paired profiles and internally emits the proven
+legacy `EVPF` and `EVB3` frames for the two-tower arithmetic core. One bitstream
+therefore supports arbitrary compatible RNS chains while software performs only
+one batch DMA transaction.
 
 ## Repository layout
 
@@ -269,7 +288,7 @@ profile before each tower-pair batch.
 | `scripts/sim/` | RTL simulation launchers |
 | `scripts/vivado/` | out-of-context and complete PYNQ-Z2 overlay build Tcl |
 | `openfhe_eval_domain_bridge/` | OpenFHE ciphertext generator, exporter, validator, and PYNQ runner |
-| `deploy/evalmul3_two_tower_dma150/` | deployment metadata, reports, and board runner |
+| `deploy/evalmul3_allpairs_dma150/` | deployment metadata, reports, and board runner |
 | `model/` | Python golden models and historical NTT-stage vectors |
 | `tests/board/` | board tests for earlier multiplier variants |
 | `scripts/package/` | packaging flows for earlier packaged-IP overlays |
@@ -284,7 +303,7 @@ profile before each tower-pair batch.
 Run the fused evaluation-domain checkpoint:
 
 ```bash
-./run_eval_domain_fused_checkpoint.sh
+./run_evalmul3_allpairs_checkpoint.sh
 ```
 
 This performs:
@@ -317,7 +336,8 @@ progressed through increasingly complete OpenFHE-compatible overlays:
 | `db2r` | buffered result handoff |
 | `four_butterfly` | four-butterfly DSP Barrett development line |
 | `evalmul3` | fused evaluation-domain three-component ciphertext product |
-| `evalmul3_dma150` | current dual-clock, no-DRE transport overlay |
+| `evalmul3_dma150` | dual-clock, no-DRE transport overlay |
+| `evalmul3_allpairs` | cached profile table and one logical DMA frame for every RNS pair |
 
 The earlier coefficient-domain designs remain useful as complete NTT-based
 `DCRTPoly` multiplier references. The current front line specializes the

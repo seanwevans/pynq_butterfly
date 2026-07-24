@@ -1,10 +1,8 @@
 `timescale 1ns/1ps
 
 /*
- * Verilog-2001 AXI4-Stream shell for evalmul3_two_tower_axis_core.
- *
- * Vivado block-design module references require the reference top file to be
- * Verilog or VHDL. The underlying arithmetic core remains SystemVerilog.
+ * Verilog-2001 AXI4-Stream module-reference top for the all-pair EvalMul3
+ * sequencer. The sequencer and arithmetic datapath remain SystemVerilog.
  */
 module evalmul3_two_tower_axis_dma_wrapper (
     (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 aclk CLK" *)
@@ -46,6 +44,9 @@ module evalmul3_two_tower_axis_dma_wrapper (
     output wire        m_axis_tlast
 );
 
+    wire        sequencer_s_axis_tready;
+    wire        full_input_word;
+
     wire        protocol_error;
     wire        profile_ready;
     wire        accelerator_busy;
@@ -57,12 +58,20 @@ module evalmul3_two_tower_axis_dma_wrapper (
     wire [31:0] completed_batches;
     wire [31:0] launched_coefficients;
 
+    assign full_input_word =
+        &s_axis_tkeep;
+
+    assign s_axis_tready =
+        sequencer_s_axis_tready
+        && full_input_word;
+
     assign m_axis_tkeep =
         8'hff;
 
-    evalmul3_two_tower_axis_core #(
-        .N          (4096),
-        .FIFO_DEPTH (8)
+    evalmul3_all_tower_axis_core #(
+        .N              (4096),
+        .FIFO_DEPTH     (8),
+        .MAX_PAIR_COUNT (6)
     ) core (
         .clk                   (aclk),
         .reset_n               (aresetn),
@@ -70,9 +79,9 @@ module evalmul3_two_tower_axis_dma_wrapper (
         .s_axis_tdata          (s_axis_tdata),
         .s_axis_tvalid         (
             s_axis_tvalid
-            && (&s_axis_tkeep)
+            && full_input_word
         ),
-        .s_axis_tready         (s_axis_tready),
+        .s_axis_tready         (sequencer_s_axis_tready),
         .s_axis_tlast          (s_axis_tlast),
 
         .m_axis_tdata          (m_axis_tdata),
