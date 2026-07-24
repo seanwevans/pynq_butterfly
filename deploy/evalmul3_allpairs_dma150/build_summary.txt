@@ -1,0 +1,21 @@
+EVALMUL3_ALLPAIRS_BUILD_BEGIN
+repo_root=F:/repos/pynq_butterfly
+build_root=F:/v/evalmul3_allpairs_dma150_overlay
+deploy_dir=F:/repos/pynq_butterfly/deploy/evalmul3_allpairs_dma150
+part=xc7z020clg400-1
+board_part=tul.com.tw:pynq-z2:part0:1.0
+core_clock_mhz=100.000
+memory_clock_mhz=150.000
+implementation_strategy=Performance_ExplorePostRoutePhysOpt
+impl_status=write_bitstream Complete!
+EVALMUL3_ALLPAIRS_WNS_NS=0.027
+EVALMUL3_ALLPAIRS_FAILING_PATHS=0
+EVALMUL3_ALLPAIRS_LUTS=8507
+EVALMUL3_ALLPAIRS_REGISTERS=9846
+EVALMUL3_ALLPAIRS_DSP48E1=128
+EVALMUL3_ALLPAIRS_RAMB18E1=4
+EVALMUL3_ALLPAIRS_RAMB36E1=4
+bitstream=F:/repos/pynq_butterfly/deploy/evalmul3_allpairs_dma150/evalmul3_allpairs_dma150.bit
+hardware_handoff=F:/repos/pynq_butterfly/deploy/evalmul3_allpairs_dma150/evalmul3_allpairs_dma150.hwh
+PASS: all-pair evaluation-domain dual-clock DMA overlay routed
+EVALMUL3_ALLPAIRS_BUILD_END
