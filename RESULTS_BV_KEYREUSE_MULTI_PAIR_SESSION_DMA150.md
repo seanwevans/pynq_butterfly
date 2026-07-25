@@ -1,0 +1,20 @@
+# Multi-pair session DMA150 physical result
+
+```text
+implementation_strategy=ExploreNetDelayHigh
+opt_directive=Explore
+place_directive=ExtraNetDelay_high
+pre_route_phys_opt_directive=AggressiveExplore
+route_directive=NoTimingRelaxation
+post_route_phys_opt_directive=AggressiveExplore
+impl_status=write_bitstream Complete!
+BV_KEYREUSE_MULTI_PAIR_SESSION_DMA150_WNS_NS=0.040
+BV_KEYREUSE_MULTI_PAIR_SESSION_DMA150_FAILING_PATHS=0
+BV_KEYREUSE_MULTI_PAIR_SESSION_DMA150_LUTS=11084
+BV_KEYREUSE_MULTI_PAIR_SESSION_DMA150_REGISTERS=11488
+BV_KEYREUSE_MULTI_PAIR_SESSION_DMA150_DSP48E1=160
+BV_KEYREUSE_MULTI_PAIR_SESSION_DMA150_RAMB18E1=4
+BV_KEYREUSE_MULTI_PAIR_SESSION_DMA150_RAMB36E1=4
+BV_KEYREUSE_MULTI_PAIR_SESSION_DMA150_SRL=992
+PASS: persistent-output multi-pair session dual-clock DMA overlay routed
+```

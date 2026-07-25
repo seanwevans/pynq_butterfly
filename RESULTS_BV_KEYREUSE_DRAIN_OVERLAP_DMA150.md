@@ -1,0 +1,20 @@
+# Drain-overlap DMA150 physical result
+
+```text
+implementation_strategy=ExploreWithRemap
+opt_directive=ExploreWithRemap
+place_directive=Explore
+pre_route_phys_opt_directive=Explore
+route_directive=NoTimingRelaxation
+post_route_phys_opt_directive=Explore
+impl_status=write_bitstream Complete!
+BV_KEYREUSE_DRAIN_OVERLAP_DMA150_WNS_NS=0.008
+BV_KEYREUSE_DRAIN_OVERLAP_DMA150_FAILING_PATHS=0
+BV_KEYREUSE_DRAIN_OVERLAP_DMA150_LUTS=10143
+BV_KEYREUSE_DRAIN_OVERLAP_DMA150_REGISTERS=10107
+BV_KEYREUSE_DRAIN_OVERLAP_DMA150_DSP48E1=160
+BV_KEYREUSE_DRAIN_OVERLAP_DMA150_RAMB18E1=4
+BV_KEYREUSE_DRAIN_OVERLAP_DMA150_RAMB36E1=4
+BV_KEYREUSE_DRAIN_OVERLAP_DMA150_SRL=992
+PASS: coefficient-major compute-drain-overlap dual-clock DMA overlay routed
+```

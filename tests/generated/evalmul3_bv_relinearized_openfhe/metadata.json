@@ -1,0 +1,15 @@
+{
+  "format": "openfhe-evalmul3-bv-relinearized-paired-v1",
+  "source": "/mnt/f/repos/pynq_butterfly/openfhe_eval_domain_bridge/vectors/relin_bv_t12_d0",
+  "coefficient_count": 32,
+  "q_towers": 12,
+  "pair_count": 6,
+  "digits": 12,
+  "ciphertext_count": 1,
+  "profile_words": 12,
+  "payload_words": 7680,
+  "expected_words": 384,
+  "payload_words_per_coefficient": 40,
+  "payload_words_per_pair": 1280,
+  "expected_words_per_pair": 64
+}

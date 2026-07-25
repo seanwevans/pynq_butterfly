@@ -16,10 +16,8 @@ cmake \
 
 cmake \
   --build "$ROOT/build" \
-  --clean-first \
   --parallel "$(nproc)"
 
 echo
 echo "Built:"
-echo "  $ROOT/build/openfhe_eval_domain_bridge"
-echo "  $ROOT/build/openfhe_relinearization_probe"
+echo "  $ROOT/build/openfhe_multitower_bridge"

@@ -18,6 +18,11 @@ add_executable(
     openfhe_eval_domain_bridge.cpp
 )
 
+add_executable(
+    openfhe_relinearization_probe
+    openfhe_relinearization_probe.cpp
+)
+
 set(_openfhe_flag_entries ${OpenFHE_CXX_FLAGS})
 set(_openfhe_bridge_flags)
 
@@ -45,50 +50,60 @@ foreach(_entry IN LISTS _openfhe_flag_entries)
     endforeach()
 endforeach()
 
-target_compile_options(
-    openfhe_eval_domain_bridge
-    PRIVATE
-        ${_openfhe_bridge_flags}
-        -Wall
-        -Wextra
-        -Wconversion
-        -Wno-error
-)
-
-target_include_directories(
-    openfhe_eval_domain_bridge
-    SYSTEM PRIVATE
-        ${OPENMP_INCLUDES}
-        ${OpenFHE_INCLUDE}
-        ${OpenFHE_INCLUDE}/third-party/include
-        ${OpenFHE_INCLUDE}/core
-        ${OpenFHE_INCLUDE}/pke
-        ${OpenFHE_INCLUDE}/binfhe
-)
-
-target_link_directories(
-    openfhe_eval_domain_bridge
-    PRIVATE
-        ${OpenFHE_LIBDIR}
-        ${OPENMP_LIBRARIES}
-)
-
-if(UNIX AND NOT APPLE)
-    target_link_options(
-        openfhe_eval_domain_bridge
+function(configure_openfhe_bridge_target target_name)
+    target_compile_options(
+        "${target_name}"
         PRIVATE
-            -Wl,--no-as-needed
+            ${_openfhe_bridge_flags}
+            -Wall
+            -Wextra
+            -Wconversion
+            -Wno-error
     )
-endif()
 
-target_link_libraries(
+    target_include_directories(
+        "${target_name}"
+        SYSTEM PRIVATE
+            ${OPENMP_INCLUDES}
+            ${OpenFHE_INCLUDE}
+            ${OpenFHE_INCLUDE}/third-party/include
+            ${OpenFHE_INCLUDE}/core
+            ${OpenFHE_INCLUDE}/pke
+            ${OpenFHE_INCLUDE}/binfhe
+    )
+
+    target_link_directories(
+        "${target_name}"
+        PRIVATE
+            ${OpenFHE_LIBDIR}
+            ${OPENMP_LIBRARIES}
+    )
+
+    if(UNIX AND NOT APPLE)
+        target_link_options(
+            "${target_name}"
+            PRIVATE
+                -Wl,--no-as-needed
+        )
+    endif()
+
+    target_link_libraries(
+        "${target_name}"
+        PRIVATE
+            ${OpenFHE_SHARED_LIBRARIES}
+    )
+
+    set_target_properties(
+        "${target_name}"
+        PROPERTIES
+            BUILD_RPATH "${OpenFHE_LIBDIR}"
+    )
+endfunction()
+
+configure_openfhe_bridge_target(
     openfhe_eval_domain_bridge
-    PRIVATE
-        ${OpenFHE_SHARED_LIBRARIES}
 )
 
-set_target_properties(
-    openfhe_eval_domain_bridge
-    PROPERTIES
-        BUILD_RPATH "${OpenFHE_LIBDIR}"
+configure_openfhe_bridge_target(
+    openfhe_relinearization_probe
 )
