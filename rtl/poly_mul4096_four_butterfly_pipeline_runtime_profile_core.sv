@@ -884,13 +884,16 @@ module poly_mul4096_four_butterfly_pipeline_runtime_profile_core (
         end
     end
 
-    phase_t output_phase;
+    // Plain vector, not phase_t: assigning an unpacked-array element
+    // to an enum needs a cast that some Icarus builds reject.
+    // Comparisons against phase_t constants still work.
+    logic [2:0] output_phase;
     logic output_phase_is_linear;
     logic output_phase_writes_a;
     logic output_phase_writes_b;
 
     assign output_phase =
-        phase_t'(meta_phase[9]);
+        meta_phase[9];
 
     assign output_phase_is_linear =
         output_phase == PHASE_TWIST_A
