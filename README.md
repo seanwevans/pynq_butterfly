@@ -1,181 +1,317 @@
 # pynq_butterfly
 
 An exact FPGA accelerator for [OpenFHE](https://github.com/openfheorg/openfhe-development)
-BGVRNS ciphertext multiplication on a PYNQ-Z2 (`XC7Z020`).
+BGVRNS ciphertext multiplication and BV relinearization on a PYNQ-Z2
+(`XC7Z020`).
 
-The current design computes OpenFHE `EvalMultNoRelin` directly in the
-evaluation domain for ring dimension `N = 4096`. It accepts two ciphertexts
-with components `(a0, a1)` and `(b0, b1)` and produces the unrelinearized
-three-component result
+The current design accepts evaluation-domain OpenFHE ciphertext components,
+computes the dense modular arithmetic for ciphertext multiplication, performs
+BV key-switch multiply-accumulate, adds the key-switch result into the two
+surviving ciphertext components, and returns an exact two-component
+relinearized ciphertext.
 
-```text
-c0 = a0 * b0
-c1 = a0 * b1 + a1 * b0
-c2 = a1 * b1
-```
-
-independently in every RNS tower, with exact bit-for-bit agreement against
-OpenFHE on real hardware.
+For ring dimension `N = 4096`, 12 Q towers, and 12 BV digits, the PYNQ-Z2
+implementation now narrowly exceeds the measured OpenFHE 1.5.1 software
+`EvalMult` rate in a zero-copy steady-state FPGA session.
 
 ## Headline result
 
-The dual-clock evaluation-domain overlay exceeds **1,000 exact encrypted
-`EvalMultNoRelin` operations per second** on a PYNQ-Z2:
+The persistent-output, coefficient-major BV overlay processes a batch of 64
+ciphertexts at **245.61 exact relinearized ciphertexts per second**:
 
-| Metric | Result |
-| --- | ---: |
-| Ring dimension | `4096` |
-| RNS towers | `12` |
-| Ciphertexts per batch | `64` |
-| FPGA compute latency | **998.50 us/ciphertext** |
-| FPGA compute throughput | **1001.51 ciphertexts/s** |
-| Profile-inclusive latency | **1006.69 us/ciphertext** |
-| Profile-inclusive throughput | **993.36 ciphertexts/s** |
-| OpenFHE software reference | `1106.30 us/ciphertext` |
-| FPGA compute speedup | **1.108x** |
-| Verified tower-components | `2,304` |
-| Mismatches | **0** |
+| Metric | FPGA result | OpenFHE 1.5.1 reference |
+| --- | ---: | ---: |
+| Ring dimension | `4096` | `4096` |
+| Q towers | `12` | `12` |
+| BV digits | `12` | `12` |
+| Ciphertexts per batch | `64` | `1` per measured call |
+| Steady-state session latency | **4071.50 us/ciphertext** | `4083.78 us/ciphertext` |
+| Steady-state throughput | **245.61 ciphertexts/s** | `244.87 ciphertexts/s` |
+| FPGA advantage | **0.30%** | — |
+| Exact residue words checked | **6,291,456** | — |
+| Mismatches | **0** | — |
 
-The arithmetic core reaches **98.45%** of its 100 MHz architectural stream
-ceiling:
+The measured six-pair session was:
 
 ```text
-983.04 us/ciphertext
-1017.25 ciphertexts/s
+median_dma_call_us=260456.91
+median_session_wall_us=260576.14
+median_copy_flush_us=0.00
+median_dispatch_gap_us=122.83
+session_wall_us_per_relinearized_EvalMult=4071.50
+session_wall_relinearized_EvalMult_per_second=245.61
 ```
+
+The input stream ceiling at this batch size is `248.49 ciphertexts/s`, so the
+complete measured session reaches **98.84%** of the architectural input-rate
+limit.
+
+### Scope of the performance claim
+
+This is a real no-copy FPGA session-wall measurement: all six input pair frames
+were already resident in CMA buffers, one persistent S2MM output transfer was
+armed, six MM2S transfers were submitted, and the final receive completion was
+included in the timed interval.
+
+The following work remains outside the timed steady-state session:
+
+- host-side BV CRT decomposition of the third ciphertext component;
+- one-time construction and packing of the reusable coefficient-major frames;
+- OpenFHE key generation and encryption.
+
+The current result therefore establishes a steady-state win for the implemented
+FPGA multiplication and BV key-switch arithmetic path. It is not yet a claim
+that a fresh application-level ciphertext operation, including host
+decomposition and packing, is faster end to end.
 
 ## Physical implementation
 
-The current `evalmul3` overlay closes timing with separate core and memory
-clock domains:
+The complete dual-clock PYNQ-Z2 overlay closes timing with the persistent-output
+multi-pair session wrapper:
 
 | Resource | Result |
 | --- | ---: |
 | Arithmetic/core clock | `100 MHz` |
 | DMA and PS HP-port clock | `150 MHz` |
-| Worst negative slack | `+0.027 ns` |
+| Worst negative slack | `+0.040 ns` |
 | Failing timing paths | `0` |
-| LUTs | `8,507` |
-| Registers | `9,846` |
-| DSP48E1 | `128` |
+| LUTs | `11,084` |
+| Registers | `11,488` |
+| DSP48E1 | `160` |
 | RAMB18E1 | `4` |
 | RAMB36E1 | `4` |
+| SRLs | `992` |
 
-## Architecture
+The arithmetic core itself uses ten initiation-interval-one Barrett pipelines:
+
+```text
+c0 products:                 2 pipelines
+c1 cross products:           4 pipelines
+BV key-switch b products:    2 pipelines
+BV key-switch a products:    2 pipelines
+                              -----------
+total:                       10 pipelines
+```
+
+Each 32-bit modular multiplier maps to 16 DSP48E1 blocks, giving the exact
+`160 DSP48E1` total.
+
+## Arithmetic
 
 OpenFHE ciphertext components are already in `Format::EVALUATION`, so the
-current accelerator does not perform forward or inverse NTTs around each
-ciphertext multiplication.
+accelerator does not perform forward or inverse NTTs around each ciphertext
+multiplication.
 
-For each coefficient and each pair of RNS towers, the core launches four
-modular products:
-
-```text
-p00 = a0 * b0
-p01 = a0 * b1
-p10 = a1 * b0
-p11 = a1 * b1
-
-c0 = p00
-c1 = p01 + p10 mod q
-c2 = p11
-```
-
-Two towers are packed into each 64-bit AXI4-Stream word:
+For every coefficient and Q tower, multiplication begins with:
 
 ```text
-bits 31:0   tower 0
-bits 63:32  tower 1
+c0 = a0 * b0 mod q
+c1 = a0 * b1 + a1 * b0 mod q
+c2 = a1 * b1 mod q
 ```
 
-A profile-table sequencer now caches all six paired-tower modulus profiles.
-One external `EV12` frame contains the complete 12-tower batch. The sequencer
-feeds each pair to the unchanged arithmetic core, suppresses intermediate
-`TLAST` markers, and emits one final frame boundary after pair six.
-
-The datapath contains eight initiation-interval-one Barrett pipelines:
+BV relinearization decomposes `c2` into CRT digits and evaluates:
 
 ```text
-4 ciphertext products
-x 2 RNS towers
-= 8 modular multipliers launched per coefficient
+ks_b = sum_j digit_j * eval_key_b_j mod q
+ks_a = sum_j digit_j * eval_key_a_j mod q
+
+relin_c0 = c0 + ks_b mod q
+relin_c1 = c1 + ks_a mod q
 ```
 
-### Dual-clock transport
+The current transport boundary supplies the exact BV CRT digits from the host.
+Because `c2` is consumed by that host decomposition boundary, the final
+coefficient-major core does not spend FPGA multipliers recomputing an unused
+`c2` stream. All dense modular multiplication, accumulation, and final
+component addition after the supplied decomposition are performed in RTL.
 
-The arithmetic core remains at 100 MHz while DMA and the Zynq high-performance
-ports run at 150 MHz:
+Two adjacent Q towers are packed into every 64-bit AXI4-Stream word:
 
 ```text
-DDR / PS HP0
-    |
-AXI DMA MM2S, 150 MHz
-    |
-1024-word asynchronous AXI4-Stream FIFO
-    |
-EvalMul3 core, 100 MHz
-    |
-1024-word asynchronous AXI4-Stream FIFO
-    |
-AXI DMA S2MM, 150 MHz
-    |
-DDR / PS HP1
+bits 31:0   lower-numbered tower
+bits 63:32  higher-numbered tower
 ```
 
-Both DMA data realignment engines are disabled because the PYNQ buffers and
-transfer lengths are 64-bit aligned. MM2S and S2MM use 16-beat bursts, matching
-the Zynq-7000 HP-port limit.
+## Coefficient-major evaluation-key reuse
 
-## Performance progression
+The evaluation key is identical across every ciphertext in a batch. Sending it
+once per coefficient and digit instead of once per ciphertext changes the
+external input cost from:
 
-| Checkpoint | Compute latency | Throughput |
-| --- | ---: | ---: |
-| Earlier coefficient-domain FPGA bridge | `5951.00 us/ct` | `168.04 ct/s` |
-| Fused evaluation-domain, batch 32 | `1200.56 us/ct` | `832.95 ct/s` |
-| Fused evaluation-domain, batch 256 | `1057.98 us/ct` | `945.20 ct/s` |
-| Dual-clock transport, batch 256 | `1004.15 us/ct` | `995.87 ct/s` |
-| Dual-clock all-pair frame, batch 64 | **`998.50 us/ct`** | **`1001.51 ct/s`** |
+```text
+legacy repeated-key protocol: 40B words per coefficient
+coefficient-major protocol:   16B + 24 words per coefficient
+```
 
-At batch 64, replacing six software-visible DMA transactions with one
-all-pair frame improved the earlier dual-clock result from `1122.52 us/ct`
-(`890.86 ct/s`) to `998.50 us/ct` (`1001.51 ct/s`).
+At batch 64:
 
-The current design is approximately **5.96x faster** than the previous
-coefficient-domain FPGA path.
+```text
+legacy:             2560 words/coefficient/pair
+coefficient-major:  1048 words/coefficient/pair
+input reduction:    59.0625%
+```
+
+The core uses two coefficient banks. While one bank drains completed modular
+products and emits results, the other accepts the next coefficient. Independent
+per-bank completion counters prevent a bank from becoming output-ready before
+both its EvalMult products and final BV accumulator writes have committed.
+
+A one-cycle register boundary separates BV metadata lookup and accumulator
+read from the modular-add carry chain and accumulator write. That timing split
+was the change that turned the ping-pong design from a marginal failing path
+into a robust 100 MHz implementation.
+
+## Persistent six-pair session
+
+The complete 12-tower ciphertext is processed as six paired-tower input frames.
+A profile table stores all six modulus and Barrett-reciprocal pairs.
+
+The session keeps one S2MM output transfer active across the complete operation:
+
+```text
+one RLPT profile-table load
+one persistent S2MM receive transfer
+six RLMP MM2S pair transfers
+one final output TLAST after pair six
+```
+
+Intermediate child-core `TLAST` markers are suppressed. Output order remains
+pair-major, coefficient-major, ciphertext-major, with `relin_c0` followed by
+`relin_c1`.
+
+### `RLPT` — load the six paired-tower profiles
+
+```text
+word 0: command = 0x524c5054
+word 1: duplicated pair count
+
+for every pair:
+    {q1, q0}
+    {mu1, mu0}
+
+final mu word carries TLAST
+```
+
+### `RLMP` — process one indexed pair inside a persistent output session
+
+```text
+word 0: command = 0x524c4d50
+word 1: {digit_count, ciphertext_count}
+word 2: {pair_count, pair_index}
+
+for every coefficient:
+    for every ciphertext:
+        a0, a1, b0, b1
+
+    for every digit:
+        eval_key_b, eval_key_a
+        one digit word for every ciphertext
+```
+
+The six pair frames remain separate because the AXI DMA length register is 26
+bits wide. The combined B64 input would exceed that limit, while every
+individual pair frame remains legal.
+
+## CMA configuration
+
+The stock PYNQ image reserves only 128 MiB for CMA:
+
+```text
+CONFIG_CMA_SIZE_MBYTES=128
+```
+
+The B64 no-copy workload requires approximately:
+
+```text
+six MM2S pair buffers:  196.50 MiB
+one S2MM output buffer:  24.00 MiB
+total:                  220.50 MiB
+```
+
+The successful board run used the kernel command-line override:
+
+```text
+cma=288M
+```
+
+On this PYNQ image, `/boot/boot.scr` imports `/boot/uEnv.txt` before booting
+`image.ub`. The working `uEnv.txt` boot arguments were:
+
+```text
+bootargs=root=/dev/mmcblk0p2 rw earlyprintk rootfstype=ext4 rootwait devtmpfs.mount=1 uio_pdrv_genirq.of_id=generic-uio clk_ignore_unused cma=288M
+```
+
+After reboot:
+
+```text
+CmaTotal: 294912 kB
+```
+
+A single 196.5 MiB CMA arena still failed as one contiguous allocation, but six
+separate prefilled CMA MM2S buffers plus the 24 MiB S2MM buffer succeeded. The
+measured winning run therefore reported:
+
+```text
+send_buffer_mode=all-cma
+median_copy_flush_us=0.00
+```
 
 ## Exactness
 
-Validation uses real encrypted OpenFHE BGVRNS ciphertexts.
+Validation uses real encrypted OpenFHE BGVRNS ciphertexts and evaluation keys.
+The probe and bridge establish each boundary independently:
 
-For every test batch, the host bridge:
+1. OpenFHE `EvalMultNoRelin` produces three evaluation-domain components.
+2. `KeySwitchCore` exactly equals `KeySwitchPrecomputeCore` followed by
+   `EvalFastKeySwitchCore`.
+3. Manual additions of the key-switch outputs into `c0` and `c1` exactly equal
+   OpenFHE `EvalMult`.
+4. The FPGA result is compared coefficient by coefficient against those exact
+   OpenFHE relinearized outputs.
 
-1. creates and encrypts OpenFHE plaintexts;
-2. obtains the evaluation-domain DCRT tower data for `a0`, `a1`, `b0`, and
-   `b1`;
-3. computes OpenFHE `EvalMultNoRelin`;
-4. exports DMA input frames and exact expected `c0`, `c1`, and `c2` tower
-   values;
-5. compares every FPGA output coefficient against OpenFHE.
-
-The all-pair batch-64 milestone verifies:
+The B64 milestone checks:
 
 ```text
-64 ciphertext multiplications
-x 12 towers
-x 3 output components
-= 2,304 exact tower-component comparisons
+12 towers
+x 4096 coefficients
+x 64 ciphertexts
+x 2 output components
+= 6,291,456 exact residue comparisons
 ```
+
+Every comparison passed.
+
+## Performance progression
+
+| Checkpoint | Latency | Throughput |
+| --- | ---: | ---: |
+| Earlier coefficient-domain FPGA bridge | `5951.00 us/ct` | `168.04 ct/s` |
+| Evaluation-domain `EvalMultNoRelin`, single-clock B32 | `1200.56 us/ct` | `832.95 ct/s` |
+| Evaluation-domain all-pair `EvalMultNoRelin`, B64 | `998.50 us/ct` | `1001.51 ct/s` |
+| First fused BV board protocol, repeated keys B8 | `10944.06 us/ct` | `91.37 ct/s` |
+| Coefficient-major serialized B64 | `4685.22 us/ct` | `213.44 ct/s` |
+| Ping-pong coefficient-major B64 | `4196.49 us/ct` | `238.29 ct/s` |
+| Compute-drain overlap B64 | `4158.25 us/ct` | `240.49 ct/s` |
+| Persistent output, no-copy B64 | **`4071.50 us/ct`** | **`245.61 ct/s`** |
+
+The earlier `EvalMultNoRelin` line remains the high-throughput path when a
+three-component unrelinearized ciphertext is acceptable. The current front
+line focuses on exact fused BV relinearization.
 
 ## Quick start
 
-The current work is on:
+Current development is on:
 
 ```text
-branch: evalmul3-all-pair-frame
-tag:    pynq-z2-evalmul3-allpairs-1001pps
+branch: evalmul-relinearization
 ```
 
-### 1. Build the OpenFHE bridge
+### 1. Build the OpenFHE probe and vectors
+
+The OpenFHE bridge targets OpenFHE 1.5.1 and exports the encrypted inputs,
+BV decomposition digits, evaluation-key towers, key-switch references, and
+final relinearized ciphertext components.
 
 ```bash
 cd openfhe_eval_domain_bridge
@@ -183,166 +319,106 @@ cd openfhe_eval_domain_bridge
 cd ..
 ```
 
-### 2. Generate a 12-tower batch-384 workload
+### 2. Build the PYNQ-Z2 overlay
 
-```bash
-./prepare_evalmul3_batch_sweep.sh 12 384
-```
+Vivado 2024.1 is expected. The dual-clock build uses the PYNQ-Z2 board part,
+a 100 MHz arithmetic domain, and a 150 MHz DMA/HP-port domain.
 
-This writes:
-
-```text
-openfhe_eval_domain_bridge/vectors/t12_c384/
-```
-
-### 3. Build the PYNQ-Z2 overlay
-
-Vivado 2024.1 is expected. The provided launcher is written for WSL with
-Vivado installed on Windows.
-
-```bash
-./build_evalmul3_allpairs_dma150_overlay.sh
-```
-
-Generated deployment artifacts are placed under:
+The implementation Tcl is under:
 
 ```text
-deploy/evalmul3_allpairs_dma150/
+scripts/vivado/build_bv_keyreuse_multi_pair_session_dma150_overlay.tcl
 ```
 
-### 4. Copy the overlay and vectors to the board
+Deployment artifacts are placed under:
+
+```text
+deploy/bv_keyreuse_multi_pair_session_dma150/
+```
+
+### 3. Configure CMA
+
+Create `/boot/uEnv.txt` with the boot arguments shown in the CMA section and
+reboot. Confirm:
 
 ```bash
-./install_evalmul3_allpairs_board.sh \
-  openfhe_eval_domain_bridge/vectors/t12_c384 \
-  xilinx@pynq \
-  /home/xilinx/jupyter_notebooks/evalmul3_allpairs
+grep -E 'CmaTotal|CmaFree' /proc/meminfo
+cat /proc/cmdline
 ```
 
-### 5. Run the exact board benchmark
+### 4. Install the overlay, runner, and vectors
+
+```bash
+./install_bv_keyreuse_multi_pair_session_board.sh
+```
+
+The installer preserves existing root-owned benchmark results and stages the
+vector tree before replacing the live copy.
+
+### 5. Run the exact B64 benchmark
 
 On the PYNQ-Z2:
 
 ```bash
 sudo -i
 
-/home/xilinx/jupyter_notebooks/evalmul3_allpairs/run_evalmul3_allpairs_board.sh \
-  /home/xilinx/jupyter_notebooks/evalmul3_allpairs \
+REMOTE=/home/xilinx/jupyter_notebooks/bv_keyreuse_multi_pair_session
+
+"$REMOTE/run_bv_keyreuse_multi_pair_session_board.sh" \
+  "$REMOTE" \
   64 \
-  7
+  5 | tee "$REMOTE/results/batch_64_all_cma.log"
 ```
 
-A successful run ends with output similar to:
+A successful no-copy run includes:
 
 ```text
-PASS: every EV12 fused evaluation-domain component matches OpenFHE
-verified_tower_components=2304
-compute_us_per_EvalMultNoRelin=998.50
-compute_EvalMultNoRelin_per_second=1001.51
+PASS: every persistent-output RLMP session result matches OpenFHE
+send_buffer_mode=all-cma
+median_copy_flush_us=0.00
+verified_residue_words=6291456
+session_wall_us_per_relinearized_EvalMult=4071.50
+session_wall_relinearized_EvalMult_per_second=245.61
 ```
-
-## Commands and wire protocol
-
-The external DMA interface uses two all-pair commands.
-
-### `EVPT` — load the paired-tower profile table
-
-```text
-word 0: command = 0x45565054
-word 1: duplicated pair count
-
-for every pair:
-    {q1, q0}
-    {mu1, mu0}
-
-the final mu word carries TLAST
-```
-
-### `EV12` — multiply every loaded tower pair
-
-```text
-word 0: command = 0x45563132
-word 1: {pair_count, ciphertext_count}
-
-pair-major input:
-    for every pair, ciphertext, and coefficient:
-        a0, a1, b0, b1
-
-pair-major output:
-    c0, c1, c2
-
-only the final c2 word of the final pair carries TLAST
-```
-
-The sequencer stores up to six paired profiles and internally emits the proven
-legacy `EVPF` and `EVB3` frames for the two-tower arithmetic core. One bitstream
-therefore supports arbitrary compatible RNS chains while software performs only
-one batch DMA transaction.
 
 ## Repository layout
 
 | Path | Contents |
 | --- | --- |
-| `rtl/` | SystemVerilog arithmetic cores and AXI4-Stream wrappers |
-| `tests/rtl/` | exact Icarus testbenches, including output-backpressure tests |
-| `scripts/sim/` | RTL simulation launchers |
-| `scripts/vivado/` | out-of-context and complete PYNQ-Z2 overlay build Tcl |
-| `openfhe_eval_domain_bridge/` | OpenFHE ciphertext generator, exporter, validator, and PYNQ runner |
-| `deploy/evalmul3_allpairs_dma150/` | deployment metadata, reports, and board runner |
-| `model/` | Python golden models and historical NTT-stage vectors |
-| `tests/board/` | board tests for earlier multiplier variants |
-| `scripts/package/` | packaging flows for earlier packaged-IP overlays |
-| `scripts/integrate/` | integration flows for earlier coefficient-domain overlays |
-| `reports/` | timing and utilization reports from development checkpoints |
+| `rtl/` | exact modular arithmetic cores, coefficient-major schedulers, and AXI4-Stream wrappers |
+| `tests/rtl/` | exact Icarus testbenches with deterministic output backpressure |
+| `scripts/sim/` | exact RTL checkpoint launchers |
+| `scripts/vivado/` | out-of-context timing sweeps and complete PYNQ-Z2 overlay builds |
+| `openfhe_eval_domain_bridge/` | OpenFHE probe, vector exporter, validators, and board runners |
+| `deploy/` | generated bitstreams, hardware handoffs, reports, and deployment metadata |
 | `docs/` | architecture notes and historical checkpoint documentation |
-| `profiles/` | OpenFHE modulus and root profiles |
-| `vivado/` | constraints and older implementation studies |
-
-## Simulation
-
-Run the fused evaluation-domain checkpoint:
-
-```bash
-./run_evalmul3_allpairs_checkpoint.sh
-```
-
-This performs:
-
-- OpenFHE generation and exact software comparison;
-- Icarus simulation of the paired-tower `EvalMultNoRelin` core;
-- deterministic output-backpressure testing.
-
-The broader historical regression suite remains available:
-
-```bash
-scripts/run_sim_regression.sh --quick
-scripts/run_sim_regression.sh --all
-```
+| `reports/` | timing and utilization reports from development checkpoints |
+| `model/` | Python golden models and earlier NTT-stage references |
 
 ## Development lineage
 
-The repository began with small polynomial-multiplication demonstrations and
-progressed through increasingly complete OpenFHE-compatible overlays:
+The repository progressed through increasingly complete OpenFHE-compatible
+accelerators:
 
 | Name | Meaning |
 | --- | --- |
-| `poly_mul16`, `poly_mul256` | early AXI-Lite and AXI4-Stream proofs of concept |
-| `poly_mul4096` | first `N = 4096` multiplier |
+| `poly_mul16`, `poly_mul256`, `poly_mul4096` | early polynomial-multiplication proofs of concept |
 | `runtime_profile` | runtime-loadable modulus and NTT profiles |
 | `two_tower_parallel` | two RNS towers packed into one 64-bit stream |
-| `dual_butterfly` | two coefficient-domain butterflies per tower |
-| `db2b` | arbitrary-count coefficient-domain batching |
-| `db2p` | operand prefetch |
-| `db2r` | buffered result handoff |
-| `four_butterfly` | four-butterfly DSP Barrett development line |
+| `four_butterfly` | four-butterfly coefficient-domain DSP development line |
 | `evalmul3` | fused evaluation-domain three-component ciphertext product |
-| `evalmul3_dma150` | dual-clock, no-DRE transport overlay |
-| `evalmul3_allpairs` | cached profile table and one logical DMA frame for every RNS pair |
+| `evalmul3_allpairs` | cached six-pair profiles and one logical unrelinearized batch |
+| `bv_keyswitch_mac` | exact two-tower BV key-switch accumulation |
+| `evalmul3_bv_relinearize` | connected exact multiplication and BV relinearization |
+| `bv_keyreuse_coefficient_major` | evaluation-key reuse across a ciphertext batch |
+| `bv_keyreuse_pingpong` | overlapping coefficient input and output banks |
+| `bv_keyreuse_drain_overlap` | overlapping the next coefficient with prior-bank compute drain |
+| `bv_keyreuse_multi_pair_session` | one persistent output session across all six Q-tower pairs |
 
-The earlier coefficient-domain designs remain useful as complete NTT-based
-`DCRTPoly` multiplier references. The current front line specializes the
-hardware for the representation OpenFHE actually uses during ciphertext
-multiplication and removes the unnecessary NTT round trips.
+The coefficient-domain implementations remain useful as complete NTT-based
+`DCRTPoly` references. The current design specializes for the representation
+OpenFHE actually uses during ciphertext multiplication and concentrates the
+available DSP budget on exact modular products and BV key switching.
 
 ## License
 
