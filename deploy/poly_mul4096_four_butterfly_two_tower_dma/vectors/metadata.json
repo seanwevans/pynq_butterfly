@@ -1,0 +1,11 @@
+{
+  "format": "openfhe-dcrtpoly-two-tower-runtime-v1",
+  "openfhe_version_target": "1.5.1",
+  "ring_dimension": 4096,
+  "cyclotomic_order": 8192,
+  "tower_count": 2,
+  "seed": 202947043366,
+  "moduli": [1073692673, 1073668097],
+  "roots": [236231, 106172],
+  "expected_fnv1a64": ["0x120bc750ac77d1c2", "0x42758d796d1d4382"]
+}

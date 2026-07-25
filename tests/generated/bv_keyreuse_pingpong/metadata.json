@@ -1,0 +1,15 @@
+{
+  "format": "openfhe-bv-keyreuse-coefficient-major-v1",
+  "source": "/mnt/f/repos/pynq_butterfly/openfhe_eval_domain_bridge/vectors/relin_bv_t12_d0",
+  "coefficient_count": 32,
+  "q_towers": 12,
+  "pair_count": 6,
+  "digits": 12,
+  "ciphertext_count": 8,
+  "profile_words": 12,
+  "payload_words": 29184,
+  "expected_words": 3072,
+  "words_per_coefficient_per_pair": 152,
+  "legacy_words_per_coefficient_per_pair": 320,
+  "input_reduction": 0.525
+}

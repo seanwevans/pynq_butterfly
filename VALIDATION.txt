@@ -1,0 +1,15 @@
+Validation performed while packaging:
+- corrected full installer passes bash -n: PASS
+- fast repair script passes bash -n: PASS
+- board runner passes Python compilation: PASS
+- installer does not remove results: PASS
+- tar-over-SSH vector transfer present: PASS
+- staged metadata verification present: PASS
+- CMA-arena runner included: PASS
+- board shell runner included: PASS
+
+Not executed here:
+- SSH upload
+- board reboot
+- CMA allocation
+- B64 benchmark
