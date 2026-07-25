@@ -931,7 +931,7 @@ module poly_mul4096_four_butterfly_pipeline_runtime_profile_handoff_core (
     logic output_phase_writes_b;
 
     assign output_phase =
-        meta_phase[9];
+        phase_t'(meta_phase[9]);
 
     assign output_phase_is_linear =
         output_phase == PHASE_TWIST_A

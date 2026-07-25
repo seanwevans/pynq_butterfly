@@ -88,6 +88,71 @@ slow_tests=(
     tb_poly_mul4096_two_bank_core
 )
 
+# Testbenches under tests/rtl/ covering the evaluation-domain line.
+#
+# These are compiled from explicit source lists rather than -y library
+# search: tests/rtl/modmul_barrett60_pipeline_split_core_fast_sim.sv
+# declares the same module name as rtl/modmul_barrett60_pipeline_split_core.sv,
+# so letting iverilog resolve by filename would pick the wrong multiplier.
+# The lists mirror the scripts/sim/ launchers.
+
+declare -A tests_rtl_sources=(
+    [tb_evalmul3_two_tower_axis_core]="\
+rtl/modmul_barrett60_pipeline_split_core.sv \
+rtl/evalmul3_two_tower_axis_core.sv"
+
+    [tb_evalmul3_all_tower_axis_core]="\
+tests/rtl/modmul_barrett60_pipeline_split_core_fast_sim.sv \
+rtl/evalmul3_two_tower_axis_core.sv \
+rtl/evalmul3_all_tower_axis_core.sv"
+
+    [tb_bv_keyswitch_mac_two_tower_axis_core]="\
+tests/rtl/modmul_barrett60_pipeline_split_core_fast_sim.sv \
+rtl/bv_keyswitch_mac_two_tower_axis_core.sv"
+
+    [tb_evalmul3_bv_relinearize_two_tower_axis_core]="\
+tests/rtl/modmul_barrett60_pipeline_split_core_fast_sim.sv \
+rtl/evalmul3_two_tower_axis_core.sv \
+rtl/bv_keyswitch_mac_two_tower_axis_core.sv \
+rtl/evalmul3_bv_relinearize_two_tower_axis_core.sv"
+
+    [tb_evalmul3_bv_keyreuse_coefficient_major_axis_core]="\
+tests/rtl/modmul_barrett60_pipeline_split_core_fast_sim.sv \
+rtl/evalmul3_bv_keyreuse_coefficient_major_axis_core.sv"
+
+    [tb_evalmul3_bv_keyreuse_pingpong_axis_core]="\
+tests/rtl/modmul_barrett60_pipeline_split_core_fast_sim.sv \
+rtl/evalmul3_bv_keyreuse_pingpong_axis_core.sv"
+
+    [tb_evalmul3_bv_keyreuse_drain_overlap_axis_core]="\
+tests/rtl/modmul_barrett60_pipeline_split_core_fast_sim.sv \
+rtl/evalmul3_bv_keyreuse_drain_overlap_axis_core.sv"
+
+    [tb_evalmul3_bv_keyreuse_multi_pair_session_axis_core]="\
+tests/rtl/modmul_barrett60_pipeline_split_core_fast_sim.sv \
+rtl/evalmul3_bv_keyreuse_drain_overlap_axis_core.sv \
+rtl/evalmul3_bv_keyreuse_multi_pair_session_axis_core.sv"
+)
+
+# Vector directory passed to each testbench as +VECTOR_ROOT.
+# A testbench whose directory holds no .hex files is skipped, so a clone
+# without regenerated OpenFHE vectors still reports green.
+
+declare -A tests_rtl_vectors=(
+    [tb_evalmul3_two_tower_axis_core]=tests/generated/evalmul3_bv_relinearized_openfhe
+    [tb_evalmul3_all_tower_axis_core]=tests/generated/evalmul3_bv_relinearized_openfhe
+    [tb_bv_keyswitch_mac_two_tower_axis_core]=tests/generated/bv_keyswitch_mac_openfhe
+    [tb_evalmul3_bv_relinearize_two_tower_axis_core]=tests/generated/evalmul3_bv_relinearized_openfhe
+    [tb_evalmul3_bv_keyreuse_coefficient_major_axis_core]=tests/generated/bv_keyreuse_coefficient_major
+    [tb_evalmul3_bv_keyreuse_pingpong_axis_core]=tests/generated/bv_keyreuse_pingpong
+    [tb_evalmul3_bv_keyreuse_drain_overlap_axis_core]=tests/generated/bv_keyreuse_drain_overlap
+    [tb_evalmul3_bv_keyreuse_multi_pair_session_axis_core]=tests/generated/bv_keyreuse_multi_pair_session
+)
+
+in_tests_rtl() {
+    [ -n "${tests_rtl_sources[$1]+set}" ]
+}
+
 in_list() {
     local needle="$1"
     shift
@@ -127,6 +192,19 @@ if [ "${#tests[@]}" -eq 0 ]; then
 
         tests+=("$name")
     done
+
+    for path in "$repo"/tests/rtl/tb_*.sv; do
+        [ -e "$path" ] || continue
+
+        name="$(basename "$path" .sv)"
+
+        in_tests_rtl "$name" || {
+            echo "SKIP $name (no source list in tests_rtl_sources)"
+            continue
+        }
+
+        tests+=("$name")
+    done
 fi
 
 mkdir -p "$build"
@@ -136,7 +214,11 @@ failed=0
 failures=()
 
 for name in "${tests[@]}"; do
-    source="$rtl/$name.sv"
+    if in_tests_rtl "$name"; then
+        source="$repo/tests/rtl/$name.sv"
+    else
+        source="$rtl/$name.sv"
+    fi
 
     if [ ! -f "$source" ]; then
         echo "FAIL $name (no such testbench)"
@@ -153,6 +235,60 @@ for name in "${tests[@]}"; do
     if in_list "$name" "${fast_modmul_tests[@]}"; then
         extra_defines=(-DFAST_MODMUL)
         extra_sources=("$rtl/modmul_core_fast_sim.sv")
+    fi
+
+    if in_tests_rtl "$name"; then
+        vector_root="$repo/${tests_rtl_vectors[$name]}"
+
+        if ! compgen -G "$vector_root/*.hex" >/dev/null; then
+            echo "SKIP $name (no vectors in ${tests_rtl_vectors[$name]})"
+            continue
+        fi
+
+        sources=()
+        for relative in ${tests_rtl_sources[$name]}; do
+            sources+=("$repo/$relative")
+        done
+
+        log="$build/$name.log"
+
+        if ! iverilog -g2012 -s "$name" \
+            -o "$build/$name" \
+            "${sources[@]}" \
+            "$source" \
+            2> "$log"
+        then
+            echo "FAIL $name (compile)"
+            sed 's/^/    /' "$log"
+            failed=$((failed + 1))
+            failures+=("$name")
+            continue
+        fi
+
+        started=$(date +%s)
+
+        timeout "$per_test_timeout" vvp "$build/$name" \
+            "+VECTOR_ROOT=$vector_root" \
+            > "$log" 2>&1
+        status=$?
+
+        elapsed=$(( $(date +%s) - started ))
+
+        if [ $status -eq 124 ]; then
+            echo "FAIL $name (timeout after ${per_test_timeout}s)"
+            failed=$((failed + 1))
+            failures+=("$name")
+        elif [ $status -ne 0 ] || grep -q "FAIL" "$log"; then
+            echo "FAIL $name (${elapsed}s)"
+            tail -n 20 "$log" | sed 's/^/    /'
+            failed=$((failed + 1))
+            failures+=("$name")
+        else
+            echo "PASS $name (${elapsed}s)"
+            passed=$((passed + 1))
+        fi
+
+        continue
     fi
 
     if ! iverilog -g2012 -Y .sv -y "$rtl" \
