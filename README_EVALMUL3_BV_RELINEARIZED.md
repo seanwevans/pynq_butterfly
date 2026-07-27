@@ -41,7 +41,7 @@ cd /mnt/f/repos/pynq_butterfly
 unzip -o \
   evalmul3_bv_relinearized_exact_sim_checkpoint.zip
 
-./run_evalmul3_bv_relinearized_checkpoint.sh
+./scripts/sim/run_evalmul3_bv_relinearized_checkpoint.sh
 ```
 
 The script rebuilds the probe, regenerates a consistent BV ciphertext/key

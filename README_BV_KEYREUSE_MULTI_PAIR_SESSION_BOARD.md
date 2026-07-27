@@ -61,7 +61,7 @@ cd /mnt/f/repos/pynq_butterfly
 unzip -o \
   evalmul3_bv_keyreuse_multi_pair_session_board_checkpoint.zip
 
-./install_bv_keyreuse_multi_pair_session_board.sh
+./scripts/board/install/install_bv_keyreuse_multi_pair_session_board.sh
 ```
 
 ## First board run

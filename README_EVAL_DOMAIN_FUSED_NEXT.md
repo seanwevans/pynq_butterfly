@@ -104,7 +104,7 @@ The ZIP adds new files only.
 ```bash
 cd /mnt/f/repos/pynq_butterfly
 
-./run_eval_domain_fused_checkpoint.sh 12 4
+./scripts/sim/run_eval_domain_fused_checkpoint.sh 12 4
 ```
 
 This performs two independent gates:

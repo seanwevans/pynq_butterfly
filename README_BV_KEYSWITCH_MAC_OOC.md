@@ -18,7 +18,7 @@ unzip -o \
 ## Build
 
 ```bash
-./build_bv_keyswitch_mac_ooc.sh
+./scripts/vivado/build_bv_keyswitch_mac_ooc.sh
 ```
 
 The flow uses:

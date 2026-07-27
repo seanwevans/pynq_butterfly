@@ -28,7 +28,7 @@ cd /mnt/f/repos/pynq_butterfly
 unzip -o \
   evalmul3_allpairs_timeout_status_fix.zip
 
-./run_evalmul3_allpairs_checkpoint.sh
+./scripts/sim/run_evalmul3_allpairs_checkpoint.sh
 ```
 
 The next run should either emit the RTL watchdog diagnostics or terminate with

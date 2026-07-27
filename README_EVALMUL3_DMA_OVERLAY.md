@@ -47,7 +47,7 @@ cd /mnt/f/repos/pynq_butterfly
 unzip -o \
   evalmul3_dma_overlay_checkpoint.zip
 
-./build_evalmul3_dma_overlay.sh
+./scripts/vivado/build_evalmul3_dma_overlay.sh
 ```
 
 Default build directory:
@@ -92,7 +92,7 @@ Generate a representative vector set first:
 Install:
 
 ```bash
-./install_evalmul3_board.sh \
+./scripts/board/install/install_evalmul3_board.sh \
   openfhe_eval_domain_bridge/vectors/t12_c32
 ```
 

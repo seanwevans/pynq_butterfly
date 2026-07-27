@@ -27,7 +27,7 @@ cd /mnt/f/repos/pynq_butterfly
 unzip -o \
   evalmul3_bv_relinearized_board_checkpoint.zip
 
-./install_evalmul3_bv_relinearized_board.sh
+./scripts/board/install/install_evalmul3_bv_relinearized_board.sh
 ```
 
 The default target is:

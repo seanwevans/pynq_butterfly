@@ -49,7 +49,7 @@ cd /mnt/f/repos/pynq_butterfly
 unzip -o \
   evalmul3_allpairs_payload_fifo_fix.zip
 
-./run_evalmul3_allpairs_checkpoint.sh
+./scripts/sim/run_evalmul3_allpairs_checkpoint.sh
 ```
 
 Expected trace progression:

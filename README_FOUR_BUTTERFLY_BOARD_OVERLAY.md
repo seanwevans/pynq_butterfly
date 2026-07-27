@@ -26,7 +26,7 @@ unzip -o ./poly_mul4096_four_butterfly_board_overlay.zip
 ## 2. Simulate the AXI adapter
 
 ```bash
-./compile_poly_mul4096_four_butterfly_two_tower_axis.sh
+./scripts/synth/compile_poly_mul4096_four_butterfly_two_tower_axis.sh
 ```
 
 Expected ending:
@@ -40,7 +40,7 @@ Core cycles per two-tower product: 22968
 ## 3. Package IP and build the PYNQ-Z2 overlay
 
 ```bash
-./build_poly_mul4096_four_butterfly_two_tower_board.sh
+./scripts/vivado/build_poly_mul4096_four_butterfly_two_tower_board.sh
 ```
 
 The deployable directory will be:
@@ -56,13 +56,13 @@ The integration requires nonnegative WNS before copying deployment artifacts.
 Using the board hostname:
 
 ```bash
-./install_poly_mul4096_four_butterfly_two_tower_board.sh pynq
+./scripts/board/install/install_poly_mul4096_four_butterfly_two_tower_board.sh pynq
 ```
 
 Using an IP address:
 
 ```bash
-./install_poly_mul4096_four_butterfly_two_tower_board.sh 192.168.2.99
+./scripts/board/install/install_poly_mul4096_four_butterfly_two_tower_board.sh 192.168.2.99
 ```
 
 ## 5. Run on the PYNQ-Z2
@@ -71,7 +71,7 @@ Using an IP address:
 ssh xilinx@pynq
 cd /home/xilinx/jupyter_notebooks/p4tt
 chmod +x run_poly_mul4096_four_butterfly_two_tower_board.sh
-./run_poly_mul4096_four_butterfly_two_tower_board.sh
+./scripts/board/run/run_poly_mul4096_four_butterfly_two_tower_board.sh
 ```
 
 The board test loads both runtime profiles, runs one exact validation product,

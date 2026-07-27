@@ -25,7 +25,7 @@ cd /mnt/f/repos/pynq_butterfly
 unzip -o \
   evalmul3_dma_crlf_finalize_fix.zip
 
-./finalize_evalmul3_dma_overlay.sh
+./scripts/archive/finalize_evalmul3_dma_overlay.sh
 ```
 
 That verifies the normalized PASS marker and copies the runner and routed

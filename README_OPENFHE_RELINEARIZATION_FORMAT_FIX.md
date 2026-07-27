@@ -19,7 +19,7 @@ cd /mnt/f/repos/pynq_butterfly
 
 unzip -o   openfhe_relinearization_format_namespace_fix.zip
 
-./run_openfhe_relinearization_probe.sh
+./scripts/sim/run_openfhe_relinearization_probe.sh
 ```
 
 The clock-skew warnings from WSL are unrelated to this compile error.

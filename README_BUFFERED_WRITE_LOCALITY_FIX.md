@@ -33,7 +33,7 @@ unzip -o poly_mul4096_buffered_write_locality_fix.zip
 ## Revalidate exact simulation
 
 ```bash
-./compile_poly_mul4096_four_butterfly_two_tower_buffered_axis.sh
+./scripts/synth/compile_poly_mul4096_four_butterfly_two_tower_buffered_axis.sh
 ```
 
 Expected ending is unchanged:
@@ -48,7 +48,7 @@ Steady hardware cadence: 23481 cycles/product
 ## Rebuild
 
 ```bash
-./build_poly_mul4096_four_butterfly_two_tower_buffered_board.sh
+./scripts/vivado/build_poly_mul4096_four_butterfly_two_tower_buffered_board.sh
 ```
 
 The board build still rejects negative WNS.

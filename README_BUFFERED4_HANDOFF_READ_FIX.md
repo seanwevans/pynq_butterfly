@@ -25,5 +25,5 @@ Apply:
 ```bash
 cd /mnt/f/repos/pynq_butterfly
 unzip -o poly_mul4096_four_butterfly_buffered4_readfix.zip
-./compile_poly_mul4096_four_butterfly_two_tower_buffered_axis.sh
+./scripts/synth/compile_poly_mul4096_four_butterfly_two_tower_buffered_axis.sh
 ```

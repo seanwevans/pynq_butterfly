@@ -54,7 +54,7 @@ same file with identical content.
 ## Run
 
 ```bash
-./build_evalmul3_ooc.sh
+./scripts/vivado/build_evalmul3_ooc.sh
 ```
 
 Default locations:
@@ -72,7 +72,7 @@ Overrides:
 ```bash
 VIVADO_BAT=/mnt/f/Xilinx/Vivado/2024.1/bin/vivado.bat \
 EVALMUL3_OOC_WORK=/mnt/f/v/evalmul3_ooc \
-./build_evalmul3_ooc.sh
+./scripts/vivado/build_evalmul3_ooc.sh
 ```
 
 The shell script invokes the Windows `.bat` through a generated `.cmd` and

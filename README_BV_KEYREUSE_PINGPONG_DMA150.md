@@ -53,7 +53,7 @@ cd /mnt/f/repos/pynq_butterfly
 unzip -o \
   evalmul3_bv_keyreuse_pingpong_dma150_overlay_checkpoint.zip
 
-./build_bv_keyreuse_pingpong_dma150_overlay.sh
+./scripts/vivado/build_bv_keyreuse_pingpong_dma150_overlay.sh
 ```
 
 Build output:

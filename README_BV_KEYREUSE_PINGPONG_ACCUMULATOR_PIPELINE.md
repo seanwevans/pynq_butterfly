@@ -63,7 +63,7 @@ cd /mnt/f/repos/pynq_butterfly
 unzip -o \
   evalmul3_bv_keyreuse_pingpong_accumulator_pipeline_fix.zip
 
-./run_bv_keyreuse_pingpong_checkpoint.sh
+./scripts/sim/run_bv_keyreuse_pingpong_checkpoint.sh
 ```
 
 Expected ending:
@@ -77,7 +77,7 @@ PASS: exact ping-pong coefficient-major evaluation-key-reuse checkpoint complete
 After exact simulation passes, rerun the existing physical sweep:
 
 ```bash
-./build_bv_keyreuse_pingpong_timing_sweep.sh
+./scripts/vivado/build_bv_keyreuse_pingpong_timing_sweep.sh
 ```
 
 The long path should be split into two substantially shorter paths:

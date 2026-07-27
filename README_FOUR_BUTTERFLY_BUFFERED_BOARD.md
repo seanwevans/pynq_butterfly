@@ -23,13 +23,13 @@ unzip -o poly_mul4096_four_butterfly_buffered_board.zip
 ## Re-run exact simulation
 
 ```bash
-./compile_poly_mul4096_four_butterfly_two_tower_buffered_axis.sh
+./scripts/synth/compile_poly_mul4096_four_butterfly_two_tower_buffered_axis.sh
 ```
 
 ## Build physical overlay
 
 ```bash
-./build_poly_mul4096_four_butterfly_two_tower_buffered_board.sh
+./scripts/vivado/build_poly_mul4096_four_butterfly_two_tower_buffered_board.sh
 ```
 
 The build fails deliberately when routed WNS is negative.
@@ -46,7 +46,7 @@ confuse it with the deploy-time `.bit` and `.hwh`.
 ## Install on PYNQ-Z2
 
 ```bash
-./install_poly_mul4096_four_butterfly_two_tower_buffered_board.sh pynq
+./scripts/board/install/install_poly_mul4096_four_butterfly_two_tower_buffered_board.sh pynq
 ```
 
 ## Run physical benchmark
@@ -56,11 +56,11 @@ ssh xilinx@pynq
 cd /home/xilinx/jupyter_notebooks/p4ttbo
 sudo -i
 cd /home/xilinx/jupyter_notebooks/p4ttbo
-./run_poly_mul4096_four_butterfly_two_tower_buffered_board.sh
+./scripts/board/run/run_poly_mul4096_four_butterfly_two_tower_buffered_board.sh
 ```
 
 Custom batch sweep:
 
 ```bash
-./run_poly_mul4096_four_butterfly_two_tower_buffered_board.sh 1,4,16,32 10
+./scripts/board/run/run_poly_mul4096_four_butterfly_two_tower_buffered_board.sh 1,4,16,32 10
 ```

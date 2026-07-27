@@ -12,7 +12,7 @@ cd /mnt/f/repos/pynq_butterfly
 unzip -o \
   evalmul3_release_report_crlf_fix.zip
 
-./commit_evalmul3_833pps.sh --push
+./scripts/archive/commit_evalmul3_833pps.sh --push
 ```
 
 The patched helper normalizes only generated `.rpt` and `.txt` files under:

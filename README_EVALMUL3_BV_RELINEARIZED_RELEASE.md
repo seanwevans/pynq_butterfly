@@ -11,7 +11,7 @@ cd /mnt/f/repos/pynq_butterfly
 unzip -o \
   evalmul3_bv_relinearized_91pps_release.zip
 
-./commit_evalmul3_bv_relinearized_91pps.sh --push
+./scripts/archive/commit_evalmul3_bv_relinearized_91pps.sh --push
 ```
 
 Commit:

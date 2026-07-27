@@ -35,7 +35,7 @@ cd /mnt/f/repos/pynq_butterfly
 unzip -o \
   evalmul3_bv_mac_192dsp_coresidency_checkpoint.zip
 
-./build_evalmul3_bv_mac_coresidency_ooc.sh
+./scripts/vivado/build_evalmul3_bv_mac_coresidency_ooc.sh
 ```
 
 Reports are written to:

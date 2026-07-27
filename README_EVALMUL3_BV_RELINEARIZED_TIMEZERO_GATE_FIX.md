@@ -32,7 +32,7 @@ cd /mnt/f/repos/pynq_butterfly
 unzip -o \
   evalmul3_bv_relinearized_timezero_gate_fix.zip
 
-./run_evalmul3_bv_relinearized_checkpoint.sh
+./scripts/sim/run_evalmul3_bv_relinearized_checkpoint.sh
 ```
 
 The new trace will distinguish file loading, zero-time settling, and clocked

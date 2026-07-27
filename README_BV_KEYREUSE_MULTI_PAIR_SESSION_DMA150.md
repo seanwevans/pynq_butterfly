@@ -7,7 +7,7 @@ The overlay retains the proven 100 MHz core / 150 MHz DMA topology, 64-bit AXI D
 ```bash
 cd /mnt/f/repos/pynq_butterfly
 unzip -o evalmul3_bv_keyreuse_multi_pair_session_dma150_overlay_checkpoint.zip
-./build_bv_keyreuse_multi_pair_session_dma150_overlay.sh
+./scripts/vivado/build_bv_keyreuse_multi_pair_session_dma150_overlay.sh
 ```
 
 Expected PASS marker:

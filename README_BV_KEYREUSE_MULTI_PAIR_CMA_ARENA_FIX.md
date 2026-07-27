@@ -51,7 +51,7 @@ cd /mnt/f/repos/pynq_butterfly
 unzip -o \
   evalmul3_bv_keyreuse_multi_pair_session_cma_arena_board_fix.zip
 
-./install_bv_keyreuse_multi_pair_session_board.sh
+./scripts/board/install/install_bv_keyreuse_multi_pair_session_board.sh
 ```
 
 After a fresh board reboot, run B64:

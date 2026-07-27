@@ -7,7 +7,7 @@ cd /mnt/f/repos/pynq_butterfly
 
 unzip -o   evalmul3_allpairs_1001pps_release_checkpoint.zip
 
-./commit_evalmul3_allpairs_1001pps.sh --push
+./scripts/archive/commit_evalmul3_allpairs_1001pps.sh --push
 ```
 
 The helper stages only the explicit all-pair source, documentation, and

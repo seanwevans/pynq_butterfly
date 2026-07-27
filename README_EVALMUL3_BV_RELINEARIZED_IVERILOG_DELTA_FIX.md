@@ -33,7 +33,7 @@ cd /mnt/f/repos/pynq_butterfly
 unzip -o \
   evalmul3_bv_relinearized_iverilog_delta_fix.zip
 
-./run_evalmul3_bv_relinearized_checkpoint.sh
+./scripts/sim/run_evalmul3_bv_relinearized_checkpoint.sh
 ```
 
 The constant-select warnings at the former line 562 should disappear. The

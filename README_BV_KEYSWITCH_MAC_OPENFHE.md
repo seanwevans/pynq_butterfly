@@ -46,7 +46,7 @@ openfhe_eval_domain_bridge/vectors/relin_bv_t12_d0
 Then run:
 
 ```bash
-./run_bv_keyswitch_mac_checkpoint.sh
+./scripts/sim/run_bv_keyswitch_mac_checkpoint.sh
 ```
 
 The flow:

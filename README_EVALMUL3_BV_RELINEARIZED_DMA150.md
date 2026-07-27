@@ -45,7 +45,7 @@ cd /mnt/f/repos/pynq_butterfly
 unzip -o \
   evalmul3_bv_relinearized_dma150_overlay_checkpoint.zip
 
-./build_evalmul3_bv_relinearized_dma150_overlay.sh
+./scripts/vivado/build_evalmul3_bv_relinearized_dma150_overlay.sh
 ```
 
 Build products are written to:

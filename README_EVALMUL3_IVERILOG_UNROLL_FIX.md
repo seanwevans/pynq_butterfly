@@ -32,5 +32,5 @@ unzip -o \
 Then rerun both gates:
 
 ```bash
-./run_eval_domain_fused_checkpoint.sh 12 4
+./scripts/sim/run_eval_domain_fused_checkpoint.sh 12 4
 ```

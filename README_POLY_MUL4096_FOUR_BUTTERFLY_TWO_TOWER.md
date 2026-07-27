@@ -27,7 +27,7 @@ unzip -o ./poly_mul4096_four_butterfly_two_tower_checkpoint.zip
 ## Functional gate
 
 ```bash
-./compile_poly_mul4096_four_butterfly_two_tower.sh
+./scripts/synth/compile_poly_mul4096_four_butterfly_two_tower.sh
 ```
 
 Expected ending:
@@ -40,8 +40,8 @@ PASS: checked 8192 paired coefficients
 ## Physical gate
 
 ```bash
-./implement_poly_mul4096_four_butterfly_two_tower.sh
-./check_poly_mul4096_four_butterfly_two_tower.py
+./scripts/synth/implement_poly_mul4096_four_butterfly_two_tower.sh
+./scripts/sim/check_poly_mul4096_four_butterfly_two_tower.py
 ```
 
 After this closes timing, the final board checkpoint adds the existing paired

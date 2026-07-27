@@ -23,7 +23,7 @@ cd /mnt/f/repos/pynq_butterfly
 unzip -o \
   evalmul3_release_report_whitespace_fix.zip
 
-./commit_evalmul3_833pps.sh --push
+./scripts/archive/commit_evalmul3_833pps.sh --push
 ```
 
 The earlier attempts stopped before `git commit`, so rerunning is safe.

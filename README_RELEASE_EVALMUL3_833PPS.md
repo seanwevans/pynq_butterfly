@@ -9,7 +9,7 @@ cd /mnt/f/repos/pynq_butterfly
 unzip -o \
   evalmul3_833pps_release_checkpoint.zip
 
-./commit_evalmul3_833pps.sh --push
+./scripts/archive/commit_evalmul3_833pps.sh --push
 ```
 
 The helper stages an explicit allowlist. It does not add ZIP files, generated

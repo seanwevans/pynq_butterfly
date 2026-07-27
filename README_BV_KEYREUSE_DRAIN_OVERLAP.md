@@ -36,7 +36,7 @@ cd /mnt/f/repos/pynq_butterfly
 unzip -o \
   evalmul3_bv_keyreuse_drain_overlap_exact_sim_checkpoint.zip
 
-./run_bv_keyreuse_drain_overlap_checkpoint.sh
+./scripts/sim/run_bv_keyreuse_drain_overlap_checkpoint.sh
 ```
 
 Expected ending:

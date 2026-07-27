@@ -57,7 +57,7 @@ two-tower arithmetic core and suppresses intermediate output `TLAST` markers.
 ## Exact RTL checkpoint
 
 ```bash
-./run_evalmul3_allpairs_checkpoint.sh
+./scripts/sim/run_evalmul3_allpairs_checkpoint.sh
 ```
 
 The test covers three tower pairs, two ciphertexts, exact paired-lane
@@ -66,13 +66,13 @@ The test covers three tower pairs, two ciphertexts, exact paired-lane
 ## Physical build
 
 ```bash
-./build_evalmul3_allpairs_dma150_overlay.sh
+./scripts/vivado/build_evalmul3_allpairs_dma150_overlay.sh
 ```
 
 ## Board installation and run
 
 ```bash
-./install_evalmul3_allpairs_board.sh \
+./scripts/board/install/install_evalmul3_allpairs_board.sh \
   openfhe_eval_domain_bridge/vectors/t12_c384 \
   xilinx@pynq \
   /home/xilinx/jupyter_notebooks/evalmul3_allpairs

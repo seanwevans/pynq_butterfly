@@ -22,7 +22,7 @@ cd /mnt/f/repos/pynq_butterfly
 unzip -o \
   evalmul3_allpairs_progress_watchdog_fix.zip
 
-./run_evalmul3_allpairs_checkpoint.sh
+./scripts/sim/run_evalmul3_allpairs_checkpoint.sh
 ```
 
 The new output will identify whether the delay is in Icarus compilation or in

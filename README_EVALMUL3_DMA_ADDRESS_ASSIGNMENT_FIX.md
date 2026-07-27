@@ -29,7 +29,7 @@ cd /mnt/f/repos/pynq_butterfly
 unzip -o \
   evalmul3_dma_address_assignment_fix.zip
 
-./build_evalmul3_dma_overlay.sh
+./scripts/vivado/build_evalmul3_dma_overlay.sh
 ```
 
 The build script already deletes the failed project before rebuilding.

@@ -37,7 +37,7 @@ NTT checkpoint.
 ## Functional gate
 
 ```bash
-./compile_ntt4096_four_butterfly_shared_ab.sh
+./scripts/synth/compile_ntt4096_four_butterfly_shared_ab.sh
 ```
 
 Expected ending:
@@ -52,14 +52,14 @@ PASS: each tower sequence completed in 18831 cycles
 ## Routed implementation
 
 ```bash
-./implement_ntt4096_four_butterfly_shared_ab.sh
-./check_ntt4096_four_butterfly_shared_ab.py
+./scripts/synth/implement_ntt4096_four_butterfly_shared_ab.sh
+./scripts/sim/check_ntt4096_four_butterfly_shared_ab.py
 ```
 
 ## Complete sequence
 
 ```bash
-./run_ntt4096_four_butterfly_shared_ab_all.sh
+./scripts/sim/run_ntt4096_four_butterfly_shared_ab_all.sh
 ```
 
 After this checkpoint passes, the next splice preserves the old iterative

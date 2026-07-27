@@ -38,13 +38,13 @@ cd /mnt/f/repos/pynq_butterfly
 unzip -o \
   openfhe_fused_relinearization_probe_checkpoint.zip
 
-./begin_evalmul_relinearization_branch.sh
+./scripts/archive/begin_evalmul_relinearization_branch.sh
 ```
 
 ## Run
 
 ```bash
-./run_openfhe_relinearization_probe.sh
+./scripts/sim/run_openfhe_relinearization_probe.sh
 ```
 
 The script builds the existing OpenFHE bridge plus a new executable and runs:

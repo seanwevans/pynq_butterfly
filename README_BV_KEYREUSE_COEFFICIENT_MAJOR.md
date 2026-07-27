@@ -49,7 +49,7 @@ cd /mnt/f/repos/pynq_butterfly
 unzip -o \
   evalmul3_bv_keyreuse_coefficient_major_sim_checkpoint.zip
 
-./run_bv_keyreuse_coefficient_major_checkpoint.sh
+./scripts/sim/run_bv_keyreuse_coefficient_major_checkpoint.sh
 ```
 
 The existing `relin_bv_t12_d0` vectors are reused. The converter replicates the

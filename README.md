@@ -3,6 +3,33 @@
 An exact FPGA accelerator for [OpenFHE](https://github.com/openfheorg/openfhe-development)
 BGVRNS ciphertext multiplication and BV relinearization on a PYNQ-Z2 (`XC7Z020`).
 
+## Repository contract
+
+The repository root is reserved for primary project metadata, design and result
+documentation, and a deliberately small compatibility surface.  Maintained
+automation is owned by the functional directories under [`scripts/`](scripts/README.md);
+new commands must not be added at the root.
+
+The supported workflow entry points for the headline overlay are:
+
+```bash
+scripts/vivado/build_bv_keyreuse_multi_pair_session_dma150_overlay.sh
+scripts/board/install/install_bv_keyreuse_multi_pair_session_board.sh VECTOR_DIRECTORY
+scripts/run_sim_regression.sh
+```
+
+For existing callers, the following root commands remain as compatibility entry
+points.  They print a deprecation notice and delegate to the maintained command:
+
+```bash
+./build_bv_keyreuse_multi_pair_session_dma150_overlay.sh
+./install_bv_keyreuse_multi_pair_session_board.sh VECTOR_DIRECTORY
+```
+
+All other commands should be invoked at their documented path under `scripts/`.
+Files in `scripts/archive/` describe past, narrowly scoped repository-repair and
+release procedures and are **not** supported automation.
+
 The accelerator accepts evaluation-domain OpenFHE ciphertext components, computes
 the dense modular arithmetic for ciphertext multiplication, performs BV key-switch
 multiply-accumulate, adds the key-switch result into the two surviving ciphertext
@@ -321,7 +348,7 @@ This produces `openfhe_eval_domain_bridge` and `openfhe_relinearization_probe`.
 Vivado 2024.1:
 
 ```bash
-./build_bv_keyreuse_multi_pair_session_dma150_overlay.sh
+./scripts/vivado/build_bv_keyreuse_multi_pair_session_dma150_overlay.sh
 ```
 
 Implementation Tcl:
@@ -344,7 +371,7 @@ cat /proc/cmdline
 ### 5. Install and run
 
 ```bash
-./install_bv_keyreuse_multi_pair_session_board.sh
+./scripts/board/install/install_bv_keyreuse_multi_pair_session_board.sh
 ```
 
 Then on the PYNQ-Z2:

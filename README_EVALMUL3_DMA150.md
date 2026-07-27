@@ -41,7 +41,7 @@ cd /mnt/f/repos/pynq_butterfly
 unzip -o \
   evalmul3_dma150_checkpoint.zip
 
-./build_evalmul3_dma150_overlay.sh
+./scripts/vivado/build_evalmul3_dma150_overlay.sh
 ```
 
 Expected deploy directory:
@@ -53,7 +53,7 @@ deploy/evalmul3_two_tower_dma150/
 ## Install the existing batch-256 vectors
 
 ```bash
-./install_evalmul3_dma150_board.sh \
+./scripts/board/install/install_evalmul3_dma150_board.sh \
   openfhe_eval_domain_bridge/vectors/t12_c256
 ```
 

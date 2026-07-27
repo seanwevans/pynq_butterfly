@@ -31,7 +31,7 @@ cd /mnt/f/repos/pynq_butterfly
 
 unzip -o   evalmul3_bv_mac_timing_recovery_sweep.zip
 
-./build_evalmul3_bv_mac_timing_sweep.sh
+./scripts/vivado/build_evalmul3_bv_mac_timing_sweep.sh
 ```
 
 Results are written to:
