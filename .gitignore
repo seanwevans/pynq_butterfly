@@ -71,8 +71,8 @@ __pycache__/
 *.wdb
 
 # Icarus executables emitted beside SystemVerilog testbenches
-rtl/tb_*
-!rtl/tb_*.sv
+tests/rtl/tb_*
+!tests/rtl/tb_*.sv
 
 # Generated vector directories are reproducible. Files already tracked remain
 # tracked, including rtl/generated_four_butterfly_ntt after this checkpoint.

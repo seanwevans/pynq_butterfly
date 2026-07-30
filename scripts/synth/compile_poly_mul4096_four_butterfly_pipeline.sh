@@ -26,7 +26,7 @@ required=(
     "$rtl/ntt4096_four_butterfly_schedule_core.sv"
     "$rtl/poly_mul4096_four_lane_arithmetic_core.sv"
     "$rtl/poly_mul4096_four_butterfly_pipeline_runtime_profile_core.sv"
-    "$rtl/tb_poly_mul4096_four_butterfly_pipeline_runtime_profile_core.sv"
+    "$repo/tests/rtl/tb_poly_mul4096_four_butterfly_pipeline_runtime_profile_core.sv"
 )
 
 for path in "${required[@]}"; do

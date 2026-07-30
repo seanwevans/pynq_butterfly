@@ -455,9 +455,8 @@ budget on exact modular products and BV key switching.
   checked only under simulation.
 - **`SYNTHESIS` is defined inconsistently** across build scripts, so
   simulation-only assertion blocks reach synthesis in most overlay builds.
-- **CI covers only the coefficient-domain line.** `scripts/run_sim_regression.sh`
-  globs `rtl/tb_*.sv`; the testbenches under `tests/rtl/` are not run
-  automatically.
+- **Board coverage is explicit.** The default regression covers static checks and
+  RTL simulation; hardware tests require an explicit `board` suite selection.
 - **Top-level file sprawl.** Per-checkpoint `README_*`/`RESULTS_*` notes and
   build scripts accumulate at the repository root rather than under `docs/` and
   `scripts/`.

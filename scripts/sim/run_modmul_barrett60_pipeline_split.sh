@@ -23,6 +23,6 @@ iverilog \
     -s tb_modmul_barrett60_pipeline_split_core \
     -o "$binary" \
     "$repo/rtl/modmul_barrett60_pipeline_split_core.sv" \
-    "$repo/rtl/tb_modmul_barrett60_pipeline_split_core.sv"
+    "$repo/tests/rtl/tb_modmul_barrett60_pipeline_split_core.sv"
 
 vvp "$binary"
