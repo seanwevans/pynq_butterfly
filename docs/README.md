@@ -24,6 +24,7 @@ checkpoints and investigations live in history.
 ## Workflows
 
 - [Build](guides/build.md)
+- [Artifact policy](guides/artifact-policy.md)
 - [Board deployment](guides/board-deployment.md)
 - [OpenFHE integration](guides/openfhe.md)
 
