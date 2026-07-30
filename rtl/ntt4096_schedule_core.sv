@@ -5,7 +5,7 @@
  *
  * Operation order matches:
  *
- *     model/golden_n4096/butterfly_schedule.csv
+ *     tests/fixtures/ntt_n4096/butterfly_schedule.csv
  *
  * For stage s:
  *

@@ -74,27 +74,27 @@ module tb_ntt16_core;
     initial
     begin
         $readmemh(
-            "../model/golden/forward_a_bit_reversed_input.mem",
+            "../tests/fixtures/ntt_n16/forward_a_bit_reversed_input.mem",
             input_memory
         );
 
         $readmemh(
-            "../model/golden/forward_a_stage0.mem",
+            "../tests/fixtures/ntt_n16/forward_a_stage0.mem",
             expected_stage0
         );
 
         $readmemh(
-            "../model/golden/forward_a_stage1.mem",
+            "../tests/fixtures/ntt_n16/forward_a_stage1.mem",
             expected_stage1
         );
 
         $readmemh(
-            "../model/golden/forward_a_stage2.mem",
+            "../tests/fixtures/ntt_n16/forward_a_stage2.mem",
             expected_stage2
         );
 
         $readmemh(
-            "../model/golden/forward_a_stage3.mem",
+            "../tests/fixtures/ntt_n16/forward_a_stage3.mem",
             expected_stage3
         );
     end

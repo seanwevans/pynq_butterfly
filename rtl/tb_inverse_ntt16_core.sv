@@ -64,12 +64,12 @@ module tb_inverse_ntt16_core;
     initial
     begin
         $readmemh(
-            "../model/golden/forward_a.mem",
+            "../tests/fixtures/ntt_n16/forward_a.mem",
             transform_input
         );
 
         $readmemh(
-            "../model/golden/input_a.mem",
+            "../tests/fixtures/ntt_n16/input_a.mem",
             expected_output
         );
     end

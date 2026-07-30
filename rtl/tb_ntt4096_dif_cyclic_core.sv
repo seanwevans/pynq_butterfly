@@ -92,7 +92,7 @@ module tb_ntt4096_dif_cyclic_core;
 
     ntt4096_dif_cyclic_core #(
         .TWIDDLE_INIT_FILE(
-            "../model/golden_n4096/forward_twiddles.mem"
+            "../tests/fixtures/ntt_n4096/forward_twiddles.mem"
         )
     ) forward_dut (
         .clk             (clk),
@@ -115,7 +115,7 @@ module tb_ntt4096_dif_cyclic_core;
 
     ntt4096_dif_cyclic_core #(
         .TWIDDLE_INIT_FILE(
-            "../model/golden_n4096/inverse_twiddles.mem"
+            "../tests/fixtures/ntt_n4096/inverse_twiddles.mem"
         )
     ) inverse_dut (
         .clk             (clk),
@@ -347,22 +347,22 @@ module tb_ntt4096_dif_cyclic_core;
     initial
     begin
         $readmemh(
-            "../model/golden_n4096/forward_a_twisted_natural.mem",
+            "../tests/fixtures/ntt_n4096/forward_a_twisted_natural.mem",
             forward_input
         );
 
         $readmemh(
-            "../model/golden_n4096/pointwise.mem",
+            "../tests/fixtures/ntt_n4096/pointwise.mem",
             inverse_input
         );
 
         $readmemh(
-            "../model/golden_n4096/forward_a.mem",
+            "../tests/fixtures/ntt_n4096/forward_a.mem",
             expected_forward_natural
         );
 
         $readmemh(
-            "../model/golden_n4096/inverse_product_cyclic.mem",
+            "../tests/fixtures/ntt_n4096/inverse_product_cyclic.mem",
             expected_inverse_natural
         );
 

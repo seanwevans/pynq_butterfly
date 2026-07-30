@@ -19,7 +19,7 @@
  */
 module ntt4096_cyclic_core #(
     parameter TWIDDLE_INIT_FILE =
-        "../model/golden_n4096/forward_twiddles.mem"
+        "../tests/fixtures/ntt_n4096/forward_twiddles.mem"
 ) (
     input  logic        clk,
     input  logic        reset_n,

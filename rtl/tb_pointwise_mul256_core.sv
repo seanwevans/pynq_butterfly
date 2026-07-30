@@ -302,17 +302,17 @@ module tb_pointwise_mul256_core;
          * First test: Python-generated transform-domain vectors.
          */
         $readmemh(
-            "../model/golden_n256/forward_a.mem",
+            "../tests/fixtures/ntt_n256/forward_a.mem",
             source_a
         );
 
         $readmemh(
-            "../model/golden_n256/forward_b.mem",
+            "../tests/fixtures/ntt_n256/forward_b.mem",
             source_b
         );
 
         $readmemh(
-            "../model/golden_n256/pointwise.mem",
+            "../tests/fixtures/ntt_n256/pointwise.mem",
             expected
         );
 

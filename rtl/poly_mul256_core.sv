@@ -23,16 +23,16 @@
  */
 module poly_mul256_core #(
     parameter FORWARD_TWIST_INIT_FILE =
-        "../model/golden_n256/twist_factors.mem",
+        "../tests/fixtures/ntt_n256/twist_factors.mem",
 
     parameter FORWARD_TWIDDLE_INIT_FILE =
-        "../model/golden_n256/forward_twiddles.mem",
+        "../tests/fixtures/ntt_n256/forward_twiddles.mem",
 
     parameter INVERSE_TWIDDLE_INIT_FILE =
-        "../model/golden_n256/inverse_twiddles.mem",
+        "../tests/fixtures/ntt_n256/inverse_twiddles.mem",
 
     parameter INVERSE_SCALE_INIT_FILE =
-        "../model/golden_n256/inverse_scale_factors.mem"
+        "../tests/fixtures/ntt_n256/inverse_scale_factors.mem"
 ) (
     input  logic        clk,
     input  logic        reset_n,

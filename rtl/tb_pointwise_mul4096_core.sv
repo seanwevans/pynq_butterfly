@@ -189,17 +189,17 @@ module tb_pointwise_mul4096_core;
     initial
     begin
         $readmemh(
-            "../model/golden_n4096/forward_a.mem",
+            "../tests/fixtures/ntt_n4096/forward_a.mem",
             forward_a
         );
 
         $readmemh(
-            "../model/golden_n4096/forward_b.mem",
+            "../tests/fixtures/ntt_n4096/forward_b.mem",
             forward_b
         );
 
         $readmemh(
-            "../model/golden_n4096/pointwise.mem",
+            "../tests/fixtures/ntt_n4096/pointwise.mem",
             expected_pointwise
         );
 

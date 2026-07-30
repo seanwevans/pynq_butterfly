@@ -40,11 +40,11 @@ module tb_forward_ntt256_core;
 
     forward_ntt256_core #(
         .TWIST_INIT_FILE(
-            "../model/golden_n256/twist_factors.mem"
+            "../tests/fixtures/ntt_n256/twist_factors.mem"
         ),
 
         .TWIDDLE_INIT_FILE(
-            "../model/golden_n256/forward_twiddles.mem"
+            "../tests/fixtures/ntt_n256/forward_twiddles.mem"
         )
     ) dut (
         .clk                             (clk),
@@ -295,22 +295,22 @@ module tb_forward_ntt256_core;
     initial
     begin
         $readmemh(
-            "../model/golden_n256/input_a.mem",
+            "../tests/fixtures/ntt_n256/input_a.mem",
             input_a
         );
 
         $readmemh(
-            "../model/golden_n256/input_b.mem",
+            "../tests/fixtures/ntt_n256/input_b.mem",
             input_b
         );
 
         $readmemh(
-            "../model/golden_n256/forward_a.mem",
+            "../tests/fixtures/ntt_n256/forward_a.mem",
             expected_a
         );
 
         $readmemh(
-            "../model/golden_n256/forward_b.mem",
+            "../tests/fixtures/ntt_n256/forward_b.mem",
             expected_b
         );
 

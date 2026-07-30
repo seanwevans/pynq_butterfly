@@ -423,7 +423,7 @@ module tb_evalmul3_bv_keyreuse_multi_pair_session_axis_core;
         ))
         begin
             vector_root =
-                "tests/generated/bv_keyreuse_multi_pair_session";
+                "tests/fixtures/bv_keyreuse_multi_pair_session";
         end
 
         profile_path =

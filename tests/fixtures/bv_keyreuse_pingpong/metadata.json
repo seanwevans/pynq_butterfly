@@ -1,0 +1,16 @@
+{
+  "format": "openfhe-bv-keyreuse-coefficient-major-v1",
+  "coefficient_count": 32,
+  "q_towers": 12,
+  "pair_count": 6,
+  "digits": 12,
+  "ciphertext_count": 8,
+  "profile_words": 12,
+  "payload_words": 29184,
+  "expected_words": 3072,
+  "words_per_coefficient_per_pair": 152,
+  "legacy_words_per_coefficient_per_pair": 320,
+  "input_reduction": 0.525,
+  "generator_command": "python3 openfhe_eval_domain_bridge/prepare_bv_keyreuse_coefficient_major_vectors.py openfhe_eval_domain_bridge/vectors/relin_bv_t12_d0 tests/fixtures/bv_keyreuse_pingpong --coefficients 32 --ciphertexts 8",
+  "input_profile": "openfhe_eval_domain_bridge/vectors/relin_bv_t12_d0"
+}

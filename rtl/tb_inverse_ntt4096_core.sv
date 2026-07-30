@@ -171,12 +171,12 @@ module tb_inverse_ntt4096_core;
     initial
     begin
         $readmemh(
-            "../model/golden_n4096/pointwise.mem",
+            "../tests/fixtures/ntt_n4096/pointwise.mem",
             pointwise_input
         );
 
         $readmemh(
-            "../model/golden_n4096/convolution.mem",
+            "../tests/fixtures/ntt_n4096/convolution.mem",
             expected_convolution
         );
 

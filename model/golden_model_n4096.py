@@ -38,8 +38,10 @@ DEFAULT_PROFILE = (
 )
 
 DEFAULT_OUTPUT = (
-    Path(__file__).resolve().parent
-    / "golden_n4096"
+    Path(__file__).resolve().parents[1]
+    / "tests"
+    / "fixtures"
+    / "ntt_n4096"
 )
 
 

@@ -84,19 +84,19 @@ module tb_poly_mul256_axis_batch_core;
         ),
 
         .FORWARD_TWIST_INIT_FILE(
-            "../model/golden_n256/twist_factors.mem"
+            "../tests/fixtures/ntt_n256/twist_factors.mem"
         ),
 
         .FORWARD_TWIDDLE_INIT_FILE(
-            "../model/golden_n256/forward_twiddles.mem"
+            "../tests/fixtures/ntt_n256/forward_twiddles.mem"
         ),
 
         .INVERSE_TWIDDLE_INIT_FILE(
-            "../model/golden_n256/inverse_twiddles.mem"
+            "../tests/fixtures/ntt_n256/inverse_twiddles.mem"
         ),
 
         .INVERSE_SCALE_INIT_FILE(
-            "../model/golden_n256/inverse_scale_factors.mem"
+            "../tests/fixtures/ntt_n256/inverse_scale_factors.mem"
         )
     ) dut (
         .aclk                         (clk),
@@ -385,17 +385,17 @@ module tb_poly_mul256_axis_batch_core;
     initial
     begin
         $readmemh(
-            "../model/golden_n256/input_a.mem",
+            "../tests/fixtures/ntt_n256/input_a.mem",
             input_a
         );
 
         $readmemh(
-            "../model/golden_n256/input_b.mem",
+            "../tests/fixtures/ntt_n256/input_b.mem",
             input_b
         );
 
         $readmemh(
-            "../model/golden_n256/convolution.mem",
+            "../tests/fixtures/ntt_n256/convolution.mem",
             expected
         );
 

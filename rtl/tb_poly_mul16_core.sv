@@ -313,17 +313,17 @@ module tb_poly_mul16_core;
     initial
     begin
         $readmemh(
-            "../model/golden/input_a.mem",
+            "../tests/fixtures/ntt_n16/input_a.mem",
             source_a
         );
 
         $readmemh(
-            "../model/golden/input_b.mem",
+            "../tests/fixtures/ntt_n16/input_b.mem",
             source_b
         );
 
         $readmemh(
-            "../model/golden/convolution.mem",
+            "../tests/fixtures/ntt_n16/convolution.mem",
             golden_convolution
         );
 

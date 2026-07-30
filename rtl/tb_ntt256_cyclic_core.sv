@@ -38,7 +38,7 @@ module tb_ntt256_cyclic_core;
 
     ntt256_cyclic_core #(
         .TWIDDLE_INIT_FILE(
-            "../model/golden_n256/forward_twiddles.mem"
+            "../tests/fixtures/ntt_n256/forward_twiddles.mem"
         )
     ) dut (
         .clk              (clk),
@@ -288,22 +288,22 @@ module tb_ntt256_cyclic_core;
          * golden model. This core tests only the cyclic NTT stage.
          */
         $readmemh(
-            "../model/golden_n256/forward_a_bit_reversed_input.mem",
+            "../tests/fixtures/ntt_n256/forward_a_bit_reversed_input.mem",
             input_a
         );
 
         $readmemh(
-            "../model/golden_n256/forward_b_bit_reversed_input.mem",
+            "../tests/fixtures/ntt_n256/forward_b_bit_reversed_input.mem",
             input_b
         );
 
         $readmemh(
-            "../model/golden_n256/forward_a.mem",
+            "../tests/fixtures/ntt_n256/forward_a.mem",
             expected_a
         );
 
         $readmemh(
-            "../model/golden_n256/forward_b.mem",
+            "../tests/fixtures/ntt_n256/forward_b.mem",
             expected_b
         );
 

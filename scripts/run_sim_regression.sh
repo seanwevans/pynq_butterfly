@@ -139,14 +139,14 @@ rtl/evalmul3_bv_keyreuse_multi_pair_session_axis_core.sv"
 # without regenerated OpenFHE vectors still reports green.
 
 declare -A tests_rtl_vectors=(
-    [tb_evalmul3_two_tower_axis_core]=tests/generated/evalmul3_bv_relinearized_openfhe
-    [tb_evalmul3_all_tower_axis_core]=tests/generated/evalmul3_bv_relinearized_openfhe
-    [tb_bv_keyswitch_mac_two_tower_axis_core]=tests/generated/bv_keyswitch_mac_openfhe
-    [tb_evalmul3_bv_relinearize_two_tower_axis_core]=tests/generated/evalmul3_bv_relinearized_openfhe
-    [tb_evalmul3_bv_keyreuse_coefficient_major_axis_core]=tests/generated/bv_keyreuse_coefficient_major
-    [tb_evalmul3_bv_keyreuse_pingpong_axis_core]=tests/generated/bv_keyreuse_pingpong
-    [tb_evalmul3_bv_keyreuse_drain_overlap_axis_core]=tests/generated/bv_keyreuse_drain_overlap
-    [tb_evalmul3_bv_keyreuse_multi_pair_session_axis_core]=tests/generated/bv_keyreuse_multi_pair_session
+    [tb_evalmul3_two_tower_axis_core]=tests/fixtures/evalmul3_bv_relinearized_openfhe
+    [tb_evalmul3_all_tower_axis_core]=tests/fixtures/evalmul3_bv_relinearized_openfhe
+    [tb_bv_keyswitch_mac_two_tower_axis_core]=tests/fixtures/bv_keyswitch_mac_openfhe
+    [tb_evalmul3_bv_relinearize_two_tower_axis_core]=tests/fixtures/evalmul3_bv_relinearized_openfhe
+    [tb_evalmul3_bv_keyreuse_coefficient_major_axis_core]=tests/fixtures/bv_keyreuse_coefficient_major
+    [tb_evalmul3_bv_keyreuse_pingpong_axis_core]=tests/fixtures/bv_keyreuse_pingpong
+    [tb_evalmul3_bv_keyreuse_drain_overlap_axis_core]=tests/fixtures/bv_keyreuse_drain_overlap
+    [tb_evalmul3_bv_keyreuse_multi_pair_session_axis_core]=tests/fixtures/bv_keyreuse_multi_pair_session
 )
 
 in_tests_rtl() {

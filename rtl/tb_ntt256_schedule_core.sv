@@ -87,7 +87,7 @@ module tb_ntt256_schedule_core;
 
     ntt256_twiddle_rom #(
         .INIT_FILE(
-            "../model/golden_n256/forward_twiddles.mem"
+            "../tests/fixtures/ntt_n256/forward_twiddles.mem"
         )
     ) forward_rom (
         .clk     (clk),
@@ -97,7 +97,7 @@ module tb_ntt256_schedule_core;
 
     ntt256_twiddle_rom #(
         .INIT_FILE(
-            "../model/golden_n256/inverse_twiddles.mem"
+            "../tests/fixtures/ntt_n256/inverse_twiddles.mem"
         )
     ) inverse_rom (
         .clk     (clk),
@@ -295,12 +295,12 @@ module tb_ntt256_schedule_core;
     initial
     begin
         $readmemh(
-            "../model/golden_n256/forward_twiddles.mem",
+            "../tests/fixtures/ntt_n256/forward_twiddles.mem",
             expected_forward_twiddles
         );
 
         $readmemh(
-            "../model/golden_n256/inverse_twiddles.mem",
+            "../tests/fixtures/ntt_n256/inverse_twiddles.mem",
             expected_inverse_twiddles
         );
 
@@ -362,7 +362,7 @@ module tb_ntt256_schedule_core;
         );
 
         csv_file = $fopen(
-            "../model/golden_n256/butterfly_schedule.csv",
+            "../tests/fixtures/ntt_n256/butterfly_schedule.csv",
             "r"
         );
 

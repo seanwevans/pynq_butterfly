@@ -118,7 +118,7 @@ module tb_ntt4096_bram_schedule;
 
     ntt4096_twiddle_rom #(
         .INIT_FILE(
-            "../model/golden_n4096/forward_twiddles.mem"
+            "../tests/fixtures/ntt_n4096/forward_twiddles.mem"
         )
     ) forward_twiddle_rom (
         .clk       (clk),
@@ -153,7 +153,7 @@ module tb_ntt4096_bram_schedule;
                 0:
                 begin
                     $readmemh(
-                        "../model/golden_n4096/forward_a_stage0.mem",
+                        "../tests/fixtures/ntt_n4096/forward_a_stage0.mem",
                         expected_stage
                     );
                 end
@@ -161,7 +161,7 @@ module tb_ntt4096_bram_schedule;
                 1:
                 begin
                     $readmemh(
-                        "../model/golden_n4096/forward_a_stage1.mem",
+                        "../tests/fixtures/ntt_n4096/forward_a_stage1.mem",
                         expected_stage
                     );
                 end
@@ -169,7 +169,7 @@ module tb_ntt4096_bram_schedule;
                 2:
                 begin
                     $readmemh(
-                        "../model/golden_n4096/forward_a_stage2.mem",
+                        "../tests/fixtures/ntt_n4096/forward_a_stage2.mem",
                         expected_stage
                     );
                 end
@@ -177,7 +177,7 @@ module tb_ntt4096_bram_schedule;
                 3:
                 begin
                     $readmemh(
-                        "../model/golden_n4096/forward_a_stage3.mem",
+                        "../tests/fixtures/ntt_n4096/forward_a_stage3.mem",
                         expected_stage
                     );
                 end
@@ -185,7 +185,7 @@ module tb_ntt4096_bram_schedule;
                 4:
                 begin
                     $readmemh(
-                        "../model/golden_n4096/forward_a_stage4.mem",
+                        "../tests/fixtures/ntt_n4096/forward_a_stage4.mem",
                         expected_stage
                     );
                 end
@@ -193,7 +193,7 @@ module tb_ntt4096_bram_schedule;
                 5:
                 begin
                     $readmemh(
-                        "../model/golden_n4096/forward_a_stage5.mem",
+                        "../tests/fixtures/ntt_n4096/forward_a_stage5.mem",
                         expected_stage
                     );
                 end
@@ -201,7 +201,7 @@ module tb_ntt4096_bram_schedule;
                 6:
                 begin
                     $readmemh(
-                        "../model/golden_n4096/forward_a_stage6.mem",
+                        "../tests/fixtures/ntt_n4096/forward_a_stage6.mem",
                         expected_stage
                     );
                 end
@@ -209,7 +209,7 @@ module tb_ntt4096_bram_schedule;
                 7:
                 begin
                     $readmemh(
-                        "../model/golden_n4096/forward_a_stage7.mem",
+                        "../tests/fixtures/ntt_n4096/forward_a_stage7.mem",
                         expected_stage
                     );
                 end
@@ -217,7 +217,7 @@ module tb_ntt4096_bram_schedule;
                 8:
                 begin
                     $readmemh(
-                        "../model/golden_n4096/forward_a_stage8.mem",
+                        "../tests/fixtures/ntt_n4096/forward_a_stage8.mem",
                         expected_stage
                     );
                 end
@@ -225,7 +225,7 @@ module tb_ntt4096_bram_schedule;
                 9:
                 begin
                     $readmemh(
-                        "../model/golden_n4096/forward_a_stage9.mem",
+                        "../tests/fixtures/ntt_n4096/forward_a_stage9.mem",
                         expected_stage
                     );
                 end
@@ -233,7 +233,7 @@ module tb_ntt4096_bram_schedule;
                 10:
                 begin
                     $readmemh(
-                        "../model/golden_n4096/forward_a_stage10.mem",
+                        "../tests/fixtures/ntt_n4096/forward_a_stage10.mem",
                         expected_stage
                     );
                 end
@@ -241,7 +241,7 @@ module tb_ntt4096_bram_schedule;
                 11:
                 begin
                     $readmemh(
-                        "../model/golden_n4096/forward_a_stage11.mem",
+                        "../tests/fixtures/ntt_n4096/forward_a_stage11.mem",
                         expected_stage
                     );
                 end
@@ -380,7 +380,7 @@ module tb_ntt4096_bram_schedule;
     initial
     begin
         $readmemh(
-            "../model/golden_n4096/forward_a_bit_reversed.mem",
+            "../tests/fixtures/ntt_n4096/forward_a_bit_reversed.mem",
             input_bit_reversed
         );
 

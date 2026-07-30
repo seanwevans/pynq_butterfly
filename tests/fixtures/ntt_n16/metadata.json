@@ -1,0 +1,4 @@
+{
+  "generator_command": "python3 model/golden_model.py",
+  "input_profile": "profiles/openfhe-ckks-tower0-n16.json"
+}

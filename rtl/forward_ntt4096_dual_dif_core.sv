@@ -30,10 +30,10 @@
  */
 module forward_ntt4096_dual_dif_core #(
     parameter TWIST_INIT_FILE =
-        "../model/golden_n4096/twist_factors.mem",
+        "../tests/fixtures/ntt_n4096/twist_factors.mem",
 
     parameter TWIDDLE_INIT_FILE =
-        "../model/golden_n4096/forward_twiddles.mem"
+        "../tests/fixtures/ntt_n4096/forward_twiddles.mem"
 ) (
     input  logic        clk,
     input  logic        reset_n,

@@ -79,17 +79,17 @@ module tb_forward_ntt16_core;
     initial
     begin
         $readmemh(
-            "../model/golden/input_a.mem",
+            "../tests/fixtures/ntt_n16/input_a.mem",
             input_memory
         );
 
         $readmemh(
-            "../model/golden/forward_a_bit_reversed_input.mem",
+            "../tests/fixtures/ntt_n16/forward_a_bit_reversed_input.mem",
             expected_preprocessed
         );
 
         $readmemh(
-            "../model/golden/forward_a.mem",
+            "../tests/fixtures/ntt_n16/forward_a.mem",
             expected_output
         );
     end

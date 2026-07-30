@@ -374,17 +374,17 @@ module tb_poly_mul256_core;
          * Golden OpenFHE-profile vector.
          */
         $readmemh(
-            "../model/golden_n256/input_a.mem",
+            "../tests/fixtures/ntt_n256/input_a.mem",
             source_a
         );
 
         $readmemh(
-            "../model/golden_n256/input_b.mem",
+            "../tests/fixtures/ntt_n256/input_b.mem",
             source_b
         );
 
         $readmemh(
-            "../model/golden_n256/convolution.mem",
+            "../tests/fixtures/ntt_n256/convolution.mem",
             golden_convolution
         );
 

@@ -26,10 +26,10 @@
  */
 module inverse_ntt4096_core #(
     parameter INVERSE_SCALE_INIT_FILE =
-        "../model/golden_n4096/inverse_scale_factors.mem",
+        "../tests/fixtures/ntt_n4096/inverse_scale_factors.mem",
 
     parameter INVERSE_TWIDDLE_INIT_FILE =
-        "../model/golden_n4096/inverse_twiddles.mem"
+        "../tests/fixtures/ntt_n4096/inverse_twiddles.mem"
 ) (
     input  logic        clk,
     input  logic        reset_n,

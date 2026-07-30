@@ -65,13 +65,13 @@ foreach name $rtl_names {
 
     # Packaged IP must not depend on repository-relative model paths.
     set text [string map [list \
-        "../model/golden_n4096/forward_twiddles.mem" \
+        "../tests/fixtures/ntt_n4096/forward_twiddles.mem" \
         "forward_twiddles.mem" \
-        "../model/golden_n4096/inverse_twiddles.mem" \
+        "../tests/fixtures/ntt_n4096/inverse_twiddles.mem" \
         "inverse_twiddles.mem" \
-        "../model/golden_n4096/twist_factors.mem" \
+        "../tests/fixtures/ntt_n4096/twist_factors.mem" \
         "twist_factors.mem" \
-        "../model/golden_n4096/inverse_scale_factors.mem" \
+        "../tests/fixtures/ntt_n4096/inverse_scale_factors.mem" \
         "inverse_scale_factors.mem" \
     ] $text]
 

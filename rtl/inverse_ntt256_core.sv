@@ -29,10 +29,10 @@
  */
 module inverse_ntt256_core #(
     parameter INVERSE_TWIDDLE_INIT_FILE =
-        "../model/golden_n256/inverse_twiddles.mem",
+        "../tests/fixtures/ntt_n256/inverse_twiddles.mem",
 
     parameter INVERSE_SCALE_INIT_FILE =
-        "../model/golden_n256/inverse_scale_factors.mem"
+        "../tests/fixtures/ntt_n256/inverse_scale_factors.mem"
 ) (
     input  logic        clk,
     input  logic        reset_n,

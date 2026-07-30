@@ -1,0 +1,16 @@
+{
+  "format": "openfhe-bv-keyswitch-mac-paired-v1",
+  "ring_dimension_source": 4096,
+  "coefficient_count": 32,
+  "q_towers": 12,
+  "pair_count": 6,
+  "digits": 12,
+  "ciphertext_count": 1,
+  "profile_words": 12,
+  "payload_words": 6912,
+  "expected_words": 384,
+  "payload_words_per_pair": 1152,
+  "expected_words_per_pair": 64,
+  "generator_command": "python3 openfhe_eval_domain_bridge/prepare_bv_keyswitch_mac_vectors.py openfhe_eval_domain_bridge/vectors/relin_bv_t12_d0 tests/fixtures/bv_keyswitch_mac_openfhe --coefficients 32",
+  "input_profile": "openfhe_eval_domain_bridge/vectors/relin_bv_t12_d0"
+}

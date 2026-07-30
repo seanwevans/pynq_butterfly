@@ -202,22 +202,22 @@ module tb_forward_ntt4096_core;
     initial
     begin
         $readmemh(
-            "../model/golden_n4096/input_a.mem",
+            "../tests/fixtures/ntt_n4096/input_a.mem",
             input_a
         );
 
         $readmemh(
-            "../model/golden_n4096/input_b.mem",
+            "../tests/fixtures/ntt_n4096/input_b.mem",
             input_b
         );
 
         $readmemh(
-            "../model/golden_n4096/forward_a.mem",
+            "../tests/fixtures/ntt_n4096/forward_a.mem",
             expected_a
         );
 
         $readmemh(
-            "../model/golden_n4096/forward_b.mem",
+            "../tests/fixtures/ntt_n4096/forward_b.mem",
             expected_b
         );
 

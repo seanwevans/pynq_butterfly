@@ -96,7 +96,7 @@ module tb_ntt4096_schedule_and_rom;
 
     ntt4096_twiddle_rom #(
         .INIT_FILE(
-            "../model/golden_n4096/forward_twiddles.mem"
+            "../tests/fixtures/ntt_n4096/forward_twiddles.mem"
         )
     ) forward_rom (
         .clk       (clk),
@@ -107,7 +107,7 @@ module tb_ntt4096_schedule_and_rom;
 
     ntt4096_twiddle_rom #(
         .INIT_FILE(
-            "../model/golden_n4096/inverse_twiddles.mem"
+            "../tests/fixtures/ntt_n4096/inverse_twiddles.mem"
         )
     ) inverse_rom (
         .clk       (clk),
@@ -229,12 +229,12 @@ module tb_ntt4096_schedule_and_rom;
     initial
     begin
         $readmemh(
-            "../model/golden_n4096/forward_twiddles.mem",
+            "../tests/fixtures/ntt_n4096/forward_twiddles.mem",
             expected_forward_twiddle
         );
 
         $readmemh(
-            "../model/golden_n4096/inverse_twiddles.mem",
+            "../tests/fixtures/ntt_n4096/inverse_twiddles.mem",
             expected_inverse_twiddle
         );
 
@@ -314,7 +314,7 @@ module tb_ntt4096_schedule_and_rom;
 
         schedule_file =
             $fopen(
-                "../model/golden_n4096/butterfly_schedule.csv",
+                "../tests/fixtures/ntt_n4096/butterfly_schedule.csv",
                 "r"
             );
 

@@ -244,17 +244,17 @@ module tb_pointwise_mul16_core;
          * produced by the Python golden model.
          */
         $readmemh(
-            "../model/golden/forward_a.mem",
+            "../tests/fixtures/ntt_n16/forward_a.mem",
             source_a
         );
 
         $readmemh(
-            "../model/golden/forward_b.mem",
+            "../tests/fixtures/ntt_n16/forward_b.mem",
             source_b
         );
 
         $readmemh(
-            "../model/golden/pointwise.mem",
+            "../tests/fixtures/ntt_n16/pointwise.mem",
             expected
         );
 

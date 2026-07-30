@@ -258,17 +258,17 @@ module tb_poly_mul16_axi_lite;
     initial
     begin
         $readmemh(
-            "../model/golden/input_a.mem",
+            "../tests/fixtures/ntt_n16/input_a.mem",
             input_a
         );
 
         $readmemh(
-            "../model/golden/input_b.mem",
+            "../tests/fixtures/ntt_n16/input_b.mem",
             input_b
         );
 
         $readmemh(
-            "../model/golden/convolution.mem",
+            "../tests/fixtures/ntt_n16/convolution.mem",
             expected
         );
 

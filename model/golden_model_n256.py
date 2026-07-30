@@ -9,7 +9,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parent.parent
-OUTPUT_DIR = ROOT / "model" / "golden_n256"
+OUTPUT_DIR = ROOT / "tests" / "fixtures" / "ntt_n256"
 PROFILE_PATH = (
     ROOT
     / "profiles"

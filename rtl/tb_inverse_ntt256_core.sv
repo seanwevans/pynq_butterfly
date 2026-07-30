@@ -40,11 +40,11 @@ module tb_inverse_ntt256_core;
 
     inverse_ntt256_core #(
         .INVERSE_TWIDDLE_INIT_FILE(
-            "../model/golden_n256/inverse_twiddles.mem"
+            "../tests/fixtures/ntt_n256/inverse_twiddles.mem"
         ),
 
         .INVERSE_SCALE_INIT_FILE(
-            "../model/golden_n256/inverse_scale_factors.mem"
+            "../tests/fixtures/ntt_n256/inverse_scale_factors.mem"
         )
     ) dut (
         .clk                              (clk),
@@ -295,22 +295,22 @@ module tb_inverse_ntt256_core;
     initial
     begin
         $readmemh(
-            "../model/golden_n256/forward_a.mem",
+            "../tests/fixtures/ntt_n256/forward_a.mem",
             transformed_a
         );
 
         $readmemh(
-            "../model/golden_n256/forward_b.mem",
+            "../tests/fixtures/ntt_n256/forward_b.mem",
             transformed_b
         );
 
         $readmemh(
-            "../model/golden_n256/input_a.mem",
+            "../tests/fixtures/ntt_n256/input_a.mem",
             expected_a
         );
 
         $readmemh(
-            "../model/golden_n256/input_b.mem",
+            "../tests/fixtures/ntt_n256/input_b.mem",
             expected_b
         );
 

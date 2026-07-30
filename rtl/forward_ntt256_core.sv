@@ -23,10 +23,10 @@
  */
 module forward_ntt256_core #(
     parameter TWIST_INIT_FILE =
-        "../model/golden_n256/twist_factors.mem",
+        "../tests/fixtures/ntt_n256/twist_factors.mem",
 
     parameter TWIDDLE_INIT_FILE =
-        "../model/golden_n256/forward_twiddles.mem"
+        "../tests/fixtures/ntt_n256/forward_twiddles.mem"
 ) (
     input  logic        clk,
     input  logic        reset_n,

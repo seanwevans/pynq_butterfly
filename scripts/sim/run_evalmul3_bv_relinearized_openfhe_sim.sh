@@ -7,7 +7,7 @@ ROOT="$(
 )"
 
 PROBE_DIR="${1:-$ROOT/openfhe_eval_domain_bridge/vectors/relin_bv_t12_d0}"
-GENERATED_DIR="${2:-$ROOT/tests/generated/evalmul3_bv_relinearized_openfhe}"
+GENERATED_DIR="${2:-$ROOT/tests/fixtures/evalmul3_bv_relinearized_openfhe}"
 BUILD_DIR="${3:-$ROOT/build/evalmul3_bv_relinearized_sim}"
 
 mkdir -p \

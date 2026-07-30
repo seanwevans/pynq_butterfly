@@ -112,7 +112,7 @@ module tb_ntt256_coeff_bram;
 
     ntt256_twiddle_rom #(
         .INIT_FILE(
-            "../model/golden_n256/forward_twiddles.mem"
+            "../tests/fixtures/ntt_n256/forward_twiddles.mem"
         )
     ) forward_twiddle_rom (
         .clk     (clk),
@@ -290,52 +290,52 @@ module tb_ntt256_coeff_bram;
     initial
     begin
         $readmemh(
-            "../model/golden_n256/forward_a_bit_reversed_input.mem",
+            "../tests/fixtures/ntt_n256/forward_a_bit_reversed_input.mem",
             initial_memory
         );
 
         $readmemh(
-            "../model/golden_n256/forward_a_stage0.mem",
+            "../tests/fixtures/ntt_n256/forward_a_stage0.mem",
             expected_stage0
         );
 
         $readmemh(
-            "../model/golden_n256/forward_a_stage1.mem",
+            "../tests/fixtures/ntt_n256/forward_a_stage1.mem",
             expected_stage1
         );
 
         $readmemh(
-            "../model/golden_n256/forward_a_stage2.mem",
+            "../tests/fixtures/ntt_n256/forward_a_stage2.mem",
             expected_stage2
         );
 
         $readmemh(
-            "../model/golden_n256/forward_a_stage3.mem",
+            "../tests/fixtures/ntt_n256/forward_a_stage3.mem",
             expected_stage3
         );
 
         $readmemh(
-            "../model/golden_n256/forward_a_stage4.mem",
+            "../tests/fixtures/ntt_n256/forward_a_stage4.mem",
             expected_stage4
         );
 
         $readmemh(
-            "../model/golden_n256/forward_a_stage5.mem",
+            "../tests/fixtures/ntt_n256/forward_a_stage5.mem",
             expected_stage5
         );
 
         $readmemh(
-            "../model/golden_n256/forward_a_stage6.mem",
+            "../tests/fixtures/ntt_n256/forward_a_stage6.mem",
             expected_stage6
         );
 
         $readmemh(
-            "../model/golden_n256/forward_a_stage7.mem",
+            "../tests/fixtures/ntt_n256/forward_a_stage7.mem",
             expected_stage7
         );
 
         $readmemh(
-            "../model/golden_n256/forward_a.mem",
+            "../tests/fixtures/ntt_n256/forward_a.mem",
             expected_final
         );
 

@@ -464,37 +464,37 @@ module tb_poly_mul4096_runtime_profile_core;
     initial
     begin
         $readmemh(
-            "../model/golden_n4096/input_a.mem",
+            "../tests/fixtures/ntt_n4096/input_a.mem",
             input_a
         );
 
         $readmemh(
-            "../model/golden_n4096/input_b.mem",
+            "../tests/fixtures/ntt_n4096/input_b.mem",
             input_b
         );
 
         $readmemh(
-            "../model/golden_n4096/convolution.mem",
+            "../tests/fixtures/ntt_n4096/convolution.mem",
             expected_convolution
         );
 
         $readmemh(
-            "../model/golden_n4096/twist_factors.mem",
+            "../tests/fixtures/ntt_n4096/twist_factors.mem",
             twist_factors
         );
 
         $readmemh(
-            "../model/golden_n4096/forward_twiddles.mem",
+            "../tests/fixtures/ntt_n4096/forward_twiddles.mem",
             forward_twiddles
         );
 
         $readmemh(
-            "../model/golden_n4096/inverse_twiddles.mem",
+            "../tests/fixtures/ntt_n4096/inverse_twiddles.mem",
             inverse_twiddles
         );
 
         $readmemh(
-            "../model/golden_n4096/inverse_scale_factors.mem",
+            "../tests/fixtures/ntt_n4096/inverse_scale_factors.mem",
             inverse_scale_factors
         );
 

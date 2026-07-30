@@ -412,7 +412,7 @@ session_wall_relinearized_EvalMult_per_second=245.61
 | `rtl/` | modular arithmetic cores, coefficient-major schedulers, AXI4-Stream wrappers |
 | `tests/rtl/` | Icarus testbenches for the evaluation-domain line |
 | `tests/board/` | on-board DMA regression scripts |
-| `tests/generated/` | exact OpenFHE-derived vector sets per checkpoint |
+| `tests/fixtures/` | deterministic test vectors, grouped by design or input profile |
 | `scripts/sim/` | RTL checkpoint launchers |
 | `scripts/vivado/` | out-of-context timing sweeps and complete overlay builds |
 | `openfhe_eval_domain_bridge/` | OpenFHE probe, vector exporter, validators, board runners |

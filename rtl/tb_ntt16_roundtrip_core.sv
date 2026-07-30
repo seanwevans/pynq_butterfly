@@ -60,12 +60,12 @@ module tb_ntt16_roundtrip_core;
     initial
     begin
         $readmemh(
-            "../model/golden/input_a.mem",
+            "../tests/fixtures/ntt_n16/input_a.mem",
             input_a
         );
 
         $readmemh(
-            "../model/golden/input_b.mem",
+            "../tests/fixtures/ntt_n16/input_b.mem",
             input_b
         );
     end

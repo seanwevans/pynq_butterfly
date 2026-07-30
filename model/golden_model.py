@@ -13,7 +13,7 @@ PROFILE_PATH = Path(
     "profiles/openfhe-ckks-tower0-n16.json"
 )
 
-OUTPUT_DIR = Path("golden")
+OUTPUT_DIR = Path(__file__).resolve().parents[1] / "tests" / "fixtures" / "ntt_n16"
 
 RANDOM_TESTS = 1000
 RANDOM_SEED = 0xC0FFEE
