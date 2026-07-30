@@ -1,0 +1,3 @@
+add_executable(openfhe_frame_test frame_test.cpp)
+target_link_libraries(openfhe_frame_test PRIVATE pynq_openfhe_host)
+add_test(NAME openfhe_frame_packing_and_decoding COMMAND openfhe_frame_test)

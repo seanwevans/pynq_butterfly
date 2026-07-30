@@ -11,7 +11,7 @@ BOARD_HOST="${2:-xilinx@pynq}"
 REMOTE_DIR="${3:-/home/xilinx/jupyter_notebooks/bv_keyreuse_multi_pair_session}"
 
 DEPLOY_DIR="$ROOT/deploy/bv_keyreuse_multi_pair_session_dma150"
-RUNNER="$ROOT/openfhe_eval_domain_bridge/run_fpga_bv_keyreuse_multi_pair_session.py"
+RUNNER="$ROOT/host/openfhe/python/pynq_butterfly/cli/run_fpga_bv_keyreuse_multi_pair_session.py"
 REMOTE_VECTOR_STAGE="$REMOTE_DIR/.vectors.installing"
 
 required=(

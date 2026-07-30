@@ -1,23 +1,5 @@
 #!/usr/bin/env bash
+# Compatibility wrapper for the former bridge-local CMake project.
 set -euo pipefail
-
-ROOT="$(
-  cd -- "$(dirname -- "${BASH_SOURCE[0]}")"
-  pwd
-)"
-
-OPENFHE_PREFIX="${OPENFHE_PREFIX:-$HOME/.local/openfhe-1.5.1}"
-
-cmake \
-  -S "$ROOT" \
-  -B "$ROOT/build" \
-  -DCMAKE_BUILD_TYPE=Release \
-  -DCMAKE_PREFIX_PATH="$OPENFHE_PREFIX"
-
-cmake \
-  --build "$ROOT/build" \
-  --parallel "$(nproc)"
-
-echo
-echo "Built:"
-echo "  $ROOT/build/openfhe_tower_bridge"
+ROOT=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
+exec "$ROOT/scripts/host/build_openfhe_tools.sh" "$@"
