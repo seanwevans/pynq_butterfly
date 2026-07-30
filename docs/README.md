@@ -27,6 +27,11 @@ checkpoints and investigations live in history.
 - [Board deployment](guides/board-deployment.md)
 - [OpenFHE integration](guides/openfhe.md)
 
+## Repository maintenance
+
+- [Artifact inventory](artifact-inventory.md) classifies the curated build, deployment,
+  golden-model, Vivado, and board-validation files by repository role.
+
 ## Benchmark evidence
 
 - [Benchmark summary](results/benchmark-summary.md)
