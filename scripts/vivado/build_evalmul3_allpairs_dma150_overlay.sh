@@ -20,7 +20,7 @@ required=(
   "$ROOT/rtl/evalmul3_two_tower_axis_core.sv"
   "$ROOT/rtl/evalmul3_two_tower_axis_dma_wrapper.v"
   "$ROOT/scripts/vivado/build_evalmul3_allpairs_dma150_overlay.tcl"
-  "$ROOT/openfhe_eval_domain_bridge/run_fpga_evalmul3_allpairs.py"
+  "$ROOT/host/openfhe/python/pynq_butterfly/cli/run_fpga_evalmul3_allpairs.py"
 )
 
 for path in "${required[@]}"; do
@@ -81,7 +81,7 @@ fi
 
 if [[ "$status" -eq 0 ]]; then
   install -m 0755 \
-    "$ROOT/openfhe_eval_domain_bridge/run_fpga_evalmul3_allpairs.py" \
+    "$ROOT/host/openfhe/python/pynq_butterfly/cli/run_fpga_evalmul3_allpairs.py" \
     "$DEPLOY_DIR/run_fpga_evalmul3_allpairs.py"
 
   cp -f \

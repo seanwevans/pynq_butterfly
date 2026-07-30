@@ -15,7 +15,7 @@ mkdir -p \
   "$BUILD_DIR"
 
 python3 \
-  "$ROOT/openfhe_eval_domain_bridge/prepare_bv_keyreuse_coefficient_major_vectors.py" \
+  "$ROOT/host/openfhe/python/pynq_butterfly/cli/prepare_bv_keyreuse_coefficient_major_vectors.py" \
   "$PROBE_DIR" \
   "$GENERATED_DIR" \
   --coefficients 32 \

@@ -15,7 +15,7 @@ mkdir -p \
   "$BUILD_DIR"
 
 python3 \
-  "$ROOT/openfhe_eval_domain_bridge/prepare_evalmul3_bv_relinearized_vectors.py" \
+  "$ROOT/host/openfhe/python/pynq_butterfly/cli/prepare_evalmul3_bv_relinearized_vectors.py" \
   "$PROBE_DIR" \
   "$GENERATED_DIR" \
   --coefficients 32

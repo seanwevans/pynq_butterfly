@@ -11,7 +11,7 @@ BOARD_HOST="${2:-xilinx@pynq}"
 REMOTE_DIR="${3:-/home/xilinx/jupyter_notebooks/evalmul3_allpairs}"
 
 DEPLOY_DIR="$ROOT/deploy/evalmul3_allpairs_dma150"
-RUNNER="$ROOT/openfhe_eval_domain_bridge/run_fpga_evalmul3_allpairs.py"
+RUNNER="$ROOT/host/openfhe/python/pynq_butterfly/cli/run_fpga_evalmul3_allpairs.py"
 
 required=(
   "$DEPLOY_DIR/evalmul3_allpairs_dma150.bit"
