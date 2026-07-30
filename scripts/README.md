@@ -46,6 +46,27 @@ scripts/vivado/build_bv_keyreuse_multi_pair_session_dma150_overlay.sh
 scripts/board/install/install_bv_keyreuse_multi_pair_session_board.sh VECTOR_DIRECTORY
 ```
 
+## Generated RTL fixtures
+
+`generate_fixtures.py` is the single entry point for the reproducible fixtures
+under `rtl/generated_*`. It derives them from the committed two-tower OpenFHE
+vectors and requires Python 3 with NumPy installed. Regenerate them with:
+
+```bash
+scripts/generate_fixtures.py
+```
+
+CI and local validation can verify that the committed files are current without
+rewriting the working tree:
+
+```bash
+scripts/generate_fixtures.py --check
+```
+
+The exact evaluation-domain fixtures under `tests/generated/` originate in an
+external OpenFHE probe run and remain managed by the preparation programs in
+`openfhe_eval_domain_bridge/`; they are not reproducible from committed inputs.
+
 ## Supported versus archival
 
 Commands outside `archive/` are organized automation and may be used directly,
