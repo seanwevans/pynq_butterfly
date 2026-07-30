@@ -20,10 +20,10 @@ if [[ "$current_branch" != "$BRANCH" ]]; then
 fi
 
 paths=(
-  README_EVALMUL3_BATCH_SWEEP.md
-  README_EVALMUL3_DMA150.md
-  RESULTS_EVALMUL3_BATCH_SWEEP.md
-  RESULTS_EVALMUL3_1002PPS.md
+  docs/history/readme-evalmul3-batch-sweep.md
+  docs/history/readme-evalmul3-dma150.md
+  docs/results/results-evalmul3-batch-sweep.md
+  docs/results/results-evalmul3-1002pps.md
   scripts/archive/begin_evalmul3_dma_throughput_branch.sh
   scripts/board/install/prepare_evalmul3_batch_sweep.sh
   scripts/board/install/install_evalmul3_sweep_board.sh

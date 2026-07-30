@@ -40,7 +40,7 @@ packages=(
 )
 
 # Integration testbenches that support the documented fast-simulation
-# mode (docs/checkpoints/README_FAST_SIM.md): compiled with -DFAST_MODMUL and the exact
+# mode (docs/history/readme-fast-sim.md): compiled with -DFAST_MODMUL and the exact
 # behavioral modmul_core_fast_sim.sv in place of the iterative
 # hardware modmul_core.sv. Output correctness is still checked
 # exactly; the hardware multiplier itself is covered by its own unit

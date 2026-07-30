@@ -3,6 +3,16 @@
 An exact FPGA accelerator for [OpenFHE](https://github.com/openfheorg/openfhe-development)
 BGVRNS ciphertext multiplication and BV relinearization on a PYNQ-Z2 (`XC7Z020`).
 
+## Documentation
+
+Start with the [documentation index](docs/README.md) or the
+[quick-start guide](docs/guides/quick-start.md). The canonical design references
+are the [stream protocol](docs/architecture/protocol.md),
+[arithmetic architecture](docs/architecture/arithmetic.md), and
+[RTL architecture](docs/architecture/rtl.md). The index links benchmark evidence
+and the complete historical lineage without making superseded checkpoint notes
+part of the supported workflow.
+
 ## Repository contract
 
 The repository root is reserved for primary project metadata, design and result
@@ -69,8 +79,8 @@ session_wall_relinearized_EvalMult_per_second=245.61
 ```
 
 The architectural input-stream ceiling at this batch size is `248.49 ct/s`
-(derived ahead of implementation in
-[`NEXT_EVAL_KEY_REUSE_ARCHITECTURE.md`](NEXT_EVAL_KEY_REUSE_ARCHITECTURE.md)),
+(derived ahead of implementation in the
+[evaluation-key-reuse architecture](docs/architecture/evaluation-key-reuse.md)),
 so the complete session reaches **98.84%** of the transport limit.
 
 ### How to read the comparison
@@ -120,11 +130,12 @@ Two things worth noting in that table. DSP count is flat at 160 across every
 coefficient-major generation while throughput climbs from 213 to 245 ct/s —
 all of that gain came from scheduling and transport restructuring at fixed
 arithmetic cost. And the ping-pong generation closed at `+0.006 ns`; the
-accumulator pipeline split described in
-[`README_BV_KEYREUSE_PINGPONG_ACCUMULATOR_PIPELINE.md`](README_BV_KEYREUSE_PINGPONG_ACCUMULATOR_PIPELINE.md)
-is what recovered slack while the session wrapper was still being added.
+accumulator pipeline split is what recovered slack while the session wrapper
+was still being added.
 
-The 160-DSP arithmetic core is ten initiation-interval-one Barrett pipelines:
+The registered accumulator boundary is part of the canonical
+[timing architecture](docs/architecture/timing.md). The 160-DSP arithmetic core
+is ten initiation-interval-one Barrett pipelines:
 
 ```text
 c0 products:                 2 pipelines
