@@ -5,7 +5,7 @@ set clone_dir     "F:/repos/pynq_poly_mul16"
 set clone_project [file join $clone_dir "${clone_name}.xpr"]
 
 set ip_repo       "F:/repos/pynq_butterfly/ip/poly_mul16_1_0"
-set deploy_dir    "F:/repos/pynq_butterfly/deploy"
+set deploy_dir    "F:/repos/pynq_butterfly/deploy/pynq_poly_mul16"
 
 set poly_vlnv     "user.org:user:poly_mul16:1.0"
 set poly_instance "poly_mul16_0"
@@ -462,7 +462,7 @@ file copy \
 set manifest_path [
     file join \
         $deploy_dir \
-        pynq_poly_mul16.txt
+        manifest.txt
 ]
 
 set manifest [

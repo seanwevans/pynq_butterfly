@@ -3,7 +3,10 @@ set -euo pipefail
 ROOT="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/../.." && pwd)"
 VIVADO_BAT="${VIVADO_BAT:-/mnt/f/Xilinx/Vivado/2024.1/bin/vivado.bat}"
 WORK_DIR="${BV_KEYREUSE_MULTI_PAIR_SESSION_DMA150_WORK:-/mnt/f/v/bv_keyreuse_multi_pair_session_dma150_overlay}"
-DEPLOY_DIR="$ROOT/deploy/bv_keyreuse_multi_pair_session_dma150"
+OVERLAY="bv_keyreuse_multi_pair_session_dma150"
+STAGE_DIR="$WORK_DIR/deploy/$OVERLAY"
+ARTIFACT_ROOT="${PYNQ_ARTIFACT_ROOT:-$ROOT/artifacts/deploy}"
+METADATA="$ROOT/deploy/$OVERLAY/manifest.json"
 [[ -f "$VIVADO_BAT" ]] || { echo "error: Vivado batch file not found: $VIVADO_BAT" >&2; exit 1; }
 required=(
   "$ROOT/rtl/modmul_barrett60_pipeline_split_core.sv"
@@ -13,9 +16,8 @@ required=(
   "$ROOT/scripts/vivado/build_bv_keyreuse_multi_pair_session_dma150_overlay.tcl"
 )
 for path in "${required[@]}"; do [[ -f "$path" ]] || { echo "error: missing required file: $path" >&2; exit 1; }; done
-rm -rf "$WORK_DIR"; mkdir -p "$WORK_DIR" "$DEPLOY_DIR"
-rm -f "$DEPLOY_DIR/evalmul3_bv_keyreuse_multi_pair_session_dma150.bit" "$DEPLOY_DIR/evalmul3_bv_keyreuse_multi_pair_session_dma150.hwh" "$DEPLOY_DIR/build_summary.txt" "$DEPLOY_DIR/routed_timing_summary.rpt" "$DEPLOY_DIR/routed_utilization.rpt"
-repo_windows="$(wslpath -w "$ROOT")"; work_windows="$(wslpath -w "$WORK_DIR")"; deploy_windows="$(wslpath -w "$DEPLOY_DIR")"; vivado_windows="$(wslpath -w "$VIVADO_BAT")"
+rm -rf "$WORK_DIR"; mkdir -p "$WORK_DIR" "$STAGE_DIR"
+repo_windows="$(wslpath -w "$ROOT")"; work_windows="$(wslpath -w "$WORK_DIR")"; deploy_windows="$(wslpath -w "$STAGE_DIR")"; vivado_windows="$(wslpath -w "$VIVADO_BAT")"
 tcl_windows="$repo_windows\scripts\vivado\build_bv_keyreuse_multi_pair_session_dma150_overlay.tcl"
 cmd_file="$WORK_DIR/run_bv_keyreuse_multi_pair_session_dma150_overlay.cmd"
 cat >"$cmd_file" <<EOF
@@ -37,9 +39,12 @@ marker='PASS: persistent-output multi-pair session dual-clock DMA overlay routed
 if [[ ! -f "$summary" ]] || ! tr -d '
 ' <"$summary" | grep -Fxq "$marker"; then echo "error: Vivado did not record the multi-pair overlay PASS marker" >&2; status=1; fi
 if [[ "$status" -eq 0 ]]; then
-  cp -f "$WORK_DIR/routed_timing_summary.rpt" "$DEPLOY_DIR/"
-  cp -f "$WORK_DIR/routed_utilization.rpt" "$DEPLOY_DIR/"
-  cp -f "$WORK_DIR/build_summary.txt" "$DEPLOY_DIR/"
+  cp -f "$WORK_DIR/routed_timing_summary.rpt" "$STAGE_DIR/"
+  cp -f "$WORK_DIR/routed_utilization.rpt" "$STAGE_DIR/"
+  cp -f "$WORK_DIR/build_summary.txt" "$STAGE_DIR/"
+  python3 "$ROOT/scripts/package/package_overlay.py" \
+    "$METADATA" --source "$STAGE_DIR" --output-root "$ARTIFACT_ROOT"
+  DEPLOY_DIR="$ARTIFACT_ROOT/$OVERLAY"
   echo; echo "Deploy:"
   for artifact in "$DEPLOY_DIR/evalmul3_bv_keyreuse_multi_pair_session_dma150.bit" "$DEPLOY_DIR/evalmul3_bv_keyreuse_multi_pair_session_dma150.hwh" "$DEPLOY_DIR/build_summary.txt"; do
     if [[ -f "$artifact" ]]; then echo "  PASS $artifact"; else echo "  MISS $artifact"; status=1; fi

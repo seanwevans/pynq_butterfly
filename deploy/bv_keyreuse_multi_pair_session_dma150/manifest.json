@@ -1,0 +1,14 @@
+{
+  "board_part": "tul.com.tw:pynq-z2:part0:1.0",
+  "clock_mhz": 150,
+  "description": "Persistent-output multi-pair session dual-clock DMA overlay",
+  "overlay": "bv_keyreuse_multi_pair_session_dma150",
+  "part": "xc7z020clg400-1",
+  "payload": [
+    "evalmul3_bv_keyreuse_multi_pair_session_dma150.bit",
+    "evalmul3_bv_keyreuse_multi_pair_session_dma150.hwh",
+    "build_summary.txt",
+    "routed_timing_summary.rpt",
+    "routed_utilization.rpt"
+  ]
+}
