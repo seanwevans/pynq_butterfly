@@ -21,8 +21,8 @@ fi
 
 paths=(
   README.md
-  README_EVALMUL3_ALLPAIRS.md
-  RESULTS_EVALMUL3_ALLPAIRS_1001PPS.md
+  docs/history/readme-evalmul3-allpairs.md
+  docs/results/results-evalmul3-allpairs-1001pps.md
   scripts/archive/begin_evalmul3_allpairs_branch.sh
   scripts/sim/run_evalmul3_allpairs_checkpoint.sh
   scripts/vivado/build_evalmul3_allpairs_dma150_overlay.sh

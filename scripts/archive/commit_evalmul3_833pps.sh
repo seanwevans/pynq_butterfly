@@ -23,10 +23,10 @@ rm -f \
   rtl/evalmul3_two_tower_axis_dma_wrapper.sv
 
 paths=(
-  RESULTS_EVALMUL3_833PPS.md
-  README_EVAL_DOMAIN_FUSED_NEXT.md
-  README_EVALMUL3_OOC_PHYSICAL.md
-  README_EVALMUL3_DMA_OVERLAY.md
+  docs/results/results-evalmul3-833pps.md
+  docs/history/readme-eval-domain-fused-next.md
+  docs/history/readme-evalmul3-ooc-physical.md
+  docs/history/readme-evalmul3-dma-overlay.md
   scripts/archive/begin_eval_domain_fused_branch.sh
   scripts/sim/run_eval_domain_fused_checkpoint.sh
   scripts/vivado/build_evalmul3_ooc.sh

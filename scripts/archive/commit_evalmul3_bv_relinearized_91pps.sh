@@ -15,9 +15,9 @@ if [[ "$current_branch" != "$EXPECTED_BRANCH" ]]; then
 fi
 
 paths=(
-  README_EVALMUL3_BV_RELINEARIZED_RELEASE.md
-  RESULTS_EVALMUL3_BV_RELINEARIZED_91PPS.md
-  NEXT_EVAL_KEY_REUSE_ARCHITECTURE.md
+  docs/history/readme-evalmul3-bv-relinearized-release.md
+  docs/results/results-evalmul3-bv-relinearized-91pps.md
+  docs/architecture/evaluation-key-reuse.md
   openfhe_eval_domain_bridge/openfhe_relinearization_probe.cpp
   openfhe_eval_domain_bridge/prepare_evalmul3_bv_relinearized_vectors.py
   openfhe_eval_domain_bridge/run_fpga_evalmul3_bv_relinearized.py
