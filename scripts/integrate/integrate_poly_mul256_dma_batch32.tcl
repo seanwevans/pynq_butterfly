@@ -5,7 +5,7 @@ set clone_dir "F:/repos/pynq_poly_mul256_dma_batch32"
 set clone_project [file join $clone_dir "${clone_name}.xpr"]
 
 set batch_ip_repo "F:/repos/pynq_butterfly/ip/poly_mul256_axis_batch_1_0"
-set deploy_dir "F:/repos/pynq_butterfly/deploy"
+set deploy_dir "F:/repos/pynq_butterfly/deploy/pynq_poly_mul256_dma_batch32"
 set report_dir "F:/repos/pynq_butterfly/reports/pynq_poly_mul256_dma_batch32"
 
 set batch_vlnv "user.org:user:poly_mul256_axis_batch:1.0"
@@ -233,7 +233,7 @@ set deploy_hwh [file join $deploy_dir pynq_poly_mul256_dma_batch32.hwh]
 file copy -force $bit_path $deploy_bit
 file copy -force $hwh_path $deploy_hwh
 
-set manifest_path [file join $deploy_dir pynq_poly_mul256_dma_batch32.txt]
+set manifest_path [file join $deploy_dir manifest.txt]
 set manifest [open $manifest_path w]
 
 puts $manifest "project=$clone_project"

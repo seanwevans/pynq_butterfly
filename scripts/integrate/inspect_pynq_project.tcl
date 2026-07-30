@@ -1,6 +1,6 @@
 set project_path "F:/repos/pynq_led/pynq_led.xpr"
 set ip_repo      "F:/repos/pynq_butterfly/ip/poly_mul16_1_0"
-set report_path  "F:/repos/pynq_butterfly/pynq_project_inventory.txt"
+set report_path  "F:/repos/pynq_butterfly/artifacts/deploy/pynq_led/inventory.txt"
 
 proc emit {handle text} {
     puts $text
@@ -39,6 +39,7 @@ if {[llength $packaged_defs] == 0} {
     error "poly_mul16 was not found in the updated IP catalog"
 }
 
+file mkdir [file dirname $report_path]
 set handle [open $report_path w]
 
 emit $handle "============================================================"
