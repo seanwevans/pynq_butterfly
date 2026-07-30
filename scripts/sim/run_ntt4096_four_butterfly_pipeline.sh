@@ -25,7 +25,7 @@ required=(
     "$rtl/ntt4096_eight_bank_coeff_store_runtime.sv"
     "$rtl/ntt4096_four_butterfly_schedule_core.sv"
     "$rtl/ntt4096_four_butterfly_pipeline_transform_core.sv"
-    "$rtl/tb_ntt4096_four_butterfly_pipeline_transform_core.sv"
+    "$repo/tests/rtl/tb_ntt4096_four_butterfly_pipeline_transform_core.sv"
 )
 
 for path in "${required[@]}"; do

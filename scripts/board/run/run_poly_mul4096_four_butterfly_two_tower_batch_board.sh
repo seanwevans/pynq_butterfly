@@ -17,7 +17,7 @@ done
 python_bin="${PYNQ_PYTHON:-/usr/local/share/pynq-venv/bin/python3}"
 
 exec "$python_bin" \
-    "$here/test_poly_mul4096_four_butterfly_two_tower_batch_dma.py" \
+    "$here/../../../tests/board/test_poly_mul4096_four_butterfly_two_tower_batch_dma.py" \
     --overlay \
     "$here/poly_mul4096_four_butterfly_two_tower_batch_dma.bit" \
     --vectors \
