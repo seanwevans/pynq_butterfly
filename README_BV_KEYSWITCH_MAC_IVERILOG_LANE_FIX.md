@@ -25,5 +25,5 @@ cd /mnt/f/repos/pynq_butterfly
 unzip -o \
   bv_keyswitch_mac_iverilog_lane_fix.zip
 
-./run_bv_keyswitch_mac_checkpoint.sh
+./scripts/sim/run_bv_keyswitch_mac_checkpoint.sh
 ```

@@ -76,7 +76,7 @@ cd /mnt/f/repos/pynq_butterfly
 unzip -o \
   evalmul3_bv_keyreuse_multi_pair_session_exact_sim_checkpoint.zip
 
-./run_bv_keyreuse_multi_pair_session_checkpoint.sh
+./scripts/sim/run_bv_keyreuse_multi_pair_session_checkpoint.sh
 ```
 
 Coverage:

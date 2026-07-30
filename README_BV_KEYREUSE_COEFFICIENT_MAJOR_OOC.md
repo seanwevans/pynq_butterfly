@@ -42,7 +42,7 @@ cd /mnt/f/repos/pynq_butterfly
 unzip -o \
   evalmul3_bv_keyreuse_coefficient_major_ooc_checkpoint.zip
 
-./build_bv_keyreuse_coefficient_major_ooc.sh
+./scripts/vivado/build_bv_keyreuse_coefficient_major_ooc.sh
 ```
 
 Reports and checkpoints are written to:

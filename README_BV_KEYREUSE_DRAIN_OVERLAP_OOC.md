@@ -35,7 +35,7 @@ cd /mnt/f/repos/pynq_butterfly
 unzip -o \
   evalmul3_bv_keyreuse_drain_overlap_ooc_timing_sweep.zip
 
-./build_bv_keyreuse_drain_overlap_ooc_timing_sweep.sh
+./scripts/vivado/build_bv_keyreuse_drain_overlap_ooc_timing_sweep.sh
 ```
 
 Output:

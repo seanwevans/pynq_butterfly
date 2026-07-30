@@ -33,8 +33,8 @@ unzip -o ./poly_mul4096_two_tower_timing_recovery.zip
 ## Run
 
 ```bash
-./recover_poly_mul4096_four_butterfly_two_tower_timing.sh
-./check_poly_mul4096_four_butterfly_two_tower_timing.py
+./scripts/archive/recover_poly_mul4096_four_butterfly_two_tower_timing.sh
+./scripts/sim/check_poly_mul4096_four_butterfly_two_tower_timing.py
 ```
 
 Results are written under:

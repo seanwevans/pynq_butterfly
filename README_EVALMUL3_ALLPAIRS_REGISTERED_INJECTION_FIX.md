@@ -48,7 +48,7 @@ cd /mnt/f/repos/pynq_butterfly
 unzip -o \
   evalmul3_allpairs_registered_injection_fix.zip
 
-./run_evalmul3_allpairs_checkpoint.sh
+./scripts/sim/run_evalmul3_allpairs_checkpoint.sh
 ```
 
 Expected progress now continues through outer states 5, 6, 7, 8, 9, and 10

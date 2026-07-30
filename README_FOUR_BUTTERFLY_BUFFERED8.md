@@ -33,7 +33,7 @@ unzip -o ./poly_mul4096_four_butterfly_buffered8.zip
 ## Simulate
 
 ```bash
-./compile_poly_mul4096_four_butterfly_two_tower_buffered_axis.sh
+./scripts/synth/compile_poly_mul4096_four_butterfly_two_tower_buffered_axis.sh
 ```
 
 Expected ending:

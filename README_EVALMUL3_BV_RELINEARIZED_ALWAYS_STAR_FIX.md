@@ -37,7 +37,7 @@ cd /mnt/f/repos/pynq_butterfly
 unzip -o \
   evalmul3_bv_relinearized_iverilog_always_star_fix.zip
 
-./run_evalmul3_bv_relinearized_checkpoint.sh
+./scripts/sim/run_evalmul3_bv_relinearized_checkpoint.sh
 ```
 
 The expected startup is:

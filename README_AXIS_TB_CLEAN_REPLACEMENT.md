@@ -13,5 +13,5 @@ Apply from the repository root:
 
 ```bash
 unzip -o ./poly_mul4096_axis_tb_clean_replacement.zip
-./install_poly_mul4096_axis_tb_clean_replacement.sh
+./scripts/archive/install_poly_mul4096_axis_tb_clean_replacement.sh
 ```

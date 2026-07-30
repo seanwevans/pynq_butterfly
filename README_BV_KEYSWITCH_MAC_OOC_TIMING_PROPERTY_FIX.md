@@ -28,5 +28,5 @@ cd /mnt/f/repos/pynq_butterfly
 unzip -o \
   bv_keyswitch_mac_ooc_timing_path_property_fix.zip
 
-./build_bv_keyswitch_mac_ooc.sh
+./scripts/vivado/build_bv_keyswitch_mac_ooc.sh
 ```

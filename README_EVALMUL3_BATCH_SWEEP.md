@@ -15,13 +15,13 @@ cd /mnt/f/repos/pynq_butterfly
 unzip -o \
   evalmul3_batch_sweep_checkpoint.zip
 
-./begin_evalmul3_dma_throughput_branch.sh
+./scripts/archive/begin_evalmul3_dma_throughput_branch.sh
 ```
 
 ## Generate one maximum-size vector set
 
 ```bash
-./prepare_evalmul3_batch_sweep.sh 12 256
+./scripts/board/install/prepare_evalmul3_batch_sweep.sh 12 256
 ```
 
 The input transfer for one tower pair is approximately 32 MiB at batch 256,
@@ -30,7 +30,7 @@ which remains within the overlay's 26-bit DMA length register.
 ## Install
 
 ```bash
-./install_evalmul3_sweep_board.sh \
+./scripts/board/install/install_evalmul3_sweep_board.sh \
   openfhe_eval_domain_bridge/vectors/t12_c256
 ```
 

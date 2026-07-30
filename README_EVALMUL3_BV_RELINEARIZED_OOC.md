@@ -30,7 +30,7 @@ cd /mnt/f/repos/pynq_butterfly
 unzip -o \
   evalmul3_bv_relinearized_ooc_physical_checkpoint.zip
 
-./build_evalmul3_bv_relinearized_ooc.sh
+./scripts/vivado/build_evalmul3_bv_relinearized_ooc.sh
 ```
 
 Reports and checkpoints are written to:

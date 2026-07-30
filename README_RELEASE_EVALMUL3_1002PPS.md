@@ -11,7 +11,7 @@ cd /mnt/f/repos/pynq_butterfly
 unzip -o \
   evalmul3_1002pps_release_checkpoint.zip
 
-./commit_evalmul3_1002pps.sh --push
+./scripts/archive/commit_evalmul3_1002pps.sh --push
 ```
 
 Release identity:

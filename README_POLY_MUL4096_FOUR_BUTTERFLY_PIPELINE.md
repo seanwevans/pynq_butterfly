@@ -36,7 +36,7 @@ unzip -o ./poly_mul4096_four_butterfly_pipeline_checkpoint.zip
 ## Functional OpenFHE gate
 
 ```bash
-./compile_poly_mul4096_four_butterfly_pipeline.sh
+./scripts/synth/compile_poly_mul4096_four_butterfly_pipeline.sh
 ```
 
 This checks q0 and q1 coefficient-for-coefficient against the existing exact
@@ -46,14 +46,14 @@ requires fewer than 25,000 clocks versus the 631,810-clock legacy core.
 ## Routed implementation
 
 ```bash
-./implement_poly_mul4096_four_butterfly_pipeline.sh
-./check_poly_mul4096_four_butterfly_pipeline.py
+./scripts/synth/implement_poly_mul4096_four_butterfly_pipeline.sh
+./scripts/sim/check_poly_mul4096_four_butterfly_pipeline.py
 ```
 
 ## Complete sequence
 
 ```bash
-./run_poly_mul4096_four_butterfly_pipeline_all.sh
+./scripts/sim/run_poly_mul4096_four_butterfly_pipeline_all.sh
 ```
 
 The next checkpoint duplicates this proven tower core for q0/q1 parallel

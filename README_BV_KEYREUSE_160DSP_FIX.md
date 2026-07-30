@@ -43,7 +43,7 @@ cd /mnt/f/repos/pynq_butterfly
 unzip -o \
   evalmul3_bv_keyreuse_160dsp_synthesis_fix.zip
 
-./build_bv_keyreuse_coefficient_major_ooc.sh
+./scripts/vivado/build_bv_keyreuse_coefficient_major_ooc.sh
 ```
 
 Expected synthesis line:

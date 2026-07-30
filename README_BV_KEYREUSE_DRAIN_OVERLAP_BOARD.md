@@ -36,7 +36,7 @@ cd /mnt/f/repos/pynq_butterfly
 unzip -o \
   evalmul3_bv_keyreuse_drain_overlap_board_checkpoint.zip
 
-./install_bv_keyreuse_drain_overlap_board.sh
+./scripts/board/install/install_bv_keyreuse_drain_overlap_board.sh
 ```
 
 Default destination:

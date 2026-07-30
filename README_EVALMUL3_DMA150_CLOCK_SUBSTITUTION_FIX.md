@@ -25,7 +25,7 @@ cd /mnt/f/repos/pynq_butterfly
 unzip -o \
   evalmul3_dma150_clock_substitution_fix.zip
 
-./build_evalmul3_dma150_overlay.sh
+./scripts/vivado/build_evalmul3_dma150_overlay.sh
 ```
 
 The build helper already deletes the failed working directory before invoking

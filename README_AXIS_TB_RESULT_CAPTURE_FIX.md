@@ -15,5 +15,5 @@ Apply from the repository root:
 
 ```bash
 unzip -o ./poly_mul4096_axis_tb_result_capture_fix.zip
-./apply_poly_mul4096_axis_tb_result_capture_fix.sh
+./scripts/archive/apply_poly_mul4096_axis_tb_result_capture_fix.sh
 ```

@@ -40,5 +40,5 @@ Install and rerun:
 ```bash
 cd /mnt/f/repos/pynq_butterfly
 unzip -o ./poly_mul4096_four_butterfly_linear_hazard_fix.zip
-./compile_poly_mul4096_four_butterfly_pipeline.sh
+./scripts/synth/compile_poly_mul4096_four_butterfly_pipeline.sh
 ```

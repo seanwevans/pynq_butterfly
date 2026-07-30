@@ -22,7 +22,7 @@ cd /mnt/f/repos/pynq_butterfly
 
 unzip -o   evalmul3_allpairs_state_trace_fix.zip
 
-./run_evalmul3_allpairs_checkpoint.sh
+./scripts/sim/run_evalmul3_allpairs_checkpoint.sh
 ```
 
 The last `TRACE`, `HEARTBEAT`, and watchdog lines will identify the exact

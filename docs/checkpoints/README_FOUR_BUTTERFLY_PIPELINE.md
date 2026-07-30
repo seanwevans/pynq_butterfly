@@ -64,7 +64,7 @@ PASS: 4 pipelined transforms, 16384 checked coefficients, 6276 cycles each
 ## Complete sequence
 
 ```bash
-./run_ntt4096_four_butterfly_pipeline_all.sh
+./scripts/sim/run_ntt4096_four_butterfly_pipeline_all.sh
 ```
 
 The Vivado runner invokes `vivado` directly from WSL. The Tcl script derives

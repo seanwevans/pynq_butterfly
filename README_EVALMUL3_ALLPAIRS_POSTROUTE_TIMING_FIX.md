@@ -38,7 +38,7 @@ cd /mnt/f/repos/pynq_butterfly
 unzip -o \
   evalmul3_allpairs_postroute_timing_fix.zip
 
-./build_evalmul3_allpairs_dma150_overlay.sh
+./scripts/vivado/build_evalmul3_allpairs_dma150_overlay.sh
 ```
 
 The build directory is recreated by the launcher, so no manual deletion is

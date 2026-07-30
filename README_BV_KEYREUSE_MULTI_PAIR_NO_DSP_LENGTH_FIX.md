@@ -52,7 +52,7 @@ cd /mnt/f/repos/pynq_butterfly
 unzip -o \
   evalmul3_bv_keyreuse_multi_pair_session_no_dsp_length_fix.zip
 
-./run_bv_keyreuse_multi_pair_session_checkpoint.sh
+./scripts/sim/run_bv_keyreuse_multi_pair_session_checkpoint.sh
 ```
 
 Expected exact ending:
@@ -67,7 +67,7 @@ PASS: exact persistent-output multi-pair session checkpoint complete
 ## Rerun OOC timing sweep
 
 ```bash
-./build_bv_keyreuse_multi_pair_session_ooc_timing_sweep.sh
+./scripts/vivado/build_bv_keyreuse_multi_pair_session_ooc_timing_sweep.sh
 ```
 
 Expected synthesis gate:

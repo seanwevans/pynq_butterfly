@@ -29,7 +29,7 @@ cd /mnt/f/repos/pynq_butterfly
 unzip -o \
   evalmul3_bv_keyreuse_multi_pair_session_cma_arena_install_fix.zip
 
-./repair_bv_keyreuse_multi_pair_session_cma_arena_install.sh
+./scripts/archive/repair_bv_keyreuse_multi_pair_session_cma_arena_install.sh
 ```
 
 This uploads the CMA-arena runner and restores the vectors without touching
@@ -38,7 +38,7 @@ existing results.
 ## Full corrected install
 
 ```bash
-./install_bv_keyreuse_multi_pair_session_board.sh
+./scripts/board/install/install_bv_keyreuse_multi_pair_session_board.sh
 ```
 
 ## B64 run

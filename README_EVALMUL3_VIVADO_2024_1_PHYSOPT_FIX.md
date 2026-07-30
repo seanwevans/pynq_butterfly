@@ -30,7 +30,7 @@ cd /mnt/f/repos/pynq_butterfly
 unzip -o \
   evalmul3_vivado_2024_1_physopt_fix.zip
 
-./build_evalmul3_ooc.sh
+./scripts/vivado/build_evalmul3_ooc.sh
 ```
 
 The full build must rerun because the previous non-project Vivado process

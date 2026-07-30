@@ -40,7 +40,7 @@ cd /mnt/f/repos/pynq_butterfly
 unzip -o \
   bv_keyswitch_mac_ooc_vivado_2024_1_fix.zip
 
-./build_bv_keyswitch_mac_ooc.sh
+./scripts/vivado/build_bv_keyswitch_mac_ooc.sh
 ```
 
 The build directory is recreated automatically.
