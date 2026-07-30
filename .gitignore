@@ -32,8 +32,7 @@ webtalk_pa.xml
 clockInfo.txt
 tight_setup_hold_pins.txt
 
-# Generated reports are reproducible. Files already tracked remain tracked.
-reports/
+# Development checkpoint reports are repository artifacts and are committed.
 
 # ==============================================================================
 # HARDWARE EXPORTS AND BITSTREAMS
@@ -74,9 +73,19 @@ __pycache__/
 rtl/tb_*
 !rtl/tb_*.sv
 
-# Generated vector directories are reproducible. Files already tracked remain
-# tracked, including rtl/generated_four_butterfly_ntt after this checkpoint.
+# Ignore ad hoc generated vector directories, but keep the regression fixtures
+# consumed by the checked-in RTL testbenches.
 rtl/generated_*/
+!rtl/generated_dual_butterfly/
+!rtl/generated_dual_butterfly/**
+!rtl/generated_dual_butterfly_axis/
+!rtl/generated_dual_butterfly_axis/**
+!rtl/generated_dual_butterfly_poly/
+!rtl/generated_dual_butterfly_poly/**
+!rtl/generated_dual_lane/
+!rtl/generated_dual_lane/**
+!rtl/generated_four_butterfly_ntt/
+!rtl/generated_four_butterfly_ntt/**
 
 # Board-specific generated vectors
 board_db2b/vectors/
